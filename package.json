@@ -3,6 +3,7 @@
   "version": "0.1.0-beta",
   "description": "iCheck customizable checkboxes and radios built with React.",
   "homepage": "http://github.victorpopkov.com/react-ui-icheck/",
+  "license": "MIT",
   "keywords": [
     "checkbox",
     "form",
@@ -23,12 +24,6 @@
     "type": "git",
     "url": "github:victorpopkov/react-ui-icheck"
   },
-  "licenses": [
-    {
-      "type": "MIT",
-      "url": "https://github.com/victorpopkov/react-ui-icheck/blob/master/LICENSE"
-    }
-  ],
   "main": "lib/index.js",
   "scripts": {
     "build": "npm-run-all --parallel build:*",
@@ -39,7 +34,7 @@
     "lint:eslint": "eslint ./src/ ./website/src/",
     "lint:remark": "remark .",
     "lint:stylelint": "stylelint ./website//src/**/*.css ./website/src/**/*.scss",
-    "prepublish": "npm-run-all build",
+    "prepare": "npm-run-all build",
     "start": "better-npm-run start",
     "watch": "better-npm-run watch"
   },
