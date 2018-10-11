@@ -1,0 +1,40 @@
+.footer {
+  ul {
+    display: inline-block;
+    height: 20px;
+    line-height: 20px;
+    list-style: none;
+    margin: 0 30px 0 0;
+    padding: 0;
+    vertical-align: middle;
+  }
+
+  li {
+    float: left;
+    height: 20px;
+    line-height: 20px;
+    margin-right: 10px;
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+
+  a {
+    float: left;
+    height: 20px;
+    line-height: 20px;
+  }
+
+  .buttons {
+    display: inline-block;
+    height: 20px;
+    line-height: 20px;
+    vertical-align: middle;
+  }
+
+  iframe {
+    display: inline-block;
+    vertical-align: middle;
+  }
+}

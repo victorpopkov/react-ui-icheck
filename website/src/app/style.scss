@@ -1,0 +1,16 @@
+label {
+  align-items: center;
+  display: flex;
+
+  > div {
+    display: inline-block;
+    vertical-align: middle;
+  }
+
+  > span,
+  > div:last-child {
+    display: inline-block;
+    margin-left: 10px;
+    vertical-align: middle;
+  }
+}
