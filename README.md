@@ -2,12 +2,15 @@
 
 iCheck customizable checkboxes and radios built with React.
 
-- [Overview](#overview)
-  - [Differences](#differences)
+- [Getting Started](#getting-started)
+  - [Overview](#overview)
+    - [Differences](#differences)
   - [Demo](#demo)
-- [Installation](#installation)
+  - [Installation](#installation)
 
-## Overview
+## Getting Started
+
+### Overview
 
 This library was originally intended to be a fork of the [react-icheck][]
 library created by [luqin](https://github.com/luqin) which doesn't seem to be
@@ -21,7 +24,7 @@ separate one as a drop-in replacement with some additional features.
 Below you can find the list of the main differences from the original
 [react-icheck][] library.
 
-### Differences
+#### Differences
 
 - Completely refactored and fixed/improved the existing code:
   - added `onBlur` and `onFocus` label events to accompany `onMouseOut` and
@@ -45,7 +48,7 @@ original label property.
 Demo you can find on the [website][] alongside with the source
 [here](https://github.com/victorpopkov/react-ui-icheck/tree/master/website).
 
-## Installation
+### Installation
 
 You can install this library as any other [npm](https://www.npmjs.com/) package.
 
