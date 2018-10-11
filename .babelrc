@@ -1,0 +1,38 @@
+{
+  "compact": false,
+  "presets": [
+    ["@babel/env", { "targets": { "browsers": ["last 2 versions"] } }],
+    "@babel/react"
+  ],
+  "plugins": [
+    ["@babel/plugin-proposal-class-properties", { "loose": false }],
+    ["@babel/plugin-proposal-decorators", { "legacy": true }],
+    ["webpack-alias", { "config": "${PWD}/website/webpack/webpack.config.common.js" }],
+    "@babel/plugin-proposal-export-default-from",
+    "@babel/plugin-proposal-function-bind",
+    "@babel/plugin-syntax-export-default-from",
+    "@babel/plugin-transform-react-display-name",
+    "@babel/plugin-transform-runtime",
+    "react-hot-loader/babel",
+    [
+      "prismjs",
+      {
+        "languages": ["bash", "javascript", "jsx"],
+        "theme": "default",
+        "css": true
+      }
+    ],
+    [
+      "react-css-modules",
+      {
+        "generateScopedName": "[local]___[hash:base64:5]",
+        "filetypes": {
+          ".scss": {
+            "plugins": ["postcss-nested"],
+            "syntax": "postcss-scss"
+          }
+        }
+      }
+    ]
+  ]
+}

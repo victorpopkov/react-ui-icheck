@@ -1,0 +1,61 @@
+{
+  "extends": "airbnb",
+  "env": {
+    "browser": true,
+    "node": true,
+    "mocha": true
+  },
+  "rules": {
+    "comma-dangle": [2, "always-multiline"],
+    "function-paren-newline": ["error", "consistent"],
+    "import/default": 0,
+    "import/extensions": 0,
+    "import/named": 0,
+    "import/namespace": 0,
+    "import/no-duplicates": 0,
+    "import/no-extraneous-dependencies": 0,
+    "import/no-named-as-default": 2,
+    "import/no-unresolved": 0,
+    "indent": [2, 2, { "SwitchCase": 1 }],
+    "jsx-a11y/anchor-is-valid": [
+      "error",
+      {
+        "components": [
+          "Link"
+        ],
+        "specialLink": [
+          "hrefLeft",
+          "hrefRight",
+          "to"
+        ],
+        "aspects": [
+          "noHref",
+          "invalidHref",
+          "preferButton"
+        ]
+      }
+    ],
+    "no-alert": 0,
+    "no-console": 0,
+    "react/jsx-filename-extension": 0,
+    "react/jsx-sort-props": [2, { "callbacksLast": true, "shorthandLast": true }],
+    "react/no-multi-comp": 0,
+    "react/require-extension": 0,
+    // disable since deprecated
+    "react/sort-prop-types": [2, { "callbacksLast": true, "requiredFirst": true }],
+    "sort-imports": 2
+  },
+  "plugins": [
+    "react",
+    "import"
+  ],
+  "parser": "babel-eslint",
+  "settings": {
+    "import/resolve": {
+      "moduleDirectory": [
+        "node_modules",
+        "src"
+      ]
+    }
+  }
+}
