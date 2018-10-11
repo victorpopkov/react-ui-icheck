@@ -1,42 +1,10 @@
 {
   "name": "react-ui-icheck",
-  "version": "0.1.0-beta",
   "description": "iCheck customizable checkboxes and radios built with React.",
-  "homepage": "http://github.victorpopkov.com/react-ui-icheck/",
-  "license": "MIT",
-  "keywords": [
-    "checkbox",
-    "form",
-    "icheck",
-    "input",
-    "radio",
-    "react",
-    "react-ui-icheck",
-    "switch",
-    "toggle",
-    "ui"
-  ],
+  "version": "0.1.0-beta",
   "author": {
     "name": "Victor Popkov",
     "email": "victor@popkov.com"
-  },
-  "repository": {
-    "type": "git",
-    "url": "github:victorpopkov/react-ui-icheck"
-  },
-  "main": "lib/index.js",
-  "scripts": {
-    "build": "npm-run-all --parallel build:*",
-    "build:lib": "better-npm-run build:lib",
-    "build:website": "better-npm-run build:website",
-    "dev": "npm-run-all build:lib watch",
-    "lint": "npm-run-all --continue-on-error lint:*",
-    "lint:eslint": "eslint ./src/ ./website/src/",
-    "lint:remark": "remark .",
-    "lint:stylelint": "stylelint ./website//src/**/*.css ./website/src/**/*.scss",
-    "prepare": "npm-run-all build",
-    "start": "better-npm-run start",
-    "watch": "better-npm-run watch"
   },
   "betterScripts": {
     "build:website": {
@@ -63,14 +31,6 @@
         "BABEL_ENV": "development"
       }
     }
-  },
-  "files": [
-    "lib",
-    "CHANGELOG.md",
-    "README.md"
-  ],
-  "peerDependencies": {
-    "react": "^15 || ^16"
   },
   "dependencies": {
     "@babel/runtime": "^7.1.2",
@@ -152,5 +112,45 @@
   },
   "engines": {
     "node": ">= 10.0.0"
+  },
+  "files": [
+    "lib",
+    "CHANGELOG.md",
+    "README.md"
+  ],
+  "homepage": "http://github.victorpopkov.com/react-ui-icheck/",
+  "keywords": [
+    "checkbox",
+    "form",
+    "icheck",
+    "input",
+    "radio",
+    "react",
+    "react-ui-icheck",
+    "switch",
+    "toggle",
+    "ui"
+  ],
+  "license": "MIT",
+  "main": "lib/index.js",
+  "peerDependencies": {
+    "react": "^15 || ^16"
+  },
+  "repository": {
+    "type": "git",
+    "url": "github:victorpopkov/react-ui-icheck"
+  },
+  "scripts": {
+    "build": "npm-run-all --parallel build:*",
+    "build:lib": "better-npm-run build:lib",
+    "build:website": "better-npm-run build:website",
+    "dev": "npm-run-all build:lib watch",
+    "lint": "npm-run-all --continue-on-error lint:*",
+    "lint:eslint": "eslint ./src/ ./website/src/",
+    "lint:remark": "remark .",
+    "lint:stylelint": "stylelint ./website//src/**/*.css ./website/src/**/*.scss",
+    "prepare": "npm-run-all build",
+    "start": "better-npm-run start",
+    "watch": "better-npm-run watch"
   }
 }
