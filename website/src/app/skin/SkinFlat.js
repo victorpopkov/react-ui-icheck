@@ -1,11 +1,13 @@
 import React from 'react';
 import { hot } from 'react-hot-loader';
-import Skin from './Skin'; // eslint-disable-line sort-imports
+import Jumbotron from '../common/jumbotron/Jumbotron'; // eslint-disable-line sort-imports
+import Skin from './Skin';
 
 const SkinFlat = () => (
-  <div className="skin flat">
+  <main className="skin flat" role="main">
+    <Jumbotron />
     <Skin skin="flat" title="Flat skin" colorSchemes />
-  </div>
+  </main>
 );
 
 export default hot(module)(SkinFlat);

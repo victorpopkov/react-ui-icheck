@@ -1,11 +1,13 @@
 import React from 'react';
 import { hot } from 'react-hot-loader';
-import Skin from './Skin'; // eslint-disable-line sort-imports
+import Jumbotron from '../common/jumbotron/Jumbotron'; // eslint-disable-line sort-imports
+import Skin from './Skin';
 
 const SkinFuturico = () => (
-  <div className="skin futurico">
+  <main className="skin futurico" role="main">
+    <Jumbotron />
     <Skin skin="futurico" title="Futurico skin" />
-  </div>
+  </main>
 );
 
 export default hot(module)(SkinFuturico);
