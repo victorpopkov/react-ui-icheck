@@ -1,4 +1,16 @@
-.footer {
+:local .footer {
+  margin-top: $grid-gutter-width;
+  text-align: center;
+
+  :global .container {
+    box-shadow: 0 -1px 0 transparentize($black, .9);
+  }
+
+  .content {
+    padding-bottom: $grid-gutter-width;
+    padding-top: $grid-gutter-width;
+  }
+
   ul {
     display: inline-block;
     height: 20px;
@@ -36,5 +48,26 @@
   iframe {
     display: inline-block;
     vertical-align: middle;
+  }
+}
+
+@include media-breakpoint-down(sm) {
+  :local .footer {
+    margin-top: $grid-gutter-width / 2;
+    vertical-align: middle;
+
+    .content {
+      padding-bottom: $grid-gutter-width / 2;
+      padding-top: $grid-gutter-width / 2;
+    }
+
+    ul {
+      display: inline-block;
+      margin: 0 0 10px;
+    }
+
+    .buttons {
+      display: block;
+    }
   }
 }

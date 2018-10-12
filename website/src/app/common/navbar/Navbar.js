@@ -1,5 +1,3 @@
-import 'bootstrap/dist/css/bootstrap.min.css';
-import 'icheck/skins/all.css';
 import {
   Navbar as BaseNavbar,
   Collapse,
@@ -38,9 +36,7 @@ class Navbar extends Component {
       <BaseNavbar expand="md" light>
         <Container>
           <IndexLinkContainer to="/">
-            <NavbarBrand>
-              react-ui-icheck
-            </NavbarBrand>
+            <NavbarBrand>{config.package.name}</NavbarBrand>
           </IndexLinkContainer>
           <NavbarToggler onClick={this.toggleNavbar} />
           <Collapse isOpen={collapsed} timeout={0} navbar>
@@ -59,7 +55,7 @@ class Navbar extends Component {
             </div>
             <div className="d-md-none d-sm-block ml-auto text-center">
               <hr />
-              <h6>Getting started</h6>
+              <h6>Getting Started</h6>
               <Nav navbar>
                 <NavItem>
                   <IndexLinkContainer to="/">

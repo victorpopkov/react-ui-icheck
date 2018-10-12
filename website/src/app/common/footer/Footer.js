@@ -10,9 +10,8 @@ import config from '@WebsiteConfig';
 const Footer = () => (
   <footer className="footer" styleName="footer">
     <Container>
-      <hr className="mb-0" />
       <Row>
-        <Col className="d-flex flex-row align-items-center justify-content-center pb-5 pt-5" md={12}>
+        <Col md={12} styleName="content">
           <ul>
             <li><a href={config.package.repository}>View on GitHub</a></li>
           </ul>
