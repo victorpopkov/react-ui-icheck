@@ -1,5 +1,6 @@
 const StyleLintPlugin = require('stylelint-webpack-plugin');
 const merge = require('webpack-merge');
+const path = require('path');
 const webpack = require('webpack');
 const common = require('./webpack.config.common');
 const config = require('../config');
@@ -102,6 +103,12 @@ module.exports = merge(common, {
               includePaths: [],
               outputStyle: 'expanded',
               sourceMap: true,
+            },
+          },
+          {
+            loader: 'sass-resources-loader',
+            options: {
+              resources: path.join(paths.websiteSrc, 'app/sass-resources.scss'),
             },
           },
         ],

@@ -1,0 +1,8 @@
+//
+// Make variables and mixins available when using CSS modules.
+//
+// Paths should be relative to the path where project package.json is located.
+//
+@import '~bootstrap/scss/functions';
+@import '~bootstrap/scss/mixins';
+@import '~bootstrap/scss/variables';
