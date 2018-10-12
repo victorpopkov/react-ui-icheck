@@ -1,3 +1,40 @@
+html,
+body {
+  height: 100%;
+  min-height: 100%;
+  position: relative;
+  width: 100%;
+}
+
+#app {
+  align-items: stretch;
+  display: flex;
+  justify-content: stretch;
+  min-height: 100%;
+  width: 100%;
+
+  .app {
+    align-items: stretch;
+    display: flex;
+    flex-direction: column;
+    min-height: 100%;
+    width: 100%;
+  }
+
+  main {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    justify-content: center;
+    width: 100%;
+  }
+
+  footer {
+    flex-grow: 0;
+  }
+}
+
 label {
   align-items: center;
   display: flex;
@@ -12,5 +49,31 @@ label {
     display: inline-block;
     margin-left: 10px;
     vertical-align: middle;
+  }
+}
+
+@include media-breakpoint-down(sm) {
+  #app {
+    main {
+      font-size: .85rem;
+
+      h1 {
+        font-size: $h3-font-size;
+      }
+
+      h2 {
+        font-size: $h4-font-size;
+      }
+
+      h3 {
+        font-size: $h5-font-size;
+      }
+
+      h4,
+      h5,
+      h6 {
+        font-size: $h6-font-size;
+      }
+    }
   }
 }
