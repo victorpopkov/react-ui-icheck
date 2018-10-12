@@ -4,7 +4,7 @@ import ReactDOM from 'react-dom';
 import App from './app/App'; // eslint-disable-line sort-imports
 import Demo from './app/demo/Demo';
 import Error404 from './app/error/404/Error404';
-import Home from './app/Home';
+import Home from './app/home/Home';
 import Installation from './app/installation/Installation';
 import SkinFlat from './app/skin/SkinFlat';
 import SkinFuturico from './app/skin/SkinFuturico';
