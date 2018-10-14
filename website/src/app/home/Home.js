@@ -4,12 +4,12 @@ import { hot } from 'react-hot-loader';
 import { Jumbotron, Sidebar } from '../common'; // eslint-disable-line sort-imports
 
 const Home = () => (
-  <main role="main">
+  <main className="home" role="main">
     <Jumbotron />
     <Container>
       <Row>
         <Col md={9}>
-          <h2 className="mb-4">Overview</h2>
+          <h2 className="heading">Overview</h2>
           <p>
             This library was originally intended to be a fork of the
             {' '}

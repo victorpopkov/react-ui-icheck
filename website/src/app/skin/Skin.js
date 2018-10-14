@@ -90,8 +90,8 @@ class Skin extends Component {
       <Container>
         <Row>
           <Col md={9}>
-            <h2 className="mb-4">{title}</h2>
-            <Col className={`skin-${skin}`} md={11}>
+            <h2 className="heading">{title}</h2>
+            <Col className={`skin-${skin} mt-4`} md={11}>
               <Row>
                 <Col className="mb-2 mb-lg-0" lg={6} md={12}>
                   <CheckboxGroup

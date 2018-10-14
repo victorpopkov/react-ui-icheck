@@ -46,7 +46,7 @@ class Demo extends Component {
         <Container>
           <Row>
             <Col md={9}>
-              <h2 className="mb-4">Demo</h2>
+              <h2 className="heading">Demo</h2>
               <Nav className="mt-4" tabs>
                 <NavItem>
                   <NavLink

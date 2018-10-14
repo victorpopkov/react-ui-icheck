@@ -9,7 +9,7 @@ const Installation = () => (
     <Container>
       <Row>
         <Col md={9}>
-          <h2 className="mb-4">Installation</h2>
+          <h2 className="heading">Installation</h2>
           <p>
             You can install this library as any other
             {' '}

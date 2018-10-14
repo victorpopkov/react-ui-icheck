@@ -52,6 +52,12 @@ label {
   }
 }
 
+.heading {
+  border-bottom: 1px solid transparentize($black, .9);
+  margin-bottom: $grid-gutter-width / 2;
+  padding-bottom: .3em;
+}
+
 @include media-breakpoint-down(sm) {
   #app {
     main {
