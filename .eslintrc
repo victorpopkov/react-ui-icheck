@@ -5,6 +5,11 @@
     "node": true,
     "mocha": true
   },
+  "parser": "babel-eslint",
+  "plugins": [
+    "react",
+    "import"
+  ],
   "rules": {
     "comma-dangle": [2, "always-multiline"],
     "function-paren-newline": ["error", "consistent"],
@@ -45,11 +50,6 @@
     "react/sort-prop-types": [2, { "callbacksLast": true, "requiredFirst": true }],
     "sort-imports": 2
   },
-  "plugins": [
-    "react",
-    "import"
-  ],
-  "parser": "babel-eslint",
   "settings": {
     "import/resolve": {
       "moduleDirectory": [
