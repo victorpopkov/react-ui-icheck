@@ -82,7 +82,6 @@ module.exports = {
   plugins: [
     new DotenvPlugin({
       path: path.resolve(paths.root, '.env'),
-      safe: path.resolve(paths.root, '.env.dist'),
       silent: true,
       systemvars: true,
     }),
