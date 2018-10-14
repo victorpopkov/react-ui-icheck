@@ -10,6 +10,27 @@ const Home = () => (
       <Row>
         <Col md={9}>
           <h2 className="heading">Overview</h2>
+          <p className="badges">
+            <a href="https://david-dm.org/victorpopkov/react-ui-icheck" rel="noopener noreferrer" target="_blank">
+              <img alt="David" src="https://img.shields.io/david/victorpopkov/react-ui-icheck.svg" />
+            </a>
+            {' '}
+            <a href="https://david-dm.org/victorpopkov/react-ui-icheck?type=dev" rel="noopener noreferrer" target="_blank">
+              <img alt="David" src="https://img.shields.io/david/dev/victorpopkov/react-ui-icheck.svg" />
+            </a>
+            {' '}
+            <a href="https://david-dm.org/victorpopkov/react-ui-icheck?type=peer" rel="noopener noreferrer" target="_blank">
+              <img alt="David" src="https://img.shields.io/david/peer/victorpopkov/react-ui-icheck.svg" />
+            </a>
+            {' '}
+            <a href="https://travis-ci.org/victorpopkov/react-ui-icheck" rel="noopener noreferrer" target="_blank">
+              <img alt="Travis (.org)" src="https://img.shields.io/travis/victorpopkov/react-ui-icheck.svg" />
+            </a>
+            {' '}
+            <a href="https://www.npmjs.com/package/react-ui-icheck" rel="noopener noreferrer" target="_blank">
+              <img alt="npm" src="https://img.shields.io/npm/v/react-ui-icheck.svg" />
+            </a>
+          </p>
           <p>
             This library was originally intended to be a fork of the
             {' '}
