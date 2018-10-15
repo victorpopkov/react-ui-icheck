@@ -1,4 +1,13 @@
 module.exports = {
+  collectCoverage: true,
+  collectCoverageFrom: [
+    '**/*.{js,jsx}',
+    '!**/coverage/**',
+    '!**/lib/**',
+    '!**/node_modules/**',
+    '!**/website/**',
+    '!*.config.js',
+  ],
   coverageDirectory: 'coverage',
   setupFiles: [
     '<rootDir>/test/shim.js',
