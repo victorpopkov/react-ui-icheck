@@ -4,6 +4,7 @@
 [![David](https://img.shields.io/david/dev/victorpopkov/react-ui-icheck.svg)](https://david-dm.org/victorpopkov/react-ui-icheck?type=dev)
 [![David](https://img.shields.io/david/peer/victorpopkov/react-ui-icheck.svg)](https://david-dm.org/victorpopkov/react-ui-icheck?type=peer)
 [![Travis (.org)](https://img.shields.io/travis/victorpopkov/react-ui-icheck.svg)](https://travis-ci.org/victorpopkov/react-ui-icheck)
+[![Coveralls](https://img.shields.io/coveralls/github/victorpopkov/react-ui-icheck.svg)](https://coveralls.io/repos/github/victorpopkov/react-ui-icheck/badge.svg?branch=master)
 [![npm](https://img.shields.io/npm/v/react-ui-icheck.svg)](https://www.npmjs.com/package/react-ui-icheck)
 
 iCheck customizable checkboxes and radios built with React.
