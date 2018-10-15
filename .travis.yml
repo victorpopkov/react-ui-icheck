@@ -4,6 +4,10 @@ node_js:
   - "10"
   - "stable"
 
+script:
+  - yarn test
+  - yarn test:coveralls
+
 notifications:
   email: false
   slack:
