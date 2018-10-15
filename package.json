@@ -164,7 +164,8 @@
     "lint:stylelint": "stylelint ./website/src/**/*.css ./website/src/**/*.scss",
     "prepare": "npm-run-all build",
     "start": "better-npm-run start",
-    "test": "jest",
+    "test": "jest --coverage --coverageReporters=text-lcov",
+    "test:coveralls": "cat ./coverage/lcov.info | coveralls",
     "test:watch": "jest --watch",
     "watch": "better-npm-run watch"
   }
