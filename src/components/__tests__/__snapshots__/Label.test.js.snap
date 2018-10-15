@@ -1,0 +1,45 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Label /> should have the default props when mounted 1`] = `
+Object {
+  "children": "test",
+  "disabled": false,
+  "handleHover": [Function],
+  "isMobile": false,
+  "label": null,
+  "labelChildren": null,
+  "labelClassName": null,
+  "labelHover": true,
+  "labelTag": "span",
+  "labelTagClassName": null,
+}
+`;
+
+exports[`<Label /> should render the default React components 1`] = `
+<label
+  className={null}
+  onBlur={[Function]}
+  onFocus={[Function]}
+  onMouseOut={[Function]}
+  onMouseOver={[Function]}
+  onTouchEnd={[Function]}
+  onTouchStart={[Function]}
+>
+  test
+  <span
+    className={null}
+    dangerouslySetInnerHTML={
+      Object {
+        "__html": null,
+      }
+    }
+  />
+</label>
+`;
+
+exports[`<Label /> should render the default static HTML 1`] = `
+<label>
+  test
+  <span />
+</label>
+`;
