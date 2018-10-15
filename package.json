@@ -163,7 +163,8 @@
     "lint:stylelint": "stylelint ./website/src/**/*.css ./website/src/**/*.scss",
     "prepare": "npm-run-all build",
     "start": "better-npm-run start",
-    "test": "npm-run-all lint",
+    "test": "jest",
+    "test:watch": "jest --watch",
     "watch": "better-npm-run watch"
   }
 }
