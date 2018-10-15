@@ -27,6 +27,10 @@ const Home = () => (
               <img alt="Travis (.org)" src="https://img.shields.io/travis/victorpopkov/react-ui-icheck.svg" />
             </a>
             {' '}
+            <a href="https://coveralls.io/github/victorpopkov/react-ui-icheck?branch=master" rel="noopener noreferrer" target="_blank">
+              <img alt="Coveralls" src="https://img.shields.io/coveralls/github/victorpopkov/react-ui-icheck.svg" />
+            </a>
+            {' '}
             <a href="https://www.npmjs.com/package/react-ui-icheck" rel="noopener noreferrer" target="_blank">
               <img alt="npm" src="https://img.shields.io/npm/v/react-ui-icheck.svg" />
             </a>
