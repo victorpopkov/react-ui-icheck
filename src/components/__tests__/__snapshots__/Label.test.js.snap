@@ -1,8 +1,10 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<Label /> should have the default props when mounted 1`] = `
+exports[`<Label /> component should have the default props values when mounted 1`] = `
 Object {
-  "children": "test",
+  "children": <div>
+    child
+  </div>,
   "disabled": false,
   "handleHover": [Function],
   "isMobile": false,
@@ -15,7 +17,7 @@ Object {
 }
 `;
 
-exports[`<Label /> should render the default React components 1`] = `
+exports[`<Label /> component should render the <label /> when label as element is passed 1`] = `
 <label
   className={null}
   onBlur={[Function]}
@@ -25,7 +27,72 @@ exports[`<Label /> should render the default React components 1`] = `
   onTouchEnd={[Function]}
   onTouchStart={[Function]}
 >
-  test
+  <div>
+    child
+  </div>
+</label>
+`;
+
+exports[`<Label /> component should render the <label /> when label as string with labelTag and labelTagClassName are passed 1`] = `
+<label
+  className={null}
+  onBlur={[Function]}
+  onFocus={[Function]}
+  onMouseOut={[Function]}
+  onMouseOver={[Function]}
+  onTouchEnd={[Function]}
+  onTouchStart={[Function]}
+>
+  <div>
+    child
+  </div>
+  <div
+    className="test"
+    dangerouslySetInnerHTML={
+      Object {
+        "__html": "propLabel",
+      }
+    }
+  />
+</label>
+`;
+
+exports[`<Label /> component should render the <label /> when labelChildren, labelTag and labelTagClassName are passed 1`] = `
+<label
+  className={null}
+  onBlur={[Function]}
+  onFocus={[Function]}
+  onMouseOut={[Function]}
+  onMouseOver={[Function]}
+  onTouchEnd={[Function]}
+  onTouchStart={[Function]}
+>
+  <div>
+    child
+  </div>
+  <div
+    className="test"
+  >
+    <span>
+      propLabelChildren
+    </span>
+  </div>
+</label>
+`;
+
+exports[`<Label /> component should render the <label /> when only the default props are passed 1`] = `
+<label
+  className={null}
+  onBlur={[Function]}
+  onFocus={[Function]}
+  onMouseOut={[Function]}
+  onMouseOver={[Function]}
+  onTouchEnd={[Function]}
+  onTouchStart={[Function]}
+>
+  <div>
+    child
+  </div>
   <span
     className={null}
     dangerouslySetInnerHTML={
@@ -34,12 +101,5 @@ exports[`<Label /> should render the default React components 1`] = `
       }
     }
   />
-</label>
-`;
-
-exports[`<Label /> should render the default static HTML 1`] = `
-<label>
-  test
-  <span />
 </label>
 `;
