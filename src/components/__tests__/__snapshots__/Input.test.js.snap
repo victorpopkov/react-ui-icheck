@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<Input /> should have the default props when mounted 1`] = `
+exports[`<Input /> component with the prop inputType set to "checkbox" should have the default props values when mounted 1`] = `
 Object {
   "activeClass": null,
   "aria": false,
@@ -22,6 +22,7 @@ Object {
   "inheritID": false,
   "inputType": "checkbox",
   "insert": null,
+  "isMobile": false,
   "name": null,
   "onBlur": null,
   "onChange": null,
@@ -31,9 +32,173 @@ Object {
 }
 `;
 
-exports[`<Input /> should render the default React components 1`] = `
+exports[`<Input /> component with the prop inputType set to "checkbox" should render <input /> element on mobiles 1`] = `
+Object {
+  "position": "absolute",
+  "visibility": "hidden",
+}
+`;
+
+exports[`<Input /> component with the prop inputType set to "checkbox" should render <input /> element when increaseArea is passed as a negative value 1`] = `
+Object {
+  "checked": false,
+  "disabled": false,
+  "name": null,
+  "onBlur": [Function],
+  "onChange": [Function],
+  "onFocus": [Function],
+  "style": Object {
+    "background": "#fff",
+    "border": 0,
+    "cursor": "pointer",
+    "display": "block",
+    "height": "40%",
+    "left": "30%",
+    "margin": 0,
+    "opacity": 0,
+    "padding": 0,
+    "position": "absolute",
+    "top": "30%",
+    "width": "40%",
+  },
+  "type": "checkbox",
+  "value": "",
+}
+`;
+
+exports[`<Input /> component with the prop inputType set to "checkbox" should render <input /> element when increaseArea is passed as a negative value and more than 50% 1`] = `
 <div
   className="icheckbox"
+>
+  <input
+    checked={false}
+    disabled={false}
+    name={null}
+    onBlur={[Function]}
+    onChange={[Function]}
+    onFocus={[Function]}
+    style={
+      Object {
+        "background": "#fff",
+        "border": 0,
+        "cursor": "pointer",
+        "display": "block",
+        "height": "0%",
+        "left": "50%",
+        "margin": 0,
+        "opacity": 0,
+        "padding": 0,
+        "position": "absolute",
+        "top": "50%",
+        "width": "0%",
+      }
+    }
+    type="checkbox"
+    value=""
+  />
+  <ins
+    className="iCheck-helper"
+    onClick={[Function]}
+    role="presentation"
+    style={
+      Object {
+        "background": "#fff",
+        "border": 0,
+        "cursor": "pointer",
+        "display": "block",
+        "height": "0%",
+        "left": "50%",
+        "margin": 0,
+        "opacity": 0,
+        "padding": 0,
+        "position": "absolute",
+        "top": "50%",
+        "width": "0%",
+      }
+    }
+  />
+</div>
+`;
+
+exports[`<Input /> component with the prop inputType set to "checkbox" should render <input /> element when increaseArea is passed as a positive value 1`] = `
+<div
+  className="icheckbox"
+>
+  <input
+    checked={false}
+    disabled={false}
+    name={null}
+    onBlur={[Function]}
+    onChange={[Function]}
+    onFocus={[Function]}
+    style={
+      Object {
+        "background": "#fff",
+        "border": 0,
+        "cursor": "pointer",
+        "display": "block",
+        "height": "160%",
+        "left": "-30%",
+        "margin": 0,
+        "opacity": 0,
+        "padding": 0,
+        "position": "absolute",
+        "top": "-30%",
+        "width": "160%",
+      }
+    }
+    type="checkbox"
+    value=""
+  />
+  <ins
+    className="iCheck-helper"
+    onClick={[Function]}
+    role="presentation"
+    style={
+      Object {
+        "background": "#fff",
+        "border": 0,
+        "cursor": "pointer",
+        "display": "block",
+        "height": "160%",
+        "left": "-30%",
+        "margin": 0,
+        "opacity": 0,
+        "padding": 0,
+        "position": "absolute",
+        "top": "-30%",
+        "width": "160%",
+      }
+    }
+  />
+</div>
+`;
+
+exports[`<Input /> component with the prop inputType set to "checkbox" should render the corresponding HTML when the insert value is set 1`] = `
+<div
+  class="icheckbox"
+>
+  <input
+    style="opacity:0;position:absolute"
+    type="checkbox"
+    value=""
+  />
+  <div>
+    test
+  </div>
+  <ins
+    class="iCheck-helper"
+    role="presentation"
+    style="position:absolute;top:0%;left:0%;display:block;width:100%;height:100%;margin:0;padding:0;background:#fff;border:0;opacity:0;cursor:pointer"
+  />
+</div>
+`;
+
+exports[`<Input /> component with the prop inputType set to "checkbox" should render wrapper with aria labels  when aria prop is passed 1`] = `
+<div
+  aria-checked={false}
+  className="icheckbox"
+  role="checkbox"
 >
   <input
     checked={false}
@@ -75,19 +240,242 @@ exports[`<Input /> should render the default React components 1`] = `
 </div>
 `;
 
-exports[`<Input /> should render the default static HTML 1`] = `
+exports[`<Input /> component with the prop inputType set to "radio" should have the default props values when mounted 1`] = `
+Object {
+  "activeClass": null,
+  "aria": false,
+  "checkboxClass": "icheckbox",
+  "checked": false,
+  "checkedClass": "checked",
+  "className": null,
+  "defaultChecked": false,
+  "disabled": false,
+  "disabledClass": "disabled",
+  "focusClass": "focus",
+  "hoverClass": "hover",
+  "hovered": false,
+  "id": null,
+  "increaseArea": "",
+  "indeterminate": false,
+  "indeterminateClass": "indeterminate",
+  "inheritClass": false,
+  "inheritID": false,
+  "inputType": "radio",
+  "insert": null,
+  "isMobile": false,
+  "name": null,
+  "onBlur": null,
+  "onChange": null,
+  "onFocus": null,
+  "radioClass": "iradio",
+  "value": "",
+}
+`;
+
+exports[`<Input /> component with the prop inputType set to "radio" should render <input /> element on mobiles 1`] = `
+Object {
+  "position": "absolute",
+  "visibility": "hidden",
+}
+`;
+
+exports[`<Input /> component with the prop inputType set to "radio" should render <input /> element when increaseArea is passed as a negative value 1`] = `
+Object {
+  "checked": false,
+  "disabled": false,
+  "name": null,
+  "onBlur": [Function],
+  "onChange": [Function],
+  "onFocus": [Function],
+  "style": Object {
+    "background": "#fff",
+    "border": 0,
+    "cursor": "pointer",
+    "display": "block",
+    "height": "40%",
+    "left": "30%",
+    "margin": 0,
+    "opacity": 0,
+    "padding": 0,
+    "position": "absolute",
+    "top": "30%",
+    "width": "40%",
+  },
+  "type": "radio",
+  "value": "",
+}
+`;
+
+exports[`<Input /> component with the prop inputType set to "radio" should render <input /> element when increaseArea is passed as a negative value and more than 50% 1`] = `
 <div
-  class="icheckbox"
+  className="iradio"
+>
+  <input
+    checked={false}
+    disabled={false}
+    name={null}
+    onBlur={[Function]}
+    onChange={[Function]}
+    onFocus={[Function]}
+    style={
+      Object {
+        "background": "#fff",
+        "border": 0,
+        "cursor": "pointer",
+        "display": "block",
+        "height": "0%",
+        "left": "50%",
+        "margin": 0,
+        "opacity": 0,
+        "padding": 0,
+        "position": "absolute",
+        "top": "50%",
+        "width": "0%",
+      }
+    }
+    type="radio"
+    value=""
+  />
+  <ins
+    className="iCheck-helper"
+    onClick={[Function]}
+    role="presentation"
+    style={
+      Object {
+        "background": "#fff",
+        "border": 0,
+        "cursor": "pointer",
+        "display": "block",
+        "height": "0%",
+        "left": "50%",
+        "margin": 0,
+        "opacity": 0,
+        "padding": 0,
+        "position": "absolute",
+        "top": "50%",
+        "width": "0%",
+      }
+    }
+  />
+</div>
+`;
+
+exports[`<Input /> component with the prop inputType set to "radio" should render <input /> element when increaseArea is passed as a positive value 1`] = `
+<div
+  className="iradio"
+>
+  <input
+    checked={false}
+    disabled={false}
+    name={null}
+    onBlur={[Function]}
+    onChange={[Function]}
+    onFocus={[Function]}
+    style={
+      Object {
+        "background": "#fff",
+        "border": 0,
+        "cursor": "pointer",
+        "display": "block",
+        "height": "160%",
+        "left": "-30%",
+        "margin": 0,
+        "opacity": 0,
+        "padding": 0,
+        "position": "absolute",
+        "top": "-30%",
+        "width": "160%",
+      }
+    }
+    type="radio"
+    value=""
+  />
+  <ins
+    className="iCheck-helper"
+    onClick={[Function]}
+    role="presentation"
+    style={
+      Object {
+        "background": "#fff",
+        "border": 0,
+        "cursor": "pointer",
+        "display": "block",
+        "height": "160%",
+        "left": "-30%",
+        "margin": 0,
+        "opacity": 0,
+        "padding": 0,
+        "position": "absolute",
+        "top": "-30%",
+        "width": "160%",
+      }
+    }
+  />
+</div>
+`;
+
+exports[`<Input /> component with the prop inputType set to "radio" should render the corresponding HTML when the insert value is set 1`] = `
+<div
+  class="iradio"
 >
   <input
     style="opacity:0;position:absolute"
-    type="checkbox"
+    type="radio"
     value=""
   />
+  <div>
+    test
+  </div>
   <ins
     class="iCheck-helper"
     role="presentation"
     style="position:absolute;top:0%;left:0%;display:block;width:100%;height:100%;margin:0;padding:0;background:#fff;border:0;opacity:0;cursor:pointer"
+  />
+</div>
+`;
+
+exports[`<Input /> component with the prop inputType set to "radio" should render wrapper with aria labels  when aria prop is passed 1`] = `
+<div
+  aria-checked={false}
+  className="iradio"
+  role="radio"
+>
+  <input
+    checked={false}
+    disabled={false}
+    name={null}
+    onBlur={[Function]}
+    onChange={[Function]}
+    onFocus={[Function]}
+    style={
+      Object {
+        "opacity": 0,
+        "position": "absolute",
+      }
+    }
+    type="radio"
+    value=""
+  />
+  <ins
+    className="iCheck-helper"
+    onClick={[Function]}
+    role="presentation"
+    style={
+      Object {
+        "background": "#fff",
+        "border": 0,
+        "cursor": "pointer",
+        "display": "block",
+        "height": "100%",
+        "left": "0%",
+        "margin": 0,
+        "opacity": 0,
+        "padding": 0,
+        "position": "absolute",
+        "top": "0%",
+        "width": "100%",
+      }
+    }
   />
 </div>
 `;
