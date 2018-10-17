@@ -1,51 +1,27 @@
-/* eslint-disable react/require-default-props */
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import Radio from './Radio';
 
 class RadioGroup extends Component {
   static propTypes = {
-    /**
-     * Should be used to pass `Radio` components.
-     */
     name: PropTypes.string.isRequired,
-
-    /**
-     * The css class name of the root element.
-     */
     children: PropTypes.node,
-
-    /**
-     * Sets the default radio button to be the one whose value matches defaultValue
-     * (case-sensitive). This will override any individual radio button with the defaultChecked or
-     * checked property stated.
-     */
     className: PropTypes.string,
-
-    /**
-     * The name that will be applied to all radio buttons inside it.
-     */
     defaultValue: PropTypes.string,
-
     radioWrapClassName: PropTypes.string,
     radioWrapTag: PropTypes.string,
-
-    /**
-     * Callback function that is fired when a radio button has been clicked. Returns the event and
-     * the value of the radio button that has been selected.
-     */
     value: PropTypes.string,
-
-    /**
-     * The value of the currently selected radio button.
-     */
     onChange: PropTypes.func,
   };
 
   static defaultProps = {
+    children: null,
     className: null,
+    defaultValue: null,
     radioWrapClassName: null,
     radioWrapTag: null,
+    value: null,
+    onChange: null,
   };
 
   constructor(props) {
