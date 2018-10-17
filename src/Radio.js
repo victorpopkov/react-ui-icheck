@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import mobile from 'is-mobile';
 import Input from './components/Input'; // eslint-disable-line sort-imports
 import Label from './components/Label';
 
@@ -71,20 +72,11 @@ class Radio extends Component {
 
     const { checked } = props;
 
-    this.isMobile = false;
-
     this.state = {
       checked: checked || false,
       hovered: false,
+      isMobile: mobile(),
     };
-  }
-
-  componentDidMount() {
-    if (typeof navigator !== 'undefined') {
-      this.isMobile = /ipad|iphone|ipod|android|blackberry|windows phone|opera mini|silk/i.test(navigator.userAgent);
-    }
-
-    this.forceUpdate();
   }
 
   componentWillReceiveProps(nextProps) {
@@ -122,6 +114,7 @@ class Radio extends Component {
       inheritClass,
       inheritID,
       insert,
+      isMobile,
       name,
       onBlur,
       onChange,
@@ -171,6 +164,7 @@ class Radio extends Component {
         inheritID={inheritID}
         inputType="radio"
         insert={insert}
+        isMobile={isMobile}
         name={name}
         radioClass={radioClass}
         ref={(c) => {
@@ -194,6 +188,7 @@ class Radio extends Component {
       labelTag,
       labelTagClassName,
     } = this.props;
+    const { isMobile } = this.state;
 
     if (!label && !children) {
       return this.renderInput();
@@ -203,7 +198,7 @@ class Radio extends Component {
       <Label
         disabled={disabled}
         handleHover={this.handleHover}
-        isMobile={this.isMobile}
+        isMobile={isMobile}
         label={label}
         labelChildren={children}
         labelClassName={labelClassName}

@@ -27,6 +27,7 @@ class Input extends Component {
     inheritClass: PropTypes.bool,
     inheritID: PropTypes.bool,
     insert: PropTypes.node,
+    isMobile: PropTypes.bool,
     name: PropTypes.string,
     radioClass: PropTypes.string,
     value: PropTypes.string,
@@ -55,6 +56,7 @@ class Input extends Component {
     inheritClass: false,
     inheritID: false,
     insert: null,
+    isMobile: false,
     name: null,
     radioClass: 'iradio',
     value: '',
@@ -77,8 +79,6 @@ class Input extends Component {
       hovered,
       indeterminate,
     } = props;
-
-    this.isMobile = false;
 
     this.state = {
       active: false,
@@ -191,6 +191,7 @@ class Input extends Component {
       inheritID,
       inputType,
       insert,
+      isMobile,
       name,
       radioClass,
       value,
@@ -274,7 +275,7 @@ class Input extends Component {
 
     // Choose how to hide input
     let hide;
-    if (this.isMobile) {
+    if (isMobile) {
       hide = {
         position: 'absolute',
         visibility: 'hidden',
