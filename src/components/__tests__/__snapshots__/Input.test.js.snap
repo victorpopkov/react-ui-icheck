@@ -32,14 +32,14 @@ Object {
 }
 `;
 
-exports[`<Input /> component with the prop inputType set to "checkbox" should render <input /> element on mobiles 1`] = `
+exports[`<Input /> component with the prop inputType set to "checkbox" should render the <input /> on mobiles 1`] = `
 Object {
   "position": "absolute",
   "visibility": "hidden",
 }
 `;
 
-exports[`<Input /> component with the prop inputType set to "checkbox" should render <input /> element when increaseArea is passed as a negative value 1`] = `
+exports[`<Input /> component with the prop inputType set to "checkbox" should render the <input /> when increaseArea is passed as a negative value 1`] = `
 Object {
   "checked": false,
   "disabled": false,
@@ -66,7 +66,7 @@ Object {
 }
 `;
 
-exports[`<Input /> component with the prop inputType set to "checkbox" should render <input /> element when increaseArea is passed as a negative value and more than 50% 1`] = `
+exports[`<Input /> component with the prop inputType set to "checkbox" should render the <input /> when increaseArea is passed as a negative value and more than 50% 1`] = `
 <div
   className="icheckbox"
 >
@@ -120,7 +120,7 @@ exports[`<Input /> component with the prop inputType set to "checkbox" should re
 </div>
 `;
 
-exports[`<Input /> component with the prop inputType set to "checkbox" should render <input /> element when increaseArea is passed as a positive value 1`] = `
+exports[`<Input /> component with the prop inputType set to "checkbox" should render the <input /> when increaseArea is passed as a positive value 1`] = `
 <div
   className="icheckbox"
 >
@@ -272,14 +272,14 @@ Object {
 }
 `;
 
-exports[`<Input /> component with the prop inputType set to "radio" should render <input /> element on mobiles 1`] = `
+exports[`<Input /> component with the prop inputType set to "radio" should render the <input /> on mobiles 1`] = `
 Object {
   "position": "absolute",
   "visibility": "hidden",
 }
 `;
 
-exports[`<Input /> component with the prop inputType set to "radio" should render <input /> element when increaseArea is passed as a negative value 1`] = `
+exports[`<Input /> component with the prop inputType set to "radio" should render the <input /> when increaseArea is passed as a negative value 1`] = `
 Object {
   "checked": false,
   "disabled": false,
@@ -306,7 +306,7 @@ Object {
 }
 `;
 
-exports[`<Input /> component with the prop inputType set to "radio" should render <input /> element when increaseArea is passed as a negative value and more than 50% 1`] = `
+exports[`<Input /> component with the prop inputType set to "radio" should render the <input /> when increaseArea is passed as a negative value and more than 50% 1`] = `
 <div
   className="iradio"
 >
@@ -360,7 +360,7 @@ exports[`<Input /> component with the prop inputType set to "radio" should rende
 </div>
 `;
 
-exports[`<Input /> component with the prop inputType set to "radio" should render <input /> element when increaseArea is passed as a positive value 1`] = `
+exports[`<Input /> component with the prop inputType set to "radio" should render the <input /> when increaseArea is passed as a positive value 1`] = `
 <div
   className="iradio"
 >

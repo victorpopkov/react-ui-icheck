@@ -59,7 +59,7 @@ const testInputComponent = (inputType) => {
     });
   });
 
-  describe('should render <input /> element', () => {
+  describe('should render the <input />', () => {
     it('on mobiles', () => {
       const wrapper = shallow(testInput);
       wrapper.setProps({ isMobile: true });
