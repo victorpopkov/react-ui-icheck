@@ -36,7 +36,7 @@ describe('<Checkbox /> component', () => {
       <Checkbox label="label" />
     );
 
-    it('when the checked prop value has changed', () => {
+    it('when the checked prop has changed', () => {
       const spy = jest.spyOn(Checkbox.prototype, 'componentWillReceiveProps');
       const wrapper = mount(testCheckbox);
 
@@ -51,7 +51,7 @@ describe('<Checkbox /> component', () => {
       expect(wrapper.state().checked).toBe(true);
     });
 
-    describe('hovered value accordingly when handling the <label />', () => {
+    describe('when handling the <label />', () => {
       it('onFocus()', () => {
         const wrapper = mount(testCheckbox);
 

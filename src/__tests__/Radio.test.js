@@ -36,7 +36,7 @@ describe('<Radio /> component', () => {
       <Radio label="label" />
     );
 
-    it('when the checked prop value has changed', () => {
+    it('when the checked prop has changed', () => {
       const spy = jest.spyOn(Radio.prototype, 'componentWillReceiveProps');
       const wrapper = mount(testRadio);
 
@@ -51,7 +51,7 @@ describe('<Radio /> component', () => {
       expect(wrapper.state().checked).toBe(true);
     });
 
-    describe('hovered value accordingly when handling the <label />', () => {
+    describe('when handling the <label />', () => {
       it('onFocus()', () => {
         const wrapper = mount(testRadio);
 

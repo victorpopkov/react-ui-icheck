@@ -85,7 +85,7 @@ const testInputComponent = (inputType) => {
   });
 
   describe('should update the state', () => {
-    it('when the checked prop value has changed', () => {
+    it('when the checked prop has changed', () => {
       const wrapper = mount(testInput);
 
       expect(testSpy).toHaveBeenCalledTimes(0);
@@ -99,7 +99,7 @@ const testInputComponent = (inputType) => {
       expect(wrapper.state().checked).toBe(true);
     });
 
-    it('when the hovered prop value has changed', () => {
+    it('when the hovered prop has changed', () => {
       const wrapper = mount(testInput);
 
       expect(testSpy).toHaveBeenCalledTimes(0);

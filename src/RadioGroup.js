@@ -70,7 +70,7 @@ class RadioGroup extends Component {
       ...other
     } = props;
 
-    const checkbox = (
+    const radio = (
       <Radio
         {...other}
         checked={value === stateValue}
@@ -85,12 +85,12 @@ class RadioGroup extends Component {
 
       return (
         <WrapTag className={radioWrapClassName}>
-          {checkbox}
+          {radio}
         </WrapTag>
       );
     }
 
-    return checkbox;
+    return radio;
   }
 
   render() {
