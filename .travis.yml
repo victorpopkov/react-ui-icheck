@@ -16,6 +16,7 @@ before_script:
   - ./cc-test-reporter before-build
 
 script:
+  - yarn lint
   - yarn test --verbose
 
 after_script:
