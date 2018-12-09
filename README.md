@@ -11,7 +11,6 @@ iCheck customizable checkboxes and radios built with React.
 
 - [Getting Started](#getting-started)
   - [Overview](#overview)
-    - [Differences](#differences)
   - [Demo](#demo)
   - [Installation](#installation)
 
@@ -43,8 +42,8 @@ Below you can find the list of the main differences from the original
   "[Don’t Overuse Refs](https://reactjs.org/docs/refs-and-the-dom.html#dont-overuse-refs)"
   guide
 - Introduced `CheckboxGroup` similar to the `RadioGroup`
-- Introduced `checkboxWrapClassName` and `checkboxWrapTag` properties for `RadioGroup`
-to control the wrapping behaviour of the radio elements.
+- Introduced `checkboxWrapClassName` and `checkboxWrapTag` properties for
+`RadioGroup` to control the wrapping behaviour of the radio elements.
 - Introduced `labelTag` and `labelTagClassName` properties for both `Checkbox`
 and `Radio` components to control the rendering of the label content.
 - Labels for `Checkbox` and `Radio` can be passed as children alongside with the
