@@ -5,8 +5,8 @@
     "@babel/react"
   ],
   "plugins": [
-    ["@babel/plugin-proposal-class-properties", { "loose": false }],
     ["@babel/plugin-proposal-decorators", { "legacy": true }],
+    ["@babel/plugin-proposal-class-properties", { "loose": false }],
     ["webpack-alias", { "config": "${PWD}/website/webpack/webpack.config.common.js" }],
     "@babel/plugin-proposal-export-default-from",
     "@babel/plugin-proposal-function-bind",
