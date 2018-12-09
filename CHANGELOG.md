@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased][]
 
+## [0.3.0][] - 2018-12-09
+
 ### Added
 
 - Code linting in the "Travis CI"
@@ -59,5 +61,6 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 First release.
 
-[unreleased]: https://github.com/victorpopkov/react-ui-icheck/compare/v0.2.0...HEAD
+[unreleased]: https://github.com/victorpopkov/react-ui-icheck/compare/v0.3.0...HEAD
+[0.3.0]: https://github.com/victorpopkov/react-ui-icheck/compare/v0.2.0...v0.3.0
 [0.2.0]: https://github.com/victorpopkov/react-ui-icheck/compare/v0.1.0...v0.2.0
