@@ -7,6 +7,23 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased][]
 
+### Added
+
+- Code linting in the "Travis CI"
+- Option `modules: 'global'` for the `css-loader` in the website webpack configs
+- Tests for the `Checkbox`, `CheckboxGroup`, `Radio` and `RadioGroup` components
+(the total project test coverage: 100%)
+
+### Changed
+
+- Dependencies to match the latest ones
+- Rule `no-duplicate-headings` for remark-lint to become disabled
+
+### Fixed
+
+- Plugin `@babel/plugin-proposal-decorators` order in the Babel configs
+- Website imports to use the `react-ui-icheck` instead of the `react-icheck`
+
 ## [0.2.0][] - 2018-10-17
 
 ### Added
@@ -15,13 +32,14 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - Integration with "Codecov" for test coverage reports
 - Integration with "Travis CI" for building and testing
 - Missing props in the `RadioGroup.defaultProps`
-- Tests for the `Input` and `Label` components (the total project test coverage: 47%)
+- Tests for the `Input` and `Label` components (the total project test coverage:
+47%)
 - This `CHANGELOG.md`
 - Website homepage badges
 
 ### Changed
 
-- Dependencies versions to match the latest ones
+- Dependencies to match the latest ones
 - Node engine requirement from `>= 10.0.0` to `>= 8.10.0`
 - Properties sorting in `.eslintrc` and `.remarkrc`
 - Website page headings
