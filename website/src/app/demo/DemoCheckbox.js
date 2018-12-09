@@ -1,4 +1,4 @@
-import { Checkbox, CheckboxGroup } from 'react-icheck'; // eslint-disable-line import/no-unresolved
+import { Checkbox, CheckboxGroup } from 'react-ui-icheck'; // eslint-disable-line import/no-unresolved
 import {
   Col,
   Form,
@@ -97,7 +97,7 @@ class DemoCheckbox extends Component {
             <pre>
               <code className="language-jsx">
                 {`import 'icheck/skins/all.css';
-import { Checkbox } from 'react-icheck';
+import { Checkbox } from 'react-ui-icheck';
 
 <CheckboxGroup
   checkboxWrapClassName="form-check"

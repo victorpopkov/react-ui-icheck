@@ -73,7 +73,7 @@ module.exports = {
       'node_modules',
     ],
     alias: {
-      'react-icheck': path.resolve(paths.root, 'src/'),
+      'react-ui-icheck': path.resolve(paths.root, 'src/'),
       '@WebsiteConfig': paths.websiteConfig,
       '@WebsiteRoot': paths.websiteRoot,
     },

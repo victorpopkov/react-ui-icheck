@@ -7,7 +7,7 @@ import {
   TabContent,
   TabPane,
 } from 'reactstrap';
-import { Radio, RadioGroup } from 'react-icheck'; // eslint-disable-line import/no-unresolved
+import { Radio, RadioGroup } from 'react-ui-icheck'; // eslint-disable-line import/no-unresolved
 import React, { Component } from 'react';
 import classNames from 'classnames';
 import { hot } from 'react-hot-loader';
@@ -107,7 +107,7 @@ class DemoRadio extends Component {
             <pre>
               <code className="language-jsx">
                 {`import 'icheck/skins/all.css';
-import { Radio, RadioGroup } from 'react-icheck';
+import { Radio, RadioGroup } from 'react-ui-icheck';
 
 this.state = {
   radioValue: '2',

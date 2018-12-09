@@ -4,7 +4,7 @@ import {
   CheckboxGroup,
   Radio,
   RadioGroup,
-} from 'react-icheck'; // eslint-disable-line import/no-unresolved
+} from 'react-ui-icheck'; // eslint-disable-line import/no-unresolved
 import { Col, Container, Row } from 'reactstrap';
 import React, { Component } from 'react';
 import Prism from 'prismjs';
@@ -180,7 +180,7 @@ class Skin extends Component {
                 <pre className="m-0">
                   <code className="language-jsx">
                     {`import 'icheck/skins/all.css';
-import { Checkbox, Radio } from 'react-icheck';
+import { Checkbox, Radio } from 'react-ui-icheck';
 
 <Checkbox checkboxClass="${this.getCheckboxClass()}" />
 <Radio radioClass="${this.getRadioClass()}" />`}
