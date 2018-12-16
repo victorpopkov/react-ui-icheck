@@ -28,6 +28,21 @@ body {
     flex-grow: 1;
     justify-content: center;
     width: 100%;
+
+    pre.d-inline {
+      background: $pampas;
+      border-radius: 3px;
+      color: $black;
+      font-size: .85em;
+      padding: .15em 0;
+      white-space: nowrap;
+
+      &::before,
+      &::after {
+        content: '\00a0';
+        letter-spacing: -.2em;
+      }
+    }
   }
 
   footer {
