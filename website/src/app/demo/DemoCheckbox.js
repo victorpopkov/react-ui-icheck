@@ -123,7 +123,7 @@ import { Checkbox } from 'react-ui-icheck';
     labelTagClassName="d-inline"
     disabled
   >
-    <span>#checkbox-3,</span>
+    <span>#checkbox-3, </span>
     <span className="label1">disabled</span>
   </Checkbox>
 </CheckboxGroup>`}
@@ -134,35 +134,35 @@ import { Checkbox } from 'react-ui-icheck';
             <pre>
               <code className="language-html">
                 {`<div>
-  <div className="form-check">
+  <div class="form-check">
     <label>
-      <div className="icheckbox_square-blue" style="position: relative;">
+      <div class="icheckbox_square-blue" style="position: relative;">
         <input type="checkbox" value="" style="position: absolute; top: -30%; left: -30%; display: block; width: 160%; height: 160%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0; cursor: pointer;">
-        <ins className="iCheck-helper" role="presentation" style="position: absolute; top: -30%; left: -30%; display: block; width: 160%; height: 160%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0; cursor: pointer;"></ins>
+        <ins class="iCheck-helper" role="presentation" style="position: absolute; top: -30%; left: -30%; display: block; width: 160%; height: 160%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0; cursor: pointer;"></ins>
       </div>
       <span>#checkbox-1</span>
     </label>
   </div>
-  <div className="form-check">
+  <div class="form-check">
     <label>
-      <div className="icheckbox_square-blue checked" style="position: relative;">
+      <div class="icheckbox_square-blue checked" style="position: relative;">
         <input type="checkbox" value="" checked="" style="position: absolute; top: -30%; left: -30%; display: block; width: 160%; height: 160%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0; cursor: pointer;">
-        <ins className="iCheck-helper" role="presentation" style="position: absolute; top: -30%; left: -30%; display: block; width: 160%; height: 160%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0; cursor: pointer;"></ins>
+        <ins class="iCheck-helper" role="presentation" style="position: absolute; top: -30%; left: -30%; display: block; width: 160%; height: 160%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0; cursor: pointer;"></ins>
       </div>
-      <div className="d-inline">
-        #checkbox-2, <span className="label1">defaultChecked</span>
+      <div class="d-inline">
+        #checkbox-2, <span class="label1">defaultChecked</span>
       </div>
     </label>
   </div>
-  <div className="form-check">
+  <div class="form-check">
     <label>
-      <div className="icheckbox_square-blue disabled" style="position: relative;">
+      <div class="icheckbox_square-blue disabled" style="position: relative;">
         <input disabled="" type="checkbox" value="" style="position: absolute; top: -30%; left: -30%; display: block; width: 160%; height: 160%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0; cursor: default;">
-        <ins className="iCheck-helper" role="presentation" style="position: absolute; top: -30%; left: -30%; display: block; width: 160%; height: 160%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0; cursor: default;"></ins>
+        <ins class="iCheck-helper" role="presentation" style="position: absolute; top: -30%; left: -30%; display: block; width: 160%; height: 160%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0; cursor: default;"></ins>
       </div>
-      <div className="d-inline">
-        <span>#checkbox-3,</span>
-        <span className="label1">disabled</span>
+      <div class="d-inline">
+        <span>#checkbox-3, </span>
+        <span class="label1">disabled</span>
       </div>
     </label>
   </div>
