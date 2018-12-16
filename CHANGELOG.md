@@ -7,6 +7,19 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased][]
 
+### Added
+
+- Website "Properties" blocks in the `Checkbox` and `Radio` demos
+
+### Changed
+
+- Dependencies to match the latest ones
+
+### Fixed
+
+- Website `class` attributes in the "Rendered" tabs of the `Checkbox` and
+`Radio` demos
+
 ## [0.3.0][] - 2018-12-09
 
 ### Added
