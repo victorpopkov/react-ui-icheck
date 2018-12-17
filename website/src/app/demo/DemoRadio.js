@@ -198,7 +198,7 @@ this.state = {
         <h5 className="mb-4 mt-4">Properties</h5>
         <Row>
           <Col xs={12}>
-            <h6 className="mb-4 mt-4">CheckboxGroup</h6>
+            <h6 className="mb-4 mt-4">RadioGroup</h6>
             <pre>
               <code className="language-jsx">
                 {`RadioGroup.propTypes = {
@@ -217,7 +217,7 @@ this.state = {
         </Row>
         <Row>
           <Col xs={12}>
-            <h6 className="mb-4 mt-4">Checkbox</h6>
+            <h6 className="mb-4 mt-4">Radio</h6>
             <pre>
               <code className="language-jsx">
                 {`Radio.propTypes = {
