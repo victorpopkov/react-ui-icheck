@@ -184,7 +184,7 @@ class SkinLine extends Component {
                 <Col className="pt-4" md={11}>
                   <pre className="m-0">
                     <code className="language-jsx">
-                      {`import 'icheck/skins/all.css';
+                      {`import 'icheck/skins/line/${color || 'line'}.css';
 import { Checkbox, Radio } from 'react-ui-icheck';
 
 <Checkbox checkboxClass="${this.getCheckboxClass()}" />

@@ -6,7 +6,7 @@ import Skin from './Skin';
 const SkinPolaris = () => (
   <main className="skin polaris" role="main">
     <Jumbotron />
-    <Skin skin="polaris" title="Polaris skin" />
+    <Skin defaultColor="polaris" skin="polaris" title="Polaris skin" />
   </main>
 );
 

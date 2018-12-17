@@ -6,7 +6,7 @@ import Skin from './Skin';
 const SkinFlat = () => (
   <main className="skin flat" role="main">
     <Jumbotron />
-    <Skin skin="flat" title="Flat skin" colorSchemes />
+    <Skin defaultColor="flat" skin="flat" title="Flat skin" colorSchemes />
   </main>
 );
 

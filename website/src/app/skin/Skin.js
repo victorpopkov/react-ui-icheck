@@ -18,6 +18,7 @@ class Skin extends Component {
   static propTypes = {
     color: PropTypes.string,
     colorSchemes: PropTypes.bool,
+    defaultColor: PropTypes.string,
     skin: PropTypes.string,
     title: PropTypes.string,
   };
@@ -25,6 +26,7 @@ class Skin extends Component {
   static defaultProps = {
     color: null,
     colorSchemes: false,
+    defaultColor: null,
     skin: null,
     title: null,
   };
@@ -83,7 +85,12 @@ class Skin extends Component {
   }
 
   render() {
-    const { colorSchemes, skin, title } = this.props;
+    const {
+      colorSchemes,
+      defaultColor,
+      skin,
+      title,
+    } = this.props;
     const { color, radioValue } = this.state;
 
     return (
@@ -179,7 +186,7 @@ class Skin extends Component {
               <Col className="pt-4" md={11}>
                 <pre className="m-0">
                   <code className="language-jsx">
-                    {`import 'icheck/skins/all.css';
+                    {`import 'icheck/skins/${skin}/${color || defaultColor}.css';
 import { Checkbox, Radio } from 'react-ui-icheck';
 
 <Checkbox checkboxClass="${this.getCheckboxClass()}" />

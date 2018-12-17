@@ -6,7 +6,7 @@ import Skin from './Skin';
 const SkinMinimal = () => (
   <main className="skin minimal" role="main">
     <Jumbotron />
-    <Skin skin="minimal" title="Minimal skin" colorSchemes />
+    <Skin defaultColor="minimal" skin="minimal" title="Minimal skin" colorSchemes />
   </main>
 );
 

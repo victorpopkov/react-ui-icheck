@@ -6,7 +6,7 @@ import Skin from './Skin';
 const SkinSquare = () => (
   <main className="skin square" role="main">
     <Jumbotron />
-    <Skin skin="square" title="Square skin" colorSchemes />
+    <Skin defaultColor="square" skin="square" title="Square skin" colorSchemes />
   </main>
 );
 
