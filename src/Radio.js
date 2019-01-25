@@ -76,7 +76,7 @@ class Radio extends Component {
     name: null,
     radioClass: 'iradio',
     type: null,
-    value: null,
+    value: '',
     onBlur: null,
     onChange: null,
     onFocus: null,
