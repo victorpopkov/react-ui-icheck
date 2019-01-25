@@ -74,7 +74,7 @@ class Checkbox extends Component {
     labelTagClassName: null,
     name: null,
     type: null,
-    value: null,
+    value: '',
     onBlur: null,
     onChange: null,
     onFocus: null,
