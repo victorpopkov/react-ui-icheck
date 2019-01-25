@@ -10,12 +10,14 @@ Object {
     checkboxClass="icheckbox"
     checked={false}
     checkedClass="checked"
+    className={null}
     defaultChecked={false}
     determinateClass={null}
     disabled={false}
     disabledClass="disabled"
     focusClass="focus"
     hoverClass="hover"
+    id={null}
     increaseArea=""
     indeterminate={true}
     indeterminateClass="indeterminate"
@@ -28,9 +30,17 @@ Object {
     labelHoverClass="hover"
     labelTag="span"
     labelTagClassName={null}
+    name={null}
     onBlur={null}
     onChange={null}
     onFocus={null}
+    onMouseDown={null}
+    onMouseLeave={null}
+    onMouseUp={null}
+    onTouchEnd={null}
+    onTouchStart={null}
+    type={null}
+    value=""
   />,
   "className": null,
 }
@@ -51,12 +61,14 @@ exports[`<CheckboxGroup /> component should render the corresponding HTML when o
       checkboxClass="icheckbox"
       checked={false}
       checkedClass="checked"
+      className={null}
       defaultChecked={false}
       determinateClass={null}
       disabled={false}
       disabledClass="disabled"
       focusClass="focus"
       hoverClass="hover"
+      id={null}
       increaseArea=""
       indeterminate={true}
       indeterminateClass="indeterminate"
@@ -70,9 +82,17 @@ exports[`<CheckboxGroup /> component should render the corresponding HTML when o
       labelHoverClass="hover"
       labelTag="span"
       labelTagClassName={null}
+      name={null}
       onBlur={null}
       onChange={null}
       onFocus={null}
+      onMouseDown={null}
+      onMouseLeave={null}
+      onMouseUp={null}
+      onTouchEnd={null}
+      onTouchStart={null}
+      type={null}
+      value=""
     >
       <Input
         activeClass="active"
@@ -96,6 +116,7 @@ exports[`<CheckboxGroup /> component should render the corresponding HTML when o
         inputType="checkbox"
         insert={null}
         isMobile={false}
+        label={null}
         name={null}
         onBlur={null}
         onChange={null}
@@ -109,6 +130,7 @@ exports[`<CheckboxGroup /> component should render the corresponding HTML when o
           <input
             checked={false}
             disabled={false}
+            label={null}
             name={null}
             onBlur={[Function]}
             onChange={[Function]}
@@ -169,27 +191,38 @@ exports[`<CheckboxGroup /> component should render the corresponding HTML when t
         checkboxClass="icheckbox"
         checked={false}
         checkedClass="checked"
+        className={null}
         defaultChecked={false}
         determinateClass={null}
         disabled={false}
         disabledClass="disabled"
         focusClass="focus"
         hoverClass="hover"
+        id={null}
         increaseArea=""
         indeterminate={true}
         indeterminateClass="indeterminate"
         inheritClass={false}
         inheritID={false}
         insert={null}
+        key=""
         label={null}
         labelClassName={null}
         labelHover={true}
         labelHoverClass="hover"
         labelTag="span"
         labelTagClassName={null}
+        name={null}
         onBlur={null}
         onChange={null}
         onFocus={null}
+        onMouseDown={null}
+        onMouseLeave={null}
+        onMouseUp={null}
+        onTouchEnd={null}
+        onTouchStart={null}
+        type={null}
+        value=""
       >
         <Input
           activeClass="active"
@@ -213,6 +246,7 @@ exports[`<CheckboxGroup /> component should render the corresponding HTML when t
           inputType="checkbox"
           insert={null}
           isMobile={false}
+          label={null}
           name={null}
           onBlur={null}
           onChange={null}
@@ -226,6 +260,7 @@ exports[`<CheckboxGroup /> component should render the corresponding HTML when t
             <input
               checked={false}
               disabled={false}
+              label={null}
               name={null}
               onBlur={[Function]}
               onChange={[Function]}

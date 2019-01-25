@@ -7,28 +7,39 @@ Object {
     aria={false}
     checked={false}
     checkedClass="checked"
+    className={null}
     defaultChecked={false}
     determinateClass={null}
     disabled={false}
     disabledClass="disabled"
     focusClass="focus"
     hoverClass="hover"
+    id={null}
     increaseArea=""
     indeterminate={true}
     indeterminateClass="indeterminate"
     inheritClass={false}
     inheritID={false}
     insert={null}
+    isMobile={false}
     label={null}
     labelClassName={null}
     labelHover={true}
     labelHoverClass="hover"
     labelTag="span"
     labelTagClassName={null}
+    name={null}
     onBlur={null}
     onChange={null}
     onFocus={null}
+    onMouseDown={null}
+    onMouseLeave={null}
+    onMouseUp={null}
+    onTouchEnd={null}
+    onTouchStart={null}
     radioClass="iradio"
+    type={null}
+    value=""
   />,
   "className": null,
   "defaultValue": null,
@@ -56,20 +67,23 @@ exports[`<RadioGroup /> component should render the corresponding HTML when only
     <Radio
       activeClass="active"
       aria={false}
-      checked={false}
+      checked={true}
       checkedClass="checked"
+      className={null}
       defaultChecked={false}
       determinateClass={null}
       disabled={false}
       disabledClass="disabled"
       focusClass="focus"
       hoverClass="hover"
+      id={null}
       increaseArea=""
       indeterminate={true}
       indeterminateClass="indeterminate"
       inheritClass={false}
       inheritID={false}
       insert={null}
+      isMobile={false}
       key=".0"
       label={null}
       labelClassName={null}
@@ -77,16 +91,24 @@ exports[`<RadioGroup /> component should render the corresponding HTML when only
       labelHoverClass="hover"
       labelTag="span"
       labelTagClassName={null}
+      name={null}
       onBlur={null}
       onChange={[Function]}
       onFocus={null}
+      onMouseDown={null}
+      onMouseLeave={null}
+      onMouseUp={null}
+      onTouchEnd={null}
+      onTouchStart={null}
       radioClass="iradio"
+      type={null}
+      value=""
     >
       <Input
         activeClass="active"
         aria={false}
         checkboxClass="icheckbox"
-        checked={false}
+        checked={true}
         checkedClass="checked"
         className={null}
         defaultChecked={false}
@@ -104,6 +126,7 @@ exports[`<RadioGroup /> component should render the corresponding HTML when only
         inputType="radio"
         insert={null}
         isMobile={false}
+        label={null}
         name={null}
         onBlur={null}
         onChange={[Function]}
@@ -112,11 +135,12 @@ exports[`<RadioGroup /> component should render the corresponding HTML when only
         value=""
       >
         <div
-          className="iradio indeterminate"
+          className="iradio indeterminate checked"
         >
           <input
-            checked={false}
+            checked={true}
             disabled={false}
+            label={null}
             name={null}
             onBlur={[Function]}
             onChange={[Function]}
@@ -178,36 +202,48 @@ exports[`<RadioGroup /> component should render the corresponding HTML when the 
       <Radio
         activeClass="active"
         aria={false}
-        checked={false}
+        checked={true}
         checkedClass="checked"
+        className={null}
         defaultChecked={false}
         determinateClass={null}
         disabled={false}
         disabledClass="disabled"
         focusClass="focus"
         hoverClass="hover"
+        id={null}
         increaseArea=""
         indeterminate={true}
         indeterminateClass="indeterminate"
         inheritClass={false}
         inheritID={false}
         insert={null}
+        isMobile={false}
+        key=""
         label={null}
         labelClassName={null}
         labelHover={true}
         labelHoverClass="hover"
         labelTag="span"
         labelTagClassName={null}
+        name={null}
         onBlur={null}
         onChange={[Function]}
         onFocus={null}
+        onMouseDown={null}
+        onMouseLeave={null}
+        onMouseUp={null}
+        onTouchEnd={null}
+        onTouchStart={null}
         radioClass="iradio"
+        type={null}
+        value=""
       >
         <Input
           activeClass="active"
           aria={false}
           checkboxClass="icheckbox"
-          checked={false}
+          checked={true}
           checkedClass="checked"
           className={null}
           defaultChecked={false}
@@ -225,6 +261,7 @@ exports[`<RadioGroup /> component should render the corresponding HTML when the 
           inputType="radio"
           insert={null}
           isMobile={false}
+          label={null}
           name={null}
           onBlur={null}
           onChange={[Function]}
@@ -233,11 +270,12 @@ exports[`<RadioGroup /> component should render the corresponding HTML when the 
           value=""
         >
           <div
-            className="iradio indeterminate"
+            className="iradio indeterminate checked"
           >
             <input
-              checked={false}
+              checked={true}
               disabled={false}
+              label={null}
               name={null}
               onBlur={[Function]}
               onChange={[Function]}
@@ -302,18 +340,21 @@ exports[`<RadioGroup /> component should update the state when handling the <inp
         aria={false}
         checked={false}
         checkedClass="checked"
+        className={null}
         defaultChecked={false}
         determinateClass={null}
         disabled={false}
         disabledClass="disabled"
         focusClass="focus"
         hoverClass="hover"
+        id={null}
         increaseArea=""
         indeterminate={true}
         indeterminateClass="indeterminate"
         inheritClass={false}
         inheritID={false}
         insert={null}
+        isMobile={false}
         key="1"
         label={null}
         labelClassName={null}
@@ -321,10 +362,17 @@ exports[`<RadioGroup /> component should update the state when handling the <inp
         labelHoverClass="hover"
         labelTag="span"
         labelTagClassName={null}
+        name={null}
         onBlur={null}
         onChange={[Function]}
         onFocus={null}
+        onMouseDown={null}
+        onMouseLeave={null}
+        onMouseUp={null}
+        onTouchEnd={null}
+        onTouchStart={null}
         radioClass="iradio"
+        type={null}
         value="1"
       >
         <Input
@@ -349,6 +397,7 @@ exports[`<RadioGroup /> component should update the state when handling the <inp
           inputType="radio"
           insert={null}
           isMobile={false}
+          label={null}
           name={null}
           onBlur={null}
           onChange={[Function]}
@@ -362,6 +411,7 @@ exports[`<RadioGroup /> component should update the state when handling the <inp
             <input
               checked={false}
               disabled={false}
+              label={null}
               name={null}
               onBlur={[Function]}
               onChange={[Function]}
@@ -409,18 +459,21 @@ exports[`<RadioGroup /> component should update the state when handling the <inp
         aria={false}
         checked={false}
         checkedClass="checked"
+        className={null}
         defaultChecked={false}
         determinateClass={null}
         disabled={false}
         disabledClass="disabled"
         focusClass="focus"
         hoverClass="hover"
+        id={null}
         increaseArea=""
         indeterminate={true}
         indeterminateClass="indeterminate"
         inheritClass={false}
         inheritID={false}
         insert={null}
+        isMobile={false}
         key="2"
         label={null}
         labelClassName={null}
@@ -428,10 +481,17 @@ exports[`<RadioGroup /> component should update the state when handling the <inp
         labelHoverClass="hover"
         labelTag="span"
         labelTagClassName={null}
+        name={null}
         onBlur={null}
         onChange={[Function]}
         onFocus={null}
+        onMouseDown={null}
+        onMouseLeave={null}
+        onMouseUp={null}
+        onTouchEnd={null}
+        onTouchStart={null}
         radioClass="iradio"
+        type={null}
         value="2"
       >
         <Input
@@ -456,6 +516,7 @@ exports[`<RadioGroup /> component should update the state when handling the <inp
           inputType="radio"
           insert={null}
           isMobile={false}
+          label={null}
           name={null}
           onBlur={null}
           onChange={[Function]}
@@ -469,6 +530,7 @@ exports[`<RadioGroup /> component should update the state when handling the <inp
             <input
               checked={false}
               disabled={false}
+              label={null}
               name={null}
               onBlur={[Function]}
               onChange={[Function]}
