@@ -200,13 +200,15 @@ import { Checkbox, CheckboxGroup } from 'react-ui-icheck';
   checked: PropTypes.bool,              // default: false
   checkedClass: PropTypes.string,       // default: 'checked'
   children: PropTypes.node,
+  className: PropTypes.string,
   defaultChecked: PropTypes.bool,       // default: false
   determinateClass: PropTypes.string,
-  disabled: PropTypes.bool,
+  disabled: PropTypes.bool,             // default: false
   disabledClass: PropTypes.string,      // default: 'disabled'
   focusClass: PropTypes.string,         // default: 'focus'
   hoverClass: PropTypes.string,         // default: 'hover'
-  increaseArea: PropTypes.string,
+  id: PropTypes.string,
+  increaseArea: PropTypes.string,       // default: ''
   indeterminate: PropTypes.bool,        // default: true
   indeterminateClass: PropTypes.string, // default: 'indeterminate'
   inheritClass: PropTypes.bool,         // default: false
@@ -218,9 +220,17 @@ import { Checkbox, CheckboxGroup } from 'react-ui-icheck';
   labelHoverClass: PropTypes.string,    // default: 'hover'
   labelTag: PropTypes.string,           // default: 'span'
   labelTagClassName: PropTypes.string,
+  name: PropTypes.string,
+  type: PropTypes.string,
+  value: PropTypes.string,              // default: ''
   onBlur: PropTypes.func,
   onChange: PropTypes.func,
   onFocus: PropTypes.func,
+  onMouseDown: PropTypes.func,
+  onMouseLeave: PropTypes.func,
+  onMouseUp: PropTypes.func,
+  onTouchEnd: PropTypes.func,
+  onTouchStart: PropTypes.func,
 };`}
               </code>
             </pre>
