@@ -9,16 +9,27 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ### Added
 
+- Helper `deprecated` for wrapping the deprecated `PropTypes` in the future
+releases
+- Missing `Checkbox` and `Radio` properties to match the ones used in the
+`Input` component
 - Website "Properties" blocks in the `Checkbox` and `Radio` demos
 
 ### Changed
 
 - Dependencies to match the latest ones
 
+### Removed
+
+- Node.js v9 support
+- Website `main` content vertical alignment
+
 ### Fixed
 
+- Paths in the `lint:stylelint` script of the `package.json`
 - Website `class` attributes in the "Rendered" tabs of the `Checkbox` and
 `Radio` demos
+- Website imports alongside the imports in the demos
 
 ## [0.3.0][] - 2018-12-09
 
