@@ -47,13 +47,11 @@ class DemoRadioInline extends Component {
             onChange={(event, value) => this.setState({ radioValue: value })}
           >
             <Radio
-              increaseArea="30%"
               label="#radio-1"
               radioClass="iradio_square-blue"
               value="1"
             />
             <Radio
-              increaseArea="30%"
               label="#radio-2"
               labelTag="div"
               labelTagClassName="d-inline"
@@ -61,7 +59,6 @@ class DemoRadioInline extends Component {
               value="2"
             />
             <Radio
-              increaseArea="30%"
               labelTag="div"
               labelTagClassName="d-inline"
               radioClass="iradio_square-blue"
@@ -110,20 +107,14 @@ this.state = {
   radioWrapClassName="form-check form-check-inline"
   radioWrapTag="div"
   value={radioValue}
-  onChange={(event, value) => {
-    this.setState({
-      radioValue: value,
-    });
-  }}
+  onChange={(event, value) => this.setState({ radioValue: value })}
 >
   <Radio
-    increaseArea="30%"
     label="#radio-1"
     radioClass="iradio_square-blue"
     value="1"
   />
   <Radio
-    increaseArea="30%"
     label="#radio-2"
     labelTag="div"
     labelTagClassName="d-inline"
@@ -131,7 +122,6 @@ this.state = {
     value="2"
   />
   <Radio
-    increaseArea="30%"
     labelTag="div"
     labelTagClassName="d-inline"
     radioClass="iradio_square-blue"
@@ -151,32 +141,30 @@ this.state = {
                 {`<div>
   <div class="form-check form-check-inline">
     <label>
-      <div class="icheckbox_square-blue" style="position: relative;">
-        <input type="checkbox" value="" style="position: absolute; top: -30%; left: -30%; display: block; width: 160%; height: 160%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0; cursor: pointer;">
-        <ins class="iCheck-helper" role="presentation" style="position: absolute; top: -30%; left: -30%; display: block; width: 160%; height: 160%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0; cursor: pointer;"></ins>
+      <div class="iradio_square-blue indeterminate">
+        <input type="radio" value="1" style="opacity: 0; position: absolute;">
+        <ins class="iCheck-helper" role="presentation" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0; cursor: pointer;"></ins>
       </div>
-      <span>#checkbox-1</span>
+      <span>#radio-1</span>
     </label>
   </div>
   <div class="form-check form-check-inline">
     <label>
-      <div class="icheckbox_square-blue checked" style="position: relative;">
-        <input type="checkbox" value="" checked="" style="position: absolute; top: -30%; left: -30%; display: block; width: 160%; height: 160%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0; cursor: pointer;">
-        <ins class="iCheck-helper" role="presentation" style="position: absolute; top: -30%; left: -30%; display: block; width: 160%; height: 160%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0; cursor: pointer;"></ins>
+      <div class="iradio_square-blue indeterminate checked">
+        <input type="radio" value="2" checked="" style="opacity: 0; position: absolute;">
+        <ins class="iCheck-helper" role="presentation" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0; cursor: pointer;"></ins>
       </div>
-      <div class="d-inline">
-        #checkbox-2, <span class="label1">defaultChecked</span>
-      </div>
+      <div class="d-inline">#radio-2</div>
     </label>
   </div>
   <div class="form-check form-check-inline">
     <label>
-      <div class="icheckbox_square-blue disabled" style="position: relative;">
-        <input disabled="" type="checkbox" value="" style="position: absolute; top: -30%; left: -30%; display: block; width: 160%; height: 160%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0; cursor: default;">
-        <ins class="iCheck-helper" role="presentation" style="position: absolute; top: -30%; left: -30%; display: block; width: 160%; height: 160%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0; cursor: default;"></ins>
+      <div class="iradio_square-blue indeterminate disabled">
+        <input disabled="" type="radio" value="3" style="opacity: 0; position: absolute;">
+        <ins class="iCheck-helper" role="presentation" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0; cursor: default;"></ins>
       </div>
       <div class="d-inline">
-        <span>#checkbox-3, </span>
+        <span>#radio-3, </span>
         <span class="label1">disabled</span>
       </div>
     </label>
