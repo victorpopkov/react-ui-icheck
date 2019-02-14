@@ -7,6 +7,7 @@ import Demo from './app/demo/Demo';
 import Error404 from './app/error/404/Error404';
 import Home from './app/home/Home';
 import Installation from './app/installation/Installation';
+import Radio from './app/radio/Radio';
 import SkinFlat from './app/skin/SkinFlat';
 import SkinFuturico from './app/skin/SkinFuturico';
 import SkinLine from './app/skin/SkinLine';
@@ -21,6 +22,7 @@ const routes = (
         <Route component={Home} path="/" exact />
         <Route component={Checkbox} path="/checkbox" exact />
         <Route component={Demo} path="/demo" exact />
+        <Route component={Radio} path="/radio" exact />
         <Route component={Installation} path="/installation" exact />
         <Route component={SkinFlat} path="/skin/flat" exact />
         <Route component={SkinFuturico} path="/skin/futurico" exact />
