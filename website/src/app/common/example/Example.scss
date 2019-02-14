@@ -1,0 +1,31 @@
+:local {
+  .example {
+    border: 1px solid rgba(0, 0, 0, .1);
+    border-radius: 3px;
+    display: flex;
+    padding: 30px;
+    position: relative;
+
+    :global {
+      .form-check {
+        &:last-child {
+          label {
+            margin-bottom: 0;
+          }
+        }
+
+        &.form-check-inline {
+          label {
+            margin-bottom: 0;
+          }
+        }
+      }
+    }
+
+    .view-source {
+      position: absolute;
+      right: -1px;
+      top: -1px;
+    }
+  }
+}
