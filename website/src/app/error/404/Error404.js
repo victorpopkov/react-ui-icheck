@@ -5,7 +5,7 @@ import React from 'react';
 import { hot } from 'react-hot-loader';
 
 const Error404 = () => (
-  <main role="main" styleName="error">
+  <main className="justify-content-center" role="main" styleName="error">
     <Container className="text-center">
       <h1>404</h1>
       <h2>Page Not Found</h2>
