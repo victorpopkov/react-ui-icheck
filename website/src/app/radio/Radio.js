@@ -124,6 +124,7 @@ this.state = {
                     title="Inline"
                   >
                     <RadioGroup
+                      className="d-flex align-items-center"
                       name="radio"
                       radioWrapClassName="form-check form-check-inline"
                       radioWrapTag="div"
