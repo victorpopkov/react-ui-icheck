@@ -17,8 +17,13 @@ const Sidebar = () => (
         </IndexLinkContainer>
       </NavItem>
       <NavItem>
-        <LinkContainer to="/demo">
-          <NavLink>Demo</NavLink>
+        <LinkContainer to="/checkbox">
+          <NavLink>Checkbox</NavLink>
+        </LinkContainer>
+      </NavItem>
+      <NavItem>
+        <LinkContainer to="/radio">
+          <NavLink>Radio</NavLink>
         </LinkContainer>
       </NavItem>
       <NavItem>
