@@ -12,8 +12,8 @@ import React, { Component } from 'react';
 import classNames from 'classnames';
 import { hot } from 'react-hot-loader';
 import { Jumbotron, Sidebar } from '../common'; // eslint-disable-line sort-imports
-import DemoCheckbox from './DemoCheckbox';
-import DemoRadio from './DemoRadio';
+import DemoCheckbox from './checkbox/DemoCheckbox';
+import DemoRadio from './radio/DemoRadio';
 
 @hot(module)
 class Demo extends Component {
@@ -31,9 +31,7 @@ class Demo extends Component {
     const { activeTab } = this.state;
 
     if (activeTab !== tab) {
-      this.setState({
-        activeTab: tab,
-      });
+      this.setState({ activeTab: tab });
     }
   }
 
