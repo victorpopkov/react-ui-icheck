@@ -44,8 +44,13 @@ class Navbar extends Component {
               <hr className="d-block d-sm-none" />
               <Nav navbar>
                 <NavItem className="d-none d-md-inline-block">
-                  <LinkContainer to="/demo">
-                    <NavLink>Demo</NavLink>
+                  <LinkContainer to="/checkbox">
+                    <NavLink>Checkbox</NavLink>
+                  </LinkContainer>
+                </NavItem>
+                <NavItem className="d-none d-md-inline-block">
+                  <LinkContainer to="/radio">
+                    <NavLink>Radio</NavLink>
                   </LinkContainer>
                 </NavItem>
                 <NavItem>
@@ -63,8 +68,13 @@ class Navbar extends Component {
                   </IndexLinkContainer>
                 </NavItem>
                 <NavItem>
-                  <LinkContainer to="/demo">
-                    <NavLink>Demo</NavLink>
+                  <LinkContainer to="/checkbox">
+                    <NavLink>Checkbox</NavLink>
+                  </LinkContainer>
+                </NavItem>
+                <NavItem>
+                  <LinkContainer to="/radio">
+                    <NavLink>Radio</NavLink>
                   </LinkContainer>
                 </NavItem>
                 <NavItem>
