@@ -105,6 +105,14 @@ module.exports = merge(common, {
             drop_console: true,
             warnings: false,
           },
+          mangle: {
+            reserved: [
+              'Checkbox',
+              'CheckboxGroup',
+              'Radio',
+              'RadioGroup',
+            ],
+          },
         },
         sourceMap: true,
       }),
