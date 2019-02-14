@@ -3,7 +3,6 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './app/App'; // eslint-disable-line sort-imports
 import Checkbox from './app/checkbox/Checkbox';
-import Demo from './app/demo/Demo';
 import Error404 from './app/error/404/Error404';
 import Home from './app/home/Home';
 import Installation from './app/installation/Installation';
@@ -21,7 +20,6 @@ const routes = (
       <Switch>
         <Route component={Home} path="/" exact />
         <Route component={Checkbox} path="/checkbox" exact />
-        <Route component={Demo} path="/demo" exact />
         <Route component={Radio} path="/radio" exact />
         <Route component={Installation} path="/installation" exact />
         <Route component={SkinFlat} path="/skin/flat" exact />
