@@ -8,12 +8,15 @@ indent_style = space
 max_line_length = 100
 trim_trailing_whitespace = true
 
-[*.yml]
-indent_size = 4
-
-[.travis.yml]
-indent_size = 2
-
+# Markdown Files
 [*.md]
 max_line_length = 80
 trim_trailing_whitespace = false
+
+# YAML Files
+[*.yml]
+indent_size = 4
+
+# Travis Config File
+[.travis.yml]
+indent_size = 2
