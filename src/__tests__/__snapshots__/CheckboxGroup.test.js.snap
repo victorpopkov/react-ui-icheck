@@ -6,6 +6,7 @@ Object {
   "checkboxWrapTag": null,
   "children": <Checkbox
     activeClass="active"
+    activeClassName="active"
     aria={false}
     checkboxClass="icheckbox"
     checked={false}
@@ -57,6 +58,7 @@ exports[`<CheckboxGroup /> component should render the corresponding HTML when o
   >
     <Checkbox
       activeClass="active"
+      activeClassName="active"
       aria={false}
       checkboxClass="icheckbox"
       checked={false}
@@ -96,6 +98,7 @@ exports[`<CheckboxGroup /> component should render the corresponding HTML when o
     >
       <Input
         activeClass="active"
+        activeClassName="active"
         aria={false}
         checkboxClass="icheckbox"
         checked={false}
@@ -187,6 +190,7 @@ exports[`<CheckboxGroup /> component should render the corresponding HTML when t
     >
       <Checkbox
         activeClass="active"
+        activeClassName="active"
         aria={false}
         checkboxClass="icheckbox"
         checked={false}
@@ -226,6 +230,7 @@ exports[`<CheckboxGroup /> component should render the corresponding HTML when t
       >
         <Input
           activeClass="active"
+          activeClassName="active"
           aria={false}
           checkboxClass="icheckbox"
           checked={false}

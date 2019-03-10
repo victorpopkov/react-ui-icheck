@@ -3,6 +3,7 @@
 exports[`<Checkbox /> component should have the default props values when mounted 1`] = `
 Object {
   "activeClass": "active",
+  "activeClassName": "active",
   "aria": false,
   "checkboxClass": "icheckbox",
   "checked": false,

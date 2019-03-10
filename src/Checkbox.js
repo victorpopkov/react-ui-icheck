@@ -3,10 +3,12 @@ import PropTypes from 'prop-types';
 import mobile from 'is-mobile';
 import Input from './components/Input'; // eslint-disable-line sort-imports
 import Label from './components/Label';
+import deprecated from './helpers/deprecated';
 
 class Checkbox extends Component {
   static propTypes = {
-    activeClass: PropTypes.string,
+    activeClass: deprecated(PropTypes.string, 'activeClassName'),
+    activeClassName: PropTypes.string,
     aria: PropTypes.bool,
     checkboxClass: PropTypes.string,
     checked: PropTypes.bool,
@@ -47,6 +49,7 @@ class Checkbox extends Component {
 
   static defaultProps = {
     activeClass: 'active',
+    activeClassName: 'active',
     aria: false,
     checkboxClass: 'icheckbox',
     checked: false,
@@ -119,6 +122,7 @@ class Checkbox extends Component {
   renderInput() {
     const {
       activeClass,
+      activeClassName,
       aria,
       checkboxClass,
       checkedClass,
@@ -165,6 +169,7 @@ class Checkbox extends Component {
       <Input
         {...other}
         activeClass={activeClass}
+        activeClassName={activeClassName}
         aria={aria}
         checkboxClass={checkboxClass}
         checked={stateChecked}

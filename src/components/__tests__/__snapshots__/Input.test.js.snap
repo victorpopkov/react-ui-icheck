@@ -3,6 +3,7 @@
 exports[`<Input /> component with the prop inputType set to "checkbox" should have the default props values when mounted 1`] = `
 Object {
   "activeClass": null,
+  "activeClassName": null,
   "aria": false,
   "checkboxClass": "icheckbox",
   "checked": false,
@@ -248,6 +249,7 @@ exports[`<Input /> component with the prop inputType set to "checkbox" should re
 exports[`<Input /> component with the prop inputType set to "radio" should have the default props values when mounted 1`] = `
 Object {
   "activeClass": null,
+  "activeClassName": null,
   "aria": false,
   "checkboxClass": "icheckbox",
   "checked": false,

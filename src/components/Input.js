@@ -9,6 +9,7 @@ class Input extends Component {
   static propTypes = {
     inputType: PropTypes.string.isRequired,
     activeClass: PropTypes.string,
+    activeClassName: PropTypes.string,
     aria: PropTypes.bool,
     checkboxClass: PropTypes.string,
     checked: PropTypes.bool,
@@ -39,6 +40,7 @@ class Input extends Component {
 
   static defaultProps = {
     activeClass: null,
+    activeClassName: null,
     aria: false,
     checkboxClass: 'icheckbox',
     checked: false,
@@ -178,6 +180,7 @@ class Input extends Component {
   render() {
     const {
       activeClass,
+      activeClassName,
       aria,
       checkboxClass,
       checkedClass,
@@ -222,7 +225,7 @@ class Input extends Component {
         [disabledClass]: disabled,
         [hoverClass]: stateHovered,
         [focusClass]: focused,
-        [activeClass]: active,
+        [activeClassName || activeClass]: active,
       }),
     };
 
