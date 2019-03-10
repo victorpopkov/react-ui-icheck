@@ -3,6 +3,7 @@
 exports[`<Radio /> component should have the default props values when mounted 1`] = `
 Object {
   "activeClass": "active",
+  "activeClassName": "active",
   "aria": false,
   "checked": false,
   "checkedClass": "checked",

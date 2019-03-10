@@ -4,6 +4,7 @@ exports[`<RadioGroup /> component should have the default props values when moun
 Object {
   "children": <Radio
     activeClass="active"
+    activeClassName="active"
     aria={false}
     checked={false}
     checkedClass="checked"
@@ -66,6 +67,7 @@ exports[`<RadioGroup /> component should render the corresponding HTML when only
   >
     <Radio
       activeClass="active"
+      activeClassName="active"
       aria={false}
       checked={true}
       checkedClass="checked"
@@ -106,6 +108,7 @@ exports[`<RadioGroup /> component should render the corresponding HTML when only
     >
       <Input
         activeClass="active"
+        activeClassName="active"
         aria={false}
         checkboxClass="icheckbox"
         checked={true}
@@ -201,6 +204,7 @@ exports[`<RadioGroup /> component should render the corresponding HTML when the 
     >
       <Radio
         activeClass="active"
+        activeClassName="active"
         aria={false}
         checked={true}
         checkedClass="checked"
@@ -241,6 +245,7 @@ exports[`<RadioGroup /> component should render the corresponding HTML when the 
       >
         <Input
           activeClass="active"
+          activeClassName="active"
           aria={false}
           checkboxClass="icheckbox"
           checked={true}
@@ -337,6 +342,7 @@ exports[`<RadioGroup /> component should update the state when handling the <inp
     >
       <Radio
         activeClass="active"
+        activeClassName="active"
         aria={false}
         checked={false}
         checkedClass="checked"
@@ -377,6 +383,7 @@ exports[`<RadioGroup /> component should update the state when handling the <inp
       >
         <Input
           activeClass="active"
+          activeClassName="active"
           aria={false}
           checkboxClass="icheckbox"
           checked={false}
@@ -456,6 +463,7 @@ exports[`<RadioGroup /> component should update the state when handling the <inp
     >
       <Radio
         activeClass="active"
+        activeClassName="active"
         aria={false}
         checked={false}
         checkedClass="checked"
@@ -496,6 +504,7 @@ exports[`<RadioGroup /> component should update the state when handling the <inp
       >
         <Input
           activeClass="active"
+          activeClassName="active"
           aria={false}
           checkboxClass="icheckbox"
           checked={false}

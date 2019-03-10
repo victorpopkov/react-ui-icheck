@@ -3,10 +3,12 @@ import PropTypes from 'prop-types';
 import mobile from 'is-mobile';
 import Input from './components/Input'; // eslint-disable-line sort-imports
 import Label from './components/Label';
+import deprecated from './helpers/deprecated';
 
 class Radio extends Component {
   static propTypes = {
-    activeClass: PropTypes.string,
+    activeClass: deprecated(PropTypes.string, 'activeClassName'),
+    activeClassName: PropTypes.string,
     aria: PropTypes.bool,
     checked: PropTypes.bool,
     checkedClass: PropTypes.string,
@@ -48,6 +50,7 @@ class Radio extends Component {
 
   static defaultProps = {
     activeClass: 'active',
+    activeClassName: 'active',
     aria: false,
     checked: false,
     checkedClass: 'checked',
@@ -121,6 +124,7 @@ class Radio extends Component {
   renderInput() {
     const {
       activeClass,
+      activeClassName,
       aria,
       checkedClass,
       className,
@@ -168,6 +172,7 @@ class Radio extends Component {
       <Input
         {...other}
         activeClass={activeClass}
+        activeClassName={activeClassName}
         aria={aria}
         checked={stateChecked}
         checkedClass={checkedClass}
