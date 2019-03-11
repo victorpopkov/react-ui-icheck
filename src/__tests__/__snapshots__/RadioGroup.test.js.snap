@@ -111,6 +111,7 @@ exports[`<RadioGroup /> component should render the corresponding HTML when only
         activeClassName="active"
         aria={false}
         checkboxClass="icheckbox"
+        checkboxClassName="icheckbox"
         checked={true}
         checkedClass="checked"
         className={null}
@@ -248,6 +249,7 @@ exports[`<RadioGroup /> component should render the corresponding HTML when the 
           activeClassName="active"
           aria={false}
           checkboxClass="icheckbox"
+          checkboxClassName="icheckbox"
           checked={true}
           checkedClass="checked"
           className={null}
@@ -386,6 +388,7 @@ exports[`<RadioGroup /> component should update the state when handling the <inp
           activeClassName="active"
           aria={false}
           checkboxClass="icheckbox"
+          checkboxClassName="icheckbox"
           checked={false}
           checkedClass="checked"
           className={null}
@@ -507,6 +510,7 @@ exports[`<RadioGroup /> component should update the state when handling the <inp
           activeClassName="active"
           aria={false}
           checkboxClass="icheckbox"
+          checkboxClassName="icheckbox"
           checked={false}
           checkedClass="checked"
           className={null}

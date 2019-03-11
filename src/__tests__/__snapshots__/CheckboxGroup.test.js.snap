@@ -9,6 +9,7 @@ Object {
     activeClassName="active"
     aria={false}
     checkboxClass="icheckbox"
+    checkboxClassName="icheckbox"
     checked={false}
     checkedClass="checked"
     className={null}
@@ -61,6 +62,7 @@ exports[`<CheckboxGroup /> component should render the corresponding HTML when o
       activeClassName="active"
       aria={false}
       checkboxClass="icheckbox"
+      checkboxClassName="icheckbox"
       checked={false}
       checkedClass="checked"
       className={null}
@@ -101,6 +103,7 @@ exports[`<CheckboxGroup /> component should render the corresponding HTML when o
         activeClassName="active"
         aria={false}
         checkboxClass="icheckbox"
+        checkboxClassName="icheckbox"
         checked={false}
         checkedClass="checked"
         className={null}
@@ -193,6 +196,7 @@ exports[`<CheckboxGroup /> component should render the corresponding HTML when t
         activeClassName="active"
         aria={false}
         checkboxClass="icheckbox"
+        checkboxClassName="icheckbox"
         checked={false}
         checkedClass="checked"
         className={null}
@@ -233,6 +237,7 @@ exports[`<CheckboxGroup /> component should render the corresponding HTML when t
           activeClassName="active"
           aria={false}
           checkboxClass="icheckbox"
+          checkboxClassName="icheckbox"
           checked={false}
           checkedClass="checked"
           className={null}
