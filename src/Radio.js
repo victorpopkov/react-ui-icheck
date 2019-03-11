@@ -11,7 +11,8 @@ class Radio extends Component {
     activeClassName: PropTypes.string,
     aria: PropTypes.bool,
     checked: PropTypes.bool,
-    checkedClass: PropTypes.string,
+    checkedClass: deprecated(PropTypes.string, 'checkedClassName'),
+    checkedClassName: PropTypes.string,
     children: PropTypes.node,
     className: PropTypes.string,
     defaultChecked: PropTypes.bool,
@@ -54,6 +55,7 @@ class Radio extends Component {
     aria: false,
     checked: false,
     checkedClass: 'checked',
+    checkedClassName: 'checked',
     children: null,
     className: null,
     defaultChecked: false,
@@ -127,6 +129,7 @@ class Radio extends Component {
       activeClassName,
       aria,
       checkedClass,
+      checkedClassName,
       className,
       defaultChecked,
       disabled,
@@ -176,6 +179,7 @@ class Radio extends Component {
         aria={aria}
         checked={stateChecked}
         checkedClass={checkedClass}
+        checkedClassName={checkedClassName}
         className={className}
         defaultChecked={defaultChecked}
         disabled={disabled}

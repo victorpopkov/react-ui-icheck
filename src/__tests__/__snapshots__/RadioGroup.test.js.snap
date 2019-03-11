@@ -8,6 +8,7 @@ Object {
     aria={false}
     checked={false}
     checkedClass="checked"
+    checkedClassName="checked"
     className={null}
     defaultChecked={false}
     determinateClass={null}
@@ -71,6 +72,7 @@ exports[`<RadioGroup /> component should render the corresponding HTML when only
       aria={false}
       checked={true}
       checkedClass="checked"
+      checkedClassName="checked"
       className={null}
       defaultChecked={false}
       determinateClass={null}
@@ -114,6 +116,7 @@ exports[`<RadioGroup /> component should render the corresponding HTML when only
         checkboxClassName="icheckbox"
         checked={true}
         checkedClass="checked"
+        checkedClassName="checked"
         className={null}
         defaultChecked={false}
         disabled={false}
@@ -209,6 +212,7 @@ exports[`<RadioGroup /> component should render the corresponding HTML when the 
         aria={false}
         checked={true}
         checkedClass="checked"
+        checkedClassName="checked"
         className={null}
         defaultChecked={false}
         determinateClass={null}
@@ -252,6 +256,7 @@ exports[`<RadioGroup /> component should render the corresponding HTML when the 
           checkboxClassName="icheckbox"
           checked={true}
           checkedClass="checked"
+          checkedClassName="checked"
           className={null}
           defaultChecked={false}
           disabled={false}
@@ -348,6 +353,7 @@ exports[`<RadioGroup /> component should update the state when handling the <inp
         aria={false}
         checked={false}
         checkedClass="checked"
+        checkedClassName="checked"
         className={null}
         defaultChecked={false}
         determinateClass={null}
@@ -391,6 +397,7 @@ exports[`<RadioGroup /> component should update the state when handling the <inp
           checkboxClassName="icheckbox"
           checked={false}
           checkedClass="checked"
+          checkedClassName="checked"
           className={null}
           defaultChecked={false}
           disabled={false}
@@ -470,6 +477,7 @@ exports[`<RadioGroup /> component should update the state when handling the <inp
         aria={false}
         checked={false}
         checkedClass="checked"
+        checkedClassName="checked"
         className={null}
         defaultChecked={false}
         determinateClass={null}
@@ -513,6 +521,7 @@ exports[`<RadioGroup /> component should update the state when handling the <inp
           checkboxClassName="icheckbox"
           checked={false}
           checkedClass="checked"
+          checkedClassName="checked"
           className={null}
           defaultChecked={false}
           disabled={false}
