@@ -12,6 +12,7 @@ Object {
     checkboxClassName="icheckbox"
     checked={false}
     checkedClass="checked"
+    checkedClassName="checked"
     className={null}
     defaultChecked={false}
     determinateClass={null}
@@ -65,6 +66,7 @@ exports[`<CheckboxGroup /> component should render the corresponding HTML when o
       checkboxClassName="icheckbox"
       checked={false}
       checkedClass="checked"
+      checkedClassName="checked"
       className={null}
       defaultChecked={false}
       determinateClass={null}
@@ -106,6 +108,7 @@ exports[`<CheckboxGroup /> component should render the corresponding HTML when o
         checkboxClassName="icheckbox"
         checked={false}
         checkedClass="checked"
+        checkedClassName="checked"
         className={null}
         defaultChecked={false}
         disabled={false}
@@ -199,6 +202,7 @@ exports[`<CheckboxGroup /> component should render the corresponding HTML when t
         checkboxClassName="icheckbox"
         checked={false}
         checkedClass="checked"
+        checkedClassName="checked"
         className={null}
         defaultChecked={false}
         determinateClass={null}
@@ -240,6 +244,7 @@ exports[`<CheckboxGroup /> component should render the corresponding HTML when t
           checkboxClassName="icheckbox"
           checked={false}
           checkedClass="checked"
+          checkedClassName="checked"
           className={null}
           defaultChecked={false}
           disabled={false}

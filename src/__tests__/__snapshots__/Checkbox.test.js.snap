@@ -9,6 +9,7 @@ Object {
   "checkboxClassName": "icheckbox",
   "checked": false,
   "checkedClass": "checked",
+  "checkedClassName": "checked",
   "children": null,
   "className": null,
   "defaultChecked": false,
