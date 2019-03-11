@@ -10,7 +10,8 @@ class Checkbox extends Component {
     activeClass: deprecated(PropTypes.string, 'activeClassName'),
     activeClassName: PropTypes.string,
     aria: PropTypes.bool,
-    checkboxClass: PropTypes.string,
+    checkboxClass: deprecated(PropTypes.string, 'checkboxClassName'),
+    checkboxClassName: PropTypes.string,
     checked: PropTypes.bool,
     checkedClass: PropTypes.string,
     children: PropTypes.node,
@@ -52,6 +53,7 @@ class Checkbox extends Component {
     activeClassName: 'active',
     aria: false,
     checkboxClass: 'icheckbox',
+    checkboxClassName: 'icheckbox',
     checked: false,
     checkedClass: 'checked',
     children: null,
@@ -125,6 +127,7 @@ class Checkbox extends Component {
       activeClassName,
       aria,
       checkboxClass,
+      checkboxClassName,
       checkedClass,
       className,
       defaultChecked,
@@ -172,6 +175,7 @@ class Checkbox extends Component {
         activeClassName={activeClassName}
         aria={aria}
         checkboxClass={checkboxClass}
+        checkboxClassName={checkboxClassName}
         checked={stateChecked}
         checkedClass={checkedClass}
         className={className}

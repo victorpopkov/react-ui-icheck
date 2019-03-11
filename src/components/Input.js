@@ -12,6 +12,7 @@ class Input extends Component {
     activeClassName: PropTypes.string,
     aria: PropTypes.bool,
     checkboxClass: PropTypes.string,
+    checkboxClassName: PropTypes.string,
     checked: PropTypes.bool,
     checkedClass: PropTypes.string,
     className: PropTypes.string,
@@ -43,6 +44,7 @@ class Input extends Component {
     activeClassName: null,
     aria: false,
     checkboxClass: 'icheckbox',
+    checkboxClassName: 'icheckbox',
     checked: false,
     checkedClass: 'checked',
     className: null,
@@ -183,6 +185,7 @@ class Input extends Component {
       activeClassName,
       aria,
       checkboxClass,
+      checkboxClassName,
       checkedClass,
       className,
       disabled,
@@ -218,7 +221,7 @@ class Input extends Component {
 
     const wrapProps = {
       className: classNames({
-        [checkboxClass]: inputType === 'checkbox',
+        [checkboxClassName || checkboxClass]: inputType === 'checkbox',
         [radioClass]: inputType === 'radio',
         [indeterminateClass]: stateIndeterminate,
         [checkedClass]: checked,
