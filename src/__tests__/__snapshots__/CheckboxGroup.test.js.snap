@@ -18,6 +18,7 @@ Object {
     determinateClass={null}
     disabled={false}
     disabledClass="disabled"
+    disabledClassName="disabled"
     focusClass="focus"
     hoverClass="hover"
     id={null}
@@ -72,6 +73,7 @@ exports[`<CheckboxGroup /> component should render the corresponding HTML when o
       determinateClass={null}
       disabled={false}
       disabledClass="disabled"
+      disabledClassName="disabled"
       focusClass="focus"
       hoverClass="hover"
       id={null}
@@ -113,6 +115,7 @@ exports[`<CheckboxGroup /> component should render the corresponding HTML when o
         defaultChecked={false}
         disabled={false}
         disabledClass="disabled"
+        disabledClassName="disabled"
         focusClass="focus"
         hoverClass="hover"
         hovered={false}
@@ -208,6 +211,7 @@ exports[`<CheckboxGroup /> component should render the corresponding HTML when t
         determinateClass={null}
         disabled={false}
         disabledClass="disabled"
+        disabledClassName="disabled"
         focusClass="focus"
         hoverClass="hover"
         id={null}
@@ -249,6 +253,7 @@ exports[`<CheckboxGroup /> component should render the corresponding HTML when t
           defaultChecked={false}
           disabled={false}
           disabledClass="disabled"
+          disabledClassName="disabled"
           focusClass="focus"
           hoverClass="hover"
           hovered={false}

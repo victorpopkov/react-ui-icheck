@@ -16,6 +16,7 @@ Object {
   "determinateClass": null,
   "disabled": false,
   "disabledClass": "disabled",
+  "disabledClassName": "disabled",
   "focusClass": "focus",
   "hoverClass": "hover",
   "id": null,
