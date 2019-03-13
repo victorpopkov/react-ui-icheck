@@ -14,6 +14,7 @@ Object {
     determinateClass={null}
     disabled={false}
     disabledClass="disabled"
+    disabledClassName="disabled"
     focusClass="focus"
     hoverClass="hover"
     id={null}
@@ -78,6 +79,7 @@ exports[`<RadioGroup /> component should render the corresponding HTML when only
       determinateClass={null}
       disabled={false}
       disabledClass="disabled"
+      disabledClassName="disabled"
       focusClass="focus"
       hoverClass="hover"
       id={null}
@@ -121,6 +123,7 @@ exports[`<RadioGroup /> component should render the corresponding HTML when only
         defaultChecked={false}
         disabled={false}
         disabledClass="disabled"
+        disabledClassName="disabled"
         focusClass="focus"
         hoverClass="hover"
         hovered={false}
@@ -218,6 +221,7 @@ exports[`<RadioGroup /> component should render the corresponding HTML when the 
         determinateClass={null}
         disabled={false}
         disabledClass="disabled"
+        disabledClassName="disabled"
         focusClass="focus"
         hoverClass="hover"
         id={null}
@@ -261,6 +265,7 @@ exports[`<RadioGroup /> component should render the corresponding HTML when the 
           defaultChecked={false}
           disabled={false}
           disabledClass="disabled"
+          disabledClassName="disabled"
           focusClass="focus"
           hoverClass="hover"
           hovered={false}
@@ -359,6 +364,7 @@ exports[`<RadioGroup /> component should update the state when handling the <inp
         determinateClass={null}
         disabled={false}
         disabledClass="disabled"
+        disabledClassName="disabled"
         focusClass="focus"
         hoverClass="hover"
         id={null}
@@ -402,6 +408,7 @@ exports[`<RadioGroup /> component should update the state when handling the <inp
           defaultChecked={false}
           disabled={false}
           disabledClass="disabled"
+          disabledClassName="disabled"
           focusClass="focus"
           hoverClass="hover"
           hovered={false}
@@ -483,6 +490,7 @@ exports[`<RadioGroup /> component should update the state when handling the <inp
         determinateClass={null}
         disabled={false}
         disabledClass="disabled"
+        disabledClassName="disabled"
         focusClass="focus"
         hoverClass="hover"
         id={null}
@@ -526,6 +534,7 @@ exports[`<RadioGroup /> component should update the state when handling the <inp
           defaultChecked={false}
           disabled={false}
           disabledClass="disabled"
+          disabledClassName="disabled"
           focusClass="focus"
           hoverClass="hover"
           hovered={false}

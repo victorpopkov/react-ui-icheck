@@ -18,7 +18,8 @@ class Radio extends Component {
     defaultChecked: PropTypes.bool,
     determinateClass: PropTypes.string,
     disabled: PropTypes.bool,
-    disabledClass: PropTypes.string,
+    disabledClass: deprecated(PropTypes.string, 'disabledClassName'),
+    disabledClassName: PropTypes.string,
     focusClass: PropTypes.string,
     hoverClass: PropTypes.string,
     id: PropTypes.string,
@@ -62,6 +63,7 @@ class Radio extends Component {
     determinateClass: null,
     disabled: false,
     disabledClass: 'disabled',
+    disabledClassName: 'disabled',
     focusClass: 'focus',
     hoverClass: 'hover',
     id: null,
@@ -134,6 +136,7 @@ class Radio extends Component {
       defaultChecked,
       disabled,
       disabledClass,
+      disabledClassName,
       focusClass,
       hoverClass,
       id,
@@ -184,6 +187,7 @@ class Radio extends Component {
         defaultChecked={defaultChecked}
         disabled={disabled}
         disabledClass={disabledClass}
+        disabledClassName={disabledClassName}
         focusClass={focusClass}
         hoverClass={hoverClass}
         hovered={hovered}
