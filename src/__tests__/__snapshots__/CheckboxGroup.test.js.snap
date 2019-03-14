@@ -20,6 +20,7 @@ Object {
     disabledClass="disabled"
     disabledClassName="disabled"
     focusClass="focus"
+    focusClassName="focus"
     hoverClass="hover"
     id={null}
     increaseArea=""
@@ -75,6 +76,7 @@ exports[`<CheckboxGroup /> component should render the corresponding HTML when o
       disabledClass="disabled"
       disabledClassName="disabled"
       focusClass="focus"
+      focusClassName="focus"
       hoverClass="hover"
       id={null}
       increaseArea=""
@@ -117,6 +119,7 @@ exports[`<CheckboxGroup /> component should render the corresponding HTML when o
         disabledClass="disabled"
         disabledClassName="disabled"
         focusClass="focus"
+        focusClassName="focus"
         hoverClass="hover"
         hovered={false}
         id={null}
@@ -213,6 +216,7 @@ exports[`<CheckboxGroup /> component should render the corresponding HTML when t
         disabledClass="disabled"
         disabledClassName="disabled"
         focusClass="focus"
+        focusClassName="focus"
         hoverClass="hover"
         id={null}
         increaseArea=""
@@ -255,6 +259,7 @@ exports[`<CheckboxGroup /> component should render the corresponding HTML when t
           disabledClass="disabled"
           disabledClassName="disabled"
           focusClass="focus"
+          focusClassName="focus"
           hoverClass="hover"
           hovered={false}
           id={null}

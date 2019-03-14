@@ -18,6 +18,7 @@ Object {
   "disabledClass": "disabled",
   "disabledClassName": "disabled",
   "focusClass": "focus",
+  "focusClassName": "focus",
   "hoverClass": "hover",
   "id": null,
   "increaseArea": "",
