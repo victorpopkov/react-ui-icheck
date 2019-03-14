@@ -16,6 +16,7 @@ Object {
     disabledClass="disabled"
     disabledClassName="disabled"
     focusClass="focus"
+    focusClassName="focus"
     hoverClass="hover"
     id={null}
     increaseArea=""
@@ -81,6 +82,7 @@ exports[`<RadioGroup /> component should render the corresponding HTML when only
       disabledClass="disabled"
       disabledClassName="disabled"
       focusClass="focus"
+      focusClassName="focus"
       hoverClass="hover"
       id={null}
       increaseArea=""
@@ -224,6 +226,7 @@ exports[`<RadioGroup /> component should render the corresponding HTML when the 
         disabledClass="disabled"
         disabledClassName="disabled"
         focusClass="focus"
+        focusClassName="focus"
         hoverClass="hover"
         id={null}
         increaseArea=""
@@ -368,6 +371,7 @@ exports[`<RadioGroup /> component should update the state when handling the <inp
         disabledClass="disabled"
         disabledClassName="disabled"
         focusClass="focus"
+        focusClassName="focus"
         hoverClass="hover"
         id={null}
         increaseArea=""
@@ -495,6 +499,7 @@ exports[`<RadioGroup /> component should update the state when handling the <inp
         disabledClass="disabled"
         disabledClassName="disabled"
         focusClass="focus"
+        focusClassName="focus"
         hoverClass="hover"
         id={null}
         increaseArea=""

@@ -20,7 +20,8 @@ class Radio extends Component {
     disabled: PropTypes.bool,
     disabledClass: deprecated(PropTypes.string, 'disabledClassName'),
     disabledClassName: PropTypes.string,
-    focusClass: PropTypes.string,
+    focusClass: deprecated(PropTypes.string, 'focusClassName'),
+    focusClassName: PropTypes.string,
     hoverClass: PropTypes.string,
     id: PropTypes.string,
     increaseArea: PropTypes.string,
@@ -65,6 +66,7 @@ class Radio extends Component {
     disabledClass: 'disabled',
     disabledClassName: 'disabled',
     focusClass: 'focus',
+    focusClassName: 'focus',
     hoverClass: 'hover',
     id: null,
     increaseArea: '',
@@ -138,6 +140,7 @@ class Radio extends Component {
       disabledClass,
       disabledClassName,
       focusClass,
+      focusClassName,
       hoverClass,
       id,
       increaseArea,
@@ -189,6 +192,7 @@ class Radio extends Component {
         disabledClass={disabledClass}
         disabledClassName={disabledClassName}
         focusClass={focusClass}
+        focusClassName={focusClassName}
         hoverClass={hoverClass}
         hovered={hovered}
         id={id}
