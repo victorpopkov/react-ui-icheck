@@ -18,6 +18,7 @@ Object {
   "focusClass": "focus",
   "focusClassName": "focus",
   "hoverClass": "hover",
+  "hoverClassName": "hover",
   "id": null,
   "increaseArea": "",
   "indeterminate": true,

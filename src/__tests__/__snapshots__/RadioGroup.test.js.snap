@@ -18,6 +18,7 @@ Object {
     focusClass="focus"
     focusClassName="focus"
     hoverClass="hover"
+    hoverClassName="hover"
     id={null}
     increaseArea=""
     indeterminate={true}
@@ -84,6 +85,7 @@ exports[`<RadioGroup /> component should render the corresponding HTML when only
       focusClass="focus"
       focusClassName="focus"
       hoverClass="hover"
+      hoverClassName="hover"
       id={null}
       increaseArea=""
       indeterminate={true}
@@ -229,6 +231,7 @@ exports[`<RadioGroup /> component should render the corresponding HTML when the 
         focusClass="focus"
         focusClassName="focus"
         hoverClass="hover"
+        hoverClassName="hover"
         id={null}
         increaseArea=""
         indeterminate={true}
@@ -375,6 +378,7 @@ exports[`<RadioGroup /> component should update the state when handling the <inp
         focusClass="focus"
         focusClassName="focus"
         hoverClass="hover"
+        hoverClassName="hover"
         id={null}
         increaseArea=""
         indeterminate={true}
@@ -504,6 +508,7 @@ exports[`<RadioGroup /> component should update the state when handling the <inp
         focusClass="focus"
         focusClassName="focus"
         hoverClass="hover"
+        hoverClassName="hover"
         id={null}
         increaseArea=""
         indeterminate={true}
