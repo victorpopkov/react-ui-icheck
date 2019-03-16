@@ -22,6 +22,7 @@ Object {
     focusClass="focus"
     focusClassName="focus"
     hoverClass="hover"
+    hoverClassName="hover"
     id={null}
     increaseArea=""
     indeterminate={true}
@@ -78,6 +79,7 @@ exports[`<CheckboxGroup /> component should render the corresponding HTML when o
       focusClass="focus"
       focusClassName="focus"
       hoverClass="hover"
+      hoverClassName="hover"
       id={null}
       increaseArea=""
       indeterminate={true}
@@ -121,6 +123,7 @@ exports[`<CheckboxGroup /> component should render the corresponding HTML when o
         focusClass="focus"
         focusClassName="focus"
         hoverClass="hover"
+        hoverClassName="hover"
         hovered={false}
         id={null}
         increaseArea=""
@@ -218,6 +221,7 @@ exports[`<CheckboxGroup /> component should render the corresponding HTML when t
         focusClass="focus"
         focusClassName="focus"
         hoverClass="hover"
+        hoverClassName="hover"
         id={null}
         increaseArea=""
         indeterminate={true}
@@ -261,6 +265,7 @@ exports[`<CheckboxGroup /> component should render the corresponding HTML when t
           focusClass="focus"
           focusClassName="focus"
           hoverClass="hover"
+          hoverClassName="hover"
           hovered={false}
           id={null}
           increaseArea=""

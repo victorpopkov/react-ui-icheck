@@ -129,6 +129,7 @@ exports[`<RadioGroup /> component should render the corresponding HTML when only
         focusClass="focus"
         focusClassName="focus"
         hoverClass="hover"
+        hoverClassName="hover"
         hovered={false}
         id={null}
         increaseArea=""
@@ -273,6 +274,7 @@ exports[`<RadioGroup /> component should render the corresponding HTML when the 
           focusClass="focus"
           focusClassName="focus"
           hoverClass="hover"
+          hoverClassName="hover"
           hovered={false}
           id={null}
           increaseArea=""
@@ -418,6 +420,7 @@ exports[`<RadioGroup /> component should update the state when handling the <inp
           focusClass="focus"
           focusClassName="focus"
           hoverClass="hover"
+          hoverClassName="hover"
           hovered={false}
           id={null}
           increaseArea=""
@@ -546,6 +549,7 @@ exports[`<RadioGroup /> component should update the state when handling the <inp
           focusClass="focus"
           focusClassName="focus"
           hoverClass="hover"
+          hoverClassName="hover"
           hovered={false}
           id={null}
           increaseArea=""
