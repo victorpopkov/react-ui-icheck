@@ -37,6 +37,7 @@ class Input extends Component {
     label: PropTypes.string,
     name: PropTypes.string,
     radioClass: PropTypes.string,
+    radioClassName: PropTypes.string,
     value: PropTypes.string,
     onBlur: PropTypes.func,
     onChange: PropTypes.func,
@@ -73,6 +74,7 @@ class Input extends Component {
     label: null,
     name: null,
     radioClass: 'iradio',
+    radioClassName: 'iradio',
     value: '',
     onBlur: null,
     onChange: null,
@@ -214,6 +216,7 @@ class Input extends Component {
       isMobile,
       name,
       radioClass,
+      radioClassName,
       value,
 
       defaultChecked,
@@ -234,7 +237,7 @@ class Input extends Component {
     const wrapProps = {
       className: classNames({
         [checkboxClassName || checkboxClass]: inputType === 'checkbox',
-        [radioClass]: inputType === 'radio',
+        [radioClassName || radioClass]: inputType === 'radio',
         [indeterminateClass]: stateIndeterminate,
         [checkedClassName || checkedClass]: checked,
         [disabledClassName || disabledClass]: disabled,

@@ -39,7 +39,8 @@ class Radio extends Component {
     labelTag: PropTypes.string,
     labelTagClassName: PropTypes.string,
     name: PropTypes.string,
-    radioClass: PropTypes.string,
+    radioClass: deprecated(PropTypes.string, 'radioClassName'),
+    radioClassName: PropTypes.string,
     type: PropTypes.string,
     value: PropTypes.string,
     onBlur: PropTypes.func,
@@ -86,6 +87,7 @@ class Radio extends Component {
     labelTagClassName: null,
     name: null,
     radioClass: 'iradio',
+    radioClassName: 'iradio',
     type: null,
     value: '',
     onBlur: null,
@@ -158,6 +160,7 @@ class Radio extends Component {
       onChange,
       onFocus,
       radioClass,
+      radioClassName,
       value,
 
       checked,
@@ -210,6 +213,7 @@ class Radio extends Component {
         isMobile={isMobile}
         name={name}
         radioClass={radioClass}
+        radioClassName={radioClassName}
         ref={(c) => {
           this.input = c;
         }}
