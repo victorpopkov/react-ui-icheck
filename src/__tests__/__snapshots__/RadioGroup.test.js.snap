@@ -43,6 +43,7 @@ Object {
     onTouchEnd={null}
     onTouchStart={null}
     radioClass="iradio"
+    radioClassName="iradio"
     type={null}
     value=""
   />,
@@ -111,6 +112,7 @@ exports[`<RadioGroup /> component should render the corresponding HTML when only
       onTouchEnd={null}
       onTouchStart={null}
       radioClass="iradio"
+      radioClassName="iradio"
       type={null}
       value=""
     >
@@ -148,6 +150,7 @@ exports[`<RadioGroup /> component should render the corresponding HTML when only
         onChange={[Function]}
         onFocus={null}
         radioClass="iradio"
+        radioClassName="iradio"
         value=""
       >
         <div
@@ -257,6 +260,7 @@ exports[`<RadioGroup /> component should render the corresponding HTML when the 
         onTouchEnd={null}
         onTouchStart={null}
         radioClass="iradio"
+        radioClassName="iradio"
         type={null}
         value=""
       >
@@ -294,6 +298,7 @@ exports[`<RadioGroup /> component should render the corresponding HTML when the 
           onChange={[Function]}
           onFocus={null}
           radioClass="iradio"
+          radioClassName="iradio"
           value=""
         >
           <div
@@ -404,6 +409,7 @@ exports[`<RadioGroup /> component should update the state when handling the <inp
         onTouchEnd={null}
         onTouchStart={null}
         radioClass="iradio"
+        radioClassName="iradio"
         type={null}
         value="1"
       >
@@ -441,6 +447,7 @@ exports[`<RadioGroup /> component should update the state when handling the <inp
           onChange={[Function]}
           onFocus={null}
           radioClass="iradio"
+          radioClassName="iradio"
           value="1"
         >
           <div
@@ -534,6 +541,7 @@ exports[`<RadioGroup /> component should update the state when handling the <inp
         onTouchEnd={null}
         onTouchStart={null}
         radioClass="iradio"
+        radioClassName="iradio"
         type={null}
         value="2"
       >
@@ -571,6 +579,7 @@ exports[`<RadioGroup /> component should update the state when handling the <inp
           onChange={[Function]}
           onFocus={null}
           radioClass="iradio"
+          radioClassName="iradio"
           value="2"
         >
           <div

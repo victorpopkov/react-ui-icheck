@@ -43,6 +43,7 @@ Object {
   "onTouchEnd": null,
   "onTouchStart": null,
   "radioClass": "iradio",
+  "radioClassName": "iradio",
   "type": null,
   "value": "",
 }

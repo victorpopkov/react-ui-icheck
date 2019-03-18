@@ -140,6 +140,7 @@ exports[`<CheckboxGroup /> component should render the corresponding HTML when o
         onChange={null}
         onFocus={null}
         radioClass="iradio"
+        radioClassName="iradio"
         value=""
       >
         <div
@@ -282,6 +283,7 @@ exports[`<CheckboxGroup /> component should render the corresponding HTML when t
           onChange={null}
           onFocus={null}
           radioClass="iradio"
+          radioClassName="iradio"
           value=""
         >
           <div
