@@ -1,4 +1,4 @@
-const CleanPlugin = require('clean-webpack-plugin');
+const CleanWebpackPlugin = require('clean-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
@@ -132,7 +132,7 @@ module.exports = merge(common, {
   },
   plugins: [
     new webpack.IgnorePlugin(/\/config$/, /\.\/dev/),
-    new CleanPlugin(),
+    new CleanWebpackPlugin(),
     new MiniCssExtractPlugin({
       filename: 'assets/css/[name]-[chunkhash].css',
       chunkFilename: 'assets/css/[id].css',
