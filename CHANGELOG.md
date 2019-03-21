@@ -7,9 +7,25 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased][]
 
+### Added
+
+- Website 404 error page vertical centering
+
 ### Changed
 
 - Dependencies to match the latest ones
+- Website `Checkbox` and `Radio` examples
+- Website `clean-webpack-plugin` webpack production config
+
+### Deprecated
+
+- `Checkbox` and `Radio` prop `activeClass` in favour of `activeClassName`
+- `Checkbox` and `Radio` prop `checkedClass` in favour of `checkedClassName`
+- `Checkbox` and `Radio` prop `disabledClass` in favour of `disabledClassName`
+- `Checkbox` and `Radio` prop `focusClass` in favour of `focusClassName`
+- `Checkbox` and `Radio` prop `hoverClass` in favour of `hoverClassName`
+- `Checkbox` prop `checkboxClass` in favour of `checkboxClassName`
+- `Radio` prop `radioClass` in favour of `radioClassName`
 
 ## [0.4.0][] - 2019-01-30
 
