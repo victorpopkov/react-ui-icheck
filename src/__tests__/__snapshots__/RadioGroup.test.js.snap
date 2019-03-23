@@ -23,6 +23,7 @@ Object {
     increaseArea=""
     indeterminate={true}
     indeterminateClass="indeterminate"
+    indeterminateClassName="indeterminate"
     inheritClass={false}
     inheritID={false}
     insert={null}
@@ -91,6 +92,7 @@ exports[`<RadioGroup /> component should render the corresponding HTML when only
       increaseArea=""
       indeterminate={true}
       indeterminateClass="indeterminate"
+      indeterminateClassName="indeterminate"
       inheritClass={false}
       inheritID={false}
       insert={null}
@@ -240,6 +242,7 @@ exports[`<RadioGroup /> component should render the corresponding HTML when the 
         increaseArea=""
         indeterminate={true}
         indeterminateClass="indeterminate"
+        indeterminateClassName="indeterminate"
         inheritClass={false}
         inheritID={false}
         insert={null}
@@ -390,6 +393,7 @@ exports[`<RadioGroup /> component should update the state when handling the <inp
         increaseArea=""
         indeterminate={true}
         indeterminateClass="indeterminate"
+        indeterminateClassName="indeterminate"
         inheritClass={false}
         inheritID={false}
         insert={null}
@@ -523,6 +527,7 @@ exports[`<RadioGroup /> component should update the state when handling the <inp
         increaseArea=""
         indeterminate={true}
         indeterminateClass="indeterminate"
+        indeterminateClassName="indeterminate"
         inheritClass={false}
         inheritID={false}
         insert={null}

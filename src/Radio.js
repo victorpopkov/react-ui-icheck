@@ -27,7 +27,8 @@ class Radio extends Component {
     id: PropTypes.string,
     increaseArea: PropTypes.string,
     indeterminate: PropTypes.bool,
-    indeterminateClass: PropTypes.string,
+    indeterminateClass: deprecated(PropTypes.string, 'indeterminateClassName'),
+    indeterminateClassName: PropTypes.string,
     inheritClass: PropTypes.bool,
     inheritID: PropTypes.bool,
     insert: PropTypes.node,
@@ -75,6 +76,7 @@ class Radio extends Component {
     increaseArea: '',
     indeterminate: true,
     indeterminateClass: 'indeterminate',
+    indeterminateClassName: 'indeterminate',
     inheritClass: false,
     inheritID: false,
     insert: null,
@@ -151,6 +153,7 @@ class Radio extends Component {
       increaseArea,
       indeterminate,
       indeterminateClass,
+      indeterminateClassName,
       inheritClass,
       inheritID,
       insert,
@@ -206,6 +209,7 @@ class Radio extends Component {
         increaseArea={increaseArea}
         indeterminate={indeterminate}
         indeterminateClass={indeterminateClass}
+        indeterminateClassName={indeterminateClassName}
         inheritClass={inheritClass}
         inheritID={inheritID}
         inputType="radio"
