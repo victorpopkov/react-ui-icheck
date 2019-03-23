@@ -27,6 +27,7 @@ Object {
     increaseArea=""
     indeterminate={true}
     indeterminateClass="indeterminate"
+    indeterminateClassName="indeterminate"
     inheritClass={false}
     inheritID={false}
     insert={null}
@@ -84,6 +85,7 @@ exports[`<CheckboxGroup /> component should render the corresponding HTML when o
       increaseArea=""
       indeterminate={true}
       indeterminateClass="indeterminate"
+      indeterminateClassName="indeterminate"
       inheritClass={false}
       inheritID={false}
       insert={null}
@@ -129,6 +131,7 @@ exports[`<CheckboxGroup /> component should render the corresponding HTML when o
         increaseArea=""
         indeterminate={true}
         indeterminateClass="indeterminate"
+        indeterminateClassName="indeterminate"
         inheritClass={false}
         inheritID={false}
         inputType="checkbox"
@@ -227,6 +230,7 @@ exports[`<CheckboxGroup /> component should render the corresponding HTML when t
         increaseArea=""
         indeterminate={true}
         indeterminateClass="indeterminate"
+        indeterminateClassName="indeterminate"
         inheritClass={false}
         inheritID={false}
         insert={null}
@@ -272,6 +276,7 @@ exports[`<CheckboxGroup /> component should render the corresponding HTML when t
           increaseArea=""
           indeterminate={true}
           indeterminateClass="indeterminate"
+          indeterminateClassName="indeterminate"
           inheritClass={false}
           inheritID={false}
           inputType="checkbox"

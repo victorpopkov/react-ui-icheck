@@ -25,6 +25,7 @@ Object {
   "increaseArea": "",
   "indeterminate": true,
   "indeterminateClass": "indeterminate",
+  "indeterminateClassName": "indeterminate",
   "inheritClass": false,
   "inheritID": false,
   "insert": null,
