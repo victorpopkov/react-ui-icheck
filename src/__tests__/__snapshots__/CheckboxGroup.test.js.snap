@@ -29,6 +29,7 @@ Object {
     indeterminateClass="indeterminate"
     indeterminateClassName="indeterminate"
     inheritClass={false}
+    inheritClassName={false}
     inheritID={false}
     insert={null}
     label={null}
@@ -87,6 +88,7 @@ exports[`<CheckboxGroup /> component should render the corresponding HTML when o
       indeterminateClass="indeterminate"
       indeterminateClassName="indeterminate"
       inheritClass={false}
+      inheritClassName={false}
       inheritID={false}
       insert={null}
       key=".0"
@@ -133,6 +135,7 @@ exports[`<CheckboxGroup /> component should render the corresponding HTML when o
         indeterminateClass="indeterminate"
         indeterminateClassName="indeterminate"
         inheritClass={false}
+        inheritClassName={false}
         inheritID={false}
         inputType="checkbox"
         insert={null}
@@ -232,6 +235,7 @@ exports[`<CheckboxGroup /> component should render the corresponding HTML when t
         indeterminateClass="indeterminate"
         indeterminateClassName="indeterminate"
         inheritClass={false}
+        inheritClassName={false}
         inheritID={false}
         insert={null}
         key=""
@@ -278,6 +282,7 @@ exports[`<CheckboxGroup /> component should render the corresponding HTML when t
           indeterminateClass="indeterminate"
           indeterminateClassName="indeterminate"
           inheritClass={false}
+          inheritClassName={false}
           inheritID={false}
           inputType="checkbox"
           insert={null}

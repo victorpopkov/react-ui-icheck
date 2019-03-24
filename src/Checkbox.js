@@ -31,7 +31,8 @@ class Checkbox extends Component {
     indeterminate: PropTypes.bool,
     indeterminateClass: deprecated(PropTypes.string, 'indeterminateClassName'),
     indeterminateClassName: PropTypes.string,
-    inheritClass: PropTypes.bool,
+    inheritClass: deprecated(PropTypes.string, 'inheritClassName'),
+    inheritClassName: PropTypes.bool,
     inheritID: PropTypes.bool,
     insert: PropTypes.node,
     label: PropTypes.node,
@@ -79,6 +80,7 @@ class Checkbox extends Component {
     indeterminateClass: 'indeterminate',
     indeterminateClassName: 'indeterminate',
     inheritClass: false,
+    inheritClassName: false,
     inheritID: false,
     insert: null,
     label: null,
@@ -155,6 +157,7 @@ class Checkbox extends Component {
       indeterminateClass,
       indeterminateClassName,
       inheritClass,
+      inheritClassName,
       inheritID,
       insert,
       name,
@@ -210,6 +213,7 @@ class Checkbox extends Component {
         indeterminateClass={indeterminateClass}
         indeterminateClassName={indeterminateClassName}
         inheritClass={inheritClass}
+        inheritClassName={inheritClassName}
         inheritID={inheritID}
         inputType="checkbox"
         insert={insert}

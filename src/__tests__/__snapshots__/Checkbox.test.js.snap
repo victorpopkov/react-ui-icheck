@@ -27,6 +27,7 @@ Object {
   "indeterminateClass": "indeterminate",
   "indeterminateClassName": "indeterminate",
   "inheritClass": false,
+  "inheritClassName": false,
   "inheritID": false,
   "insert": null,
   "label": null,

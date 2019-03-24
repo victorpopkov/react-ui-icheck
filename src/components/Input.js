@@ -32,6 +32,7 @@ class Input extends Component {
     indeterminateClass: PropTypes.string,
     indeterminateClassName: PropTypes.string,
     inheritClass: PropTypes.bool,
+    inheritClassName: PropTypes.bool,
     inheritID: PropTypes.bool,
     insert: PropTypes.node,
     isMobile: PropTypes.bool,
@@ -70,6 +71,7 @@ class Input extends Component {
     indeterminateClass: 'indeterminate',
     indeterminateClassName: 'indeterminate',
     inheritClass: false,
+    inheritClassName: false,
     inheritID: false,
     insert: null,
     isMobile: false,
@@ -213,6 +215,7 @@ class Input extends Component {
       indeterminateClass,
       indeterminateClassName,
       inheritClass,
+      inheritClassName,
       inheritID,
       inputType,
       insert,
@@ -250,7 +253,7 @@ class Input extends Component {
       }),
     };
 
-    if (inheritClass) {
+    if (inheritClassName || inheritClass) {
       wrapProps.className = classNames(wrapProps.className, className);
     }
 
