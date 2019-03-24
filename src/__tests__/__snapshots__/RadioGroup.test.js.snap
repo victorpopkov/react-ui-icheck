@@ -25,6 +25,7 @@ Object {
     indeterminateClass="indeterminate"
     indeterminateClassName="indeterminate"
     inheritClass={false}
+    inheritClassName={false}
     inheritID={false}
     insert={null}
     isMobile={false}
@@ -94,6 +95,7 @@ exports[`<RadioGroup /> component should render the corresponding HTML when only
       indeterminateClass="indeterminate"
       indeterminateClassName="indeterminate"
       inheritClass={false}
+      inheritClassName={false}
       inheritID={false}
       insert={null}
       isMobile={false}
@@ -245,6 +247,7 @@ exports[`<RadioGroup /> component should render the corresponding HTML when the 
         indeterminateClass="indeterminate"
         indeterminateClassName="indeterminate"
         inheritClass={false}
+        inheritClassName={false}
         inheritID={false}
         insert={null}
         isMobile={false}
@@ -397,6 +400,7 @@ exports[`<RadioGroup /> component should update the state when handling the <inp
         indeterminateClass="indeterminate"
         indeterminateClassName="indeterminate"
         inheritClass={false}
+        inheritClassName={false}
         inheritID={false}
         insert={null}
         isMobile={false}
@@ -532,6 +536,7 @@ exports[`<RadioGroup /> component should update the state when handling the <inp
         indeterminateClass="indeterminate"
         indeterminateClassName="indeterminate"
         inheritClass={false}
+        inheritClassName={false}
         inheritID={false}
         insert={null}
         isMobile={false}
