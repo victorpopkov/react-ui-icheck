@@ -11,7 +11,6 @@ Object {
   "children": null,
   "className": null,
   "defaultChecked": false,
-  "determinateClass": null,
   "disabled": false,
   "disabledClass": "disabled",
   "disabledClassName": "disabled",

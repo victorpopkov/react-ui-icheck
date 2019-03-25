@@ -11,7 +11,6 @@ Object {
     checkedClassName="checked"
     className={null}
     defaultChecked={false}
-    determinateClass={null}
     disabled={false}
     disabledClass="disabled"
     disabledClassName="disabled"
@@ -81,7 +80,6 @@ exports[`<RadioGroup /> component should render the corresponding HTML when only
       checkedClassName="checked"
       className={null}
       defaultChecked={false}
-      determinateClass={null}
       disabled={false}
       disabledClass="disabled"
       disabledClassName="disabled"
@@ -233,7 +231,6 @@ exports[`<RadioGroup /> component should render the corresponding HTML when the 
         checkedClassName="checked"
         className={null}
         defaultChecked={false}
-        determinateClass={null}
         disabled={false}
         disabledClass="disabled"
         disabledClassName="disabled"
@@ -386,7 +383,6 @@ exports[`<RadioGroup /> component should update the state when handling the <inp
         checkedClassName="checked"
         className={null}
         defaultChecked={false}
-        determinateClass={null}
         disabled={false}
         disabledClass="disabled"
         disabledClassName="disabled"
@@ -522,7 +518,6 @@ exports[`<RadioGroup /> component should update the state when handling the <inp
         checkedClassName="checked"
         className={null}
         defaultChecked={false}
-        determinateClass={null}
         disabled={false}
         disabledClass="disabled"
         disabledClassName="disabled"

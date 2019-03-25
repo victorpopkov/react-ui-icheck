@@ -16,7 +16,6 @@ class Radio extends Component {
     children: PropTypes.node,
     className: PropTypes.string,
     defaultChecked: PropTypes.bool,
-    determinateClass: PropTypes.string,
     disabled: PropTypes.bool,
     disabledClass: deprecated(PropTypes.string, 'disabledClassName'),
     disabledClassName: PropTypes.string,
@@ -65,7 +64,6 @@ class Radio extends Component {
     children: null,
     className: null,
     defaultChecked: false,
-    determinateClass: null,
     disabled: false,
     disabledClass: 'disabled',
     disabledClassName: 'disabled',
@@ -171,7 +169,6 @@ class Radio extends Component {
 
       checked,
       children,
-      determinateClass,
       label,
       labelClassName,
       labelHover,
