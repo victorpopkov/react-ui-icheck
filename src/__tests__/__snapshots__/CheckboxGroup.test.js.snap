@@ -15,7 +15,6 @@ Object {
     checkedClassName="checked"
     className={null}
     defaultChecked={false}
-    determinateClass={null}
     disabled={false}
     disabledClass="disabled"
     disabledClassName="disabled"
@@ -74,7 +73,6 @@ exports[`<CheckboxGroup /> component should render the corresponding HTML when o
       checkedClassName="checked"
       className={null}
       defaultChecked={false}
-      determinateClass={null}
       disabled={false}
       disabledClass="disabled"
       disabledClassName="disabled"
@@ -221,7 +219,6 @@ exports[`<CheckboxGroup /> component should render the corresponding HTML when t
         checkedClassName="checked"
         className={null}
         defaultChecked={false}
-        determinateClass={null}
         disabled={false}
         disabledClass="disabled"
         disabledClassName="disabled"
