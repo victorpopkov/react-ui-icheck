@@ -24,6 +24,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - `Checkbox` and `Radio` prop `disabledClass` in favour of `disabledClassName`
 - `Checkbox` and `Radio` prop `focusClass` in favour of `focusClassName`
 - `Checkbox` and `Radio` prop `hoverClass` in favour of `hoverClassName`
+- `Checkbox` and `Radio` prop `indeterminateClass` in favour of `indeterminateClassName`
+- `Checkbox` and `Radio` prop `inheritClass` in favour of `inheritClassName`
 - `Checkbox` prop `checkboxClass` in favour of `checkboxClassName`
 - `Radio` prop `radioClass` in favour of `radioClassName`
 
