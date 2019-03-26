@@ -29,6 +29,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - `Checkbox` prop `checkboxClass` in favour of `checkboxClassName`
 - `Radio` prop `radioClass` in favour of `radioClassName`
 
+### Removed
+
+- Unused `Checkbox` and `Radio` prop `determinateClass`
+
 ## [0.4.0][] - 2019-01-30
 
 ### Added
