@@ -55,26 +55,26 @@ class Radio extends Component {
   };
 
   static defaultProps = {
-    activeClass: 'active',
+    activeClass: null,
     activeClassName: 'active',
     aria: false,
     checked: false,
-    checkedClass: 'checked',
+    checkedClass: null,
     checkedClassName: 'checked',
     children: null,
     className: null,
     defaultChecked: false,
     disabled: false,
-    disabledClass: 'disabled',
+    disabledClass: null,
     disabledClassName: 'disabled',
-    focusClass: 'focus',
+    focusClass: null,
     focusClassName: 'focus',
-    hoverClass: 'hover',
+    hoverClass: null,
     hoverClassName: 'hover',
     id: null,
     increaseArea: '',
     indeterminate: true,
-    indeterminateClass: 'indeterminate',
+    indeterminateClass: null,
     indeterminateClassName: 'indeterminate',
     inheritClass: false,
     inheritClassName: false,
@@ -88,7 +88,7 @@ class Radio extends Component {
     labelTag: 'span',
     labelTagClassName: null,
     name: null,
-    radioClass: 'iradio',
+    radioClass: null,
     radioClassName: 'iradio',
     type: null,
     value: '',
@@ -189,36 +189,28 @@ class Radio extends Component {
     return (
       <Input
         {...other}
-        activeClass={activeClass}
-        activeClassName={activeClassName}
+        activeClassName={activeClass || activeClassName}
         aria={aria}
         checked={stateChecked}
-        checkedClass={checkedClass}
-        checkedClassName={checkedClassName}
+        checkedClassName={checkedClass || checkedClassName}
         className={className}
         defaultChecked={defaultChecked}
         disabled={disabled}
-        disabledClass={disabledClass}
-        disabledClassName={disabledClassName}
-        focusClass={focusClass}
-        focusClassName={focusClassName}
-        hoverClass={hoverClass}
-        hoverClassName={hoverClassName}
+        disabledClassName={disabledClass || disabledClassName}
+        focusClassName={focusClass || focusClassName}
+        hoverClassName={hoverClass || hoverClassName}
         hovered={hovered}
         id={id}
         increaseArea={increaseArea}
         indeterminate={indeterminate}
-        indeterminateClass={indeterminateClass}
-        indeterminateClassName={indeterminateClassName}
-        inheritClass={inheritClass}
-        inheritClassName={inheritClassName}
+        indeterminateClassName={indeterminateClass || indeterminateClassName}
+        inheritClassName={inheritClass || inheritClassName}
         inheritID={inheritID}
         inputType="radio"
         insert={insert}
         isMobile={isMobile}
         name={name}
-        radioClass={radioClass}
-        radioClassName={radioClassName}
+        radioClassName={radioClass || radioClassName}
         ref={(c) => {
           this.input = c;
         }}

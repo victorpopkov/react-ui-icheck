@@ -54,28 +54,28 @@ class Checkbox extends Component {
   };
 
   static defaultProps = {
-    activeClass: 'active',
+    activeClass: null,
     activeClassName: 'active',
     aria: false,
-    checkboxClass: 'icheckbox',
+    checkboxClass: null,
     checkboxClassName: 'icheckbox',
     checked: false,
-    checkedClass: 'checked',
+    checkedClass: null,
     checkedClassName: 'checked',
     children: null,
     className: null,
     defaultChecked: false,
     disabled: false,
-    disabledClass: 'disabled',
+    disabledClass: null,
     disabledClassName: 'disabled',
-    focusClass: 'focus',
+    focusClass: null,
     focusClassName: 'focus',
-    hoverClass: 'hover',
+    hoverClass: null,
     hoverClassName: 'hover',
     id: null,
     increaseArea: '',
     indeterminate: true,
-    indeterminateClass: 'indeterminate',
+    indeterminateClass: null,
     indeterminateClassName: 'indeterminate',
     inheritClass: false,
     inheritClassName: false,
@@ -186,31 +186,23 @@ class Checkbox extends Component {
     return (
       <Input
         {...other}
-        activeClass={activeClass}
-        activeClassName={activeClassName}
+        activeClassName={activeClass || activeClassName}
         aria={aria}
-        checkboxClass={checkboxClass}
-        checkboxClassName={checkboxClassName}
+        checkboxClassName={checkboxClass || checkboxClassName}
         checked={stateChecked}
-        checkedClass={checkedClass}
-        checkedClassName={checkedClassName}
+        checkedClassName={checkedClass || checkedClassName}
         className={className}
         defaultChecked={defaultChecked}
         disabled={disabled}
-        disabledClass={disabledClass}
-        disabledClassName={disabledClassName}
-        focusClass={focusClass}
-        focusClassName={focusClassName}
-        hoverClass={hoverClass}
-        hoverClassName={hoverClassName}
+        disabledClassName={disabledClass || disabledClassName}
+        focusClassName={focusClass || focusClassName}
+        hoverClassName={hoverClass || hoverClassName}
         hovered={hovered}
         id={id}
         increaseArea={increaseArea}
         indeterminate={indeterminate}
-        indeterminateClass={indeterminateClass}
-        indeterminateClassName={indeterminateClassName}
-        inheritClass={inheritClass}
-        inheritClassName={inheritClassName}
+        indeterminateClassName={indeterminateClass || indeterminateClassName}
+        inheritClassName={inheritClass || inheritClassName}
         inheritID={inheritID}
         inputType="checkbox"
         insert={insert}
