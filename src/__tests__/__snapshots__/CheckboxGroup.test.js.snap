@@ -5,27 +5,27 @@ Object {
   "checkboxWrapClassName": null,
   "checkboxWrapTag": null,
   "children": <Checkbox
-    activeClass="active"
+    activeClass={null}
     activeClassName="active"
     aria={false}
-    checkboxClass="icheckbox"
+    checkboxClass={null}
     checkboxClassName="icheckbox"
     checked={false}
-    checkedClass="checked"
+    checkedClass={null}
     checkedClassName="checked"
     className={null}
     defaultChecked={false}
     disabled={false}
-    disabledClass="disabled"
+    disabledClass={null}
     disabledClassName="disabled"
-    focusClass="focus"
+    focusClass={null}
     focusClassName="focus"
-    hoverClass="hover"
+    hoverClass={null}
     hoverClassName="hover"
     id={null}
     increaseArea=""
     indeterminate={true}
-    indeterminateClass="indeterminate"
+    indeterminateClass={null}
     indeterminateClassName="indeterminate"
     inheritClass={false}
     inheritClassName={false}
@@ -63,27 +63,27 @@ exports[`<CheckboxGroup /> component should render the corresponding HTML when o
     className={null}
   >
     <Checkbox
-      activeClass="active"
+      activeClass={null}
       activeClassName="active"
       aria={false}
-      checkboxClass="icheckbox"
+      checkboxClass={null}
       checkboxClassName="icheckbox"
       checked={false}
-      checkedClass="checked"
+      checkedClass={null}
       checkedClassName="checked"
       className={null}
       defaultChecked={false}
       disabled={false}
-      disabledClass="disabled"
+      disabledClass={null}
       disabledClassName="disabled"
-      focusClass="focus"
+      focusClass={null}
       focusClassName="focus"
-      hoverClass="hover"
+      hoverClass={null}
       hoverClassName="hover"
       id={null}
       increaseArea=""
       indeterminate={true}
-      indeterminateClass="indeterminate"
+      indeterminateClass={null}
       indeterminateClassName="indeterminate"
       inheritClass={false}
       inheritClassName={false}
@@ -109,30 +109,22 @@ exports[`<CheckboxGroup /> component should render the corresponding HTML when o
       value=""
     >
       <Input
-        activeClass="active"
         activeClassName="active"
         aria={false}
-        checkboxClass="icheckbox"
         checkboxClassName="icheckbox"
         checked={false}
-        checkedClass="checked"
         checkedClassName="checked"
         className={null}
         defaultChecked={false}
         disabled={false}
-        disabledClass="disabled"
         disabledClassName="disabled"
-        focusClass="focus"
         focusClassName="focus"
-        hoverClass="hover"
         hoverClassName="hover"
         hovered={false}
         id={null}
         increaseArea=""
         indeterminate={true}
-        indeterminateClass="indeterminate"
         indeterminateClassName="indeterminate"
-        inheritClass={false}
         inheritClassName={false}
         inheritID={false}
         inputType="checkbox"
@@ -143,7 +135,6 @@ exports[`<CheckboxGroup /> component should render the corresponding HTML when o
         onBlur={null}
         onChange={null}
         onFocus={null}
-        radioClass="iradio"
         radioClassName="iradio"
         value=""
       >
@@ -209,27 +200,27 @@ exports[`<CheckboxGroup /> component should render the corresponding HTML when t
       key=".0"
     >
       <Checkbox
-        activeClass="active"
+        activeClass={null}
         activeClassName="active"
         aria={false}
-        checkboxClass="icheckbox"
+        checkboxClass={null}
         checkboxClassName="icheckbox"
         checked={false}
-        checkedClass="checked"
+        checkedClass={null}
         checkedClassName="checked"
         className={null}
         defaultChecked={false}
         disabled={false}
-        disabledClass="disabled"
+        disabledClass={null}
         disabledClassName="disabled"
-        focusClass="focus"
+        focusClass={null}
         focusClassName="focus"
-        hoverClass="hover"
+        hoverClass={null}
         hoverClassName="hover"
         id={null}
         increaseArea=""
         indeterminate={true}
-        indeterminateClass="indeterminate"
+        indeterminateClass={null}
         indeterminateClassName="indeterminate"
         inheritClass={false}
         inheritClassName={false}
@@ -255,30 +246,22 @@ exports[`<CheckboxGroup /> component should render the corresponding HTML when t
         value=""
       >
         <Input
-          activeClass="active"
           activeClassName="active"
           aria={false}
-          checkboxClass="icheckbox"
           checkboxClassName="icheckbox"
           checked={false}
-          checkedClass="checked"
           checkedClassName="checked"
           className={null}
           defaultChecked={false}
           disabled={false}
-          disabledClass="disabled"
           disabledClassName="disabled"
-          focusClass="focus"
           focusClassName="focus"
-          hoverClass="hover"
           hoverClassName="hover"
           hovered={false}
           id={null}
           increaseArea=""
           indeterminate={true}
-          indeterminateClass="indeterminate"
           indeterminateClassName="indeterminate"
-          inheritClass={false}
           inheritClassName={false}
           inheritID={false}
           inputType="checkbox"
@@ -289,7 +272,6 @@ exports[`<CheckboxGroup /> component should render the corresponding HTML when t
           onBlur={null}
           onChange={null}
           onFocus={null}
-          radioClass="iradio"
           radioClassName="iradio"
           value=""
         >

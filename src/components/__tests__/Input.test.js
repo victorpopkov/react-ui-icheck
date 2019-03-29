@@ -31,8 +31,8 @@ const testInputComponent = (inputType) => {
   });
 
   describe('should render wrapper', () => {
-    it('with corresponding className when inheritClass is passed', () => {
-      const wrapper = shallow(<Input className="test" inputType={inputType} inheritClass />);
+    it('with corresponding className when inheritClassName is passed', () => {
+      const wrapper = shallow(<Input className="test" inputType={inputType} inheritClassName />);
       expect(wrapper.props().className).toBe(`i${inputType} test`);
     });
 
