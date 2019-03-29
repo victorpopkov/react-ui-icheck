@@ -30,7 +30,7 @@ class Checkbox extends Component {
     indeterminate: PropTypes.bool,
     indeterminateClass: deprecated(PropTypes.string, 'indeterminateClassName'),
     indeterminateClassName: PropTypes.string,
-    inheritClass: deprecated(PropTypes.string, 'inheritClassName'),
+    inheritClass: deprecated(PropTypes.bool, 'inheritClassName'),
     inheritClassName: PropTypes.bool,
     inheritID: PropTypes.bool,
     insert: PropTypes.node,
