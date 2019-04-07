@@ -10,6 +10,7 @@ import {
   TabPane,
 } from 'reactstrap';
 import React, { Component } from 'react';
+import Prism from 'prismjs';
 import classNames from 'classnames';
 import { hot } from 'react-hot-loader';
 import { Example, Jumbotron, Sidebar } from '../common'; // eslint-disable-line sort-imports
@@ -25,6 +26,10 @@ class CheckboxPage extends Component {
     this.state = {
       activeTab: 'examples',
     };
+  }
+
+  componentDidMount() {
+    Prism.highlightAll();
   }
 
   toggleActiveTab(tab) {
