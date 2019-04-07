@@ -10,6 +10,7 @@ import {
 } from 'reactstrap';
 import { Radio, RadioGroup } from 'react-ui-icheck'; // eslint-disable-line import/no-unresolved
 import React, { Component } from 'react';
+import Prism from 'prismjs';
 import classNames from 'classnames';
 import { hot } from 'react-hot-loader';
 import { Example, Jumbotron, Sidebar } from '../common'; // eslint-disable-line sort-imports
@@ -26,6 +27,10 @@ class RadioPage extends Component {
       activeTab: 'examples',
       radioValue: '2',
     };
+  }
+
+  componentDidMount() {
+    Prism.highlightAll();
   }
 
   toggleActiveTab(tab) {
