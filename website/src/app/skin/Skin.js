@@ -43,6 +43,10 @@ class Skin extends Component {
     };
   }
 
+  componentDidMount() {
+    Prism.highlightAll();
+  }
+
   componentWillReceiveProps(nextProps) {
     const { color: prevColor, skin: prevSkin } = this.props;
     const { color, skin } = nextProps;
@@ -58,10 +62,6 @@ class Skin extends Component {
         skin,
       });
     }
-  }
-
-  componentDidUpdate() {
-    Prism.highlightAll();
   }
 
   getCheckboxClass() {
