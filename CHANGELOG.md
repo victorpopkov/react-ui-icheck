@@ -33,6 +33,11 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 - Unused `Checkbox` and `Radio` prop `determinateClass`
 
+### Fixed
+
+- `Checkbox` and `Radio` prop `inheritClass` type
+- Website `Prism` code highlighting
+
 ## [0.4.0][] - 2019-01-30
 
 ### Added
