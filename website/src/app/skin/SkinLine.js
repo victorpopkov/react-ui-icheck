@@ -35,14 +35,14 @@ class SkinLine extends Component {
     };
   }
 
+  componentDidMount() {
+    Prism.highlightAll();
+  }
+
   componentWillReceiveProps(nextProps) {
     this.setState({
       color: nextProps.color,
     });
-  }
-
-  componentDidUpdate() {
-    Prism.highlightAll();
   }
 
   getCheckboxClass() {
