@@ -61,7 +61,7 @@
     "@babel/preset-env": "^7.4.4",
     "@babel/preset-react": "^7.0.0",
     "@babel/register": "^7.4.4",
-    "@types/jest": "^24.0.11",
+    "@types/jest": "^24.0.12",
     "autoprefixer": "^9.5.1",
     "babel-eslint": "^10.0.1",
     "babel-loader": "^8.0.5",
