@@ -103,7 +103,6 @@ module.exports = merge(common, {
         uglifyOptions: {
           compress: {
             drop_console: true,
-            warnings: false,
           },
           mangle: {
             reserved: [
@@ -113,6 +112,7 @@ module.exports = merge(common, {
               'RadioGroup',
             ],
           },
+          warnings: false,
         },
         sourceMap: true,
       }),
