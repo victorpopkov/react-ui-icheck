@@ -162,7 +162,7 @@
     "build:website": "better-npm-run build:website",
     "dev": "npm-run-all build:lib watch",
     "lint": "npm-run-all --continue-on-error lint:*",
-    "lint:eslint": "eslint -c .eslintrc ./src/ ./website/src/",
+    "lint:eslint": "eslint -c .eslintrc ./src/",
     "lint:remark": "remark .",
     "lint:stylelint": "stylelint './website/src/**/*.css' './website/src/**/*.scss'",
     "prepare": "npm-run-all build",
