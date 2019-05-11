@@ -164,7 +164,6 @@
     "lint": "npm-run-all --continue-on-error lint:*",
     "lint:eslint": "eslint -c .eslintrc ./src/",
     "lint:remark": "remark .",
-    "lint:stylelint": "stylelint './website/src/**/*.css' './website/src/**/*.scss'",
     "prepare": "npm-run-all build",
     "start": "better-npm-run start",
     "test": "jest --coverage",
