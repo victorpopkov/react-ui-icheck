@@ -13,20 +13,6 @@
         "NODE_ENV": "production",
         "BABEL_ENV": "production"
       }
-    },
-    "start": {
-      "command": "http-server website/dist/",
-      "env": {
-        "NODE_ENV": "production",
-        "BABEL_ENV": "production"
-      }
-    },
-    "watch": {
-      "command": "webpack-dev-server --config ./website/webpack/webpack.config.dev.js",
-      "env": {
-        "NODE_ENV": "development",
-        "BABEL_ENV": "development"
-      }
     }
   },
   "dependencies": {
@@ -161,10 +147,8 @@
     "lint:eslint": "eslint -c .eslintrc ./src/",
     "lint:remark": "remark .",
     "prepare": "npm-run-all build",
-    "start": "better-npm-run start",
     "test": "jest --coverage",
     "test:codecov": "codecov",
-    "test:watch": "jest --watch",
-    "watch": "better-npm-run watch"
+    "test:watch": "jest --watch"
   }
 }
