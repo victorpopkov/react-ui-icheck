@@ -100,11 +100,7 @@
     "stylelint-scss": "^3.6.1",
     "stylelint-webpack-plugin": "^0.10.5",
     "uglifyjs-webpack-plugin": "^2.1.2",
-    "url-loader": "^1.1.2",
-    "webpack": "^4.32.2",
-    "webpack-cli": "^3.3.2",
-    "webpack-dev-server": "^3.3.1",
-    "webpack-merge": "^4.2.1"
+    "url-loader": "^1.1.2"
   },
   "engines": {
     "node": ">= 8.10.0 < 9.* || >= 10.*"
