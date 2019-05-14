@@ -79,11 +79,7 @@
     "react-element-to-jsx-string": "^14.0.2",
     "react-router": "^5.0.0",
     "remark-cli": "^6.0.1",
-    "remark-preset-lint-markdown-style-guide": "^2.1.2",
-    "stylelint": "^10.0.1",
-    "stylelint-config-standard": "^18.3.0",
-    "stylelint-order": "^3.0.0",
-    "stylelint-scss": "^3.6.1"
+    "remark-preset-lint-markdown-style-guide": "^2.1.2"
   },
   "engines": {
     "node": ">= 8.10.0 < 9.* || >= 10.*"
