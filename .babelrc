@@ -5,34 +5,6 @@
     "@babel/react"
   ],
   "plugins": [
-    ["@babel/plugin-proposal-decorators", { "legacy": true }],
-    ["@babel/plugin-proposal-class-properties", { "loose": false }],
-    ["webpack-alias", { "config": "${PWD}/website/webpack/webpack.config.common.js" }],
-    "@babel/plugin-proposal-export-default-from",
-    "@babel/plugin-proposal-function-bind",
-    "@babel/plugin-syntax-export-default-from",
-    "@babel/plugin-transform-react-display-name",
-    "@babel/plugin-transform-runtime",
-    "react-hot-loader/babel",
-    [
-      "prismjs",
-      {
-        "languages": ["bash", "javascript", "jsx"],
-        "theme": "default",
-        "css": true
-      }
-    ],
-    [
-      "react-css-modules",
-      {
-        "generateScopedName": "[local]___[hash:base64:5]",
-        "filetypes": {
-          ".scss": {
-            "plugins": ["postcss-nested"],
-            "syntax": "postcss-scss"
-          }
-        }
-      }
-    ]
+    ["@babel/plugin-proposal-class-properties", { "loose": false }]
   ]
 }
