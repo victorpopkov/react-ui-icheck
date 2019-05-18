@@ -19,6 +19,13 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ### Removed
 
 - Unused `Radio` prop `isMobile`
+- Unused Babel plugins
+- Website in favour of [react-ui-icheck-website](https://github.com/victorpopkov/react-ui-icheck-website)
+- Website-related dependencies and scripts
+
+### Fixed
+
+- Author email in the `package.json`
 
 ## [0.5.0][] - 2019-04-22
 
