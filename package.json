@@ -17,7 +17,6 @@
   },
   "dependencies": {
     "@babel/runtime": "^7.4.5",
-    "bootstrap": "^4.3.1",
     "classnames": "^2.2.6",
     "icheck": "^1.0.2",
     "is-mobile": "^2.0.0",
@@ -25,8 +24,7 @@
     "prismjs": "^1.16.0",
     "prop-types": "^15.7.2",
     "react-dom": "^16.8.6",
-    "react-hot-loader": "^4.8.4",
-    "reactstrap": "^8.0.0"
+    "react-hot-loader": "^4.8.4"
   },
   "devDependencies": {
     "@babel/cli": "^7.4.4",
