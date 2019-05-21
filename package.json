@@ -16,15 +16,10 @@
     }
   },
   "dependencies": {
-    "@babel/runtime": "^7.4.5",
     "classnames": "^2.2.6",
-    "icheck": "^1.0.2",
     "is-mobile": "^2.0.0",
-    "lodash": "^4.17.11",
-    "prismjs": "^1.16.0",
     "prop-types": "^15.7.2",
-    "react-dom": "^16.8.6",
-    "react-hot-loader": "^4.8.4"
+    "react-dom": "^16.8.6"
   },
   "devDependencies": {
     "@babel/cli": "^7.4.4",
@@ -46,11 +41,9 @@
     "eslint-plugin-react": "^7.13.0",
     "expect": "^24.8.0",
     "jest": "^24.8.0",
-    "js-beautify": "^1.10.0",
     "jsdom": "^15.0.0",
     "npm-run-all": "^4.1.5",
     "react": "^16.8.6",
-    "react-element-to-jsx-string": "^14.0.2",
     "remark-cli": "^6.0.1",
     "remark-preset-lint-markdown-style-guide": "^2.1.2"
   },
