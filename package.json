@@ -70,7 +70,7 @@
     "babel-plugin-webpack-alias": "^2.1.2",
     "better-npm-run": "^0.1.1",
     "clean-webpack-plugin": "^2.0.1",
-    "codecov": "^3.3.0",
+    "codecov": "^3.5.0",
     "copy-webpack-plugin": "^5.0.3",
     "css-loader": "^2.1.1",
     "cssnano": "^4.1.10",
@@ -118,7 +118,7 @@
     "stylelint-webpack-plugin": "^0.10.5",
     "uglifyjs-webpack-plugin": "^2.1.2",
     "url-loader": "^1.1.2",
-    "webpack": "^4.30.0",
+    "webpack": "^4.32.2",
     "webpack-cli": "^3.3.2",
     "webpack-dev-server": "^3.3.1",
     "webpack-merge": "^4.2.1"
