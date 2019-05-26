@@ -120,17 +120,13 @@ class Radio extends Component {
     const { checked } = this.props;
     const { checked: nextChecked } = nextProps;
 
-    if (checked !== nextChecked) {
-      this.setState({
-        checked: nextChecked,
-      });
+    if ('checked' in nextProps && checked !== nextChecked) {
+      this.setState({ checked: nextChecked });
     }
   }
 
   handleHover(event, isHovered) {
-    this.setState({
-      hovered: isHovered,
-    });
+    this.setState({ hovered: isHovered });
   }
 
   renderInput() {
@@ -211,9 +207,7 @@ class Radio extends Component {
         isMobile={isMobile}
         name={name}
         radioClassName={radioClass || radioClassName}
-        ref={(c) => {
-          this.input = c;
-        }}
+        ref={(c) => { this.input = c; }}
         value={value}
         onBlur={onBlur}
         onChange={onChange}
