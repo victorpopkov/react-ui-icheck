@@ -119,16 +119,12 @@ class Checkbox extends Component {
     const { checked: nextChecked } = nextProps;
 
     if ('checked' in nextProps && checked !== nextChecked) {
-      this.setState({
-        checked: nextChecked,
-      });
+      this.setState({ checked: nextChecked });
     }
   }
 
   handleHover(event, isHovered) {
-    this.setState({
-      hovered: isHovered,
-    });
+    this.setState({ hovered: isHovered });
   }
 
   renderInput() {
