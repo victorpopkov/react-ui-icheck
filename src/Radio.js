@@ -32,7 +32,6 @@ class Radio extends Component {
     inheritClassName: PropTypes.bool,
     inheritID: PropTypes.bool,
     insert: PropTypes.node,
-    isMobile: PropTypes.bool,
     label: PropTypes.node,
     labelClassName: PropTypes.string,
     labelHover: PropTypes.bool,
@@ -80,7 +79,6 @@ class Radio extends Component {
     inheritClassName: false,
     inheritID: false,
     insert: null,
-    isMobile: false,
     label: null,
     labelClassName: null,
     labelHover: true,
@@ -154,7 +152,6 @@ class Radio extends Component {
       inheritClassName,
       inheritID,
       insert,
-      isMobile,
       name,
       onBlur,
       onChange,
@@ -180,7 +177,7 @@ class Radio extends Component {
 
       ...other
     } = this.props;
-    const { checked: stateChecked, hovered } = this.state;
+    const { checked: stateChecked, hovered, isMobile } = this.state;
 
     return (
       <Input
