@@ -49,7 +49,6 @@ const RadioProperties = () => (
   inheritClass: PropTypes.bool,         // default: false
   inheritID: PropTypes.bool,            // default: false
   insert: PropTypes.node,
-  isMobile: PropTypes.bool,             // default: false
   label: PropTypes.node,
   labelClassName: PropTypes.string,
   labelHover: PropTypes.bool,           // default: true
