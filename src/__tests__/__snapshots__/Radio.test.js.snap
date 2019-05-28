@@ -27,7 +27,6 @@ Object {
   "inheritClassName": false,
   "inheritID": false,
   "insert": null,
-  "isMobile": false,
   "label": null,
   "labelClassName": null,
   "labelHover": true,

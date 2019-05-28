@@ -27,7 +27,6 @@ Object {
     inheritClassName={false}
     inheritID={false}
     insert={null}
-    isMobile={false}
     label={null}
     labelClassName={null}
     labelHover={true}
@@ -96,7 +95,6 @@ exports[`<RadioGroup /> component should render the corresponding HTML when only
       inheritClassName={false}
       inheritID={false}
       insert={null}
-      isMobile={false}
       key=".0"
       label={null}
       labelClassName={null}
@@ -238,7 +236,6 @@ exports[`<RadioGroup /> component should render the corresponding HTML when the 
         inheritClassName={false}
         inheritID={false}
         insert={null}
-        isMobile={false}
         key=""
         label={null}
         labelClassName={null}
@@ -381,7 +378,6 @@ exports[`<RadioGroup /> component should update the state when handling the <inp
         inheritClassName={false}
         inheritID={false}
         insert={null}
-        isMobile={false}
         key="1"
         label={null}
         labelClassName={null}
@@ -507,7 +503,6 @@ exports[`<RadioGroup /> component should update the state when handling the <inp
         inheritClassName={false}
         inheritID={false}
         insert={null}
-        isMobile={false}
         key="2"
         label={null}
         labelClassName={null}
