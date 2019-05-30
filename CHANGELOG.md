@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased][]
 
+### Added
+
+- `BaseInput` extended by `Checkbox` and `Radio` to avoid duplicated code
+
 ### Changed
 
 - Dependencies to match the latest ones
