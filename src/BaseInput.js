@@ -2,7 +2,8 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import mobile from 'is-mobile';
-import Label from './components/Label'; // eslint-disable-line sort-imports
+import Input from './components/Input'; // eslint-disable-line sort-imports
+import Label from './components/Label';
 import deprecated from './helpers/deprecated';
 
 class BaseInput extends Component {
@@ -121,6 +122,91 @@ class BaseInput extends Component {
 
   handleHover(event, isHovered) {
     this.setState({ hovered: isHovered });
+  }
+
+  renderInput(props) {
+    const {
+      activeClass,
+      activeClassName,
+      aria,
+      checkedClass,
+      checkedClassName,
+      className,
+      defaultChecked,
+      disabled,
+      disabledClass,
+      disabledClassName,
+      focusClass,
+      focusClassName,
+      hoverClass,
+      hoverClassName,
+      id,
+      increaseArea,
+      indeterminate,
+      indeterminateClass,
+      indeterminateClassName,
+      inheritClass,
+      inheritClassName,
+      inheritID,
+      insert,
+      name,
+      onBlur,
+      onChange,
+      onFocus,
+      value,
+
+      checkboxClass, // eslint-disable-line react/prop-types
+      checked,
+      children,
+      label,
+      labelClassName,
+      labelHover,
+      labelHoverClass,
+      labelTag,
+      labelTagClassName,
+      onMouseDown,
+      onMouseLeave,
+      onMouseUp,
+      onTouchEnd,
+      onTouchStart,
+      radioClass, // eslint-disable-line react/prop-types
+      type,
+
+      ...other
+    } = this.props;
+    const { checked: stateChecked, hovered, isMobile } = this.state;
+
+    return (
+      <Input
+        {...other}
+        {...props}
+        activeClassName={activeClass || activeClassName}
+        aria={aria}
+        checked={stateChecked}
+        checkedClassName={checkedClass || checkedClassName}
+        className={className}
+        defaultChecked={defaultChecked}
+        disabled={disabled}
+        disabledClassName={disabledClass || disabledClassName}
+        focusClassName={focusClass || focusClassName}
+        hoverClassName={hoverClass || hoverClassName}
+        hovered={hovered}
+        id={id}
+        increaseArea={increaseArea}
+        indeterminate={indeterminate}
+        indeterminateClassName={indeterminateClass || indeterminateClassName}
+        inheritClassName={inheritClass || inheritClassName}
+        inheritID={inheritID}
+        insert={insert}
+        isMobile={isMobile}
+        name={name}
+        ref={(c) => { this.input = c; }}
+        value={value}
+        onBlur={onBlur}
+        onChange={onChange}
+        onFocus={onFocus}
+      />
+    );
   }
 
   render() {
