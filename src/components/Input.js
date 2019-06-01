@@ -95,54 +95,33 @@ class Input extends Component {
     const { checked: prevChecked, hovered: prevHovered } = this.props;
     const { checked, hovered } = nextProps;
 
-    if (checked !== prevChecked) {
-      this.setState({
-        checked,
-      });
-    }
-
-    if (hovered !== prevHovered) {
-      this.setState({
-        hovered,
-      });
-    }
+    if (checked !== prevChecked) this.setState({ checked });
+    if (hovered !== prevHovered) this.setState({ hovered });
   }
 
   handleBlur(event) {
     const { onBlur } = this.props;
 
-    this.setState({
-      focused: false,
-    });
+    this.setState({ focused: false });
 
-    if (onBlur) {
-      onBlur(event);
-    }
+    if (onBlur) onBlur(event);
   }
 
   handleChange(event) {
     const { onChange } = this.props;
     const { checked } = event.target;
 
-    this.setState(state => ({
-      checked: !state.checked,
-    }));
+    this.setState(state => ({ checked: !state.checked }));
 
-    if (onChange) {
-      onChange(event, checked);
-    }
+    if (onChange) onChange(event, checked);
   }
 
   handleFocus(event) {
     const { onFocus } = this.props;
 
-    this.setState({
-      focused: true,
-    });
+    this.setState({ focused: true });
 
-    if (onFocus) {
-      onFocus(event);
-    }
+    if (onFocus) onFocus(event);
   }
 
   handleHelperClick(event) {
@@ -155,15 +134,9 @@ class Input extends Component {
     } = this.props;
     const { checked } = this.state;
 
-    if ((!label && !insert) || disabled) {
-      return;
-    }
+    if ((!label && !insert) || disabled) return;
 
-    if (inputType === 'checkbox') {
-      this.setState(state => ({
-        checked: !state.checked,
-      }));
-    }
+    if (inputType.toString() === 'checkbox') this.setState(state => ({ checked: !state.checked }));
 
     event.preventDefault();
     event.stopPropagation();
@@ -215,8 +188,8 @@ class Input extends Component {
 
     const wrapProps = {
       className: classNames({
-        [checkboxClassName]: inputType === 'checkbox',
-        [radioClassName]: inputType === 'radio',
+        [checkboxClassName]: inputType.toString() === 'checkbox',
+        [radioClassName]: inputType.toString() === 'radio',
         [indeterminateClassName]: stateIndeterminate,
         [checkedClassName]: checked,
         [disabledClassName]: disabled,
@@ -226,13 +199,9 @@ class Input extends Component {
       }),
     };
 
-    if (inheritClassName) {
-      wrapProps.className = classNames(wrapProps.className, className);
-    }
+    if (inheritClassName) wrapProps.className = classNames(wrapProps.className, className);
 
-    if (inheritID && id) {
-      wrapProps.id = `${iCheck}-${id}`;
-    }
+    if (inheritID && id) wrapProps.id = `${iCheck}-${id}`;
 
     if (aria) {
       wrapProps.role = inputType;
@@ -243,9 +212,7 @@ class Input extends Component {
 
     // Clickable area
     let area = (`${increaseArea}`).replace('%', '') || 0;
-    if (area < -50) {
-      area = -50;
-    }
+    if (area < -50) area = -50;
 
     // Layer styles
     const offset = `${-area}%`;
