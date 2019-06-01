@@ -40,9 +40,7 @@ class Label extends Component {
       labelHover,
     } = this.props;
 
-    if (disabled) {
-      return;
-    }
+    if (disabled) return;
 
     if (handleHover && labelHover && !isHovered) {
       handleHover(event, false);
@@ -50,9 +48,7 @@ class Label extends Component {
       handleHover(event, isHovered);
     }
 
-    if (isMobile) {
-      event.stopPropagation();
-    }
+    if (isMobile) event.stopPropagation();
   }
 
   renderLabel() {
