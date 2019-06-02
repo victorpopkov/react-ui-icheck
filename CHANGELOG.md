@@ -14,6 +14,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ### Changed
 
 - Dependencies to match the latest ones
+- Jest config to ignore `src/index.js`
 
 ### Removed
 
