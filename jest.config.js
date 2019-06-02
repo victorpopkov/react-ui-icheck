@@ -1,12 +1,13 @@
 module.exports = {
   collectCoverage: true,
   collectCoverageFrom: [
-    '**/*.{js,jsx}',
+    '!src/index.js',
     '!**/coverage/**',
     '!**/lib/**',
     '!**/node_modules/**',
     '!**/website/**',
     '!*.config.js',
+    '**/*.{js,jsx}',
   ],
   coverageDirectory: 'coverage',
   setupFiles: [
