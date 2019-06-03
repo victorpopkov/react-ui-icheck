@@ -2157,18 +2157,6 @@ eslint-config-airbnb@^17.1.0:
     object.assign "^4.1.0"
     object.entries "^1.0.4"
 
-eslint-config-airbnb@^2.1.1:
-  version "2.1.1"
-  resolved "https://registry.yarnpkg.com/eslint-config-airbnb/-/eslint-config-airbnb-2.1.1.tgz#7aade3205423d169f66eeb15284b3da3482be39a"
-  integrity sha1-eq3jIFQj0Wn2busVKEs9o0gr45o=
-
-eslint-config-onefe@^0.2.0:
-  version "0.2.0"
-  resolved "https://registry.yarnpkg.com/eslint-config-onefe/-/eslint-config-onefe-0.2.0.tgz#c0a8869ac4776066297986a815a0d91c78ba43ea"
-  integrity sha1-wKiGmsR3YGYpeYaoFaDZHHi6Q+o=
-  dependencies:
-    eslint-config-airbnb "^2.1.1"
-
 eslint-import-resolver-node@^0.3.2:
   version "0.3.2"
   resolved "https://registry.yarnpkg.com/eslint-import-resolver-node/-/eslint-import-resolver-node-0.3.2.tgz#58f15fb839b8d0576ca980413476aab2472db66a"
