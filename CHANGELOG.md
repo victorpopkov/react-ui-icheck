@@ -26,6 +26,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ### Fixed
 
 - Author email in the `package.json`
+- Some missing dependencies
 
 ## [0.5.0][] - 2019-04-22
 
