@@ -49,7 +49,7 @@ original label property.
 ## Demo
 
 Demo you can find on the [website][] alongside with the source
-[here](https://github.com/victorpopkov/react-ui-icheck/tree/master/website).
+[here](https://github.com/victorpopkov/react-ui-icheck-website).
 
 ## Installation
 
