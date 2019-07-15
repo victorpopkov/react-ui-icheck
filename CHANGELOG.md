@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased][]
 
+## [0.6.0][] - 2019-07-15
+
 ### Added
 
 - "Code Climate" config
@@ -142,7 +144,8 @@ releases
 
 First release.
 
-[unreleased]: https://github.com/victorpopkov/react-ui-icheck/compare/v0.5.0...HEAD
+[unreleased]: https://github.com/victorpopkov/react-ui-icheck/compare/v0.6.0...HEAD
+[0.6.0]: https://github.com/victorpopkov/react-ui-icheck/compare/v0.5.0...v0.6.0
 [0.5.0]: https://github.com/victorpopkov/react-ui-icheck/compare/v0.4.0...v0.5.0
 [0.4.0]: https://github.com/victorpopkov/react-ui-icheck/compare/v0.3.0...v0.4.0
 [0.3.0]: https://github.com/victorpopkov/react-ui-icheck/compare/v0.2.0...v0.3.0
