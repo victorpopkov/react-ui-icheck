@@ -1,7 +1,7 @@
 {
   "name": "react-ui-icheck",
   "description": "iCheck customizable checkboxes and radios built with React.",
-  "version": "0.5.0",
+  "version": "0.6.0",
   "author": {
     "name": "Victor Popkov",
     "email": "victor@popkov.me"
