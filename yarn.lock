@@ -952,10 +952,10 @@
   resolved "https://registry.yarnpkg.com/@types/jest-diff/-/jest-diff-20.0.1.tgz#35cc15b9c4f30a18ef21852e255fdb02f6d59b89"
   integrity sha512-yALhelO3i0hqZwhjtcr6dYyaLoCHbAMshwtj6cGxTvHZAKXHsYGdff6E8EPw3xLKY0ELUTQ69Q1rQiJENnccMA==
 
-"@types/jest@^24.0.15":
-  version "24.0.15"
-  resolved "https://registry.yarnpkg.com/@types/jest/-/jest-24.0.15.tgz#6c42d5af7fe3b44ffff7cc65de7bf741e8fa427f"
-  integrity sha512-MU1HIvWUme74stAoc3mgAi+aMlgKOudgEvQDIm1v4RkrDudBh1T+NFp5sftpBAdXdx1J0PbdpJ+M2EsSOi1djA==
+"@types/jest@^24.0.17":
+  version "24.0.17"
+  resolved "https://registry.yarnpkg.com/@types/jest/-/jest-24.0.17.tgz#b66ea026efb746eb5db1356ee28518aaff7af416"
+  integrity sha512-1cy3xkOAfSYn78dsBWy4M3h/QF/HeWPchNFDjysVtp3GHeTdSmtluNnELfCmfNRRHo0OWEcpf+NsEJQvwQfdqQ==
   dependencies:
     "@types/jest-diff" "*"
 
@@ -2032,12 +2032,12 @@ enzyme-adapter-utils@^1.12.0:
     prop-types "^15.7.2"
     semver "^5.6.0"
 
-enzyme-to-json@^3.3.5:
-  version "3.3.5"
-  resolved "https://registry.yarnpkg.com/enzyme-to-json/-/enzyme-to-json-3.3.5.tgz#f8eb82bd3d5941c9d8bc6fd9140030777d17d0af"
-  integrity sha512-DmH1wJ68HyPqKSYXdQqB33ZotwfUhwQZW3IGXaNXgR69Iodaoj8TF/D9RjLdz4pEhGq2Tx2zwNUIjBuqoZeTgA==
+enzyme-to-json@^3.4.0:
+  version "3.4.0"
+  resolved "https://registry.yarnpkg.com/enzyme-to-json/-/enzyme-to-json-3.4.0.tgz#2b6330a784a57ba68298e3c0d6cef17ee4fedc0e"
+  integrity sha512-gbu8P8PMAtb+qtKuGVRdZIYxWHC03q1dGS3EKRmUzmTDIracu3o6cQ0d4xI2YWojbelbxjYOsmqM5EgAL0WgIA==
   dependencies:
-    lodash "^4.17.4"
+    lodash "^4.17.12"
 
 enzyme@^3.10.0:
   version "3.10.0"
@@ -3096,10 +3096,10 @@ is-hidden@^1.0.1:
   resolved "https://registry.yarnpkg.com/is-hidden/-/is-hidden-1.1.2.tgz#6497d48ec5affc7da0f11a3c0dadceb6752e8edd"
   integrity sha512-kytBeNVW2QTIqZdJBDKIjP+EkUTzDT07rsc111w/gxqR6wK3ODkOswcpxgED6HU6t7fEhOxqojVZ2a2kU9rj+A==
 
-is-mobile@^2.0.1:
-  version "2.0.1"
-  resolved "https://registry.yarnpkg.com/is-mobile/-/is-mobile-2.0.1.tgz#7e307cf066030e5c1241b53521ceaa999d1f1a2f"
-  integrity sha512-JNaoIFM3geBseef71iOu4024vfphwjFQPFGD64cziXbbyHdrF9zLTqxj2VEbrdOS/gkiQ5b3HldPf4eYPu8g/g==
+is-mobile@^2.1.0:
+  version "2.1.0"
+  resolved "https://registry.yarnpkg.com/is-mobile/-/is-mobile-2.1.0.tgz#4c0cab72f3358dd9986007389b30729fae80da0b"
+  integrity sha512-M5OhlZwh+aTlmRUvDg0Wq3uWVNa+w4DyZ2SjbrS+BhSLu9Po+JXHendC305ZEu+Hh7lywb19Zu4kYXu3L1Oo8A==
 
 is-number-object@^1.0.3:
   version "1.0.3"
@@ -3893,7 +3893,7 @@ lodash.sortby@^4.7.0:
   resolved "https://registry.yarnpkg.com/lodash.sortby/-/lodash.sortby-4.7.0.tgz#edd14c824e2cc9c1e0b0a1b42bb5210516a42438"
   integrity sha1-7dFMgk4sycHgsKG0K7UhBRakJDg=
 
-lodash@^4.15.0, lodash@^4.17.11, lodash@^4.17.12, lodash@^4.17.13, lodash@^4.17.14, lodash@^4.17.4:
+lodash@^4.15.0, lodash@^4.17.11, lodash@^4.17.12, lodash@^4.17.13, lodash@^4.17.14:
   version "4.17.15"
   resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.15.tgz#b447f6670a0455bbfeedd11392eff330ea097548"
   integrity sha512-8xOcRHvCjnocdS5cpwXQXVzmmh5e5+saE2QGoeQmbKmRS6J3VQppPOIt0MnmE+4xlZoumy0GPG0D0MVIQbNA1A==
