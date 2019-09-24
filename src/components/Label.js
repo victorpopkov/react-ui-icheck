@@ -2,30 +2,6 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
 class Label extends Component {
-  static propTypes = {
-    children: PropTypes.node.isRequired,
-    handleHover: PropTypes.func.isRequired,
-    disabled: PropTypes.bool,
-    isMobile: PropTypes.bool,
-    label: PropTypes.node,
-    labelChildren: PropTypes.node,
-    labelClassName: PropTypes.string,
-    labelHover: PropTypes.bool,
-    labelTag: PropTypes.string,
-    labelTagClassName: PropTypes.string,
-  };
-
-  static defaultProps = {
-    disabled: false,
-    isMobile: false,
-    label: null,
-    labelChildren: null,
-    labelClassName: null,
-    labelHover: true,
-    labelTag: 'span',
-    labelTagClassName: null,
-  };
-
   constructor(props) {
     super(props);
 
@@ -102,5 +78,29 @@ class Label extends Component {
     );
   }
 }
+
+Label.propTypes = {
+  children: PropTypes.node.isRequired,
+  handleHover: PropTypes.func.isRequired,
+  disabled: PropTypes.bool,
+  isMobile: PropTypes.bool,
+  label: PropTypes.node,
+  labelChildren: PropTypes.node,
+  labelClassName: PropTypes.string,
+  labelHover: PropTypes.bool,
+  labelTag: PropTypes.string,
+  labelTagClassName: PropTypes.string,
+};
+
+Label.defaultProps = {
+  disabled: false,
+  isMobile: false,
+  label: null,
+  labelChildren: null,
+  labelClassName: null,
+  labelHover: true,
+  labelTag: 'span',
+  labelTagClassName: null,
+};
 
 export default Label;

@@ -3,19 +3,6 @@ import PropTypes from 'prop-types';
 import Checkbox from './Checkbox'; // eslint-disable-line sort-imports
 
 class CheckboxGroup extends Component {
-  static propTypes = {
-    children: PropTypes.node.isRequired,
-    checkboxWrapClassName: PropTypes.string,
-    checkboxWrapTag: PropTypes.string,
-    className: PropTypes.string,
-  };
-
-  static defaultProps = {
-    checkboxWrapClassName: null,
-    checkboxWrapTag: null,
-    className: null,
-  };
-
   renderCheckbox(props) {
     const { checkboxWrapClassName, checkboxWrapTag } = this.props;
     const { value, ...other } = props;
@@ -65,5 +52,18 @@ class CheckboxGroup extends Component {
     );
   }
 }
+
+CheckboxGroup.propTypes = {
+  children: PropTypes.node.isRequired,
+  checkboxWrapClassName: PropTypes.string,
+  checkboxWrapTag: PropTypes.string,
+  className: PropTypes.string,
+};
+
+CheckboxGroup.defaultProps = {
+  checkboxWrapClassName: null,
+  checkboxWrapTag: null,
+  className: null,
+};
 
 export default CheckboxGroup;

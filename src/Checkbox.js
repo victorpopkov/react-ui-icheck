@@ -3,18 +3,6 @@ import BaseInput from './BaseInput'; // eslint-disable-line sort-imports
 import deprecated from './helpers/deprecated';
 
 class Checkbox extends BaseInput {
-  static propTypes = {
-    ...BaseInput.propTypes,
-    checkboxClass: deprecated(PropTypes.string, 'checkboxClassName'),
-    checkboxClassName: PropTypes.string,
-  };
-
-  static defaultProps = {
-    ...BaseInput.defaultProps,
-    checkboxClass: null,
-    checkboxClassName: 'icheckbox',
-  };
-
   renderInput() {
     const { checkboxClass, checkboxClassName } = this.props;
 
@@ -24,5 +12,17 @@ class Checkbox extends BaseInput {
     });
   }
 }
+
+Checkbox.propTypes = {
+  ...BaseInput.propTypes,
+  checkboxClass: deprecated(PropTypes.string, 'checkboxClassName'),
+  checkboxClassName: PropTypes.string,
+};
+
+Checkbox.defaultProps = {
+  ...BaseInput.defaultProps,
+  checkboxClass: null,
+  checkboxClassName: 'icheckbox',
+};
 
 export default Checkbox;

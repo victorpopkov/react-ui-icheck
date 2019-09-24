@@ -3,27 +3,6 @@ import PropTypes from 'prop-types';
 import Radio from './Radio';
 
 class RadioGroup extends Component {
-  static propTypes = {
-    name: PropTypes.string.isRequired,
-    children: PropTypes.node,
-    className: PropTypes.string,
-    defaultValue: PropTypes.string,
-    radioWrapClassName: PropTypes.string,
-    radioWrapTag: PropTypes.string,
-    value: PropTypes.string,
-    onChange: PropTypes.func,
-  };
-
-  static defaultProps = {
-    children: null,
-    className: null,
-    defaultValue: null,
-    radioWrapClassName: null,
-    radioWrapTag: null,
-    value: null,
-    onChange: null,
-  };
-
   constructor(props) {
     super(props);
 
@@ -109,5 +88,26 @@ class RadioGroup extends Component {
     );
   }
 }
+
+RadioGroup.propTypes = {
+  name: PropTypes.string.isRequired,
+  children: PropTypes.node,
+  className: PropTypes.string,
+  defaultValue: PropTypes.string,
+  radioWrapClassName: PropTypes.string,
+  radioWrapTag: PropTypes.string,
+  value: PropTypes.string,
+  onChange: PropTypes.func,
+};
+
+RadioGroup.defaultProps = {
+  children: null,
+  className: null,
+  defaultValue: null,
+  radioWrapClassName: null,
+  radioWrapTag: null,
+  value: null,
+  onChange: null,
+};
 
 export default RadioGroup;

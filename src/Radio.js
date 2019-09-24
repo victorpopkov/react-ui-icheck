@@ -3,18 +3,6 @@ import BaseInput from './BaseInput'; // eslint-disable-line sort-imports
 import deprecated from './helpers/deprecated';
 
 class Radio extends BaseInput {
-  static propTypes = {
-    ...BaseInput.propTypes,
-    radioClass: deprecated(PropTypes.string, 'radioClassName'),
-    radioClassName: PropTypes.string,
-  };
-
-  static defaultProps = {
-    ...BaseInput.defaultProps,
-    radioClass: null,
-    radioClassName: 'iradio',
-  };
-
   renderInput() {
     const { radioClass, radioClassName } = this.props;
 
@@ -24,5 +12,17 @@ class Radio extends BaseInput {
     });
   }
 }
+
+Radio.propTypes = {
+  ...BaseInput.propTypes,
+  radioClass: deprecated(PropTypes.string, 'radioClassName'),
+  radioClassName: PropTypes.string,
+};
+
+Radio.defaultProps = {
+  ...BaseInput.defaultProps,
+  radioClass: null,
+  radioClassName: 'iradio',
+};
 
 export default Radio;
