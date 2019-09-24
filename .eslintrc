@@ -12,7 +12,7 @@
   ],
   "rules": {
     "comma-dangle": [2, "always-multiline"],
-    "function-paren-newline": ["error", "consistent"],
+    "function-paren-newline": [2, "consistent"],
     "import/default": 0,
     "import/extensions": 0,
     "import/named": 0,
@@ -43,10 +43,20 @@
     "no-alert": 0,
     "no-console": 0,
     "react/jsx-filename-extension": 0,
+    "react/jsx-props-no-spreading": [
+      "error",
+      {
+        "html": "ignore",
+        "exceptions": [
+          "Checkbox",
+          "Input",
+          "Radio"
+        ]
+      }
+    ],
     "react/jsx-sort-props": [2, { "callbacksLast": true, "shorthandLast": true }],
     "react/no-multi-comp": 0,
     "react/require-extension": 0,
-    // disable since deprecated
     "react/sort-prop-types": [2, { "callbacksLast": true, "requiredFirst": true }],
     "sort-imports": 2
   },
