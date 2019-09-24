@@ -111,7 +111,7 @@ class Input extends Component {
     const { onChange } = this.props;
     const { checked } = event.target;
 
-    this.setState(state => ({ checked: !state.checked }));
+    this.setState((state) => ({ checked: !state.checked }));
 
     if (onChange) onChange(event, checked);
   }
@@ -136,7 +136,7 @@ class Input extends Component {
 
     if ((!label && !insert) || disabled) return;
 
-    if (inputType.toString() === 'checkbox') this.setState(state => ({ checked: !state.checked }));
+    if (inputType.toString() === 'checkbox') this.setState((state) => ({ checked: !state.checked }));
 
     event.preventDefault();
     event.stopPropagation();

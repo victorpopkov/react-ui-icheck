@@ -52,7 +52,11 @@ class CheckboxGroup extends Component {
       ...other
     } = this.props;
 
-    const options = React.Children.map(children, option => this.renderCheckbox(option.props), this);
+    const options = React.Children.map(
+      children,
+      (option) => this.renderCheckbox(option.props),
+      this
+    );
 
     return (
       <div {...other} className={className}>

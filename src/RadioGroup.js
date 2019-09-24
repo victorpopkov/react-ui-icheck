@@ -96,7 +96,11 @@ class RadioGroup extends Component {
   render() {
     const { children, className } = this.props;
 
-    const options = React.Children.map(children, option => this.renderRadio(option.props), this);
+    const options = React.Children.map(
+      children,
+      (option) => this.renderRadio(option.props),
+      this
+    );
 
     return (
       <div className={className}>

@@ -89,11 +89,11 @@ class Label extends Component {
       // eslint-disable-next-line jsx-a11y/label-has-associated-control, jsx-a11y/label-has-for
       <label
         className={labelClassName || null}
-        onBlur={event => this.handleHover(event, false)}
+        onBlur={(event) => this.handleHover(event, false)}
         onFocus={this.handleHover}
-        onMouseOut={event => this.handleHover(event, false)}
+        onMouseOut={(event) => this.handleHover(event, false)}
         onMouseOver={this.handleHover}
-        onTouchEnd={event => this.handleHover(event, false)}
+        onTouchEnd={(event) => this.handleHover(event, false)}
         onTouchStart={this.handleHover}
       >
         {children}
