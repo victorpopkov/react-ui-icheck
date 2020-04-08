@@ -7,11 +7,27 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased][]
 
+### Added
+
+- Exceptions for the `react/jsx-props-no-spreading` ESLint rule
+
+### Changed
+
+- Dependencies to match the latest ones
+
+### Removed
+
+- Invalid argument in `React.Children.map` usages
+
+### Fixed
+
+- Some update-related ESLint issues
+
 ## [0.6.0][] - 2019-07-15
 
 ### Added
 
-- "Code Climate" config
+- **[maintenance]** "Code Climate" config
 - `BaseInput` extended by `Checkbox` and `Radio` to avoid duplicated code
 
 ### Changed
@@ -21,27 +37,27 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ### Removed
 
-- Unused `Radio` prop `isMobile`
+- **[website]** Website in favour of [react-ui-icheck-website](https://github.com/victorpopkov/react-ui-icheck-website)
+- **[website]** Website-related dependencies and scripts
 - Unused Babel plugins
-- Website in favour of [react-ui-icheck-website](https://github.com/victorpopkov/react-ui-icheck-website)
-- Website-related dependencies and scripts
+- Unused `Radio` prop `isMobile`
 
 ### Fixed
 
-- Author email in the `package.json`
+- **[maintenance]** Author email in the `package.json`
 - Some missing dependencies
 
 ## [0.5.0][] - 2019-04-22
 
 ### Added
 
-- Website 404 error page vertical centering
+- **[website]** Website 404 error page vertical centering
 
 ### Changed
 
+- **[website]** Website `Checkbox` and `Radio` examples
+- **[website]** Website `clean-webpack-plugin` webpack production config
 - Dependencies to match the latest ones
-- Website `Checkbox` and `Radio` examples
-- Website `clean-webpack-plugin` webpack production config
 
 ### Deprecated
 
@@ -62,17 +78,14 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ### Fixed
 
 - `Checkbox` and `Radio` prop `inheritClass` type
-- Website `Prism` code highlighting
 
 ## [0.4.0][] - 2019-01-30
 
 ### Added
 
-- Helper `deprecated` for wrapping the deprecated `PropTypes` in the future
-releases
-- Missing `Checkbox` and `Radio` properties to match the ones used in the
-`Input` component
-- Website "Properties" blocks in the `Checkbox` and `Radio` demos
+- **[website]** Website "Properties" blocks in the `Checkbox` and `Radio` demos
+- Helper `deprecated` for wrapping the deprecated `PropTypes` in the future releases
+- Missing `Checkbox` and `Radio` properties to match the ones used in the `Input` component
 
 ### Changed
 
@@ -80,65 +93,62 @@ releases
 
 ### Removed
 
+- **[website]** Website `main` content vertical alignment
 - Node.js v9 support
-- Website `main` content vertical alignment
 
 ### Fixed
 
-- Paths in the `lint:stylelint` script of the `package.json`
-- Website `class` attributes in the "Rendered" tabs of the `Checkbox` and
-`Radio` demos
-- Website imports alongside the imports in the demos
+- **[maintenance]** Paths in the `lint:stylelint` script of the `package.json`
+- **[website]** Website `class` attributes in the "Rendered" tabs of the `Checkbox` and `Radio` demos
+- **[website]** Website imports alongside the imports in the demos
 
 ## [0.3.0][] - 2018-12-09
 
 ### Added
 
-- Code linting in the "Travis CI"
-- Option `modules: 'global'` for the `css-loader` in the website webpack configs
-- Tests for the `Checkbox`, `CheckboxGroup`, `Radio` and `RadioGroup` components
-(the total project test coverage: 100%)
+- **[maintenance]** Code linting in the "Travis CI"
+- **[website]** Option `modules: 'global'` for the `css-loader` in the website webpack configs
+- Tests for the `Checkbox`, `CheckboxGroup`, `Radio` and `RadioGroup` components (the total project test coverage: 100%)
 
 ### Changed
 
+- **[maintenance]** Rule `no-duplicate-headings` for remark-lint to become disabled
 - Dependencies to match the latest ones
-- Rule `no-duplicate-headings` for remark-lint to become disabled
 
 ### Fixed
 
+- **[website]** Website imports to use the `react-ui-icheck` instead of the `react-icheck`
 - Plugin `@babel/plugin-proposal-decorators` order in the Babel configs
-- Website imports to use the `react-ui-icheck` instead of the `react-icheck`
 
 ## [0.2.0][] - 2018-10-17
 
 ### Added
 
-- Integration with "Code Climate" for code quality and test coverage reports
-- Integration with "Codecov" for test coverage reports
-- Integration with "Travis CI" for building and testing
+- **[maintenance]** Integration with "Code Climate" for code quality and test coverage reports
+- **[maintenance]** Integration with "Codecov" for test coverage reports
+- **[maintenance]** Integration with "Travis CI" for building and testing
+- **[website]** Website homepage badges
 - Missing props in the `RadioGroup.defaultProps`
-- Tests for the `Input` and `Label` components (the total project test coverage:
-47%)
+- Tests for the `Input` and `Label` components (the total project test coverage: 47%)
 - This `CHANGELOG.md`
-- Website homepage badges
 
 ### Changed
 
+- **[maintenance]** Properties sorting in `.eslintrc` and `.remarkrc`
+- **[website]** Website page headings
 - Dependencies to match the latest ones
 - Node engine requirement from `>= 10.0.0` to `>= 8.10.0`
-- Properties sorting in `.eslintrc` and `.remarkrc`
-- Website page headings
 
 ### Removed
 
+- **[website]** The requirement of the `.env` during website building and running
 - Description comments from `RadioGroup.propTypes`
-- The requirement of the `.env` during website building and running
 
 ### Fixed
 
-- Missing dependencies for the `remark` linting
+- **[maintenance]** Missing dependencies for the `remark` linting
+- **[website]** Paths in the `lint:stylelint` script of the `package.json`
 - Mobile support for `Input` component input element
-- Paths in the `lint:stylelint` script of the `package.json`
 
 ## 0.1.0 - 2018-10-12
 
