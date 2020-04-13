@@ -17,9 +17,9 @@ iCheck customizable checkboxes and radios built with React.
 
 This library was originally intended to be a fork of the [react-icheck][]
 library created by [luqin](https://github.com/luqin) which doesn't seem to be
-actively maintained any more *[at the moment of writing this, the last
+actively maintained any more _[at the moment of writing this, the last
 [react-icheck][] release ([v0.3.6](https://github.com/luqin/react-icheck/releases/tag/v0.3.6))
-was 2 years ago]*.
+was 2 years ago]_.
 
 After diving into the original code it was more convenient to create a new
 separate one as a drop-in replacement with some additional features.
@@ -30,21 +30,14 @@ Below you can find the list of the main differences from the original
 ### Differences
 
 - Completely refactored and fixed/improved the existing code:
-  - added `onBlur` and `onFocus` label events to accompany `onMouseOut` and
-  `onMouseOver`
-  - moved all corresponding properties from the `EnchantedSwitch` to both
-  `Checkbox` and `Radio` components and removed unused ones
-  - removed `EnchantedSwitch` in favour of `Input` and `Label` components
-  - removed `refs` usage to follow the
-  "[Don’t Overuse Refs](https://reactjs.org/docs/refs-and-the-dom.html#dont-overuse-refs)"
-  guide
+  - Added `onBlur` and `onFocus` label events to accompany `onMouseOut` and `onMouseOver`
+  - Moved all corresponding properties from the `EnchantedSwitch` to both `Checkbox` and `Radio` components and removed unused ones
+  - Removed `EnchantedSwitch` in favour of `Input` and `Label` components
+  - Removed `refs` usage to follow the "[Don’t Overuse Refs](https://reactjs.org/docs/refs-and-the-dom.html#dont-overuse-refs)" guide
 - Introduced `CheckboxGroup` similar to the `RadioGroup`
-- Introduced `checkboxWrapClassName` and `checkboxWrapTag` properties for
-`RadioGroup` to control the wrapping behaviour of the radio elements.
-- Introduced `labelTag` and `labelTagClassName` properties for both `Checkbox`
-and `Radio` components to control the rendering of the label content.
-- Labels for `Checkbox` and `Radio` can be passed as children alongside with the
-original label property.
+- Introduced `checkboxWrapClassName` and `checkboxWrapTag` properties for `RadioGroup` to control the wrapping behaviour of the radio elements.
+- Introduced `labelTag` and `labelTagClassName` properties for both `Checkbox` and `Radio` components to control the rendering of the label content.
+- Labels for `Checkbox` and `Radio` can be passed as children alongside with the original label property.
 
 ## Demo
 
