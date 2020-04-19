@@ -82,7 +82,7 @@
   "scripts": {
     "build": "npm-run-all --parallel build:*",
     "build:lib": "better-npm-run build:lib",
-    "dev": "npm-run-all build:lib watch",
+    "dev": "npm-run-all build:lib",
     "lint": "npm-run-all --continue-on-error lint:*",
     "lint:eslint": "eslint -c .eslintrc ./src/",
     "prepare": "npm-run-all build",
