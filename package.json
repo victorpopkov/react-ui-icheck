@@ -6,15 +6,6 @@
     "name": "Victor Popkov",
     "email": "victor@popkov.me"
   },
-  "betterScripts": {
-    "build:lib": {
-      "command": "babel ./src/ -d ./lib/ --ignore **/*.test.js",
-      "env": {
-        "NODE_ENV": "production",
-        "BABEL_ENV": "production"
-      }
-    }
-  },
   "dependencies": {
     "classnames": "^2.2.6",
     "is-mobile": "^2.1.0",
@@ -29,8 +20,8 @@
     "@babel/preset-react": "^7.7.4",
     "@types/jest": "^24.0.18",
     "babel-eslint": "^10.0.3",
-    "better-npm-run": "^0.1.1",
     "codecov": "^3.6.1",
+    "cross-env": "^7.0.2",
     "enzyme": "^3.10.0",
     "enzyme-adapter-react-16": "^1.14.0",
     "enzyme-to-json": "^3.4.0",
@@ -81,7 +72,7 @@
   },
   "scripts": {
     "build": "npm-run-all --parallel build:*",
-    "build:lib": "better-npm-run build:lib",
+    "build:lib": "cross-env BABEL_ENV=production NODE_ENV=production babel ./src/ -d ./lib/ --ignore **/*.test.js",
     "dev": "npm-run-all build:lib",
     "lint": "npm-run-all --continue-on-error lint:*",
     "lint:eslint": "eslint -c .eslintrc ./src/",
