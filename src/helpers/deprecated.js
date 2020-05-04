@@ -11,9 +11,11 @@ export default function deprecated(propType, replacement) {
 
   return (props, propName, componentName, ...rest) => {
     if (props[propName] != null) {
-      const message = `"${propName}" property of "${componentName}" has been deprecated and will be`
-        + ` removed in the future releases. Please use the "${replacement}" instead.`;
+      const message =
+        `"${propName}" property of "${componentName}" has been deprecated and will be` +
+        ` removed in the future releases. Please use the "${replacement}" instead.`;
       if (!warned[message]) {
+        // eslint-disable-next-line no-console
         console.warn(message);
         warned[message] = true;
       }
