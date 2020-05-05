@@ -15,59 +15,49 @@ iCheck customizable checkboxes and radios built with React.
 
 ## Overview
 
-This library was originally intended to be a fork of the [react-icheck][]
-library created by [luqin](https://github.com/luqin) which doesn't seem to be
-actively maintained any more _[at the moment of writing this, the last
-[react-icheck][] release ([v0.3.6](https://github.com/luqin/react-icheck/releases/tag/v0.3.6))
-was 2 years ago]_.
-
-After diving into the original code it was more convenient to create a new
-separate one as a drop-in replacement with some additional features.
-
-Below you can find the list of the main differences from the original
-[react-icheck][] library.
+This library has been originally intended to be a fork of the [react-icheck][]
+created by [luqin][] which didn't seem to be maintained anymore. However, after
+diving into the original code it became more convenient to create a new one as a
+drop-in replacement with some additional features.
 
 ### Differences
 
-- Completely refactored and fixed/improved the existing code:
+- Refactored and improved the existing codebase:
+
   - Added `onBlur` and `onFocus` label events to accompany `onMouseOut` and `onMouseOver`
   - Moved all corresponding properties from the `EnchantedSwitch` to both `Checkbox` and `Radio` components and removed unused ones
   - Removed `EnchantedSwitch` in favour of `Input` and `Label` components
   - Removed `refs` usage to follow the "[Don’t Overuse Refs](https://reactjs.org/docs/refs-and-the-dom.html#dont-overuse-refs)" guide
+
 - Introduced `CheckboxGroup` similar to the `RadioGroup`
-- Introduced `checkboxWrapClassName` and `checkboxWrapTag` properties for `RadioGroup` to control the wrapping behaviour of the radio elements.
-- Introduced `labelTag` and `labelTagClassName` properties for both `Checkbox` and `Radio` components to control the rendering of the label content.
-- Labels for `Checkbox` and `Radio` can be passed as children alongside with the original label property.
+- Introduced `checkboxWrapClassName` and `checkboxWrapTag` properties for `RadioGroup` to control the wrapping behaviour of the radio elements
+- Introduced `labelTag` and `labelTagClassName` properties for both `Checkbox` and `Radio` components to control the rendering of the label content
+- Labels for `Checkbox` and `Radio` can be passed as children alongside with the original label property
 
 ## Demo
 
-Demo you can find on the [website][] alongside with the source
+The demo can be found on the [website][] alongside with the source
 [here](https://github.com/victorpopkov/react-ui-icheck-website).
 
 ## Installation
 
-You can install this library as any other [npm](https://www.npmjs.com/) package.
+The library can be installed like any other [npm][] package.
 
-If you are planning to use your own custom skin, then only the package of this
-library is needed:
+If you are planning to use your custom skin(s):
 
 ```bash
-# using npm
-npm install react-ui-icheck --save
-
-# using Yarn
-yarn add react-ui-icheck
+$ npm install react-ui-icheck --save
+# or
+$ yarn add react-ui-icheck
 ```
 
-If you are planning to use the original [iCheck][] skins, then you should
-install both packages:
+However, if you are planning to use [iCheck][] skin(s) you will need to install
+the `icheck` package as well:
 
 ```bash
-# using npm
-npm install react-ui-icheck icheck --save
-
-# using Yarn
-yarn add react-ui-icheck icheck
+$ npm install react-ui-icheck icheck --save
+# or
+$ yarn add react-ui-icheck icheck
 ```
 
 ## License
@@ -75,5 +65,7 @@ yarn add react-ui-icheck icheck
 Released under the [MIT License](https://opensource.org/licenses/MIT).
 
 [icheck]: https://github.com/fronteed/icheck
+[luqin]: https://github.com/luqin
+[npm]: https://www.npmjs.com/
 [react-icheck]: https://github.com/luqin/react-icheck
 [website]: http://github.victorpopkov.com/react-ui-icheck/
