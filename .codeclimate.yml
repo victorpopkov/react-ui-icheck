@@ -3,5 +3,5 @@ plugins:
         enabled: true
 
 exclude_patterns:
-    - "**/__tests__"
-    - "test/"
+    - '**/__tests__'
+    - 'test/'

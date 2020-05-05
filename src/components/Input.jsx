@@ -14,12 +14,7 @@ class Input extends Component {
     this.handleFocus = this.handleFocus.bind(this);
     this.handleHelperClick = this.handleHelperClick.bind(this);
 
-    const {
-      checked,
-      defaultChecked,
-      hovered,
-      indeterminate,
-    } = props;
+    const { checked, defaultChecked, hovered, indeterminate } = props;
 
     this.state = {
       active: false,
@@ -64,18 +59,13 @@ class Input extends Component {
   }
 
   handleHelperClick(event) {
-    const {
-      disabled,
-      inputType,
-      insert,
-      label,
-      onChange,
-    } = this.props;
+    const { disabled, inputType, insert, label, onChange } = this.props;
     const { checked } = this.state;
 
     if ((!label && !insert) || disabled) return;
 
-    if (inputType.toString() === 'checkbox') this.setState((state) => ({ checked: !state.checked }));
+    if (inputType.toString() === 'checkbox')
+      this.setState((state) => ({ checked: !state.checked }));
 
     event.preventDefault();
     event.stopPropagation();
@@ -138,7 +128,8 @@ class Input extends Component {
       }),
     };
 
-    if (inheritClassName) wrapProps.className = classNames(wrapProps.className, className);
+    if (inheritClassName)
+      wrapProps.className = classNames(wrapProps.className, className);
 
     if (inheritID && id) wrapProps.id = `${iCheck}-${id}`;
 
@@ -150,12 +141,12 @@ class Input extends Component {
     }
 
     // Clickable area
-    let area = (`${increaseArea}`).replace('%', '') || 0;
+    let area = `${increaseArea}`.replace('%', '') || 0;
     if (area < -50) area = -50;
 
     // Layer styles
     const offset = `${-area}%`;
-    const size = `${100 + (area * 2)}%`;
+    const size = `${100 + area * 2}%`;
     const layer = {
       position: 'absolute',
       top: offset,
@@ -203,7 +194,9 @@ class Input extends Component {
         checked={checked}
         disabled={disabled}
         name={name}
-        ref={(c) => { this.checkbox = c; }}
+        ref={(c) => {
+          this.checkbox = c;
+        }}
         style={hide}
         type={inputType}
         value={value}
@@ -215,12 +208,12 @@ class Input extends Component {
 
     let insertElement = null;
     if (insert) {
-      insertElement = React.isValidElement(insert)
-        ? insert
-        : (
-          // eslint-disable-next-line react/no-danger
-          <div dangerouslySetInnerHTML={{ __html: insert }} />
-        );
+      insertElement = React.isValidElement(insert) ? (
+        insert
+      ) : (
+        // eslint-disable-next-line react/no-danger
+        <div dangerouslySetInnerHTML={{ __html: insert }} />
+      );
     }
 
     return (

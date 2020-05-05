@@ -25,7 +25,7 @@ describe('<CheckboxGroup /> component', () => {
       const wrapper = mount(
         <CheckboxGroup checkboxWrapClassName="test" checkboxWrapTag="div">
           <Checkbox />
-        </CheckboxGroup>
+        </CheckboxGroup>,
       );
 
       expect(wrapper).toMatchSnapshot();

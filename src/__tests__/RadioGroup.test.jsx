@@ -25,7 +25,7 @@ describe('<RadioGroup /> component', () => {
       const wrapper = mount(
         <RadioGroup name="test" radioWrapClassName="test" radioWrapTag="div">
           <Radio />
-        </RadioGroup>
+        </RadioGroup>,
       );
 
       expect(wrapper).toMatchSnapshot();
@@ -60,7 +60,7 @@ describe('<RadioGroup /> component', () => {
           >
             <Radio value="1" />
             <Radio value="2" />
-          </RadioGroup>
+          </RadioGroup>,
         );
 
         expect(wrapper).toMatchSnapshot();

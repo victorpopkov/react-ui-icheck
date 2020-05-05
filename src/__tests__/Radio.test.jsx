@@ -24,7 +24,7 @@ describe('<Radio /> component', () => {
       const wrapper = render(
         <Radio labelTag="div">
           <span>label</span>
-        </Radio>
+        </Radio>,
       );
 
       expect(wrapper).toMatchSnapshot();
@@ -32,9 +32,7 @@ describe('<Radio /> component', () => {
   });
 
   describe('should update the state', () => {
-    const testRadio = (
-      <Radio label="label" />
-    );
+    const testRadio = <Radio label="label" />;
 
     it('when the checked prop has changed', () => {
       const spy = jest.spyOn(Radio.prototype, 'componentWillReceiveProps');

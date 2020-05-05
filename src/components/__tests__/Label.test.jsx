@@ -23,14 +23,9 @@ describe('<Label /> component', () => {
 
     it('when label as element is passed', () => {
       const wrapper = shallow(
-        <Label
-          handleHover={() => false}
-          label={(
-            <span>propLabel</span>
-          )}
-        >
+        <Label handleHover={() => false} label={<span>propLabel</span>}>
           <div>child</div>
-        </Label>
+        </Label>,
       );
 
       expect(wrapper).toMatchSnapshot();
@@ -45,7 +40,7 @@ describe('<Label /> component', () => {
           labelTagClassName="test"
         >
           <div>child</div>
-        </Label>
+        </Label>,
       );
 
       expect(wrapper).toMatchSnapshot();
@@ -55,14 +50,12 @@ describe('<Label /> component', () => {
       const wrapper = shallow(
         <Label
           handleHover={() => false}
-          labelChildren={(
-            <span>propLabelChildren</span>
-          )}
+          labelChildren={<span>propLabelChildren</span>}
           labelTag="div"
           labelTagClassName="test"
         >
           <div>child</div>
-        </Label>
+        </Label>,
       );
 
       expect(wrapper).toMatchSnapshot();
@@ -74,7 +67,7 @@ describe('<Label /> component', () => {
     const testSpyLabel = mount(
       <Label handleHover={testSpy}>
         <div>child</div>
-      </Label>
+      </Label>,
     );
 
     afterEach(() => {
@@ -92,7 +85,7 @@ describe('<Label /> component', () => {
         const wrapper = mount(
           <Label handleHover={testSpy}>
             <div>child</div>
-          </Label>
+          </Label>,
         );
 
         expect(testSpy).not.toHaveBeenCalled();
@@ -107,7 +100,7 @@ describe('<Label /> component', () => {
         const wrapper = mount(
           <Label handleHover={testSpy} isMobile>
             <div>child</div>
-          </Label>
+          </Label>,
         );
 
         wrapper.simulate('focus');

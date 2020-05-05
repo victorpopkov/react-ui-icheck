@@ -7,22 +7,12 @@ class CheckboxGroup extends Component {
     const { checkboxWrapClassName, checkboxWrapTag } = this.props;
     const { value, ...other } = props;
 
-    const checkbox = (
-      <Checkbox
-        {...other}
-        key={value}
-        value={value}
-      />
-    );
+    const checkbox = <Checkbox {...other} key={value} value={value} />;
 
     if (checkboxWrapTag) {
       const WrapTag = checkboxWrapTag;
 
-      return (
-        <WrapTag className={checkboxWrapClassName}>
-          {checkbox}
-        </WrapTag>
-      );
+      return <WrapTag className={checkboxWrapClassName}>{checkbox}</WrapTag>;
     }
 
     return checkbox;
@@ -39,7 +29,9 @@ class CheckboxGroup extends Component {
       ...other
     } = this.props;
 
-    const options = React.Children.map(children, (option) => this.renderCheckbox(option.props));
+    const options = React.Children.map(children, (option) =>
+      this.renderCheckbox(option.props),
+    );
 
     return (
       <div {...other} className={className}>

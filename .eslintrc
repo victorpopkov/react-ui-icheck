@@ -6,16 +6,10 @@
     "node": true
   },
   "parser": "babel-eslint",
-  "plugins": [
-    "react",
-    "import"
-  ],
+  "plugins": ["react", "import"],
   "settings": {
     "import/resolve": {
-      "moduleDirectory": [
-        "node_modules",
-        "src"
-      ]
+      "moduleDirectory": ["node_modules", "src"]
     }
   }
 }

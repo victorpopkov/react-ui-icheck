@@ -17,7 +17,7 @@ describe('deprecated helper', () => {
   });
 
   describe('when mounting a React component', () => {
-    it('shouldn\'t throw a console.warn when not using a deprecated property', () => {
+    it("shouldn't throw a console.warn when not using a deprecated property", () => {
       mount(<TestComponent testProp="test" />);
       expect(console.warn).toHaveBeenCalledTimes(0);
     });

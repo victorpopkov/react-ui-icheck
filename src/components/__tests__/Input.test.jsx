@@ -17,14 +17,7 @@ const testInputComponent = (inputType) => {
   });
 
   it('should render the corresponding HTML when the insert value is set', () => {
-    const input = (
-      <Input
-        inputType={inputType}
-        insert={(
-          <div>test</div>
-        )}
-      />
-    );
+    const input = <Input inputType={inputType} insert={<div>test</div>} />;
 
     const wrapper = render(input);
     expect(wrapper).toMatchSnapshot();
@@ -32,12 +25,16 @@ const testInputComponent = (inputType) => {
 
   describe('should render wrapper', () => {
     it('with corresponding className when inheritClassName is passed', () => {
-      const wrapper = shallow(<Input className="test" inputType={inputType} inheritClassName />);
+      const wrapper = shallow(
+        <Input className="test" inputType={inputType} inheritClassName />,
+      );
       expect(wrapper.props().className).toBe(`i${inputType} test`);
     });
 
     it('with corresponding id when inheritID is passed', () => {
-      const wrapper = shallow(<Input id="test" inputType={inputType} inheritID />);
+      const wrapper = shallow(
+        <Input id="test" inputType={inputType} inheritID />,
+      );
       expect(wrapper.props().id).toBe('iCheck-test');
     });
 
@@ -68,17 +65,23 @@ const testInputComponent = (inputType) => {
 
     describe('when increaseArea is passed', () => {
       it('as a positive value', () => {
-        const wrapper = shallow(<Input increaseArea="30%" inputType={inputType} />);
+        const wrapper = shallow(
+          <Input increaseArea="30%" inputType={inputType} />,
+        );
         expect(wrapper).toMatchSnapshot();
       });
 
       it('as a negative value', () => {
-        const wrapper = shallow(<Input increaseArea="-30%" inputType={inputType} />);
+        const wrapper = shallow(
+          <Input increaseArea="-30%" inputType={inputType} />,
+        );
         expect(wrapper.find('input').props()).toMatchSnapshot();
       });
 
       it('as a negative value and more than 50%', () => {
-        const wrapper = shallow(<Input increaseArea="-60%" inputType={inputType} />);
+        const wrapper = shallow(
+          <Input increaseArea="-60%" inputType={inputType} />,
+        );
         expect(wrapper).toMatchSnapshot();
       });
     });
@@ -166,7 +169,7 @@ const testInputComponent = (inputType) => {
           insert="Insert"
           label="Label"
           onChange={spy}
-        />
+        />,
       );
 
       expect(spy).toHaveBeenCalledTimes(0);

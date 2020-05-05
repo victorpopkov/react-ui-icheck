@@ -24,7 +24,7 @@ describe('<Checkbox /> component', () => {
       const wrapper = render(
         <Checkbox labelTag="div">
           <span>label</span>
-        </Checkbox>
+        </Checkbox>,
       );
 
       expect(wrapper).toMatchSnapshot();
@@ -32,9 +32,7 @@ describe('<Checkbox /> component', () => {
   });
 
   describe('should update the state', () => {
-    const testCheckbox = (
-      <Checkbox label="label" />
-    );
+    const testCheckbox = <Checkbox label="label" />;
 
     it('when the checked prop has changed', () => {
       const spy = jest.spyOn(Checkbox.prototype, 'componentWillReceiveProps');

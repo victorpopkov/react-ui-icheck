@@ -110,7 +110,9 @@ class BaseInput extends Component {
         insert={insert}
         isMobile={isMobile}
         name={name}
-        ref={(c) => { this.input = c; }}
+        ref={(c) => {
+          this.input = c;
+        }}
         value={value}
         onBlur={onBlur}
         onChange={onChange}

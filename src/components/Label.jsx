@@ -9,12 +9,7 @@ class Label extends Component {
   }
 
   handleHover(event, isHovered = true) {
-    const {
-      disabled,
-      handleHover,
-      isMobile,
-      labelHover,
-    } = this.props;
+    const { disabled, handleHover, isMobile, labelHover } = this.props;
 
     if (disabled) return;
 
@@ -28,22 +23,13 @@ class Label extends Component {
   }
 
   renderLabel() {
-    const {
-      label,
-      labelChildren,
-      labelTag,
-      labelTagClassName,
-    } = this.props;
+    const { label, labelChildren, labelTag, labelTagClassName } = this.props;
 
     if (!React.isValidElement(label)) {
       const Tag = labelTag;
 
       if (labelChildren) {
-        return (
-          <Tag className={labelTagClassName}>
-            {labelChildren}
-          </Tag>
-        );
+        return <Tag className={labelTagClassName}>{labelChildren}</Tag>;
       }
 
       return (

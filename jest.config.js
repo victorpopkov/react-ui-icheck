@@ -9,10 +9,7 @@ module.exports = {
     '**/*.{js,jsx}',
   ],
   coverageDirectory: 'coverage',
-  setupFiles: [
-    '<rootDir>/test/shim.js',
-    '<rootDir>/test/setup.js',
-  ],
+  setupFiles: ['<rootDir>/test/shim.js', '<rootDir>/test/setup.js'],
   snapshotSerializers: ['enzyme-to-json/serializer'],
   testEnvironment: 'jsdom',
 };

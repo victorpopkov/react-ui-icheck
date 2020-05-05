@@ -43,11 +43,7 @@ class RadioGroup extends Component {
     const { radioWrapClassName, radioWrapTag } = this.props;
     const { value: stateValue } = this.state;
 
-    const {
-      onChange,
-      value,
-      ...other
-    } = props;
+    const { onChange, value, ...other } = props;
 
     const radio = (
       <Radio
@@ -62,11 +58,7 @@ class RadioGroup extends Component {
     if (radioWrapTag) {
       const WrapTag = radioWrapTag;
 
-      return (
-        <WrapTag className={radioWrapClassName}>
-          {radio}
-        </WrapTag>
-      );
+      return <WrapTag className={radioWrapClassName}>{radio}</WrapTag>;
     }
 
     return radio;
@@ -75,13 +67,11 @@ class RadioGroup extends Component {
   render() {
     const { children, className } = this.props;
 
-    const options = React.Children.map(children, (option) => this.renderRadio(option.props));
-
-    return (
-      <div className={className}>
-        {options}
-      </div>
+    const options = React.Children.map(children, (option) =>
+      this.renderRadio(option.props),
     );
+
+    return <div className={className}>{options}</div>;
   }
 }
 
