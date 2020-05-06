@@ -77,7 +77,7 @@
   "scripts": {
     "build": "cross-env BABEL_ENV=production NODE_ENV=production babel ./src/ -d ./lib/ --ignore **/*.test.js",
     "lint": "npm-run-all --continue-on-error lint:*",
-    "lint:eslint": "eslint -c .eslintrc ./src/",
+    "lint:eslint": "eslint --config ./.eslintrc --ext js,jsx .",
     "lint:prettier": "prettier --check .",
     "prepare": "npm-run-all build",
     "test": "jest --coverage",
