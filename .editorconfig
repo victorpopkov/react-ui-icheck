@@ -7,11 +7,3 @@ indent_size = 2
 indent_style = space
 max_line_length = 80
 trim_trailing_whitespace = true
-
-# YAML Files
-[*.yml]
-indent_size = 4
-
-# Travis Config File
-[.travis.yml]
-indent_size = 2
