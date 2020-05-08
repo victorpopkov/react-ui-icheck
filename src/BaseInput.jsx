@@ -1,4 +1,3 @@
-/* eslint-disable react/no-unused-prop-types, react/no-unused-state */
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import mobile from 'is-mobile';

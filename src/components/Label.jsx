@@ -48,7 +48,6 @@ class Label extends Component {
     const { children, labelClassName } = this.props;
 
     return (
-      // eslint-disable-next-line jsx-a11y/label-has-associated-control, jsx-a11y/label-has-for
       <label
         className={labelClassName || null}
         onBlur={(event) => this.handleHover(event, false)}
