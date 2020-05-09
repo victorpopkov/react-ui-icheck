@@ -76,6 +76,10 @@
   },
   "scripts": {
     "build": "cross-env BABEL_ENV=production NODE_ENV=production babel ./src/ -d ./lib/ --ignore **/*.test.js",
+    "ci:eslint": "eslint --config ./.eslintrc --ext js,jsx --format ./.github/eslint-issues.js .",
+    "ci:prettier:md": "prettier --check './**/*.md'",
+    "ci:prettier:yml": "prettier --check './**/*.yml'",
+    "ci:test": "jest --coverage --coverageReporters=json-summary --json --outputFile=jest-summary.json",
     "lint": "npm-run-all --continue-on-error lint:*",
     "lint:eslint": "eslint --config ./.eslintrc --ext js,jsx .",
     "lint:prettier": "prettier --check .",
