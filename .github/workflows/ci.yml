@@ -80,3 +80,72 @@ jobs:
           exit "${EXIT}"
         env:
           SUCCESS: ${{ steps.lint.outputs.status == 'success' }}
+
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        os: [ubuntu-latest]
+        node_version: [10.x, 12.x]
+    steps:
+      - name: Checking out
+        uses: actions/checkout@v2
+      - name: Getting branch name
+        run: echo "::set-env name=BRANCH_NAME::${GITHUB_REF##*/}"
+      - name: Use Node.js ${{ matrix.node_version }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node_version }}
+      - name: Install
+        run: yarn install
+      - name: Test
+        continue-on-error: true
+        id: test
+        run: |
+          # test
+          yarn ci:test > /dev/null 2>&1 || true
+          yarn test || true
+
+          # env
+          export TESTS_COVERAGE=$(jq -r '.total.lines.pct' < ./coverage/coverage-summary.json)%
+          export TESTS_FAILED=$(jq -r '.numFailedTests' < jest-summary.json)
+          export TESTS_PASSED=$(jq -r '.numPassedTests' < jest-summary.json)
+          export TESTS_TOTAL=$(jq -r '.numTotalTests' < jest-summary.json)
+
+          echo "::set-env name=NODE_VERSION::${{ matrix.node_version }}"
+          echo "::set-env name=TESTS_COVERAGE::${TESTS_COVERAGE}"
+          echo "::set-env name=TESTS_FAILED::${TESTS_FAILED}"
+          echo "::set-env name=TESTS_PASSED::${TESTS_PASSED}"
+          echo "::set-env name=TESTS_TOTAL::${TESTS_TOTAL}"
+
+          # status
+          if [ "${TESTS_FAILED}" -eq 0 ]; then
+              echo '::set-output name=status::success'
+              exit 0
+          else
+              echo '::set-output name=status::failure'
+              exit 1
+          fi
+      - name: Prepare success Slack notification
+        continue-on-error: true
+        if: steps.test.outputs.status == 'success'
+        run: echo "::set-env name=SLACK_CUSTOM_PAYLOAD::${SLACK_CUSTOM_PAYLOAD}"
+        env:
+          SLACK_CUSTOM_PAYLOAD: '{"channel":"react-ui-icheck","text":"GitHub Actions {{ GITHUB_WORKFLOW }} workflow test job has passed {{ TESTS_TOTAL }} tests. Coverage: *{{ TESTS_COVERAGE }}*.","blocks":[{"type":"section","text":{"type":"mrkdwn","text":"GitHub Actions *{{ GITHUB_WORKFLOW }}* workflow *test* job has passed *{{ TESTS_TOTAL }}* tests. Coverage: *{{ TESTS_COVERAGE }}*."}},{"type":"context","elements":[{"type":"image","image_url":"https://github.githubassets.com/favicon.ico","alt_text":"images"},{"type":"mrkdwn","text":"<https://github.com/{{ GITHUB_REPOSITORY }}|{{ GITHUB_REPOSITORY }}> | Branch/Tag: <https://github.com/{{ GITHUB_REPOSITORY }}/tree/{{ BRANCH_NAME }}|{{ BRANCH_NAME }}> | Node.js: {{ NODE_VERSION }} | Workflow: <https://github.com/{{ GITHUB_REPOSITORY }}/actions/runs/{{ GITHUB_RUN_ID }}|View>"}]}]}'
+      - name: Prepare failure Slack notification
+        continue-on-error: true
+        if: steps.test.outputs.status == 'failure'
+        run: echo "::set-env name=SLACK_CUSTOM_PAYLOAD::${SLACK_CUSTOM_PAYLOAD}"
+        env:
+          SLACK_CUSTOM_PAYLOAD: '{"channel":"react-ui-icheck","text":"GitHub Actions {{ GITHUB_WORKFLOW }} workflow test job has failed some tests.","blocks":[{"type":"section","text":{"type":"mrkdwn","text":"GitHub Actions *{{ GITHUB_WORKFLOW }}* workflow *test* job has failed some tests:"}},{"type":"section","fields":[{"type":"mrkdwn","text":"*Total*:\n{{ TESTS_TOTAL }}"},{"type":"mrkdwn","text":"*Passed*:\n{{ TESTS_PASSED }}"},{"type":"mrkdwn","text":"*Failed*:\n{{ TESTS_FAILED }}"}]},{"type":"actions","elements":[{"type":"button","url":"https://github.com/{{ GITHUB_REPOSITORY }}/actions/runs/{{ GITHUB_RUN_ID }}","text":{"type":"plain_text","text":"View Workflow","emoji":false}}]},{"type":"context","elements":[{"type":"image","image_url":"https://github.githubassets.com/favicon.ico","alt_text":"images"},{"type":"mrkdwn","text":"<https://github.com/{{ GITHUB_REPOSITORY }}|{{ GITHUB_REPOSITORY }}> | Branch/Tag: <https://github.com/{{ GITHUB_REPOSITORY }}/tree/{{ BRANCH_NAME }}|{{ BRANCH_NAME }}> | Node.js: {{ NODE_VERSION }} | Workflow: <https://github.com/{{ GITHUB_REPOSITORY }}/actions/runs/{{ GITHUB_RUN_ID }}|View>"}]}]}'
+      - name: Slack notification (codedsolar)
+        continue-on-error: true
+        uses: Ilshidur/action-slack@master
+        env:
+          SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK_CODEDSOLAR }}
+      - name: Test status
+        run: |
+          export EXIT=$("${SUCCESS}" && echo 0 || echo 1)
+          exit "${EXIT}"
+        env:
+          SUCCESS: ${{ steps.test.outputs.status == 'success' }}
