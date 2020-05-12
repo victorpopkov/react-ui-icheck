@@ -1,0 +1,82 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - develop
+      - master
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        os: [ubuntu-latest]
+        node_version: [10.x, 12.x]
+    steps:
+      - name: Checking out
+        uses: actions/checkout@v2
+      - name: Getting branch name
+        run: echo "::set-env name=BRANCH_NAME::${GITHUB_REF##*/}"
+      - name: Use Node.js ${{ matrix.node_version }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node_version }}
+      - name: Install
+        run: yarn install
+      - name: Lint
+        continue-on-error: true
+        id: lint
+        run: |
+          # JavaScript
+          export LINT_ISSUES_JS=$(yarn ci:eslint | grep Issues | awk -F' ' '{ print $2 }')
+
+          # Markdown
+          export LINT_ISSUES_MD=$(($(yarn ci:prettier:md | wc -l) - 5))
+          export LINT_ISSUES_MD=$((LINT_ISSUES_MD < 0 ? 0 : LINT_ISSUES_MD))
+
+          # YAML
+          export LINT_ISSUES_YML=$(($(yarn ci:prettier:yml | wc -l) - 5))
+          export LINT_ISSUES_YML=$((LINT_ISSUES_YML < 0 ? 0 : LINT_ISSUES_YML))
+
+          # env
+          echo "::set-env name=NODE_VERSION::${{ matrix.node_version }}"
+          echo "::set-env name=LINT_ISSUES_JS::${LINT_ISSUES_JS}"
+          echo "::set-env name=LINT_ISSUES_MD::${LINT_ISSUES_MD}"
+          echo "::set-env name=LINT_ISSUES_YML::${LINT_ISSUES_YML}"
+          echo "::set-env name=LINT_ISSUES::$((LINT_ISSUES_JS + LINT_ISSUES_MD + LINT_ISSUES_YML))"
+
+          # lint
+          yarn lint || true
+
+          # status
+          if [ $((LINT_ISSUES_JS + LINT_ISSUES_MD + LINT_ISSUES_YML)) -eq 0 ]; then
+            echo '::set-output name=status::success'
+            exit 0
+          else
+            echo '::set-output name=status::failure'
+            exit 1
+          fi
+      - name: Prepare success Slack notification
+        continue-on-error: true
+        if: steps.lint.outputs.status == 'success'
+        run: echo "::set-env name=SLACK_CUSTOM_PAYLOAD::${SLACK_CUSTOM_PAYLOAD}"
+        env:
+          SLACK_CUSTOM_PAYLOAD: '{"channel":"react-ui-icheck","text":"GitHub Actions {{ GITHUB_WORKFLOW }} workflow lint job has been completed successfully with no issues.","blocks":[{"type":"section","text":{"type":"mrkdwn","text":"GitHub Actions *{{ GITHUB_WORKFLOW }}* workflow *lint* job has been completed successfully with no issues."}},{"type":"context","elements":[{"type":"image","image_url":"https://github.githubassets.com/favicon.ico","alt_text":"images"},{"type":"mrkdwn","text":"<https://github.com/{{ GITHUB_REPOSITORY }}|{{ GITHUB_REPOSITORY }}> | Branch/Tag: <https://github.com/{{ GITHUB_REPOSITORY }}/tree/{{ BRANCH_NAME }}|{{ BRANCH_NAME }}> | Node.js: {{ NODE_VERSION }} | Workflow: <https://github.com/{{ GITHUB_REPOSITORY }}/actions/runs/{{ GITHUB_RUN_ID }}|View>"}]}]}'
+      - name: Prepare failure Slack notification
+        continue-on-error: true
+        if: steps.lint.outputs.status == 'failure'
+        run: echo "::set-env name=SLACK_CUSTOM_PAYLOAD::${SLACK_CUSTOM_PAYLOAD}"
+        env:
+          SLACK_CUSTOM_PAYLOAD: '{"channel":"react-ui-icheck","text":"GitHub Actions {{ GITHUB_WORKFLOW }} workflow lint job has failed with {{ LINT_ISSUES }} code linting issues.","blocks":[{"type":"section","text":{"type":"mrkdwn","text":"GitHub Actions *{{ GITHUB_WORKFLOW }}* workflow *lint* job has failed with *{{ LINT_ISSUES }}* code linting issues:"}},{"type":"section","fields":[{"type":"mrkdwn","text":"*JavaScript (ESLint)*:\n{{ LINT_ISSUES_JS }}"},{"type":"mrkdwn","text":"*Markdown (Prettier)*:\n{{ LINT_ISSUES_MD }}"},{"type":"mrkdwn","text":"*YAML (Prettier)*:\n{{ LINT_ISSUES_YML }}"}]},{"type":"actions","elements":[{"type":"button","url":"https://github.com/{{ GITHUB_REPOSITORY }}/actions/runs/{{ GITHUB_RUN_ID }}","text":{"type":"plain_text","text":"View Workflow","emoji":false}}]},{"type":"context","elements":[{"type":"image","image_url":"https://github.githubassets.com/favicon.ico","alt_text":"images"},{"type":"mrkdwn","text":"<https://github.com/{{ GITHUB_REPOSITORY }}|{{ GITHUB_REPOSITORY }}> | Branch/Tag: <https://github.com/{{ GITHUB_REPOSITORY }}/tree/{{ BRANCH_NAME }}|{{ BRANCH_NAME }}> | Node.js: {{ NODE_VERSION }} | Workflow: <https://github.com/{{ GITHUB_REPOSITORY }}/actions/runs/{{ GITHUB_RUN_ID }}|View>"}]}]}'
+      - name: Slack notification (codedsolar)
+        continue-on-error: true
+        uses: Ilshidur/action-slack@master
+        env:
+          SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK_CODEDSOLAR }}
+      - name: Lint status
+        run: |
+          export EXIT=$("${SUCCESS}" && echo 0 || echo 1)
+          exit "${EXIT}"
+        env:
+          SUCCESS: ${{ steps.lint.outputs.status == 'success' }}
