@@ -209,3 +209,7 @@ jobs:
           exit "${EXIT}"
         env:
           SUCCESS: ${{ steps.test.outputs.status == 'success' }}
+      - name: Codecov Report
+        uses: codecov/codecov-action@v1
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }}
