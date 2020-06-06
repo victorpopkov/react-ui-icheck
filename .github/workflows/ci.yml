@@ -156,6 +156,11 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: ${{ matrix.node_version }}
+      - name: Prepare Code Climate
+        run: |
+          curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
+          chmod +x ./cc-test-reporter
+          ./cc-test-reporter before-build
       - name: Install
         run: yarn install --ignore-scripts
       - name: Test
@@ -213,3 +218,7 @@ jobs:
         uses: codecov/codecov-action@v1
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
+      - name: Code Climate Report
+        run: ./cc-test-reporter after-build --exit-code "$("${SUCCESS}" && echo 0 || echo 1)" --id ${{ secrets.CODE_CLIMATE_TOKEN }}
+        env:
+          SUCCESS: ${{ steps.test.outputs.status == 'success' }}
