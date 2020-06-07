@@ -1,8 +1,11 @@
 {
   "extends": ["airbnb", "plugin:prettier/recommended"],
   "env": {
+    "browser": true,
+    "es6": true,
     "jest": true
   },
+  "parser": "babel-eslint",
   "rules": {
     "jsx-a11y/label-has-associated-control": 0,
     "no-console": 0,
