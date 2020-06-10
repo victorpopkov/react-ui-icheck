@@ -9,6 +9,6 @@ module.exports = function (results) {
   );
 
   return summary.errors > 0 || summary.warnings > 0
-    ? `Issues: summary.errors + summary.warnings`
+    ? `Issues: ${summary.errors + summary.warnings}`
     : 'Issues: 0';
 };
