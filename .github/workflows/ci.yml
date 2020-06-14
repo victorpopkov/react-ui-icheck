@@ -18,11 +18,14 @@ jobs:
         uses: actions/checkout@v2
       - name: Getting branch name
         run: echo "::set-env name=BRANCH_NAME::${GITHUB_REF##*/}"
+      - name: Getting job name
+        run: echo '::set-env name=GITHUB_JOB_NAME::build'
       - name: Use Node.js ${{ matrix.node_version }}
         uses: actions/setup-node@v1
         with:
           node-version: ${{ matrix.node_version }}
       - name: Install
+        continue-on-error: true
         run: yarn install --ignore-scripts
       - name: Build
         continue-on-error: true
@@ -40,7 +43,6 @@ jobs:
             echo '::set-output name=status::success'
             exit 0
           else
-            echo '::set-output name=status::failure'
             exit 1
           fi
       - name: Prepare success Slack notification
@@ -48,24 +50,20 @@ jobs:
         if: steps.build.outputs.status == 'success'
         run: echo "::set-env name=SLACK_CUSTOM_PAYLOAD::${SLACK_CUSTOM_PAYLOAD}"
         env:
-          SLACK_CUSTOM_PAYLOAD: '{"channel":"react-ui-icheck","text":"GitHub Actions {{ GITHUB_WORKFLOW }} workflow build job has been completed successfully.","blocks":[{"type":"section","text":{"type":"mrkdwn","text":"GitHub Actions *{{ GITHUB_WORKFLOW }}* workflow *build* job has been completed successfully."}},{"type":"context","elements":[{"type":"image","image_url":"https://github.githubassets.com/favicon.ico","alt_text":"images"},{"type":"mrkdwn","text":"<https://github.com/{{ GITHUB_REPOSITORY }}|{{ GITHUB_REPOSITORY }}> | Branch/Tag: <https://github.com/{{ GITHUB_REPOSITORY }}/tree/{{ BRANCH_NAME }}|{{ BRANCH_NAME }}> | Node.js: {{ NODE_VERSION }} | Workflow: <https://github.com/{{ GITHUB_REPOSITORY }}/actions/runs/{{ GITHUB_RUN_ID }}|View>"}]}]}'
+          SLACK_CUSTOM_PAYLOAD: '{"channel":"react-ui-icheck","attachments":[{"color":"#2eb886","fallback":"GitHub Actions {{ GITHUB_WORKFLOW }} workflow {{ GITHUB_JOB_NAME }} job of {{ GITHUB_REPOSITORY }}@{{ BRANCH_NAME }} by {{ GITHUB_ACTOR }} has passed on Node.js {{ NODE_VERSION }}","blocks":[{"type":"section","text":{"type":"mrkdwn","text":"GitHub Actions *<https://github.com/{{ GITHUB_REPOSITORY }}/actions/runs/{{ GITHUB_RUN_ID }}|{{ GITHUB_WORKFLOW }}>* workflow *{{ GITHUB_JOB_NAME }}* job of *<https://github.com/{{ GITHUB_REPOSITORY }}|{{ GITHUB_REPOSITORY }}>@<https://github.com/{{ GITHUB_REPOSITORY }}/tree/{{ BRANCH_NAME }}|{{ BRANCH_NAME }}>* by *{{ GITHUB_ACTOR }}* has passed on Node.js *{{ NODE_VERSION }}*"}}]}]}'
       - name: Prepare failure Slack notification
         continue-on-error: true
-        if: steps.build.outputs.status == 'failure'
+        if: steps.build.outputs.status != 'success'
         run: echo "::set-env name=SLACK_CUSTOM_PAYLOAD::${SLACK_CUSTOM_PAYLOAD}"
         env:
-          SLACK_CUSTOM_PAYLOAD: '{"channel":"react-ui-icheck","text":"GitHub Actions {{ GITHUB_WORKFLOW }} workflow build job has failed.","blocks":[{"type":"section","text":{"type":"mrkdwn","text":"GitHub Actions *{{ GITHUB_WORKFLOW }}* workflow *build* job has failed."}},{"type":"actions","elements":[{"type":"button","url":"https://github.com/{{ GITHUB_REPOSITORY }}/actions/runs/{{ GITHUB_RUN_ID }}","text":{"type":"plain_text","text":"View Workflow","emoji":false}}]},{"type":"context","elements":[{"type":"image","image_url":"https://github.githubassets.com/favicon.ico","alt_text":"images"},{"type":"mrkdwn","text":"<https://github.com/{{ GITHUB_REPOSITORY }}|{{ GITHUB_REPOSITORY }}> | Branch/Tag: <https://github.com/{{ GITHUB_REPOSITORY }}/tree/{{ BRANCH_NAME }}|{{ BRANCH_NAME }}> | Node.js: {{ NODE_VERSION }} | Workflow: <https://github.com/{{ GITHUB_REPOSITORY }}/actions/runs/{{ GITHUB_RUN_ID }}|View>"}]}]}'
+          SLACK_CUSTOM_PAYLOAD: '{"channel":"react-ui-icheck","attachments":[{"color":"#ed2f00","fallback":"GitHub Actions {{ GITHUB_WORKFLOW }} workflow {{ GITHUB_JOB_NAME }} job of {{ GITHUB_REPOSITORY }}@{{ BRANCH_NAME }} by {{ GITHUB_ACTOR }} has failed on Node.js {{ NODE_VERSION }}","blocks":[{"type":"section","text":{"type":"mrkdwn","text":"GitHub Actions *<https://github.com/{{ GITHUB_REPOSITORY }}/actions/runs/{{ GITHUB_RUN_ID }}|{{ GITHUB_WORKFLOW }}>* workflow *{{ GITHUB_JOB_NAME }}* job of *<https://github.com/{{ GITHUB_REPOSITORY }}|{{ GITHUB_REPOSITORY }}>@<https://github.com/{{ GITHUB_REPOSITORY }}/tree/{{ BRANCH_NAME }}|{{ BRANCH_NAME }}>* by *{{ GITHUB_ACTOR }}* has failed on Node.js *{{ NODE_VERSION }}*"}}]}]}'
       - name: Slack notification (codedsolar)
         continue-on-error: true
         uses: Ilshidur/action-slack@master
         env:
           SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK_CODEDSOLAR }}
-      - name: Lint status
-        run: |
-          export EXIT=$("${SUCCESS}" && echo 0 || echo 1)
-          exit "${EXIT}"
-        env:
-          SUCCESS: ${{ steps.build.outputs.status == 'success' }}
+      - name: Build status
+        run: ${{ steps.build.outputs.status == 'success' }} && exit 0 || exit 1
 
   lint:
     runs-on: ubuntu-latest
@@ -78,11 +76,14 @@ jobs:
         uses: actions/checkout@v2
       - name: Getting branch name
         run: echo "::set-env name=BRANCH_NAME::${GITHUB_REF##*/}"
+      - name: Getting job name
+        run: echo '::set-env name=GITHUB_JOB_NAME::lint'
       - name: Use Node.js ${{ matrix.node_version }}
         uses: actions/setup-node@v1
         with:
           node-version: ${{ matrix.node_version }}
       - name: Install
+        continue-on-error: true
         run: yarn install --ignore-scripts
       - name: Lint
         continue-on-error: true
@@ -99,22 +100,24 @@ jobs:
           export LINT_ISSUES_YML=$(($(yarn ci:prettier:yml | wc -l) - 5))
           export LINT_ISSUES_YML=$((LINT_ISSUES_YML < 0 ? 0 : LINT_ISSUES_YML))
 
+          # Issues
+          export LINT_ISSUES=$((LINT_ISSUES_JS + LINT_ISSUES_MD + LINT_ISSUES_YML))
+
           # env
-          echo "::set-env name=NODE_VERSION::${{ matrix.node_version }}"
+          echo "::set-env name=LINT_ISSUES::${LINT_ISSUES}"
           echo "::set-env name=LINT_ISSUES_JS::${LINT_ISSUES_JS}"
           echo "::set-env name=LINT_ISSUES_MD::${LINT_ISSUES_MD}"
           echo "::set-env name=LINT_ISSUES_YML::${LINT_ISSUES_YML}"
-          echo "::set-env name=LINT_ISSUES::$((LINT_ISSUES_JS + LINT_ISSUES_MD + LINT_ISSUES_YML))"
+          echo "::set-env name=NODE_VERSION::${{ matrix.node_version }}"
 
           # lint
           yarn lint || true
 
           # status
-          if [ $((LINT_ISSUES_JS + LINT_ISSUES_MD + LINT_ISSUES_YML)) -eq 0 ]; then
+          if [ "${LINT_ISSUES}" -eq 0 ]; then
             echo '::set-output name=status::success'
             exit 0
           else
-            echo '::set-output name=status::failure'
             exit 1
           fi
       - name: Prepare success Slack notification
@@ -122,24 +125,20 @@ jobs:
         if: steps.lint.outputs.status == 'success'
         run: echo "::set-env name=SLACK_CUSTOM_PAYLOAD::${SLACK_CUSTOM_PAYLOAD}"
         env:
-          SLACK_CUSTOM_PAYLOAD: '{"channel":"react-ui-icheck","text":"GitHub Actions {{ GITHUB_WORKFLOW }} workflow lint job has been completed successfully with no issues.","blocks":[{"type":"section","text":{"type":"mrkdwn","text":"GitHub Actions *{{ GITHUB_WORKFLOW }}* workflow *lint* job has been completed successfully with no issues."}},{"type":"context","elements":[{"type":"image","image_url":"https://github.githubassets.com/favicon.ico","alt_text":"images"},{"type":"mrkdwn","text":"<https://github.com/{{ GITHUB_REPOSITORY }}|{{ GITHUB_REPOSITORY }}> | Branch/Tag: <https://github.com/{{ GITHUB_REPOSITORY }}/tree/{{ BRANCH_NAME }}|{{ BRANCH_NAME }}> | Node.js: {{ NODE_VERSION }} | Workflow: <https://github.com/{{ GITHUB_REPOSITORY }}/actions/runs/{{ GITHUB_RUN_ID }}|View>"}]}]}'
+          SLACK_CUSTOM_PAYLOAD: '{"channel":"react-ui-icheck","attachments":[{"color":"#2eb886","fallback":"GitHub Actions {{ GITHUB_WORKFLOW }} workflow {{ GITHUB_JOB_NAME }} job of {{ GITHUB_REPOSITORY }}@{{ BRANCH_NAME }} by {{ GITHUB_ACTOR }} has passed with no issues on Node.js {{ NODE_VERSION }}","blocks":[{"type":"section","text":{"type":"mrkdwn","text":"GitHub Actions *<https://github.com/{{ GITHUB_REPOSITORY }}/actions/runs/{{ GITHUB_RUN_ID }}|{{ GITHUB_WORKFLOW }}>* workflow *{{ GITHUB_JOB_NAME }}* job of *<https://github.com/{{ GITHUB_REPOSITORY }}|{{ GITHUB_REPOSITORY }}>@<https://github.com/{{ GITHUB_REPOSITORY }}/tree/{{ BRANCH_NAME }}|{{ BRANCH_NAME }}>* by *{{ GITHUB_ACTOR }}* has passed with no issues on Node.js *{{ NODE_VERSION }}*"}}]}]}'
       - name: Prepare failure Slack notification
         continue-on-error: true
-        if: steps.lint.outputs.status == 'failure'
+        if: steps.lint.outputs.status != 'success'
         run: echo "::set-env name=SLACK_CUSTOM_PAYLOAD::${SLACK_CUSTOM_PAYLOAD}"
         env:
-          SLACK_CUSTOM_PAYLOAD: '{"channel":"react-ui-icheck","text":"GitHub Actions {{ GITHUB_WORKFLOW }} workflow lint job has failed with {{ LINT_ISSUES }} code linting issues.","blocks":[{"type":"section","text":{"type":"mrkdwn","text":"GitHub Actions *{{ GITHUB_WORKFLOW }}* workflow *lint* job has failed with *{{ LINT_ISSUES }}* code linting issues:"}},{"type":"section","fields":[{"type":"mrkdwn","text":"*JavaScript (ESLint)*:\n{{ LINT_ISSUES_JS }}"},{"type":"mrkdwn","text":"*Markdown (Prettier)*:\n{{ LINT_ISSUES_MD }}"},{"type":"mrkdwn","text":"*YAML (Prettier)*:\n{{ LINT_ISSUES_YML }}"}]},{"type":"actions","elements":[{"type":"button","url":"https://github.com/{{ GITHUB_REPOSITORY }}/actions/runs/{{ GITHUB_RUN_ID }}","text":{"type":"plain_text","text":"View Workflow","emoji":false}}]},{"type":"context","elements":[{"type":"image","image_url":"https://github.githubassets.com/favicon.ico","alt_text":"images"},{"type":"mrkdwn","text":"<https://github.com/{{ GITHUB_REPOSITORY }}|{{ GITHUB_REPOSITORY }}> | Branch/Tag: <https://github.com/{{ GITHUB_REPOSITORY }}/tree/{{ BRANCH_NAME }}|{{ BRANCH_NAME }}> | Node.js: {{ NODE_VERSION }} | Workflow: <https://github.com/{{ GITHUB_REPOSITORY }}/actions/runs/{{ GITHUB_RUN_ID }}|View>"}]}]}'
+          SLACK_CUSTOM_PAYLOAD: '{"channel":"react-ui-icheck","attachments":[{"color":"#ed2f00","fallback":"GitHub Actions {{ GITHUB_WORKFLOW }} workflow {{ GITHUB_JOB_NAME }} job of {{ GITHUB_REPOSITORY }}@{{ BRANCH_NAME }} by {{ GITHUB_ACTOR }} has failed with {{ LINT_ISSUES }} issues on Node.js {{ NODE_VERSION }}","blocks":[{"type":"section","text":{"type":"mrkdwn","text":"GitHub Actions *<https://github.com/{{ GITHUB_REPOSITORY }}/actions/runs/{{ GITHUB_RUN_ID }}|{{ GITHUB_WORKFLOW }}>* workflow *{{ GITHUB_JOB_NAME }}* job of *<https://github.com/{{ GITHUB_REPOSITORY }}|{{ GITHUB_REPOSITORY }}>@<https://github.com/{{ GITHUB_REPOSITORY }}/tree/{{ BRANCH_NAME }}|{{ BRANCH_NAME }}>* by *{{ GITHUB_ACTOR }}* has failed with *{{ LINT_ISSUES }}* issues on Node.js *{{ NODE_VERSION }}*"}},{"type":"section","fields":[{"type":"mrkdwn","text":"*JavaScript (ESLint)*:\n{{ LINT_ISSUES_JS }}"},{"type":"mrkdwn","text":"*Markdown (Prettier)*:\n{{ LINT_ISSUES_MD }}"},{"type":"mrkdwn","text":"*YAML (Prettier)*:\n{{ LINT_ISSUES_YML }}"}]}]}]}'
       - name: Slack notification (codedsolar)
         continue-on-error: true
         uses: Ilshidur/action-slack@master
         env:
           SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK_CODEDSOLAR }}
       - name: Lint status
-        run: |
-          export EXIT=$("${SUCCESS}" && echo 0 || echo 1)
-          exit "${EXIT}"
-        env:
-          SUCCESS: ${{ steps.lint.outputs.status == 'success' }}
+        run: ${{ steps.lint.outputs.status == 'success' }} && exit 0 || exit 1
 
   test:
     runs-on: ubuntu-latest
@@ -152,6 +151,8 @@ jobs:
         uses: actions/checkout@v2
       - name: Getting branch name
         run: echo "::set-env name=BRANCH_NAME::${GITHUB_REF##*/}"
+      - name: Getting job name
+        run: echo '::set-env name=GITHUB_JOB_NAME::test'
       - name: Use Node.js ${{ matrix.node_version }}
         uses: actions/setup-node@v1
         with:
@@ -162,6 +163,7 @@ jobs:
           chmod +x ./cc-test-reporter
           ./cc-test-reporter before-build
       - name: Install
+        continue-on-error: true
         run: yarn install --ignore-scripts
       - name: Test
         continue-on-error: true
@@ -188,7 +190,6 @@ jobs:
               echo '::set-output name=status::success'
               exit 0
           else
-              echo '::set-output name=status::failure'
               exit 1
           fi
       - name: Prepare success Slack notification
@@ -196,24 +197,20 @@ jobs:
         if: steps.test.outputs.status == 'success'
         run: echo "::set-env name=SLACK_CUSTOM_PAYLOAD::${SLACK_CUSTOM_PAYLOAD}"
         env:
-          SLACK_CUSTOM_PAYLOAD: '{"channel":"react-ui-icheck","text":"GitHub Actions {{ GITHUB_WORKFLOW }} workflow test job has passed {{ TESTS_TOTAL }} tests. Coverage: {{ TESTS_COVERAGE }}.","blocks":[{"type":"section","text":{"type":"mrkdwn","text":"GitHub Actions *{{ GITHUB_WORKFLOW }}* workflow *test* job has passed *{{ TESTS_TOTAL }}* tests. Coverage: *{{ TESTS_COVERAGE }}*."}},{"type":"context","elements":[{"type":"image","image_url":"https://github.githubassets.com/favicon.ico","alt_text":"images"},{"type":"mrkdwn","text":"<https://github.com/{{ GITHUB_REPOSITORY }}|{{ GITHUB_REPOSITORY }}> | Branch/Tag: <https://github.com/{{ GITHUB_REPOSITORY }}/tree/{{ BRANCH_NAME }}|{{ BRANCH_NAME }}> | Node.js: {{ NODE_VERSION }} | Workflow: <https://github.com/{{ GITHUB_REPOSITORY }}/actions/runs/{{ GITHUB_RUN_ID }}|View>"}]}]}'
+          SLACK_CUSTOM_PAYLOAD: '{"channel":"react-ui-icheck","attachments":[{"color":"#2eb886","fallback":"GitHub Actions {{ GITHUB_WORKFLOW }} workflow {{ GITHUB_JOB_NAME }} job of {{ GITHUB_REPOSITORY }}@{{ BRANCH_NAME }} by {{ GITHUB_ACTOR }} has passed with no issues {{ TESTS_TOTAL }} tests on Node.js {{ NODE_VERSION }}. Coverage: {{ TESTS_COVERAGE }}","blocks":[{"type":"section","text":{"type":"mrkdwn","text":"GitHub Actions *<https://github.com/{{ GITHUB_REPOSITORY }}/actions/runs/{{ GITHUB_RUN_ID }}|{{ GITHUB_WORKFLOW }}>* workflow *{{ GITHUB_JOB_NAME }}* job of *<https://github.com/{{ GITHUB_REPOSITORY }}|{{ GITHUB_REPOSITORY }}>@<https://github.com/{{ GITHUB_REPOSITORY }}/tree/{{ BRANCH_NAME }}|{{ BRANCH_NAME }}>* by *{{ GITHUB_ACTOR }}* has passed with no issues *{{ TESTS_TOTAL }}* tests on Node.js {{ NODE_VERSION }}. Coverage: *{{ TESTS_COVERAGE }}*"}}]}]}'
       - name: Prepare failure Slack notification
         continue-on-error: true
-        if: steps.test.outputs.status == 'failure'
+        if: steps.test.outputs.status != 'success'
         run: echo "::set-env name=SLACK_CUSTOM_PAYLOAD::${SLACK_CUSTOM_PAYLOAD}"
         env:
-          SLACK_CUSTOM_PAYLOAD: '{"channel":"react-ui-icheck","text":"GitHub Actions {{ GITHUB_WORKFLOW }} workflow test job has failed some tests.","blocks":[{"type":"section","text":{"type":"mrkdwn","text":"GitHub Actions *{{ GITHUB_WORKFLOW }}* workflow *test* job has failed some tests:"}},{"type":"section","fields":[{"type":"mrkdwn","text":"*Total*:\n{{ TESTS_TOTAL }}"},{"type":"mrkdwn","text":"*Passed*:\n{{ TESTS_PASSED }}"},{"type":"mrkdwn","text":"*Failed*:\n{{ TESTS_FAILED }}"}]},{"type":"actions","elements":[{"type":"button","url":"https://github.com/{{ GITHUB_REPOSITORY }}/actions/runs/{{ GITHUB_RUN_ID }}","text":{"type":"plain_text","text":"View Workflow","emoji":false}}]},{"type":"context","elements":[{"type":"image","image_url":"https://github.githubassets.com/favicon.ico","alt_text":"images"},{"type":"mrkdwn","text":"<https://github.com/{{ GITHUB_REPOSITORY }}|{{ GITHUB_REPOSITORY }}> | Branch/Tag: <https://github.com/{{ GITHUB_REPOSITORY }}/tree/{{ BRANCH_NAME }}|{{ BRANCH_NAME }}> | Node.js: {{ NODE_VERSION }} | Workflow: <https://github.com/{{ GITHUB_REPOSITORY }}/actions/runs/{{ GITHUB_RUN_ID }}|View>"}]}]}'
+          SLACK_CUSTOM_PAYLOAD: '{"channel":"react-ui-icheck","attachments":[{"color":"#ed2f00","fallback":"GitHub Actions {{ GITHUB_WORKFLOW }} workflow {{ GITHUB_JOB_NAME }} job of {{ GITHUB_REPOSITORY }}@{{ BRANCH_NAME }} by {{ GITHUB_ACTOR }} has failed with {{ TESTS_FAILED }} tests on Node.js {{ NODE_VERSION }}","blocks":[{"type":"section","text":{"type":"mrkdwn","text":"GitHub Actions *<https://github.com/{{ GITHUB_REPOSITORY }}/actions/runs/{{ GITHUB_RUN_ID }}|{{ GITHUB_WORKFLOW }}>* workflow *{{ GITHUB_JOB_NAME }}* job of *<https://github.com/{{ GITHUB_REPOSITORY }}|{{ GITHUB_REPOSITORY }}>@<https://github.com/{{ GITHUB_REPOSITORY }}/tree/{{ BRANCH_NAME }}|{{ BRANCH_NAME }}>* by *{{ GITHUB_ACTOR }}* has failed with *{{ TESTS_FAILED }}* tests on Node.js *{{ NODE_VERSION }}*"}},{"type":"section","fields":[{"type":"mrkdwn","text":"*Total*:\n{{ TESTS_TOTAL }}"},{"type":"mrkdwn","text":"*Passed*:\n{{ TESTS_PASSED }}"},{"type":"mrkdwn","text":"*Failed*:\n{{ TESTS_FAILED }}"}]}]}]}'
       - name: Slack notification (codedsolar)
         continue-on-error: true
         uses: Ilshidur/action-slack@master
         env:
           SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK_CODEDSOLAR }}
       - name: Test status
-        run: |
-          export EXIT=$("${SUCCESS}" && echo 0 || echo 1)
-          exit "${EXIT}"
-        env:
-          SUCCESS: ${{ steps.test.outputs.status == 'success' }}
+        run: ${{ steps.test.outputs.status == 'success' }} && exit 0 || exit 1
       - name: Codecov Report
         uses: codecov/codecov-action@v1
         with:
