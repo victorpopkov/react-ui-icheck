@@ -44,10 +44,10 @@
   "engines": {
     "node": ">=10.14 <11.* || >=12.*"
   },
+  "esnext": "src/index.js",
   "files": [
-    "CHANGELOG.md",
-    "lib",
-    "README.md"
+    "lib/",
+    "src/"
   ],
   "homepage": "http://github.victorpopkov.com/react-ui-icheck/",
   "keywords": [
