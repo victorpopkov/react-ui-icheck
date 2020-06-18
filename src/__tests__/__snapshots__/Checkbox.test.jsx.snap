@@ -1,6 +1,52 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<Checkbox /> component should have the default props values when mounted 1`] = `
+exports[`Checkbox component and the \`label\` prop is \`label\` as render should match the snapshot 1`] = `
+<label>
+  <div
+    class="icheckbox indeterminate"
+  >
+    <input
+      style="opacity:0;position:absolute"
+      type="checkbox"
+      value=""
+    />
+    <ins
+      class="iCheck-helper"
+      role="presentation"
+      style="position:absolute;top:0%;left:0%;display:block;width:100%;height:100%;margin:0;padding:0;background:#fff;border:0;opacity:0;cursor:pointer"
+    />
+  </div>
+  <span>
+    label
+  </span>
+</label>
+`;
+
+exports[`Checkbox component and the children are passed and the \`labelTag\` prop is \`div\` as render should match the snapshot 1`] = `
+<label>
+  <div
+    class="icheckbox indeterminate"
+  >
+    <input
+      style="opacity:0;position:absolute"
+      type="checkbox"
+      value=""
+    />
+    <ins
+      class="iCheck-helper"
+      role="presentation"
+      style="position:absolute;top:0%;left:0%;display:block;width:100%;height:100%;margin:0;padding:0;background:#fff;border:0;opacity:0;cursor:pointer"
+    />
+  </div>
+  <div>
+    <span>
+      label
+    </span>
+  </div>
+</label>
+`;
+
+exports[`Checkbox component as mount should match the default props snapshot 1`] = `
 Object {
   "activeClass": null,
   "activeClassName": "active",
@@ -49,7 +95,15 @@ Object {
 }
 `;
 
-exports[`<Checkbox /> component should render the corresponding HTML when only the default props are set 1`] = `
+exports[`Checkbox component as mount should match the default state snapshot 1`] = `
+Object {
+  "checked": false,
+  "hovered": false,
+  "isMobile": false,
+}
+`;
+
+exports[`Checkbox component as render should match the snapshot 1`] = `
 <div
   class="icheckbox indeterminate"
 >
@@ -64,50 +118,4 @@ exports[`<Checkbox /> component should render the corresponding HTML when only t
     style="position:absolute;top:0%;left:0%;display:block;width:100%;height:100%;margin:0;padding:0;background:#fff;border:0;opacity:0;cursor:pointer"
   />
 </div>
-`;
-
-exports[`<Checkbox /> component should render the corresponding HTML when the label is set as a prop string value 1`] = `
-<label>
-  <div
-    class="icheckbox indeterminate"
-  >
-    <input
-      style="opacity:0;position:absolute"
-      type="checkbox"
-      value=""
-    />
-    <ins
-      class="iCheck-helper"
-      role="presentation"
-      style="position:absolute;top:0%;left:0%;display:block;width:100%;height:100%;margin:0;padding:0;background:#fff;border:0;opacity:0;cursor:pointer"
-    />
-  </div>
-  <span>
-    label
-  </span>
-</label>
-`;
-
-exports[`<Checkbox /> component should render the corresponding HTML when the label is set as children with labelTag prop set to <div /> 1`] = `
-<label>
-  <div
-    class="icheckbox indeterminate"
-  >
-    <input
-      style="opacity:0;position:absolute"
-      type="checkbox"
-      value=""
-    />
-    <ins
-      class="iCheck-helper"
-      role="presentation"
-      style="position:absolute;top:0%;left:0%;display:block;width:100%;height:100%;margin:0;padding:0;background:#fff;border:0;opacity:0;cursor:pointer"
-    />
-  </div>
-  <div>
-    <span>
-      label
-    </span>
-  </div>
-</label>
 `;

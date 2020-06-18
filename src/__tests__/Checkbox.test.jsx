@@ -1,107 +1,165 @@
 import { mount, render } from 'enzyme';
 import React from 'react';
 import expect from 'expect';
-import Checkbox from '../Checkbox'; // eslint-disable-line sort-imports
+import Checkbox from '../Checkbox';
 
-describe('<Checkbox /> component', () => {
-  it('should have the default props values when mounted', () => {
-    const wrapper = mount(<Checkbox />);
-    expect(wrapper.props()).toMatchSnapshot();
-  });
+describe('Checkbox component', () => {
+  let wrapper;
 
-  describe('should render the corresponding HTML', () => {
-    it('when only the default props are set', () => {
-      const wrapper = render(<Checkbox />);
-      expect(wrapper).toMatchSnapshot();
+  describe('as mount', () => {
+    beforeEach(() => {
+      wrapper = mount(<Checkbox />);
     });
 
-    it('when the label is set as a prop string value', () => {
-      const wrapper = render(<Checkbox label="label" />);
-      expect(wrapper).toMatchSnapshot();
+    it('should match the default props snapshot', () => {
+      expect(wrapper.props()).toMatchSnapshot();
     });
 
-    it('when the label is set as children with labelTag prop set to <div />', () => {
-      const wrapper = render(
-        <Checkbox labelTag="div">
-          <span>label</span>
-        </Checkbox>,
-      );
-
-      expect(wrapper).toMatchSnapshot();
+    it('should match the default state snapshot', () => {
+      expect(wrapper.state()).toMatchSnapshot();
     });
   });
 
-  describe('should update the state', () => {
-    const testCheckbox = <Checkbox label="label" />;
-
-    it('when the checked prop has changed', () => {
-      const spy = jest.spyOn(Checkbox.prototype, 'componentWillReceiveProps');
-      const wrapper = mount(testCheckbox);
-
-      expect(spy).toHaveBeenCalledTimes(0);
-      expect(wrapper.props().checked).toBe(false);
-      expect(wrapper.state().checked).toBe(false);
-
-      wrapper.setProps({ checked: true });
-
-      expect(spy).toHaveBeenCalledTimes(1);
-      expect(wrapper.props().checked).toBe(true);
-      expect(wrapper.state().checked).toBe(true);
+  describe('as render', () => {
+    beforeEach(() => {
+      wrapper = render(<Checkbox />);
     });
 
-    describe('when handling the <label />', () => {
-      it('onFocus()', () => {
-        const wrapper = mount(testCheckbox);
+    it('should match the snapshot', () => {
+      expect(wrapper).toMatchSnapshot();
+    });
+  });
 
-        expect(wrapper.state().hovered).toBe(false);
-        wrapper.simulate('focus');
-        expect(wrapper.state().hovered).toBe(true);
+  describe('and the `label` prop is `label`', () => {
+    describe('as render', () => {
+      beforeEach(() => {
+        wrapper = render(<Checkbox label="label" />);
       });
 
-      it('onBlur()', () => {
-        const wrapper = mount(testCheckbox);
+      it('should match the snapshot', () => {
+        expect(wrapper).toMatchSnapshot();
+      });
+    });
 
-        wrapper.setState({ hovered: true });
-
-        expect(wrapper.state().hovered).toBe(true);
-        wrapper.simulate('blur');
-        expect(wrapper.state().hovered).toBe(false);
+    describe('as mount', () => {
+      beforeEach(() => {
+        wrapper = mount(<Checkbox label="label" />);
       });
 
-      it('onMouseOver()', () => {
-        const wrapper = mount(testCheckbox);
-
-        expect(wrapper.state().hovered).toBe(false);
-        wrapper.simulate('mouseOver');
-        expect(wrapper.state().hovered).toBe(true);
+      it('should have the `checked` prop as `false`', () => {
+        expect(wrapper.props().checked).toBe(false);
       });
 
-      it('onMouseOut()', () => {
-        const wrapper = mount(testCheckbox);
+      it('should have the `checked` state as `false`', () => {
+        expect(wrapper.state().checked).toBe(false);
+      });
 
-        wrapper.setState({ hovered: true });
-
-        expect(wrapper.state().hovered).toBe(true);
-        wrapper.simulate('mouseOut');
+      it('should have the `hovered` state as `false`', () => {
         expect(wrapper.state().hovered).toBe(false);
       });
 
-      it('onTouchStart()', () => {
-        const wrapper = mount(testCheckbox);
+      describe('and the `checked` prop has changed from `false` to `true`', () => {
+        beforeEach(() => {
+          wrapper.setProps({ checked: true });
+        });
 
-        expect(wrapper.state().hovered).toBe(false);
-        wrapper.simulate('touchStart');
-        expect(wrapper.state().hovered).toBe(true);
+        it('should have the `checked` prop as `true`', () => {
+          expect(wrapper.props().checked).toBe(true);
+        });
+
+        it('should have the `checked` state as `true`', () => {
+          expect(wrapper.state().checked).toBe(true);
+        });
       });
 
-      it('onTouchEnd()', () => {
-        const wrapper = mount(testCheckbox);
+      describe('and the `hovered` state as `false`', () => {
+        beforeEach(() => {
+          wrapper.setState({ hovered: false });
+        });
 
-        wrapper.setState({ hovered: true });
+        describe('when focused', () => {
+          beforeEach(() => {
+            wrapper.simulate('focus');
+          });
 
-        expect(wrapper.state().hovered).toBe(true);
-        wrapper.simulate('touchEnd');
-        expect(wrapper.state().hovered).toBe(false);
+          it('should have the `hovered` state as `true`', () => {
+            expect(wrapper.state().hovered).toBe(true);
+          });
+        });
+
+        describe('when mouse over', () => {
+          beforeEach(() => {
+            wrapper.simulate('mouseOver');
+          });
+
+          it('should have the `hovered` state as `true`', () => {
+            expect(wrapper.state().hovered).toBe(true);
+          });
+        });
+
+        describe('when touch start', () => {
+          beforeEach(() => {
+            wrapper.simulate('touchStart');
+          });
+
+          it('should have the `hovered` state as `true`', () => {
+            expect(wrapper.state().hovered).toBe(true);
+          });
+        });
+      });
+
+      describe('and the `hovered` state as `true`', () => {
+        beforeEach(() => {
+          wrapper.setState({ hovered: true });
+        });
+
+        describe('when blurred', () => {
+          beforeEach(() => {
+            wrapper.simulate('blur');
+          });
+
+          it('should have the `hovered` state as `false`', () => {
+            expect(wrapper.state().hovered).toBe(false);
+          });
+        });
+
+        describe('when mouse out', () => {
+          beforeEach(() => {
+            wrapper.simulate('mouseOut');
+          });
+
+          it('should have the `hovered` state as `false`', () => {
+            expect(wrapper.state().hovered).toBe(false);
+          });
+        });
+
+        describe('when touch end', () => {
+          beforeEach(() => {
+            wrapper.simulate('touchEnd');
+          });
+
+          it('should have the `hovered` state as `false`', () => {
+            expect(wrapper.state().hovered).toBe(false);
+          });
+        });
+      });
+    });
+  });
+
+  describe('and the children are passed', () => {
+    describe('and the `labelTag` prop is `div`', () => {
+      describe('as render', () => {
+        beforeEach(() => {
+          wrapper = render(
+            <Checkbox labelTag="div">
+              <span>label</span>
+            </Checkbox>,
+          );
+        });
+
+        it('should match the snapshot', () => {
+          expect(wrapper).toMatchSnapshot();
+        });
       });
     });
   });
