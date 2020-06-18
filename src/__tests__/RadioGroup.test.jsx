@@ -1,7 +1,7 @@
 import React from 'react';
 import expect from 'expect';
 import { mount } from 'enzyme';
-import { Radio, RadioGroup } from '../index'; // eslint-disable-line sort-imports
+import { Radio, RadioGroup } from '../index';
 
 describe('<RadioGroup /> component', () => {
   const testRadioGroup = (

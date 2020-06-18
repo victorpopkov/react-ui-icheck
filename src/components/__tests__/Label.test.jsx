@@ -1,7 +1,7 @@
 import { mount, shallow } from 'enzyme';
 import React from 'react';
 import expect from 'expect';
-import Label from '../Label'; // eslint-disable-line sort-imports
+import Label from '../Label';
 
 describe('<Label /> component', () => {
   const testLabel = (

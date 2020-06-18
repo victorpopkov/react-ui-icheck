@@ -1,7 +1,7 @@
 import { mount, render, shallow } from 'enzyme';
 import React from 'react';
 import expect from 'expect';
-import Input from '../Input'; // eslint-disable-line sort-imports
+import Input from '../Input';
 
 const testInputComponent = (inputType) => {
   let wrapper;

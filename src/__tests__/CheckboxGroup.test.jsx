@@ -1,7 +1,7 @@
 import React from 'react';
 import expect from 'expect';
 import { mount } from 'enzyme';
-import { Checkbox, CheckboxGroup } from '../index'; // eslint-disable-line sort-imports
+import { Checkbox, CheckboxGroup } from '../index';
 
 describe('<CheckboxGroup /> component', () => {
   const testCheckboxGroup = (
