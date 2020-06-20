@@ -1,3 +1,4 @@
 .idea/
 coverage/
+jest-summary.json
 lib/
