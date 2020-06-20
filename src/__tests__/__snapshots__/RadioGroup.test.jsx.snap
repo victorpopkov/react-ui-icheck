@@ -640,6 +640,7 @@ Object {
 
 exports[`RadioGroup component when the required \`name\` prop is set to \`test\` as mount should match the default state snapshot 1`] = `
 Object {
+  "prevValue": null,
   "value": "",
 }
 `;

@@ -13,16 +13,22 @@ class RadioGroup extends Component {
     const stateValue = value || defaultValue || '';
 
     this.state = {
+      prevValue: null,
       value: stateValue,
     };
   }
 
-  componentWillReceiveProps(nextProps) {
-    if ('value' in nextProps) {
-      this.setState({
-        value: nextProps.value,
-      });
+  static getDerivedStateFromProps(props, state) {
+    if (state.prevValue !== props.value && props.value !== state.value) {
+      return {
+        prevValue: state.value,
+        value: props.value,
+      };
     }
+
+    return {
+      prevValue: props.value,
+    };
   }
 
   handleChange(event) {
