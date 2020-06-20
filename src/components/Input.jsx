@@ -20,17 +20,38 @@ class Input extends Component {
       active: false,
       checked: defaultChecked || checked,
       focused: false,
+      prevChecked: null,
+      prevHovered: null,
       hovered,
       indeterminate,
     };
   }
 
-  componentWillReceiveProps(nextProps) {
-    const { checked: prevChecked, hovered: prevHovered } = this.props;
-    const { checked, hovered } = nextProps;
+  static getDerivedStateFromProps(props, state) {
+    if (
+      state.prevChecked !== props.checked &&
+      props.checked !== state.checked
+    ) {
+      return {
+        checked: props.checked,
+        prevChecked: state.prevChecked,
+      };
+    }
 
-    if (checked !== prevChecked) this.setState({ checked });
-    if (hovered !== prevHovered) this.setState({ hovered });
+    if (
+      state.prevHovered !== props.hovered &&
+      props.hovered !== state.hovered
+    ) {
+      return {
+        hovered: props.hovered,
+        prevHovered: state.prevHovered,
+      };
+    }
+
+    return {
+      prevChecked: props.checked,
+      prevHovered: props.hovered,
+    };
   }
 
   handleBlur(event) {

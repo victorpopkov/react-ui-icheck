@@ -279,6 +279,8 @@ Object {
   "focused": false,
   "hovered": false,
   "indeterminate": false,
+  "prevChecked": false,
+  "prevHovered": false,
 }
 `;
 
@@ -561,5 +563,7 @@ Object {
   "focused": false,
   "hovered": false,
   "indeterminate": false,
+  "prevChecked": false,
+  "prevHovered": false,
 }
 `;
