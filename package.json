@@ -71,9 +71,6 @@
     "type": "git",
     "url": "github:victorpopkov/react-ui-icheck"
   },
-  "resolutions": {
-    "babel-core": "7.0.0-bridge.0"
-  },
   "scripts": {
     "build": "cross-env BABEL_ENV=production NODE_ENV=production babel ./src/ -d ./lib/ --ignore './**/*.test.jsx'",
     "ci:eslint": "eslint --config ./.eslintrc --ext js,jsx --format ./.github/eslint-issues.js .",
