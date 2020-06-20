@@ -17,16 +17,24 @@ class BaseInput extends Component {
       checked: checked || false,
       hovered: false,
       isMobile: mobile(),
+      prevChecked: null,
     };
   }
 
-  componentWillReceiveProps(nextProps) {
-    const { checked } = this.props;
-    const { checked: nextChecked } = nextProps;
-
-    if ('checked' in nextProps && checked !== nextChecked) {
-      this.setState({ checked: nextChecked });
+  static getDerivedStateFromProps(props, state) {
+    if (
+      state.prevChecked !== props.checked &&
+      props.checked !== state.checked
+    ) {
+      return {
+        checked: props.checked,
+        prevChecked: state.prevChecked,
+      };
     }
+
+    return {
+      prevChecked: props.checked,
+    };
   }
 
   handleHover(event, isHovered) {
