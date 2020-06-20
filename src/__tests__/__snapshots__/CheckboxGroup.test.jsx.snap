@@ -1,192 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<CheckboxGroup /> component should have the default props values when mounted 1`] = `
-Object {
-  "checkboxWrapClassName": null,
-  "checkboxWrapTag": null,
-  "children": <Checkbox
-    activeClass={null}
-    activeClassName="active"
-    aria={false}
-    checkboxClass={null}
-    checkboxClassName="icheckbox"
-    checked={false}
-    checkedClass={null}
-    checkedClassName="checked"
-    className={null}
-    defaultChecked={false}
-    disabled={false}
-    disabledClass={null}
-    disabledClassName="disabled"
-    focusClass={null}
-    focusClassName="focus"
-    hoverClass={null}
-    hoverClassName="hover"
-    id={null}
-    increaseArea=""
-    indeterminate={true}
-    indeterminateClass={null}
-    indeterminateClassName="indeterminate"
-    inheritClass={false}
-    inheritClassName={false}
-    inheritID={false}
-    insert={null}
-    label={null}
-    labelClassName={null}
-    labelHover={true}
-    labelHoverClass="hover"
-    labelTag="span"
-    labelTagClassName={null}
-    name={null}
-    onBlur={null}
-    onChange={null}
-    onFocus={null}
-    onMouseDown={null}
-    onMouseLeave={null}
-    onMouseUp={null}
-    onTouchEnd={null}
-    onTouchStart={null}
-    type={null}
-    value=""
-  />,
-  "className": null,
-}
-`;
-
-exports[`<CheckboxGroup /> component should render the corresponding HTML when only the default props are set 1`] = `
-<CheckboxGroup
-  checkboxWrapClassName={null}
-  checkboxWrapTag={null}
-  className={null}
->
-  <div
-    className={null}
-  >
-    <Checkbox
-      activeClass={null}
-      activeClassName="active"
-      aria={false}
-      checkboxClass={null}
-      checkboxClassName="icheckbox"
-      checked={false}
-      checkedClass={null}
-      checkedClassName="checked"
-      className={null}
-      defaultChecked={false}
-      disabled={false}
-      disabledClass={null}
-      disabledClassName="disabled"
-      focusClass={null}
-      focusClassName="focus"
-      hoverClass={null}
-      hoverClassName="hover"
-      id={null}
-      increaseArea=""
-      indeterminate={true}
-      indeterminateClass={null}
-      indeterminateClassName="indeterminate"
-      inheritClass={false}
-      inheritClassName={false}
-      inheritID={false}
-      insert={null}
-      key=".0"
-      label={null}
-      labelClassName={null}
-      labelHover={true}
-      labelHoverClass="hover"
-      labelTag="span"
-      labelTagClassName={null}
-      name={null}
-      onBlur={null}
-      onChange={null}
-      onFocus={null}
-      onMouseDown={null}
-      onMouseLeave={null}
-      onMouseUp={null}
-      onTouchEnd={null}
-      onTouchStart={null}
-      type={null}
-      value=""
-    >
-      <Input
-        activeClassName="active"
-        aria={false}
-        checkboxClassName="icheckbox"
-        checked={false}
-        checkedClassName="checked"
-        className={null}
-        defaultChecked={false}
-        disabled={false}
-        disabledClassName="disabled"
-        focusClassName="focus"
-        hoverClassName="hover"
-        hovered={false}
-        id={null}
-        increaseArea=""
-        indeterminate={true}
-        indeterminateClassName="indeterminate"
-        inheritClassName={false}
-        inheritID={false}
-        inputType="checkbox"
-        insert={null}
-        isMobile={false}
-        label={null}
-        name={null}
-        onBlur={null}
-        onChange={null}
-        onFocus={null}
-        radioClassName="iradio"
-        value=""
-      >
-        <div
-          className="icheckbox indeterminate"
-        >
-          <input
-            checked={false}
-            disabled={false}
-            label={null}
-            name={null}
-            onBlur={[Function]}
-            onChange={[Function]}
-            onFocus={[Function]}
-            style={
-              Object {
-                "opacity": 0,
-                "position": "absolute",
-              }
-            }
-            type="checkbox"
-            value=""
-          />
-          <ins
-            className="iCheck-helper"
-            onClick={[Function]}
-            role="presentation"
-            style={
-              Object {
-                "background": "#fff",
-                "border": 0,
-                "cursor": "pointer",
-                "display": "block",
-                "height": "100%",
-                "left": "0%",
-                "margin": 0,
-                "opacity": 0,
-                "padding": 0,
-                "position": "absolute",
-                "top": "0%",
-                "width": "100%",
-              }
-            }
-          />
-        </div>
-      </Input>
-    </Checkbox>
-  </div>
-</CheckboxGroup>
-`;
-
-exports[`<CheckboxGroup /> component should render the corresponding HTML when the checkboxWrapClassName and checkboxWrapTag props values are set 1`] = `
+exports[`CheckboxGroup component and the \`checkboxWrapClassName\` prop is \`test\` and the \`checkboxWrapTag\` prop is \`div\` as mount should match the snapshot 1`] = `
 <CheckboxGroup
   checkboxWrapClassName="test"
   checkboxWrapTag="div"
@@ -320,6 +134,192 @@ exports[`<CheckboxGroup /> component should render the corresponding HTML when t
         </Input>
       </Checkbox>
     </div>
+  </div>
+</CheckboxGroup>
+`;
+
+exports[`CheckboxGroup component when no props are passed as mount should match the default props snapshot 1`] = `
+Object {
+  "checkboxWrapClassName": null,
+  "checkboxWrapTag": null,
+  "children": <Checkbox
+    activeClass={null}
+    activeClassName="active"
+    aria={false}
+    checkboxClass={null}
+    checkboxClassName="icheckbox"
+    checked={false}
+    checkedClass={null}
+    checkedClassName="checked"
+    className={null}
+    defaultChecked={false}
+    disabled={false}
+    disabledClass={null}
+    disabledClassName="disabled"
+    focusClass={null}
+    focusClassName="focus"
+    hoverClass={null}
+    hoverClassName="hover"
+    id={null}
+    increaseArea=""
+    indeterminate={true}
+    indeterminateClass={null}
+    indeterminateClassName="indeterminate"
+    inheritClass={false}
+    inheritClassName={false}
+    inheritID={false}
+    insert={null}
+    label={null}
+    labelClassName={null}
+    labelHover={true}
+    labelHoverClass="hover"
+    labelTag="span"
+    labelTagClassName={null}
+    name={null}
+    onBlur={null}
+    onChange={null}
+    onFocus={null}
+    onMouseDown={null}
+    onMouseLeave={null}
+    onMouseUp={null}
+    onTouchEnd={null}
+    onTouchStart={null}
+    type={null}
+    value=""
+  />,
+  "className": null,
+}
+`;
+
+exports[`CheckboxGroup component when no props are passed as mount should match the snapshot 1`] = `
+<CheckboxGroup
+  checkboxWrapClassName={null}
+  checkboxWrapTag={null}
+  className={null}
+>
+  <div
+    className={null}
+  >
+    <Checkbox
+      activeClass={null}
+      activeClassName="active"
+      aria={false}
+      checkboxClass={null}
+      checkboxClassName="icheckbox"
+      checked={false}
+      checkedClass={null}
+      checkedClassName="checked"
+      className={null}
+      defaultChecked={false}
+      disabled={false}
+      disabledClass={null}
+      disabledClassName="disabled"
+      focusClass={null}
+      focusClassName="focus"
+      hoverClass={null}
+      hoverClassName="hover"
+      id={null}
+      increaseArea=""
+      indeterminate={true}
+      indeterminateClass={null}
+      indeterminateClassName="indeterminate"
+      inheritClass={false}
+      inheritClassName={false}
+      inheritID={false}
+      insert={null}
+      key=".0"
+      label={null}
+      labelClassName={null}
+      labelHover={true}
+      labelHoverClass="hover"
+      labelTag="span"
+      labelTagClassName={null}
+      name={null}
+      onBlur={null}
+      onChange={null}
+      onFocus={null}
+      onMouseDown={null}
+      onMouseLeave={null}
+      onMouseUp={null}
+      onTouchEnd={null}
+      onTouchStart={null}
+      type={null}
+      value=""
+    >
+      <Input
+        activeClassName="active"
+        aria={false}
+        checkboxClassName="icheckbox"
+        checked={false}
+        checkedClassName="checked"
+        className={null}
+        defaultChecked={false}
+        disabled={false}
+        disabledClassName="disabled"
+        focusClassName="focus"
+        hoverClassName="hover"
+        hovered={false}
+        id={null}
+        increaseArea=""
+        indeterminate={true}
+        indeterminateClassName="indeterminate"
+        inheritClassName={false}
+        inheritID={false}
+        inputType="checkbox"
+        insert={null}
+        isMobile={false}
+        label={null}
+        name={null}
+        onBlur={null}
+        onChange={null}
+        onFocus={null}
+        radioClassName="iradio"
+        value=""
+      >
+        <div
+          className="icheckbox indeterminate"
+        >
+          <input
+            checked={false}
+            disabled={false}
+            label={null}
+            name={null}
+            onBlur={[Function]}
+            onChange={[Function]}
+            onFocus={[Function]}
+            style={
+              Object {
+                "opacity": 0,
+                "position": "absolute",
+              }
+            }
+            type="checkbox"
+            value=""
+          />
+          <ins
+            className="iCheck-helper"
+            onClick={[Function]}
+            role="presentation"
+            style={
+              Object {
+                "background": "#fff",
+                "border": 0,
+                "cursor": "pointer",
+                "display": "block",
+                "height": "100%",
+                "left": "0%",
+                "margin": 0,
+                "opacity": 0,
+                "padding": 0,
+                "position": "absolute",
+                "top": "0%",
+                "width": "100%",
+              }
+            }
+          />
+        </div>
+      </Input>
+    </Checkbox>
   </div>
 </CheckboxGroup>
 `;
