@@ -6,6 +6,10 @@ import { Radio, RadioGroup } from '../index';
 describe('RadioGroup component', () => {
   let wrapper;
 
+  beforeEach(() => {
+    console.warn = jest.fn();
+  });
+
   describe('when the required `name` prop is set to `test`', () => {
     describe('as mount', () => {
       beforeEach(() => {
@@ -15,6 +19,10 @@ describe('RadioGroup component', () => {
             <Radio value="2" />
           </RadioGroup>,
         );
+      });
+
+      it('should call the deprecated console.warn()', () => {
+        expect(console.warn).toHaveBeenCalledTimes(1);
       });
 
       it('should match the snapshot', () => {

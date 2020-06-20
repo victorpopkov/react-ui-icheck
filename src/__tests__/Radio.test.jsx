@@ -6,9 +6,17 @@ import Radio from '../Radio';
 describe('Radio component', () => {
   let wrapper;
 
+  beforeEach(() => {
+    console.warn = jest.fn();
+  });
+
   describe('as mount', () => {
     beforeEach(() => {
       wrapper = mount(<Radio />);
+    });
+
+    it('should call the deprecated console.warn()', () => {
+      expect(console.warn).toHaveBeenCalledTimes(1);
     });
 
     it('should match the default props snapshot', () => {

@@ -6,6 +6,10 @@ import { Checkbox, CheckboxGroup } from '../index';
 describe('CheckboxGroup component', () => {
   let wrapper;
 
+  beforeEach(() => {
+    console.warn = jest.fn();
+  });
+
   describe('when no props are passed', () => {
     describe('as mount', () => {
       beforeEach(() => {
@@ -14,6 +18,10 @@ describe('CheckboxGroup component', () => {
             <Checkbox />
           </CheckboxGroup>,
         );
+      });
+
+      it('should call the deprecated console.warn()', () => {
+        expect(console.warn).toHaveBeenCalledTimes(1);
       });
 
       it('should match the snapshot', () => {

@@ -6,9 +6,17 @@ import Checkbox from '../Checkbox';
 describe('Checkbox component', () => {
   let wrapper;
 
+  beforeEach(() => {
+    console.warn = jest.fn();
+  });
+
   describe('as mount', () => {
     beforeEach(() => {
       wrapper = mount(<Checkbox />);
+    });
+
+    it('should call the deprecated console.warn()', () => {
+      expect(console.warn).toHaveBeenCalledTimes(1);
     });
 
     it('should match the default props snapshot', () => {
