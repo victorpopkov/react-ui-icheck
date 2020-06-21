@@ -1,23 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<Label /> component should have the default props values when mounted 1`] = `
-Object {
-  "children": <div>
-    child
-  </div>,
-  "disabled": false,
-  "handleHover": [Function],
-  "isMobile": false,
-  "label": null,
-  "labelChildren": null,
-  "labelClassName": null,
-  "labelHover": true,
-  "labelTag": "span",
-  "labelTagClassName": null,
-}
-`;
-
-exports[`<Label /> component should render the <label /> when label as element is passed 1`] = `
+exports[`Label component when the required \`handleHover\` prop is passed and the children are passed and the \`label\` prop is \`<span>propLabel</span>\` as shallow should match the snapshot 1`] = `
 <label
   className={null}
   onBlur={[Function]}
@@ -33,7 +16,7 @@ exports[`<Label /> component should render the <label /> when label as element i
 </label>
 `;
 
-exports[`<Label /> component should render the <label /> when label as string with labelTag and labelTagClassName are passed 1`] = `
+exports[`Label component when the required \`handleHover\` prop is passed and the children are passed and the \`labelTag\` prop is \`div\` and the \`labelTagClassName\` prop is \`test\` and the \`label\` prop is \`propLabel\` should match the snapshot 1`] = `
 <label
   className={null}
   onBlur={[Function]}
@@ -57,7 +40,7 @@ exports[`<Label /> component should render the <label /> when label as string wi
 </label>
 `;
 
-exports[`<Label /> component should render the <label /> when labelChildren, labelTag and labelTagClassName are passed 1`] = `
+exports[`Label component when the required \`handleHover\` prop is passed and the children are passed and the \`labelTag\` prop is \`div\` and the \`labelTagClassName\` prop is \`test\` and the \`labelChildren\` prop is \`<span>propLabelChildren</span>\` should match the snapshot 1`] = `
 <label
   className={null}
   onBlur={[Function]}
@@ -80,7 +63,24 @@ exports[`<Label /> component should render the <label /> when labelChildren, lab
 </label>
 `;
 
-exports[`<Label /> component should render the <label /> when only the default props are passed 1`] = `
+exports[`Label component when the required \`handleHover\` prop is passed and the children are passed as mount should match the default props snapshot 1`] = `
+Object {
+  "children": <div>
+    child
+  </div>,
+  "disabled": false,
+  "handleHover": [MockFunction],
+  "isMobile": false,
+  "label": null,
+  "labelChildren": null,
+  "labelClassName": null,
+  "labelHover": true,
+  "labelTag": "span",
+  "labelTagClassName": null,
+}
+`;
+
+exports[`Label component when the required \`handleHover\` prop is passed and the children are passed as shallow should match the snapshot 1`] = `
 <label
   className={null}
   onBlur={[Function]}

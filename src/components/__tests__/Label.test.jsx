@@ -3,140 +3,180 @@ import React from 'react';
 import expect from 'expect';
 import Label from '../Label';
 
-describe('<Label /> component', () => {
-  const testLabel = (
-    <Label handleHover={() => false}>
-      <div>child</div>
-    </Label>
-  );
+describe('Label component', () => {
+  let wrapper;
+  let handleHover;
 
-  it('should have the default props values when mounted', () => {
-    const wrapper = mount(testLabel);
-    expect(wrapper.props()).toMatchSnapshot();
+  beforeEach(() => {
+    handleHover = jest.fn();
   });
 
-  describe('should render the <label />', () => {
-    it('when only the default props are passed', () => {
-      const wrapper = shallow(testLabel);
-      expect(wrapper).toMatchSnapshot();
-    });
-
-    it('when label as element is passed', () => {
-      const wrapper = shallow(
-        <Label handleHover={() => false} label={<span>propLabel</span>}>
-          <div>child</div>
-        </Label>,
-      );
-
-      expect(wrapper).toMatchSnapshot();
-    });
-
-    it('when label as string with labelTag and labelTagClassName are passed', () => {
-      const wrapper = shallow(
-        <Label
-          handleHover={() => false}
-          label="propLabel"
-          labelTag="div"
-          labelTagClassName="test"
-        >
-          <div>child</div>
-        </Label>,
-      );
-
-      expect(wrapper).toMatchSnapshot();
-    });
-
-    it('when labelChildren, labelTag and labelTagClassName are passed', () => {
-      const wrapper = shallow(
-        <Label
-          handleHover={() => false}
-          labelChildren={<span>propLabelChildren</span>}
-          labelTag="div"
-          labelTagClassName="test"
-        >
-          <div>child</div>
-        </Label>,
-      );
-
-      expect(wrapper).toMatchSnapshot();
-    });
+  afterEach(() => {
+    handleHover.mockClear();
   });
 
-  describe('should handle the <label />', () => {
-    const testSpy = jest.fn();
-    const testSpyLabel = mount(
-      <Label handleHover={testSpy}>
-        <div>child</div>
-      </Label>,
-    );
+  describe('when the required `handleHover` prop is passed', () => {
+    describe('and the children are passed', () => {
+      const testEventHandleHover = (description, event, called, arg) => {
+        describe(`when ${description}`, () => {
+          beforeEach(() => {
+            wrapper.simulate(event);
+          });
 
-    afterEach(() => {
-      testSpy.mockClear();
-    });
+          it(`${
+            called > 0 ? 'should call' : 'should not call'
+          } the \`handleHover\` prop function`, () => {
+            expect(handleHover).toHaveBeenCalledTimes(called);
+          });
 
-    describe('onFocus()', () => {
-      it('with the default behaviour', () => {
-        expect(testSpy).not.toHaveBeenCalled();
-        testSpyLabel.simulate('focus');
-        expect(testSpy).toHaveBeenCalledWith(expect.anything(), true);
+          if (called > 0) {
+            it(`should have the \`handleHover\` prop function be called with \`${arg.toString()}\``, () => {
+              expect(handleHover).toHaveBeenCalledWith(expect.anything(), arg);
+            });
+          }
+        });
+      };
+
+      describe('as mount', () => {
+        beforeEach(() => {
+          wrapper = mount(
+            <Label handleHover={handleHover}>
+              <div>child</div>
+            </Label>,
+          );
+        });
+
+        it('should match the default props snapshot', () => {
+          expect(wrapper.props()).toMatchSnapshot();
+        });
+
+        it('should not call the `handleHover` prop function', () => {
+          expect(handleHover).toHaveBeenCalledTimes(0);
+        });
+
+        testEventHandleHover('focused', 'focus', 1, true);
+        testEventHandleHover('blurred', 'blur', 1, false);
+        testEventHandleHover('mouse over', 'mouseOver', 1, true);
+        testEventHandleHover('mouse out', 'mouseOut', 1, false);
+        testEventHandleHover('touch start', 'touchStart', 1, true);
+        testEventHandleHover('touch end', 'touchEnd', 1, false);
       });
 
-      it('when disabled', () => {
-        const wrapper = mount(
-          <Label handleHover={testSpy}>
-            <div>child</div>
-          </Label>,
-        );
+      describe('as shallow', () => {
+        beforeEach(() => {
+          wrapper = shallow(
+            <Label handleHover={handleHover}>
+              <div>child</div>
+            </Label>,
+          );
+        });
 
-        expect(testSpy).not.toHaveBeenCalled();
+        it('should match the snapshot', () => {
+          expect(wrapper).toMatchSnapshot();
+        });
 
-        wrapper.setProps({ disabled: true });
-        wrapper.simulate('focus');
-
-        expect(testSpy).not.toHaveBeenCalled();
+        it('should not call the `handleHover` prop function', () => {
+          expect(handleHover).toHaveBeenCalledTimes(0);
+        });
       });
 
-      it('when on mobiles', () => {
-        const wrapper = mount(
-          <Label handleHover={testSpy} isMobile>
-            <div>child</div>
-          </Label>,
-        );
+      describe('and the `label` prop is `<span>propLabel</span>`', () => {
+        describe('as shallow', () => {
+          beforeEach(() => {
+            wrapper = shallow(
+              <Label handleHover={handleHover} label={<span>propLabel</span>}>
+                <div>child</div>
+              </Label>,
+            );
+          });
 
-        wrapper.simulate('focus');
+          it('should match the snapshot', () => {
+            expect(wrapper).toMatchSnapshot();
+          });
 
-        expect(testSpy).toHaveBeenCalled();
+          it('should not call the `handleHover` prop function', () => {
+            expect(handleHover).toHaveBeenCalledTimes(0);
+          });
+        });
       });
-    });
 
-    it('onBlur()', () => {
-      expect(testSpy).not.toHaveBeenCalled();
-      testSpyLabel.simulate('blur');
-      expect(testSpy).toHaveBeenCalledWith(expect.anything(), false);
-    });
+      describe('and the `labelTag` prop is `div`', () => {
+        describe('and the `labelTagClassName` prop is `test`', () => {
+          describe('and the `label` prop is `propLabel`', () => {
+            beforeEach(() => {
+              wrapper = shallow(
+                <Label
+                  handleHover={handleHover}
+                  label="propLabel"
+                  labelTag="div"
+                  labelTagClassName="test"
+                >
+                  <div>child</div>
+                </Label>,
+              );
+            });
 
-    it('onMouseOver()', () => {
-      expect(testSpy).not.toHaveBeenCalled();
-      testSpyLabel.simulate('mouseOver');
-      expect(testSpy).toHaveBeenCalledWith(expect.anything(), true);
-    });
+            it('should match the snapshot', () => {
+              expect(wrapper).toMatchSnapshot();
+            });
 
-    it('onMouseOut()', () => {
-      expect(testSpy).not.toHaveBeenCalled();
-      testSpyLabel.simulate('mouseOut');
-      expect(testSpy).toHaveBeenCalledWith(expect.anything(), false);
-    });
+            it('should not call the `handleHover` prop function', () => {
+              expect(handleHover).toHaveBeenCalledTimes(0);
+            });
+          });
 
-    it('onTouchStart()', () => {
-      expect(testSpy).not.toHaveBeenCalled();
-      testSpyLabel.simulate('touchStart');
-      expect(testSpy).toHaveBeenCalledWith(expect.anything(), true);
-    });
+          describe('and the `labelChildren` prop is `<span>propLabelChildren</span>`', () => {
+            beforeEach(() => {
+              wrapper = shallow(
+                <Label
+                  handleHover={handleHover}
+                  labelChildren={<span>propLabelChildren</span>}
+                  labelTag="div"
+                  labelTagClassName="test"
+                >
+                  <div>child</div>
+                </Label>,
+              );
+            });
 
-    it('onTouchEnd()', () => {
-      expect(testSpy).not.toHaveBeenCalled();
-      testSpyLabel.simulate('touchEnd');
-      expect(testSpy).toHaveBeenCalledWith(expect.anything(), false);
+            it('should match the snapshot', () => {
+              expect(wrapper).toMatchSnapshot();
+            });
+
+            it('should not call the `handleHover` prop function', () => {
+              expect(handleHover).toHaveBeenCalledTimes(0);
+            });
+          });
+        });
+      });
+
+      describe('and the `disabled` prop is `true`', () => {
+        describe('as mount', () => {
+          beforeEach(() => {
+            wrapper = mount(
+              <Label handleHover={handleHover} disabled>
+                <div>child</div>
+              </Label>,
+            );
+          });
+
+          testEventHandleHover('focused', 'focus', 0, false);
+        });
+      });
+
+      describe('and the `isMobile` prop is `true`', () => {
+        describe('as mount', () => {
+          beforeEach(() => {
+            wrapper = mount(
+              <Label handleHover={handleHover} isMobile>
+                <div>child</div>
+              </Label>,
+            );
+          });
+
+          testEventHandleHover('focused', 'focus', 1, true);
+        });
+      });
     });
   });
 });
