@@ -72,7 +72,7 @@
     "url": "github:victorpopkov/react-ui-icheck"
   },
   "scripts": {
-    "build": "cross-env BABEL_ENV=production NODE_ENV=production babel ./src/ -d ./lib/ --ignore './**/*.test.jsx'",
+    "build": "cross-env BABEL_ENV=production NODE_ENV=production babel ./src/ -d ./lib/ --ignore './**/*.spec.jsx'",
     "ci:eslint": "eslint --config ./.eslintrc --ext js,jsx --format ./.github/eslint-issues.js .",
     "ci:prettier:md": "prettier --check './**/*.md'",
     "ci:prettier:yml": "prettier --check './**/*.yml'",
