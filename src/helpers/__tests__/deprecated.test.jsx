@@ -5,26 +5,43 @@ import { mount } from 'enzyme';
 import deprecated from '../deprecated'; // eslint-disable-line sort-imports
 
 describe('deprecated helper', () => {
-  const TestComponent = () => null;
-
-  TestComponent.propTypes = {
-    testProp: PropTypes.string,
-    testPropDeprecated: deprecated(PropTypes.string, 'newProp'),
-  };
-
   beforeEach(() => {
     console.warn = jest.fn();
   });
 
-  describe('when mounting a React component', () => {
-    it("shouldn't throw a console.warn when not using a deprecated property", () => {
-      mount(<TestComponent testProp="test" />);
-      expect(console.warn).toHaveBeenCalledTimes(0);
+  describe('in the test component', () => {
+    let TestComponent;
+
+    beforeEach(() => {
+      TestComponent = () => null;
+      TestComponent.propTypes = {
+        testProp: PropTypes.string,
+        testPropDeprecated: deprecated(PropTypes.string, 'newProp'),
+      };
     });
 
-    it('should throw a console.warn when using a deprecated property', () => {
-      mount(<TestComponent testPropDeprecated="test" />);
-      expect(console.warn).toHaveBeenCalledTimes(1);
+    describe('when not using a deprecated prop', () => {
+      describe('as mount', () => {
+        beforeEach(() => {
+          mount(<TestComponent testProp="test" />);
+        });
+
+        it('should not throw a console.warn()', () => {
+          expect(console.warn).toHaveBeenCalledTimes(0);
+        });
+      });
+    });
+
+    describe('when using a deprecated prop', () => {
+      describe('as mount', () => {
+        beforeEach(() => {
+          mount(<TestComponent testPropDeprecated="test" />);
+        });
+
+        it('should throw a console.warn()', () => {
+          expect(console.warn).toHaveBeenCalledTimes(1);
+        });
+      });
     });
   });
 });
