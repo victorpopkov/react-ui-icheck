@@ -9,19 +9,34 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ### Added
 
-- Exceptions for the `react/jsx-props-no-spreading` ESLint rule
+- **[maintenance]** Exceptions for the `react/jsx-props-no-spreading` ESLint rule
+- **[maintenance]** Integration with "GitHub Actions" for CI build, lint and test
+- **[maintenance]** Integration with Prettier
+- ESNext source code in the `npm` package
 
 ### Changed
 
+- **[maintenance]** Configurations for ESLint to work with Prettier and become simpler
 - Dependencies to match the latest ones
+- Deprecated `componentWillReceiveProps` to `getDerivedStateFromProps`
+- Extension `JS` to `JSX` where appropriate
+- Refactored tests
 
 ### Removed
 
+- **[maintenance]** Integration with "Travis CI" in favour of "GitHub Actions"
+- **[maintenance]** Integration with remark in favour of Prettier
+- **[maintenance]** Unnecessary root `.npmignore`
+- **[website]** Obsolete website-related dotenv leftovers
+- Dependency `better-npm-run` in favour of `cross-env`
 - Invalid argument in `React.Children.map` usages
+- Node.js v8 and v11 support
+- Resolutions in the `package.json`
 
 ### Fixed
 
-- Some update-related ESLint issues
+- **[maintenance]** Some ESLint code linting issues
+- **[maintenance]** Some Prettier code formatting issues
 
 ## [0.6.0][] - 2019-07-15
 
