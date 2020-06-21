@@ -33,7 +33,7 @@ class Input extends Component {
       props.checked !== state.checked
     ) {
       return {
-        checked: props.checked,
+        checked: props.defaultChecked || props.checked,
         prevChecked: state.prevChecked,
       };
     }
