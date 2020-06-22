@@ -100,7 +100,7 @@ Object {
   "checked": false,
   "hovered": false,
   "isMobile": false,
-  "prevChecked": false,
+  "prevPropChecked": false,
 }
 `;
 

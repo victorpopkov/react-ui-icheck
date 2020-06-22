@@ -20,38 +20,27 @@ class Input extends Component {
       active: false,
       checked: defaultChecked || checked,
       focused: false,
-      prevChecked: null,
-      prevHovered: null,
+      prevPropChecked: props.checked,
       hovered,
       indeterminate,
     };
   }
 
   static getDerivedStateFromProps(props, state) {
-    if (
-      state.prevChecked !== props.checked &&
-      props.checked !== state.checked
-    ) {
+    if (state.prevPropChecked !== props.checked) {
       return {
-        checked: props.defaultChecked || props.checked,
-        prevChecked: state.prevChecked,
+        checked: props.checked,
+        prevPropChecked: props.checked,
       };
     }
 
-    if (
-      state.prevHovered !== props.hovered &&
-      props.hovered !== state.hovered
-    ) {
+    if (props.hovered !== state.hovered) {
       return {
         hovered: props.hovered,
-        prevHovered: state.prevHovered,
       };
     }
 
-    return {
-      prevChecked: props.checked,
-      prevHovered: props.hovered,
-    };
+    return null;
   }
 
   handleBlur(event) {
