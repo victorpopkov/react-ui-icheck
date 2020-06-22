@@ -11,13 +11,13 @@ class BaseInput extends Component {
 
     this.handleHover = this.handleHover.bind(this);
 
-    const { checked } = props;
+    const { checked, defaultChecked } = props;
 
     this.state = {
+      checked: defaultChecked || checked,
       hovered: false,
       isMobile: mobile(),
       prevPropChecked: props.checked,
-      checked,
     };
   }
 
@@ -97,7 +97,6 @@ class BaseInput extends Component {
         checked={stateChecked}
         checkedClassName={checkedClass || checkedClassName}
         className={className}
-        defaultChecked={defaultChecked}
         disabled={disabled}
         disabledClassName={disabledClass || disabledClassName}
         focusClassName={focusClass || focusClassName}
@@ -166,7 +165,7 @@ BaseInput.propTypes = {
   checkedClassName: PropTypes.string,
   children: PropTypes.node,
   className: PropTypes.string,
-  defaultChecked: PropTypes.bool,
+  defaultChecked: deprecated(PropTypes.bool, 'checked'),
   disabled: PropTypes.bool,
   disabledClass: deprecated(PropTypes.string, 'disabledClassName'),
   disabledClassName: PropTypes.string,
@@ -211,7 +210,7 @@ BaseInput.defaultProps = {
   checkedClassName: 'checked',
   children: null,
   className: null,
-  defaultChecked: false,
+  defaultChecked: null,
   disabled: false,
   disabledClass: null,
   disabledClassName: 'disabled',

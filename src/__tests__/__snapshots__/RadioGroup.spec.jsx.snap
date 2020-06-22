@@ -25,7 +25,7 @@ exports[`RadioGroup component when the required \`name\` prop is set to \`test\`
         checkedClass={null}
         checkedClassName="checked"
         className={null}
-        defaultChecked={false}
+        defaultChecked={null}
         disabled={false}
         disabledClass={null}
         disabledClassName="disabled"
@@ -70,7 +70,6 @@ exports[`RadioGroup component when the required \`name\` prop is set to \`test\`
           checked={false}
           checkedClassName="checked"
           className={null}
-          defaultChecked={false}
           disabled={false}
           disabledClassName="disabled"
           focusClassName="focus"
@@ -150,7 +149,7 @@ exports[`RadioGroup component when the required \`name\` prop is set to \`test\`
         checkedClass={null}
         checkedClassName="checked"
         className={null}
-        defaultChecked={false}
+        defaultChecked={null}
         disabled={false}
         disabledClass={null}
         disabledClassName="disabled"
@@ -195,7 +194,6 @@ exports[`RadioGroup component when the required \`name\` prop is set to \`test\`
           checked={false}
           checkedClassName="checked"
           className={null}
-          defaultChecked={false}
           disabled={false}
           disabledClassName="disabled"
           focusClassName="focus"
@@ -292,7 +290,7 @@ exports[`RadioGroup component when the required \`name\` prop is set to \`test\`
         checkedClass={null}
         checkedClassName="checked"
         className={null}
-        defaultChecked={false}
+        defaultChecked={null}
         disabled={false}
         disabledClass={null}
         disabledClassName="disabled"
@@ -337,7 +335,6 @@ exports[`RadioGroup component when the required \`name\` prop is set to \`test\`
           checked={false}
           checkedClassName="checked"
           className={null}
-          defaultChecked={false}
           disabled={false}
           disabledClassName="disabled"
           focusClassName="focus"
@@ -417,7 +414,7 @@ exports[`RadioGroup component when the required \`name\` prop is set to \`test\`
         checkedClass={null}
         checkedClassName="checked"
         className={null}
-        defaultChecked={false}
+        defaultChecked={null}
         disabled={false}
         disabledClass={null}
         disabledClassName="disabled"
@@ -462,7 +459,6 @@ exports[`RadioGroup component when the required \`name\` prop is set to \`test\`
           checked={false}
           checkedClassName="checked"
           className={null}
-          defaultChecked={false}
           disabled={false}
           disabledClassName="disabled"
           focusClassName="focus"
@@ -545,7 +541,7 @@ Object {
       checkedClass={null}
       checkedClassName="checked"
       className={null}
-      defaultChecked={false}
+      defaultChecked={null}
       disabled={false}
       disabledClass={null}
       disabledClassName="disabled"
@@ -590,7 +586,7 @@ Object {
       checkedClass={null}
       checkedClassName="checked"
       className={null}
-      defaultChecked={false}
+      defaultChecked={null}
       disabled={false}
       disabledClass={null}
       disabledClassName="disabled"
@@ -666,7 +662,7 @@ exports[`RadioGroup component when the required \`name\` prop is set to \`test\`
       checkedClass={null}
       checkedClassName="checked"
       className={null}
-      defaultChecked={false}
+      defaultChecked={null}
       disabled={false}
       disabledClass={null}
       disabledClassName="disabled"
@@ -711,7 +707,6 @@ exports[`RadioGroup component when the required \`name\` prop is set to \`test\`
         checked={false}
         checkedClassName="checked"
         className={null}
-        defaultChecked={false}
         disabled={false}
         disabledClassName="disabled"
         focusClassName="focus"
@@ -786,7 +781,7 @@ exports[`RadioGroup component when the required \`name\` prop is set to \`test\`
       checkedClass={null}
       checkedClassName="checked"
       className={null}
-      defaultChecked={false}
+      defaultChecked={null}
       disabled={false}
       disabledClass={null}
       disabledClassName="disabled"
@@ -831,7 +826,6 @@ exports[`RadioGroup component when the required \`name\` prop is set to \`test\`
         checked={false}
         checkedClassName="checked"
         className={null}
-        defaultChecked={false}
         disabled={false}
         disabledClassName="disabled"
         focusClassName="focus"

@@ -14,13 +14,13 @@ class Input extends Component {
     this.handleFocus = this.handleFocus.bind(this);
     this.handleHelperClick = this.handleHelperClick.bind(this);
 
-    const { checked, defaultChecked, hovered, indeterminate } = props;
+    const { checked, hovered, indeterminate } = props;
 
     this.state = {
       active: false,
-      checked: defaultChecked || checked,
       focused: false,
       prevPropChecked: props.checked,
+      checked,
       hovered,
       indeterminate,
     };
@@ -110,7 +110,6 @@ class Input extends Component {
       radioClassName,
       value,
 
-      defaultChecked,
       hovered,
       indeterminate,
 
@@ -244,7 +243,6 @@ Input.propTypes = {
   checked: PropTypes.bool,
   checkedClassName: PropTypes.string,
   className: PropTypes.string,
-  defaultChecked: PropTypes.bool,
   disabled: PropTypes.bool,
   disabledClassName: PropTypes.string,
   focusClassName: PropTypes.string,
@@ -274,7 +272,6 @@ Input.defaultProps = {
   checked: false,
   checkedClassName: 'checked',
   className: null,
-  defaultChecked: false,
   disabled: false,
   disabledClassName: 'disabled',
   focusClassName: 'focus',

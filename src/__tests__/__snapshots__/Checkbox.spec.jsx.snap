@@ -58,7 +58,7 @@ Object {
   "checkedClassName": "checked",
   "children": null,
   "className": null,
-  "defaultChecked": false,
+  "defaultChecked": null,
   "disabled": false,
   "disabledClass": null,
   "disabledClassName": "disabled",
