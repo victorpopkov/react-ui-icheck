@@ -36,7 +36,7 @@ exports[`CheckboxGroup component and the \`checkboxWrapClassName\` prop is \`tes
         indeterminate={true}
         indeterminateClass={null}
         indeterminateClassName="indeterminate"
-        inheritClass={false}
+        inheritClass={null}
         inheritClassName={false}
         inheritID={false}
         insert={null}
@@ -165,7 +165,7 @@ Object {
     indeterminate={true}
     indeterminateClass={null}
     indeterminateClassName="indeterminate"
-    inheritClass={false}
+    inheritClass={null}
     inheritClassName={false}
     inheritID={false}
     insert={null}
@@ -223,7 +223,7 @@ exports[`CheckboxGroup component when no props are passed as mount should match 
       indeterminate={true}
       indeterminateClass={null}
       indeterminateClassName="indeterminate"
-      inheritClass={false}
+      inheritClass={null}
       inheritClassName={false}
       inheritID={false}
       insert={null}

@@ -229,7 +229,7 @@ BaseInput.defaultProps = {
   indeterminate: true,
   indeterminateClass: null,
   indeterminateClassName: 'indeterminate',
-  inheritClass: false,
+  inheritClass: null,
   inheritClassName: false,
   inheritID: false,
   insert: null,

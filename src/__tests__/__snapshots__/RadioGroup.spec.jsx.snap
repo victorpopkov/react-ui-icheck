@@ -38,7 +38,7 @@ exports[`RadioGroup component when the required \`name\` prop is set to \`test\`
         indeterminate={true}
         indeterminateClass={null}
         indeterminateClassName="indeterminate"
-        inheritClass={false}
+        inheritClass={null}
         inheritClassName={false}
         inheritID={false}
         insert={null}
@@ -163,7 +163,7 @@ exports[`RadioGroup component when the required \`name\` prop is set to \`test\`
         indeterminate={true}
         indeterminateClass={null}
         indeterminateClassName="indeterminate"
-        inheritClass={false}
+        inheritClass={null}
         inheritClassName={false}
         inheritID={false}
         insert={null}
@@ -305,7 +305,7 @@ exports[`RadioGroup component when the required \`name\` prop is set to \`test\`
         indeterminate={true}
         indeterminateClass={null}
         indeterminateClassName="indeterminate"
-        inheritClass={false}
+        inheritClass={null}
         inheritClassName={false}
         inheritID={false}
         insert={null}
@@ -430,7 +430,7 @@ exports[`RadioGroup component when the required \`name\` prop is set to \`test\`
         indeterminate={true}
         indeterminateClass={null}
         indeterminateClassName="indeterminate"
-        inheritClass={false}
+        inheritClass={null}
         inheritClassName={false}
         inheritID={false}
         insert={null}
@@ -558,7 +558,7 @@ Object {
       indeterminate={true}
       indeterminateClass={null}
       indeterminateClassName="indeterminate"
-      inheritClass={false}
+      inheritClass={null}
       inheritClassName={false}
       inheritID={false}
       insert={null}
@@ -603,7 +603,7 @@ Object {
       indeterminate={true}
       indeterminateClass={null}
       indeterminateClassName="indeterminate"
-      inheritClass={false}
+      inheritClass={null}
       inheritClassName={false}
       inheritID={false}
       insert={null}
@@ -679,7 +679,7 @@ exports[`RadioGroup component when the required \`name\` prop is set to \`test\`
       indeterminate={true}
       indeterminateClass={null}
       indeterminateClassName="indeterminate"
-      inheritClass={false}
+      inheritClass={null}
       inheritClassName={false}
       inheritID={false}
       insert={null}
@@ -799,7 +799,7 @@ exports[`RadioGroup component when the required \`name\` prop is set to \`test\`
       indeterminate={true}
       indeterminateClass={null}
       indeterminateClassName="indeterminate"
-      inheritClass={false}
+      inheritClass={null}
       inheritClassName={false}
       inheritID={false}
       insert={null}

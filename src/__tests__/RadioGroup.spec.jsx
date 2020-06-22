@@ -21,8 +21,8 @@ describe('RadioGroup component', () => {
         );
       });
 
-      it('should call the deprecated console.warn()', () => {
-        expect(console.warn).toHaveBeenCalledTimes(1);
+      it('should not call the deprecated console.warn()', () => {
+        expect(console.warn).toHaveBeenCalledTimes(0);
       });
 
       it('should match the snapshot', () => {
