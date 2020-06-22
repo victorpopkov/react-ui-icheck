@@ -22,6 +22,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - Extension `JS` to `JSX` where appropriate
 - Refactored tests
 
+### Deprecated
+
+- `Checkbox` and `Radio` prop `defaultChecked` in favour of `checked`
+
 ### Removed
 
 - **[maintenance]** Integration with "Travis CI" in favour of "GitHub Actions"
@@ -37,6 +41,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 - **[maintenance]** Some ESLint code linting issues
 - **[maintenance]** Some Prettier code formatting issues
+- Behaviour of the `defaultChecked` prop in the `Checkbox` and the `Radio`
 
 ## [0.6.0][] - 2019-07-15
 
@@ -98,7 +103,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ### Added
 
-- **[website]** Website "Properties" blocks in the `Checkbox` and `Radio` demos
+- **[website]** Website "Properties" blocks in the `Checkbox` and the `Radio` demos
 - Helper `deprecated` for wrapping the deprecated `PropTypes` in the future releases
 - Missing `Checkbox` and `Radio` properties to match the ones used in the `Input` component
 
