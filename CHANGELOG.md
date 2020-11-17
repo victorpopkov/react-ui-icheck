@@ -7,6 +7,9 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased][]
 
+- **[maintenance]** Configurations for "GitHub Actions" CI build, lint and test jobs
+- Dependencies to match the latest ones
+
 ## [0.7.0][] - 2020-06-23
 
 ### Added
