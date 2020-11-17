@@ -171,9 +171,10 @@ jobs:
 
           # status
           if [ "${TESTS_FAILED}" -eq 0 ]; then
-              exit 0
+            echo '::set-output name=status::success'
+            exit 0
           else
-              exit 1
+            exit 1
           fi
       - name: Prepare success Slack notification
         if: success()
