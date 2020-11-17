@@ -95,11 +95,11 @@ jobs:
           export LINT_ISSUES=$((LINT_ISSUES_JS + LINT_ISSUES_MD + LINT_ISSUES_YML))
 
           # env
-          echo "LINT_ISSUES=${LINT_ISSUES}"
-          echo "LINT_ISSUES_JS=${LINT_ISSUES_JS}"
-          echo "LINT_ISSUES_MD=${LINT_ISSUES_MD}"
-          echo "LINT_ISSUES_YML=${LINT_ISSUES_YML}"
-          echo "NODE_VERSION=${{ matrix.node_version }}"
+          echo "LINT_ISSUES=${LINT_ISSUES}" >> $GITHUB_ENV
+          echo "LINT_ISSUES_JS=${LINT_ISSUES_JS}" >> $GITHUB_ENV
+          echo "LINT_ISSUES_MD=${LINT_ISSUES_MD}" >> $GITHUB_ENV
+          echo "LINT_ISSUES_YML=${LINT_ISSUES_YML}" >> $GITHUB_ENV
+          echo "NODE_VERSION=${{ matrix.node_version }}" >> $GITHUB_ENV
 
           # lint
           yarn lint || true
@@ -163,11 +163,11 @@ jobs:
           export TESTS_PASSED=$(jq -r '.numPassedTests' < jest-summary.json)
           export TESTS_TOTAL=$(jq -r '.numTotalTests' < jest-summary.json)
 
-          echo "NODE_VERSION=${{ matrix.node_version }}"
-          echo "TESTS_COVERAGE=${TESTS_COVERAGE}"
-          echo "TESTS_FAILED=${TESTS_FAILED}"
-          echo "TESTS_PASSED=${TESTS_PASSED}"
-          echo "TESTS_TOTAL=${TESTS_TOTAL}"
+          echo "NODE_VERSION=${{ matrix.node_version }}" >> $GITHUB_ENV
+          echo "TESTS_COVERAGE=${TESTS_COVERAGE}" >> $GITHUB_ENV
+          echo "TESTS_FAILED=${TESTS_FAILED}" >> $GITHUB_ENV
+          echo "TESTS_PASSED=${TESTS_PASSED}" >> $GITHUB_ENV
+          echo "TESTS_TOTAL=${TESTS_TOTAL}" >> $GITHUB_ENV
 
           # status
           if [ "${TESTS_FAILED}" -eq 0 ]; then
