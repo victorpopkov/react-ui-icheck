@@ -12,7 +12,7 @@ jobs:
     strategy:
       matrix:
         os: [ubuntu-latest]
-        node_version: [10.x, 12.x]
+        node_version: [10.x, 12.x, 13.x, 14.x]
     steps:
       - name: Check out
         uses: actions/checkout@v2
@@ -62,7 +62,7 @@ jobs:
     strategy:
       matrix:
         os: [ubuntu-latest]
-        node_version: [10.x, 12.x]
+        node_version: [10.x, 12.x, 13.x, 14.x]
     steps:
       - name: Check out
         uses: actions/checkout@v2
@@ -131,7 +131,7 @@ jobs:
     strategy:
       matrix:
         os: [ubuntu-latest]
-        node_version: [10.x, 12.x]
+        node_version: [10.x, 12.x, 13.x, 14.x]
     steps:
       - name: Check out
         uses: actions/checkout@v2
