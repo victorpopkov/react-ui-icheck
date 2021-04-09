@@ -16,14 +16,16 @@ jobs:
     steps:
       - name: Check out
         uses: actions/checkout@v2
+      - name: Use Node.js ${{ matrix.node_version }}
+        uses: actions/setup-node@v2
+        with:
+          node-version: ${{ matrix.node_version }}
       - name: Set a job-wide environment variables
         run: |
           echo "BRANCH_NAME=${GITHUB_REF##*/}" >> $GITHUB_ENV
           echo "GITHUB_JOB_NAME=build" >> $GITHUB_ENV
-      - name: Use Node.js ${{ matrix.node_version }}
-        uses: actions/setup-node@v1
-        with:
-          node-version: ${{ matrix.node_version }}
+          echo "NODE_ENV=development" >> $GITHUB_ENV
+          echo "NODE_VERSION=${{ matrix.node_version }}" >> $GITHUB_ENV
       - name: Install
         run: yarn install --ignore-scripts
       - name: Build
@@ -32,9 +34,6 @@ jobs:
           # build
           yarn build
           export STATUS="$?"
-
-          # env
-          echo "NODE_VERSION=${{ matrix.node_version }}" >> $GITHUB_ENV
 
           # status
           if [ "${STATUS}" -eq 0 ]; then
@@ -67,14 +66,16 @@ jobs:
     steps:
       - name: Check out
         uses: actions/checkout@v2
+      - name: Use Node.js ${{ matrix.node_version }}
+        uses: actions/setup-node@v2
+        with:
+          node-version: ${{ matrix.node_version }}
       - name: Set a job-wide environment variables
         run: |
           echo "BRANCH_NAME=${GITHUB_REF##*/}" >> $GITHUB_ENV
           echo "GITHUB_JOB_NAME=lint" >> $GITHUB_ENV
-      - name: Use Node.js ${{ matrix.node_version }}
-        uses: actions/setup-node@v1
-        with:
-          node-version: ${{ matrix.node_version }}
+          echo "NODE_ENV=development" >> $GITHUB_ENV
+          echo "NODE_VERSION=${{ matrix.node_version }}" >> $GITHUB_ENV
       - name: Install
         run: yarn install --ignore-scripts
       - name: Lint
@@ -99,7 +100,6 @@ jobs:
           echo "LINT_ISSUES_JS=${LINT_ISSUES_JS}" >> $GITHUB_ENV
           echo "LINT_ISSUES_MD=${LINT_ISSUES_MD}" >> $GITHUB_ENV
           echo "LINT_ISSUES_YML=${LINT_ISSUES_YML}" >> $GITHUB_ENV
-          echo "NODE_VERSION=${{ matrix.node_version }}" >> $GITHUB_ENV
 
           # lint
           yarn lint || true
@@ -135,14 +135,16 @@ jobs:
     steps:
       - name: Check out
         uses: actions/checkout@v2
-      - name: Set a job-wide environment variables
-        run: |
-          echo "BRANCH_NAME=${GITHUB_REF##*/}" >> $GITHUB_ENV
-          echo "GITHUB_JOB_NAME=test" >> $GITHUB_ENV
       - name: Use Node.js ${{ matrix.node_version }}
         uses: actions/setup-node@v1
         with:
           node-version: ${{ matrix.node_version }}
+      - name: Set a job-wide environment variables
+        run: |
+          echo "BRANCH_NAME=${GITHUB_REF##*/}" >> $GITHUB_ENV
+          echo "GITHUB_JOB_NAME=test" >> $GITHUB_ENV
+          echo "NODE_ENV=development" >> $GITHUB_ENV
+          echo "NODE_VERSION=${{ matrix.node_version }}" >> $GITHUB_ENV
       - name: Prepare Code Climate
         run: |
           curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
@@ -163,7 +165,6 @@ jobs:
           export TESTS_PASSED=$(jq -r '.numPassedTests' < jest-summary.json)
           export TESTS_TOTAL=$(jq -r '.numTotalTests' < jest-summary.json)
 
-          echo "NODE_VERSION=${{ matrix.node_version }}" >> $GITHUB_ENV
           echo "TESTS_COVERAGE=${TESTS_COVERAGE}" >> $GITHUB_ENV
           echo "TESTS_FAILED=${TESTS_FAILED}" >> $GITHUB_ENV
           echo "TESTS_PASSED=${TESTS_PASSED}" >> $GITHUB_ENV
