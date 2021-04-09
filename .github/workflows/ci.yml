@@ -56,7 +56,7 @@ jobs:
         if: always()
         uses: Ilshidur/action-slack@master
         env:
-          SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK_CODEDSOLAR }}
+          SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
 
   lint:
     runs-on: ubuntu-latest
@@ -124,7 +124,7 @@ jobs:
         if: always()
         uses: Ilshidur/action-slack@master
         env:
-          SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK_CODEDSOLAR }}
+          SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
 
   test:
     runs-on: ubuntu-latest
@@ -190,7 +190,7 @@ jobs:
         if: always()
         uses: Ilshidur/action-slack@master
         env:
-          SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK_CODEDSOLAR }}
+          SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
       - name: Send Codecov report
         uses: codecov/codecov-action@v1
         with:
