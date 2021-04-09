@@ -39,7 +39,8 @@
     "prettier": "^2.2.1",
     "prettier-eslint": "^12.0.0",
     "raf": "^3.4.1",
-    "react": "^17.0.2"
+    "react": "^17.0.2",
+    "yarn-deduplicate": "^3.1.0"
   },
   "engines": {
     "node": ">=10.14 <11.* || >=12.*"
@@ -77,6 +78,7 @@
     "ci:prettier:md": "prettier --check './**/*.md'",
     "ci:prettier:yml": "prettier --check './**/*.yml'",
     "ci:test": "jest --coverage --coverageReporters=json-summary --json --outputFile=jest-summary.json",
+    "deduplicate": "yarn-deduplicate",
     "lint": "npm-run-all --continue-on-error lint:*",
     "lint:eslint": "eslint --config ./.eslintrc --ext js,jsx .",
     "lint:prettier": "prettier --check .",
