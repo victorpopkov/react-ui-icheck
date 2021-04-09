@@ -7,8 +7,15 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased][]
 
+### Added
+
+- **[maintenance]** Script `deduplicate` in `package.json`
+
+### Changed
+
 - **[maintenance]** Configurations for "GitHub Actions" CI build, lint and test jobs
 - Dependencies to match the latest ones
+- React from v16 to v17
 
 ## [0.7.0][] - 2020-06-23
 
