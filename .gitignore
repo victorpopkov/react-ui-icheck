@@ -93,6 +93,5 @@ typings/
 .idea/
 
 ### Project ###
-.github/slack*.json
 jest-summary.json
 lib/
