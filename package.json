@@ -21,7 +21,7 @@
     "@types/jest": "^26.0.22",
     "@wojtekmaj/enzyme-adapter-react-17": "^0.6.1",
     "babel-eslint": "^10.1.0",
-    "codecov": "^3.8.1",
+    "codecov": "^3.8.3",
     "cross-env": "^7.0.3",
     "enzyme": "^3.11.0",
     "enzyme-to-json": "^3.6.2",
