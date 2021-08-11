@@ -25,20 +25,14 @@ drop-in replacement with some additional features.
 Below you can find the list of the main differences from the original
 [react-icheck][] library:
 
+- Added `onBlur` and `onFocus` label events to accompany `onMouseOut` and `onMouseOver`
 - Added support for labels as `Checkbox` and `Radio` children
-
 - Introduced `CheckboxGroup` similar to the `RadioGroup`
-
 - Introduced `labelTag` and `labelTagClassName` properties for `Checkbox` and `Radio`
-
 - Introduced `radioWrapClassName` and `radioWrapTag` properties for `RadioGroup`
-
-- Refactored and improved the existing codebase:
-
-  - Added `onBlur` and `onFocus` label events to accompany `onMouseOut` and `onMouseOver`
-  - Moved corresponding properties from `EnchantedSwitch` to `Checkbox` and `Radio`
-  - Removed `EnchantedSwitch` in favour of `Input` and `Label`
-  - Removed `refs` usage to follow the "[Don’t Overuse Refs](https://reactjs.org/docs/refs-and-the-dom.html#dont-overuse-refs)" guide
+- Moved corresponding properties from `EnchantedSwitch` to `Checkbox` and `Radio`
+- Removed `EnchantedSwitch` in favour of `Input` and `Label`
+- Removed `refs` usage to follow the "[Don’t Overuse Refs](https://reactjs.org/docs/refs-and-the-dom.html#dont-overuse-refs)" guide
 
 ## Demo
 
