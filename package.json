@@ -43,7 +43,7 @@
     "yarn-deduplicate": "^3.1.0"
   },
   "engines": {
-    "node": ">=10.14 <11.* || >=12.*"
+    "node": ">=12.*"
   },
   "esnext": "src/index.js",
   "files": [
