@@ -9,9 +9,17 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [0.8.1][] - 2021-09-15
 
+### Added
+
+- **[maintenance]** Add `audit:fix` script in `package.json`
+
 ### Changed
 
 - Bump dependencies
+
+### Removed
+
+- Remove [Node.js][] v10 support
 
 ## [0.8.0][] - 2021-04-12
 
