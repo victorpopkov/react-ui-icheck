@@ -4,7 +4,7 @@ on:
   push:
     branches:
       - develop
-      - master
+      - main
 
 jobs:
   build:
@@ -12,7 +12,7 @@ jobs:
     strategy:
       matrix:
         os: [ubuntu-latest]
-        node_version: [12.x, 13.x, 14.x]
+        node_version: [12.x, 14.x]
     steps:
       - name: Check out
         uses: actions/checkout@v2
@@ -45,15 +45,15 @@ jobs:
         if: success()
         run: echo "SLACK_CUSTOM_PAYLOAD=${SLACK_CUSTOM_PAYLOAD}" >> $GITHUB_ENV
         env:
-          SLACK_CUSTOM_PAYLOAD: '{"channel":"react-ui-icheck","attachments":[{"color":"#2eb886","fallback":"GitHub Actions {{ GITHUB_WORKFLOW }} workflow {{ GITHUB_JOB_NAME }} job of {{ GITHUB_REPOSITORY }}@{{ BRANCH_NAME }} by {{ GITHUB_ACTOR }} has passed on Node.js {{ NODE_VERSION }}","blocks":[{"type":"section","text":{"type":"mrkdwn","text":"GitHub Actions *<https://github.com/{{ GITHUB_REPOSITORY }}/actions/runs/{{ GITHUB_RUN_ID }}|{{ GITHUB_WORKFLOW }}>* workflow *{{ GITHUB_JOB_NAME }}* job of *<https://github.com/{{ GITHUB_REPOSITORY }}|{{ GITHUB_REPOSITORY }}>@<https://github.com/{{ GITHUB_REPOSITORY }}/tree/{{ BRANCH_NAME }}|{{ BRANCH_NAME }}>* by *{{ GITHUB_ACTOR }}* has passed on Node.js *{{ NODE_VERSION }}*"}}]}]}'
+          SLACK_CUSTOM_PAYLOAD: '{"channel":"${{ secrets.SLACK_CHANNEL }}","attachments":[{"color":"#2eb886","fallback":"GitHub Actions {{ GITHUB_WORKFLOW }} workflow {{ GITHUB_JOB_NAME }} job of {{ GITHUB_REPOSITORY }}@{{ BRANCH_NAME }} by {{ GITHUB_ACTOR }} has passed on Node.js {{ NODE_VERSION }}","blocks":[{"type":"section","text":{"type":"mrkdwn","text":"GitHub Actions *<https://github.com/{{ GITHUB_REPOSITORY }}/actions/runs/{{ GITHUB_RUN_ID }}|{{ GITHUB_WORKFLOW }}>* workflow *{{ GITHUB_JOB_NAME }}* job of *<https://github.com/{{ GITHUB_REPOSITORY }}|{{ GITHUB_REPOSITORY }}>@<https://github.com/{{ GITHUB_REPOSITORY }}/tree/{{ BRANCH_NAME }}|{{ BRANCH_NAME }}>* by *{{ GITHUB_ACTOR }}* has passed on Node.js *{{ NODE_VERSION }}*"}}]}]}'
       - name: Prepare failure Slack notification
         if: failure()
         run: echo "SLACK_CUSTOM_PAYLOAD=${SLACK_CUSTOM_PAYLOAD}" >> $GITHUB_ENV
         env:
-          SLACK_CUSTOM_PAYLOAD: '{"channel":"react-ui-icheck","attachments":[{"color":"#ed2f00","fallback":"GitHub Actions {{ GITHUB_WORKFLOW }} workflow {{ GITHUB_JOB_NAME }} job of {{ GITHUB_REPOSITORY }}@{{ BRANCH_NAME }} by {{ GITHUB_ACTOR }} has failed on Node.js {{ NODE_VERSION }}","blocks":[{"type":"section","text":{"type":"mrkdwn","text":"GitHub Actions *<https://github.com/{{ GITHUB_REPOSITORY }}/actions/runs/{{ GITHUB_RUN_ID }}|{{ GITHUB_WORKFLOW }}>* workflow *{{ GITHUB_JOB_NAME }}* job of *<https://github.com/{{ GITHUB_REPOSITORY }}|{{ GITHUB_REPOSITORY }}>@<https://github.com/{{ GITHUB_REPOSITORY }}/tree/{{ BRANCH_NAME }}|{{ BRANCH_NAME }}>* by *{{ GITHUB_ACTOR }}* has failed on Node.js *{{ NODE_VERSION }}*"}}]}]}'
+          SLACK_CUSTOM_PAYLOAD: '{"channel":"${{ secrets.SLACK_CHANNEL }}","attachments":[{"color":"#ed2f00","fallback":"GitHub Actions {{ GITHUB_WORKFLOW }} workflow {{ GITHUB_JOB_NAME }} job of {{ GITHUB_REPOSITORY }}@{{ BRANCH_NAME }} by {{ GITHUB_ACTOR }} has failed on Node.js {{ NODE_VERSION }}","blocks":[{"type":"section","text":{"type":"mrkdwn","text":"GitHub Actions *<https://github.com/{{ GITHUB_REPOSITORY }}/actions/runs/{{ GITHUB_RUN_ID }}|{{ GITHUB_WORKFLOW }}>* workflow *{{ GITHUB_JOB_NAME }}* job of *<https://github.com/{{ GITHUB_REPOSITORY }}|{{ GITHUB_REPOSITORY }}>@<https://github.com/{{ GITHUB_REPOSITORY }}/tree/{{ BRANCH_NAME }}|{{ BRANCH_NAME }}>* by *{{ GITHUB_ACTOR }}* has failed on Node.js *{{ NODE_VERSION }}*"}}]}]}'
       - name: Send Slack notification
-        if: always()
-        uses: Ilshidur/action-slack@master
+        if: ${{ !env.ACT && always() }}
+        uses: Ilshidur/action-slack@2.1.0
         env:
           SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
 
@@ -62,7 +62,7 @@ jobs:
     strategy:
       matrix:
         os: [ubuntu-latest]
-        node_version: [10.x, 12.x, 13.x, 14.x]
+        node_version: [12.x, 14.x]
     steps:
       - name: Check out
         uses: actions/checkout@v2
@@ -114,15 +114,15 @@ jobs:
         if: success()
         run: echo "SLACK_CUSTOM_PAYLOAD=${SLACK_CUSTOM_PAYLOAD}" >> $GITHUB_ENV
         env:
-          SLACK_CUSTOM_PAYLOAD: '{"channel":"react-ui-icheck","attachments":[{"color":"#2eb886","fallback":"GitHub Actions {{ GITHUB_WORKFLOW }} workflow {{ GITHUB_JOB_NAME }} job of {{ GITHUB_REPOSITORY }}@{{ BRANCH_NAME }} by {{ GITHUB_ACTOR }} has passed with no issues on Node.js {{ NODE_VERSION }}","blocks":[{"type":"section","text":{"type":"mrkdwn","text":"GitHub Actions *<https://github.com/{{ GITHUB_REPOSITORY }}/actions/runs/{{ GITHUB_RUN_ID }}|{{ GITHUB_WORKFLOW }}>* workflow *{{ GITHUB_JOB_NAME }}* job of *<https://github.com/{{ GITHUB_REPOSITORY }}|{{ GITHUB_REPOSITORY }}>@<https://github.com/{{ GITHUB_REPOSITORY }}/tree/{{ BRANCH_NAME }}|{{ BRANCH_NAME }}>* by *{{ GITHUB_ACTOR }}* has passed with no issues on Node.js *{{ NODE_VERSION }}*"}}]}]}'
+          SLACK_CUSTOM_PAYLOAD: '{"channel":"${{ secrets.SLACK_CHANNEL }}","attachments":[{"color":"#2eb886","fallback":"GitHub Actions {{ GITHUB_WORKFLOW }} workflow {{ GITHUB_JOB_NAME }} job of {{ GITHUB_REPOSITORY }}@{{ BRANCH_NAME }} by {{ GITHUB_ACTOR }} has passed with no issues on Node.js {{ NODE_VERSION }}","blocks":[{"type":"section","text":{"type":"mrkdwn","text":"GitHub Actions *<https://github.com/{{ GITHUB_REPOSITORY }}/actions/runs/{{ GITHUB_RUN_ID }}|{{ GITHUB_WORKFLOW }}>* workflow *{{ GITHUB_JOB_NAME }}* job of *<https://github.com/{{ GITHUB_REPOSITORY }}|{{ GITHUB_REPOSITORY }}>@<https://github.com/{{ GITHUB_REPOSITORY }}/tree/{{ BRANCH_NAME }}|{{ BRANCH_NAME }}>* by *{{ GITHUB_ACTOR }}* has passed with no issues on Node.js *{{ NODE_VERSION }}*"}}]}]}'
       - name: Prepare failure Slack notification
         if: failure()
         run: echo "SLACK_CUSTOM_PAYLOAD=${SLACK_CUSTOM_PAYLOAD}" >> $GITHUB_ENV
         env:
-          SLACK_CUSTOM_PAYLOAD: '{"channel":"react-ui-icheck","attachments":[{"color":"#ed2f00","fallback":"GitHub Actions {{ GITHUB_WORKFLOW }} workflow {{ GITHUB_JOB_NAME }} job of {{ GITHUB_REPOSITORY }}@{{ BRANCH_NAME }} by {{ GITHUB_ACTOR }} has failed with {{ LINT_ISSUES }} issues on Node.js {{ NODE_VERSION }}","blocks":[{"type":"section","text":{"type":"mrkdwn","text":"GitHub Actions *<https://github.com/{{ GITHUB_REPOSITORY }}/actions/runs/{{ GITHUB_RUN_ID }}|{{ GITHUB_WORKFLOW }}>* workflow *{{ GITHUB_JOB_NAME }}* job of *<https://github.com/{{ GITHUB_REPOSITORY }}|{{ GITHUB_REPOSITORY }}>@<https://github.com/{{ GITHUB_REPOSITORY }}/tree/{{ BRANCH_NAME }}|{{ BRANCH_NAME }}>* by *{{ GITHUB_ACTOR }}* has failed with *{{ LINT_ISSUES }}* issues on Node.js *{{ NODE_VERSION }}*"}},{"type":"section","fields":[{"type":"mrkdwn","text":"*JavaScript (ESLint)*:\n{{ LINT_ISSUES_JS }}"},{"type":"mrkdwn","text":"*Markdown (Prettier)*:\n{{ LINT_ISSUES_MD }}"},{"type":"mrkdwn","text":"*YAML (Prettier)*:\n{{ LINT_ISSUES_YML }}"}]}]}]}'
+          SLACK_CUSTOM_PAYLOAD: '{"channel":"${{ secrets.SLACK_CHANNEL }}","attachments":[{"color":"#ed2f00","fallback":"GitHub Actions {{ GITHUB_WORKFLOW }} workflow {{ GITHUB_JOB_NAME }} job of {{ GITHUB_REPOSITORY }}@{{ BRANCH_NAME }} by {{ GITHUB_ACTOR }} has failed with {{ LINT_ISSUES }} issues on Node.js {{ NODE_VERSION }}","blocks":[{"type":"section","text":{"type":"mrkdwn","text":"GitHub Actions *<https://github.com/{{ GITHUB_REPOSITORY }}/actions/runs/{{ GITHUB_RUN_ID }}|{{ GITHUB_WORKFLOW }}>* workflow *{{ GITHUB_JOB_NAME }}* job of *<https://github.com/{{ GITHUB_REPOSITORY }}|{{ GITHUB_REPOSITORY }}>@<https://github.com/{{ GITHUB_REPOSITORY }}/tree/{{ BRANCH_NAME }}|{{ BRANCH_NAME }}>* by *{{ GITHUB_ACTOR }}* has failed with *{{ LINT_ISSUES }}* issues on Node.js *{{ NODE_VERSION }}*"}},{"type":"section","fields":[{"type":"mrkdwn","text":"*JavaScript (ESLint)*:\n{{ LINT_ISSUES_JS }}"},{"type":"mrkdwn","text":"*Markdown (Prettier)*:\n{{ LINT_ISSUES_MD }}"},{"type":"mrkdwn","text":"*YAML (Prettier)*:\n{{ LINT_ISSUES_YML }}"}]}]}]}'
       - name: Send Slack notification
-        if: always()
-        uses: Ilshidur/action-slack@master
+        if: ${{ !env.ACT && always() }}
+        uses: Ilshidur/action-slack@2.1.0
         env:
           SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
 
@@ -131,7 +131,7 @@ jobs:
     strategy:
       matrix:
         os: [ubuntu-latest]
-        node_version: [10.x, 12.x, 13.x, 14.x]
+        node_version: [12.x, 14.x]
     steps:
       - name: Check out
         uses: actions/checkout@v2
@@ -181,22 +181,24 @@ jobs:
         if: success()
         run: echo "SLACK_CUSTOM_PAYLOAD=${SLACK_CUSTOM_PAYLOAD}" >> $GITHUB_ENV
         env:
-          SLACK_CUSTOM_PAYLOAD: '{"channel":"react-ui-icheck","attachments":[{"color":"#2eb886","fallback":"GitHub Actions {{ GITHUB_WORKFLOW }} workflow {{ GITHUB_JOB_NAME }} job of {{ GITHUB_REPOSITORY }}@{{ BRANCH_NAME }} by {{ GITHUB_ACTOR }} has passed with no issues {{ TESTS_TOTAL }} tests on Node.js {{ NODE_VERSION }}. Coverage: {{ TESTS_COVERAGE }}","blocks":[{"type":"section","text":{"type":"mrkdwn","text":"GitHub Actions *<https://github.com/{{ GITHUB_REPOSITORY }}/actions/runs/{{ GITHUB_RUN_ID }}|{{ GITHUB_WORKFLOW }}>* workflow *{{ GITHUB_JOB_NAME }}* job of *<https://github.com/{{ GITHUB_REPOSITORY }}|{{ GITHUB_REPOSITORY }}>@<https://github.com/{{ GITHUB_REPOSITORY }}/tree/{{ BRANCH_NAME }}|{{ BRANCH_NAME }}>* by *{{ GITHUB_ACTOR }}* has passed with no issues *{{ TESTS_TOTAL }}* tests on Node.js {{ NODE_VERSION }}. Coverage: *{{ TESTS_COVERAGE }}*"}}]}]}'
+          SLACK_CUSTOM_PAYLOAD: '{"channel":"${{ secrets.SLACK_CHANNEL }}","attachments":[{"color":"#2eb886","fallback":"GitHub Actions {{ GITHUB_WORKFLOW }} workflow {{ GITHUB_JOB_NAME }} job of {{ GITHUB_REPOSITORY }}@{{ BRANCH_NAME }} by {{ GITHUB_ACTOR }} has passed with no issues {{ TESTS_TOTAL }} tests on Node.js {{ NODE_VERSION }}. Coverage: {{ TESTS_COVERAGE }}","blocks":[{"type":"section","text":{"type":"mrkdwn","text":"GitHub Actions *<https://github.com/{{ GITHUB_REPOSITORY }}/actions/runs/{{ GITHUB_RUN_ID }}|{{ GITHUB_WORKFLOW }}>* workflow *{{ GITHUB_JOB_NAME }}* job of *<https://github.com/{{ GITHUB_REPOSITORY }}|{{ GITHUB_REPOSITORY }}>@<https://github.com/{{ GITHUB_REPOSITORY }}/tree/{{ BRANCH_NAME }}|{{ BRANCH_NAME }}>* by *{{ GITHUB_ACTOR }}* has passed with no issues *{{ TESTS_TOTAL }}* tests on Node.js {{ NODE_VERSION }}. Coverage: *{{ TESTS_COVERAGE }}*"}}]}]}'
       - name: Prepare failure Slack notification
         if: failure()
         run: echo "SLACK_CUSTOM_PAYLOAD=${SLACK_CUSTOM_PAYLOAD}" >> $GITHUB_ENV
         env:
-          SLACK_CUSTOM_PAYLOAD: '{"channel":"react-ui-icheck","attachments":[{"color":"#ed2f00","fallback":"GitHub Actions {{ GITHUB_WORKFLOW }} workflow {{ GITHUB_JOB_NAME }} job of {{ GITHUB_REPOSITORY }}@{{ BRANCH_NAME }} by {{ GITHUB_ACTOR }} has failed with {{ TESTS_FAILED }} tests on Node.js {{ NODE_VERSION }}","blocks":[{"type":"section","text":{"type":"mrkdwn","text":"GitHub Actions *<https://github.com/{{ GITHUB_REPOSITORY }}/actions/runs/{{ GITHUB_RUN_ID }}|{{ GITHUB_WORKFLOW }}>* workflow *{{ GITHUB_JOB_NAME }}* job of *<https://github.com/{{ GITHUB_REPOSITORY }}|{{ GITHUB_REPOSITORY }}>@<https://github.com/{{ GITHUB_REPOSITORY }}/tree/{{ BRANCH_NAME }}|{{ BRANCH_NAME }}>* by *{{ GITHUB_ACTOR }}* has failed with *{{ TESTS_FAILED }}* tests on Node.js *{{ NODE_VERSION }}*"}},{"type":"section","fields":[{"type":"mrkdwn","text":"*Total*:\n{{ TESTS_TOTAL }}"},{"type":"mrkdwn","text":"*Passed*:\n{{ TESTS_PASSED }}"},{"type":"mrkdwn","text":"*Failed*:\n{{ TESTS_FAILED }}"}]}]}]}'
+          SLACK_CUSTOM_PAYLOAD: '{"channel":"${{ secrets.SLACK_CHANNEL }}","attachments":[{"color":"#ed2f00","fallback":"GitHub Actions {{ GITHUB_WORKFLOW }} workflow {{ GITHUB_JOB_NAME }} job of {{ GITHUB_REPOSITORY }}@{{ BRANCH_NAME }} by {{ GITHUB_ACTOR }} has failed with {{ TESTS_FAILED }} tests on Node.js {{ NODE_VERSION }}","blocks":[{"type":"section","text":{"type":"mrkdwn","text":"GitHub Actions *<https://github.com/{{ GITHUB_REPOSITORY }}/actions/runs/{{ GITHUB_RUN_ID }}|{{ GITHUB_WORKFLOW }}>* workflow *{{ GITHUB_JOB_NAME }}* job of *<https://github.com/{{ GITHUB_REPOSITORY }}|{{ GITHUB_REPOSITORY }}>@<https://github.com/{{ GITHUB_REPOSITORY }}/tree/{{ BRANCH_NAME }}|{{ BRANCH_NAME }}>* by *{{ GITHUB_ACTOR }}* has failed with *{{ TESTS_FAILED }}* tests on Node.js *{{ NODE_VERSION }}*"}},{"type":"section","fields":[{"type":"mrkdwn","text":"*Total*:\n{{ TESTS_TOTAL }}"},{"type":"mrkdwn","text":"*Passed*:\n{{ TESTS_PASSED }}"},{"type":"mrkdwn","text":"*Failed*:\n{{ TESTS_FAILED }}"}]}]}]}'
       - name: Send Slack notification
-        if: always()
-        uses: Ilshidur/action-slack@master
+        if: ${{ !env.ACT && always() }}
+        uses: Ilshidur/action-slack@2.1.0
         env:
           SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
       - name: Send Codecov report
+        if: ${{ !env.ACT }}
         uses: codecov/codecov-action@v1
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
       - name: Send Code Climate report
+        if: ${{ !env.ACT }}
         run: ./cc-test-reporter after-build --exit-code "$("${SUCCESS}" && echo 0 || echo 1)" --id ${{ secrets.CODE_CLIMATE_TOKEN }}
         env:
           SUCCESS: ${{ steps.test.outputs.status == 'success' }}
