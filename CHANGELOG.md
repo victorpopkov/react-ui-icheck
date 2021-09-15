@@ -19,7 +19,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ### Removed
 
-- Remove [Node.js][] v10 support
+- Remove [Node.js][] v10 and v13 support
 
 ## [0.8.0][] - 2021-04-12
 
