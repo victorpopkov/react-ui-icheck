@@ -16,31 +16,27 @@ jobs:
     steps:
       - name: Check out
         uses: actions/checkout@v2
-      - name: Use Node.js ${{ matrix.node_version }}
-        uses: actions/setup-node@v2
-        with:
-          node-version: ${{ matrix.node_version }}
       - name: Set a job-wide environment variables
         run: |
           echo "BRANCH_NAME=${GITHUB_REF##*/}" >> $GITHUB_ENV
           echo "GITHUB_JOB_NAME=build" >> $GITHUB_ENV
-          echo "NODE_ENV=development" >> $GITHUB_ENV
           echo "NODE_VERSION=${{ matrix.node_version }}" >> $GITHUB_ENV
+      - name: Set up Node.js ${{ matrix.node_version }}
+        uses: actions/setup-node@v2
+        with:
+          node-version: ${{ matrix.node_version }}
       - name: Install
         run: yarn install --ignore-scripts
+        env:
+          NODE_ENV: development
       - name: Build
         id: build
         run: |
-          # build
           yarn build
           export STATUS="$?"
-
-          # status
-          if [ "${STATUS}" -eq 0 ]; then
-            exit 0
-          else
-            exit 1
-          fi
+          if [ "${STATUS}" -eq 0 ]; then exit 0; else exit 1; fi
+        env:
+          NODE_ENV: production
       - name: Prepare success Slack notification
         if: success()
         run: echo "SLACK_CUSTOM_PAYLOAD=${SLACK_CUSTOM_PAYLOAD}" >> $GITHUB_ENV
@@ -66,18 +62,19 @@ jobs:
     steps:
       - name: Check out
         uses: actions/checkout@v2
-      - name: Use Node.js ${{ matrix.node_version }}
-        uses: actions/setup-node@v2
-        with:
-          node-version: ${{ matrix.node_version }}
       - name: Set a job-wide environment variables
         run: |
           echo "BRANCH_NAME=${GITHUB_REF##*/}" >> $GITHUB_ENV
           echo "GITHUB_JOB_NAME=lint" >> $GITHUB_ENV
-          echo "NODE_ENV=development" >> $GITHUB_ENV
           echo "NODE_VERSION=${{ matrix.node_version }}" >> $GITHUB_ENV
+      - name: Use Node.js ${{ matrix.node_version }}
+        uses: actions/setup-node@v2
+        with:
+          node-version: ${{ matrix.node_version }}
       - name: Install
         run: yarn install --ignore-scripts
+        env:
+          NODE_ENV: development
       - name: Lint
         id: lint
         run: |
@@ -105,11 +102,7 @@ jobs:
           yarn lint || true
 
           # status
-          if [ "${LINT_ISSUES}" -eq 0 ]; then
-            exit 0
-          else
-            exit 1
-          fi
+          if [ "${LINT_ISSUES}" -eq 0 ]; then exit 0; else exit 1; fi
       - name: Prepare success Slack notification
         if: success()
         run: echo "SLACK_CUSTOM_PAYLOAD=${SLACK_CUSTOM_PAYLOAD}" >> $GITHUB_ENV
@@ -135,16 +128,15 @@ jobs:
     steps:
       - name: Check out
         uses: actions/checkout@v2
-      - name: Use Node.js ${{ matrix.node_version }}
-        uses: actions/setup-node@v1
-        with:
-          node-version: ${{ matrix.node_version }}
       - name: Set a job-wide environment variables
         run: |
           echo "BRANCH_NAME=${GITHUB_REF##*/}" >> $GITHUB_ENV
           echo "GITHUB_JOB_NAME=test" >> $GITHUB_ENV
-          echo "NODE_ENV=development" >> $GITHUB_ENV
           echo "NODE_VERSION=${{ matrix.node_version }}" >> $GITHUB_ENV
+      - name: Use Node.js ${{ matrix.node_version }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node_version }}
       - name: Prepare Code Climate
         run: |
           curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
@@ -152,6 +144,8 @@ jobs:
           ./cc-test-reporter before-build
       - name: Install
         run: yarn install --ignore-scripts
+        env:
+          NODE_ENV: development
       - name: Test
         id: test
         run: |
