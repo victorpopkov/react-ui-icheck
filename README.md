@@ -15,15 +15,14 @@ iCheck customizable checkboxes and radios built with React.
 
 ## Overview
 
-This library has been originally intended to be a fork of the [react-icheck][]
-created by [luqin][] which didn't seem to be maintained anymore. However, after
-diving into the original code it became more convenient to create a new one as a
-drop-in replacement with some additional features.
+A small library to create customizable checkboxes and radios which can either
+use [iCheck][] skins or custom ones.
 
-### Differences
+![screenshot](screenshot.png)
 
-Below you can find the list of the main differences from the original
-[react-icheck][] library:
+This library has been originally intended to be a [luqin/react-icheck][] fork.
+But, after diving into the original code it became more convenient to create a
+new one as a drop-in replacement with some additional changes:
 
 - Added `onBlur` and `onFocus` label events to accompany `onMouseOut` and `onMouseOver`
 - Added support for labels as `Checkbox` and `Radio` children
@@ -32,7 +31,7 @@ Below you can find the list of the main differences from the original
 - Introduced `radioWrapClassName` and `radioWrapTag` properties for `RadioGroup`
 - Moved corresponding properties from `EnchantedSwitch` to `Checkbox` and `Radio`
 - Removed `EnchantedSwitch` in favour of `Input` and `Label`
-- Removed `refs` usage to follow the "[Don’t Overuse Refs](https://reactjs.org/docs/refs-and-the-dom.html#dont-overuse-refs)" guide
+- Removed `refs` usage to follow the "[Don't Overuse Refs](https://reactjs.org/docs/refs-and-the-dom.html#dont-overuse-refs)" guide
 
 ## Demo
 
@@ -64,8 +63,8 @@ $ yarn add react-ui-icheck icheck
 
 Released under the [MIT License](https://opensource.org/licenses/MIT).
 
-[icheck]: https://github.com/fronteed/icheck
+[icheck]: http://icheck.fronteed.com/
 [luqin]: https://github.com/luqin
+[luqin/react-icheck]: https://github.com/luqin/react-icheck
 [npm]: https://www.npmjs.com/
-[react-icheck]: https://github.com/luqin/react-icheck
 [website]: http://github.victorpopkov.com/react-ui-icheck/

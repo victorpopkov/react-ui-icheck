@@ -29,7 +29,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ### Changed
 
-- **[maintenance]** Configurations for "GitHub Actions" CI build, lint and test jobs
+- **[maintenance]** Change [GitHub Actions][] CI build, lint and test jobs configurations
 - Bump [React][] from v16 to v17
 - Bump dependencies
 
