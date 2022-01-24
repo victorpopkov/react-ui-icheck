@@ -18,27 +18,19 @@ exports[`RadioGroup component when the required \`name\` prop is set to \`test\`
       key=".0"
     >
       <Radio
-        activeClass={null}
         activeClassName="active"
         aria={false}
         checked={false}
-        checkedClass={null}
         checkedClassName="checked"
         className={null}
-        defaultChecked={null}
         disabled={false}
-        disabledClass={null}
         disabledClassName="disabled"
-        focusClass={null}
         focusClassName="focus"
-        hoverClass={null}
         hoverClassName="hover"
         id={null}
         increaseArea=""
         indeterminate={true}
-        indeterminateClass={null}
         indeterminateClassName="indeterminate"
-        inheritClass={null}
         inheritClassName={false}
         inheritID={false}
         insert={null}
@@ -142,27 +134,19 @@ exports[`RadioGroup component when the required \`name\` prop is set to \`test\`
       key=".1"
     >
       <Radio
-        activeClass={null}
         activeClassName="active"
         aria={false}
         checked={false}
-        checkedClass={null}
         checkedClassName="checked"
         className={null}
-        defaultChecked={null}
         disabled={false}
-        disabledClass={null}
         disabledClassName="disabled"
-        focusClass={null}
         focusClassName="focus"
-        hoverClass={null}
         hoverClassName="hover"
         id={null}
         increaseArea=""
         indeterminate={true}
-        indeterminateClass={null}
         indeterminateClassName="indeterminate"
-        inheritClass={null}
         inheritClassName={false}
         inheritID={false}
         insert={null}
@@ -283,27 +267,19 @@ exports[`RadioGroup component when the required \`name\` prop is set to \`test\`
       key=".0"
     >
       <Radio
-        activeClass={null}
         activeClassName="active"
         aria={false}
         checked={false}
-        checkedClass={null}
         checkedClassName="checked"
         className={null}
-        defaultChecked={null}
         disabled={false}
-        disabledClass={null}
         disabledClassName="disabled"
-        focusClass={null}
         focusClassName="focus"
-        hoverClass={null}
         hoverClassName="hover"
         id={null}
         increaseArea=""
         indeterminate={true}
-        indeterminateClass={null}
         indeterminateClassName="indeterminate"
-        inheritClass={null}
         inheritClassName={false}
         inheritID={false}
         insert={null}
@@ -407,27 +383,19 @@ exports[`RadioGroup component when the required \`name\` prop is set to \`test\`
       key=".1"
     >
       <Radio
-        activeClass={null}
         activeClassName="active"
         aria={false}
         checked={false}
-        checkedClass={null}
         checkedClassName="checked"
         className={null}
-        defaultChecked={null}
         disabled={false}
-        disabledClass={null}
         disabledClassName="disabled"
-        focusClass={null}
         focusClassName="focus"
-        hoverClass={null}
         hoverClassName="hover"
         id={null}
         increaseArea=""
         indeterminate={true}
-        indeterminateClass={null}
         indeterminateClassName="indeterminate"
-        inheritClass={null}
         inheritClassName={false}
         inheritID={false}
         insert={null}
@@ -534,27 +502,19 @@ exports[`RadioGroup component when the required \`name\` prop is set to \`test\`
 Object {
   "children": Array [
     <Radio
-      activeClass={null}
       activeClassName="active"
       aria={false}
       checked={false}
-      checkedClass={null}
       checkedClassName="checked"
       className={null}
-      defaultChecked={null}
       disabled={false}
-      disabledClass={null}
       disabledClassName="disabled"
-      focusClass={null}
       focusClassName="focus"
-      hoverClass={null}
       hoverClassName="hover"
       id={null}
       increaseArea=""
       indeterminate={true}
-      indeterminateClass={null}
       indeterminateClassName="indeterminate"
-      inheritClass={null}
       inheritClassName={false}
       inheritID={false}
       insert={null}
@@ -579,27 +539,19 @@ Object {
       value="1"
     />,
     <Radio
-      activeClass={null}
       activeClassName="active"
       aria={false}
       checked={false}
-      checkedClass={null}
       checkedClassName="checked"
       className={null}
-      defaultChecked={null}
       disabled={false}
-      disabledClass={null}
       disabledClassName="disabled"
-      focusClass={null}
       focusClassName="focus"
-      hoverClass={null}
       hoverClassName="hover"
       id={null}
       increaseArea=""
       indeterminate={true}
-      indeterminateClass={null}
       indeterminateClassName="indeterminate"
-      inheritClass={null}
       inheritClassName={false}
       inheritID={false}
       insert={null}
@@ -655,27 +607,19 @@ exports[`RadioGroup component when the required \`name\` prop is set to \`test\`
     className={null}
   >
     <Radio
-      activeClass={null}
       activeClassName="active"
       aria={false}
       checked={false}
-      checkedClass={null}
       checkedClassName="checked"
       className={null}
-      defaultChecked={null}
       disabled={false}
-      disabledClass={null}
       disabledClassName="disabled"
-      focusClass={null}
       focusClassName="focus"
-      hoverClass={null}
       hoverClassName="hover"
       id={null}
       increaseArea=""
       indeterminate={true}
-      indeterminateClass={null}
       indeterminateClassName="indeterminate"
-      inheritClass={null}
       inheritClassName={false}
       inheritID={false}
       insert={null}
@@ -774,27 +718,19 @@ exports[`RadioGroup component when the required \`name\` prop is set to \`test\`
       </Input>
     </Radio>
     <Radio
-      activeClass={null}
       activeClassName="active"
       aria={false}
       checked={false}
-      checkedClass={null}
       checkedClassName="checked"
       className={null}
-      defaultChecked={null}
       disabled={false}
-      disabledClass={null}
       disabledClassName="disabled"
-      focusClass={null}
       focusClassName="focus"
-      hoverClass={null}
       hoverClassName="hover"
       id={null}
       increaseArea=""
       indeterminate={true}
-      indeterminateClass={null}
       indeterminateClassName="indeterminate"
-      inheritClass={null}
       inheritClassName={false}
       inheritID={false}
       insert={null}

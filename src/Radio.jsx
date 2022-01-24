@@ -1,6 +1,5 @@
 import PropTypes from 'prop-types';
 import BaseInput from './BaseInput'; // eslint-disable-line sort-imports
-import deprecated from './helpers/deprecated';
 
 class Radio extends BaseInput {
   renderInput() {
@@ -15,7 +14,6 @@ class Radio extends BaseInput {
 
 Radio.propTypes = {
   ...BaseInput.propTypes,
-  radioClass: deprecated(PropTypes.string, 'radioClassName'),
   radioClassName: PropTypes.string,
 };
 

@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import mobile from 'is-mobile';
 import Input from './components/Input'; // eslint-disable-line sort-imports
 import Label from './components/Label';
-import deprecated from './helpers/deprecated';
 
 class BaseInput extends Component {
   constructor(props) {
@@ -11,13 +10,13 @@ class BaseInput extends Component {
 
     this.handleHover = this.handleHover.bind(this);
 
-    const { checked, defaultChecked } = props;
+    const { checked } = props;
 
     this.state = {
-      checked: defaultChecked || checked,
       hovered: false,
       isMobile: mobile(),
       prevPropChecked: props.checked,
+      checked,
     };
   }
 
@@ -38,26 +37,18 @@ class BaseInput extends Component {
 
   renderInput(props) {
     const {
-      activeClass,
       activeClassName,
       aria,
-      checkedClass,
       checkedClassName,
       className,
-      defaultChecked,
       disabled,
-      disabledClass,
       disabledClassName,
-      focusClass,
       focusClassName,
-      hoverClass,
       hoverClassName,
       id,
       increaseArea,
       indeterminate,
-      indeterminateClass,
       indeterminateClassName,
-      inheritClass,
       inheritClassName,
       inheritID,
       insert,
@@ -92,26 +83,27 @@ class BaseInput extends Component {
       <Input
         {...other}
         {...props}
-        activeClassName={activeClass || activeClassName}
+        activeClassName={activeClassName}
         aria={aria}
         checked={stateChecked}
-        checkedClassName={checkedClass || checkedClassName}
+        checkedClassName={checkedClassName}
         className={className}
         disabled={disabled}
-        disabledClassName={disabledClass || disabledClassName}
-        focusClassName={focusClass || focusClassName}
-        hoverClassName={hoverClass || hoverClassName}
+        disabledClassName={disabledClassName}
+        focusClassName={focusClassName}
+        hoverClassName={hoverClassName}
         hovered={hovered}
         id={id}
         increaseArea={increaseArea}
         indeterminate={indeterminate}
-        indeterminateClassName={indeterminateClass || indeterminateClassName}
-        inheritClassName={inheritClass || inheritClassName}
+        indeterminateClassName={indeterminateClassName}
+        inheritClassName={inheritClassName}
         inheritID={inheritID}
         insert={insert}
         isMobile={isMobile}
         name={name}
         ref={(c) => {
+          // eslint-disable-next-line react/no-unused-class-component-methods
           this.input = c;
         }}
         value={value}
@@ -157,28 +149,20 @@ class BaseInput extends Component {
 }
 
 BaseInput.propTypes = {
-  activeClass: deprecated(PropTypes.string, 'activeClassName'),
   activeClassName: PropTypes.string,
   aria: PropTypes.bool,
   checked: PropTypes.bool,
-  checkedClass: deprecated(PropTypes.string, 'checkedClassName'),
   checkedClassName: PropTypes.string,
   children: PropTypes.node,
   className: PropTypes.string,
-  defaultChecked: deprecated(PropTypes.bool, 'checked'),
   disabled: PropTypes.bool,
-  disabledClass: deprecated(PropTypes.string, 'disabledClassName'),
   disabledClassName: PropTypes.string,
-  focusClass: deprecated(PropTypes.string, 'focusClassName'),
   focusClassName: PropTypes.string,
-  hoverClass: deprecated(PropTypes.string, 'hoverClassName'),
   hoverClassName: PropTypes.string,
   id: PropTypes.string,
   increaseArea: PropTypes.string,
   indeterminate: PropTypes.bool,
-  indeterminateClass: deprecated(PropTypes.string, 'indeterminateClassName'),
   indeterminateClassName: PropTypes.string,
-  inheritClass: deprecated(PropTypes.bool, 'inheritClassName'),
   inheritClassName: PropTypes.bool,
   inheritID: PropTypes.bool,
   insert: PropTypes.node,
@@ -202,28 +186,20 @@ BaseInput.propTypes = {
 };
 
 BaseInput.defaultProps = {
-  activeClass: null,
   activeClassName: 'active',
   aria: false,
   checked: false,
-  checkedClass: null,
   checkedClassName: 'checked',
   children: null,
   className: null,
-  defaultChecked: null,
   disabled: false,
-  disabledClass: null,
   disabledClassName: 'disabled',
-  focusClass: null,
   focusClassName: 'focus',
-  hoverClass: null,
   hoverClassName: 'hover',
   id: null,
   increaseArea: '',
   indeterminate: true,
-  indeterminateClass: null,
   indeterminateClassName: 'indeterminate',
-  inheritClass: null,
   inheritClassName: false,
   inheritID: false,
   insert: null,

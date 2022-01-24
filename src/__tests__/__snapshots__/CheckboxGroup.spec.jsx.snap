@@ -14,29 +14,21 @@ exports[`CheckboxGroup component and the \`checkboxWrapClassName\` prop is \`tes
       key=".0"
     >
       <Checkbox
-        activeClass={null}
         activeClassName="active"
         aria={false}
         checkboxClass={null}
         checkboxClassName="icheckbox"
         checked={false}
-        checkedClass={null}
         checkedClassName="checked"
         className={null}
-        defaultChecked={null}
         disabled={false}
-        disabledClass={null}
         disabledClassName="disabled"
-        focusClass={null}
         focusClassName="focus"
-        hoverClass={null}
         hoverClassName="hover"
         id={null}
         increaseArea=""
         indeterminate={true}
-        indeterminateClass={null}
         indeterminateClassName="indeterminate"
-        inheritClass={null}
         inheritClassName={false}
         inheritID={false}
         insert={null}
@@ -142,29 +134,21 @@ Object {
   "checkboxWrapClassName": null,
   "checkboxWrapTag": null,
   "children": <Checkbox
-    activeClass={null}
     activeClassName="active"
     aria={false}
     checkboxClass={null}
     checkboxClassName="icheckbox"
     checked={false}
-    checkedClass={null}
     checkedClassName="checked"
     className={null}
-    defaultChecked={null}
     disabled={false}
-    disabledClass={null}
     disabledClassName="disabled"
-    focusClass={null}
     focusClassName="focus"
-    hoverClass={null}
     hoverClassName="hover"
     id={null}
     increaseArea=""
     indeterminate={true}
-    indeterminateClass={null}
     indeterminateClassName="indeterminate"
-    inheritClass={null}
     inheritClassName={false}
     inheritID={false}
     insert={null}
@@ -200,29 +184,21 @@ exports[`CheckboxGroup component when no props are passed as mount should match 
     className={null}
   >
     <Checkbox
-      activeClass={null}
       activeClassName="active"
       aria={false}
       checkboxClass={null}
       checkboxClassName="icheckbox"
       checked={false}
-      checkedClass={null}
       checkedClassName="checked"
       className={null}
-      defaultChecked={null}
       disabled={false}
-      disabledClass={null}
       disabledClassName="disabled"
-      focusClass={null}
       focusClassName="focus"
-      hoverClass={null}
       hoverClassName="hover"
       id={null}
       increaseArea=""
       indeterminate={true}
-      indeterminateClass={null}
       indeterminateClassName="indeterminate"
-      inheritClass={null}
       inheritClassName={false}
       inheritID={false}
       insert={null}
