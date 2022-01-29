@@ -2089,10 +2089,10 @@ commander@^7.2.0:
   resolved "https://registry.yarnpkg.com/commander/-/commander-7.2.0.tgz#a36cb57d0b501ce108e4d20559a150a391d97ab7"
   integrity sha512-QrWXB+ZQSVPmIWIhtEO9H+gwHaMGYiF5ChvoJ+K9ZGHG/sVsa6yiesAD1GC/x46sET00Xlwo1u49RVVVzvcSkw==
 
-commander@^8.3.0:
-  version "8.3.0"
-  resolved "https://registry.yarnpkg.com/commander/-/commander-8.3.0.tgz#4837ea1b2da67b9c616a67afbb0fafee567bca66"
-  integrity sha512-OkTL9umf+He2DZkUq8f8J9of7yL6RJKI24dVITBmNfZBmri9zYZQrKkuXiKhyfPSu8tUhnVBB1iKXevvnlR4Ww==
+commander@^9.0.0:
+  version "9.0.0"
+  resolved "https://registry.yarnpkg.com/commander/-/commander-9.0.0.tgz#86d58f24ee98126568936bd1d3574e0308a99a40"
+  integrity sha512-JJfP2saEKbQqvW+FI93OYUB4ByV5cizMpFMiiJI8xDbBvQvSkIk0VvQdn1CZ8mqAO8Loq2h0gYTYtDFUZUeERw==
 
 common-tags@^1.4.0:
   version "1.8.0"
@@ -3155,10 +3155,10 @@ globals@^13.6.0, globals@^13.9.0:
   dependencies:
     type-fest "^0.20.2"
 
-globby@^13.0.0:
-  version "13.0.0"
-  resolved "https://registry.yarnpkg.com/globby/-/globby-13.0.0.tgz#1118e53acc5e0f32fc06d5fc592ce701ba239474"
-  integrity sha512-peWsS6/uJ4lRXg7qK11lnkMTIdoDp35bpJzpR3vpRNFkP1qMNsM7OQvUqwe6r+9RCT6VpEAhL9DDrK/jD0PGvw==
+globby@^13.1.0:
+  version "13.1.0"
+  resolved "https://registry.yarnpkg.com/globby/-/globby-13.1.0.tgz#7a5390411c5c13a844875d94fbd1988ddc6ac9c8"
+  integrity sha512-BECc0Q0jlCk2BLaY2DuHFCdKo+Es6OzOHECV4KpNtVtgXZobl4jmLThiBPY+RiHoOFeI0pd1G035CFLFP/o2Fg==
   dependencies:
     dir-glob "^3.0.1"
     fast-glob "^3.2.11"
@@ -5911,10 +5911,10 @@ yargs@^16.2.0:
     y18n "^5.0.5"
     yargs-parser "^20.2.2"
 
-yarn-audit-fix@^9.0.9:
-  version "9.0.9"
-  resolved "https://registry.yarnpkg.com/yarn-audit-fix/-/yarn-audit-fix-9.0.9.tgz#249a4e2c8e57c48e96a062a1b7d06d850fe5e572"
-  integrity sha512-1eXnt3GKUSRumPYuK5C4BkByyj3E6/wf8nYMOcPCCTtrTBvN5zxBlt7TkeBZV9gO6twK28lpbSHGH3CmFvzgJQ==
+yarn-audit-fix@^9.0.10:
+  version "9.0.10"
+  resolved "https://registry.yarnpkg.com/yarn-audit-fix/-/yarn-audit-fix-9.0.10.tgz#80fcd90f4f698ed3f42bfece893108fb8255c776"
+  integrity sha512-7THUHb7tphvJNWon8sDxxFtQccxjp2CDaq9nfByJX8Hsqlv2T3hBEkeu/deYYFlCoktoLcfxPScjXG0FgCdIeQ==
   dependencies:
     "@types/find-cache-dir" "^3.2.1"
     "@types/fs-extra" "^9.0.13"
@@ -5923,11 +5923,11 @@ yarn-audit-fix@^9.0.9:
     "@types/yarnpkg__lockfile" "^1.1.5"
     "@yarnpkg/lockfile" "^1.1.0"
     chalk "^5.0.0"
-    commander "^8.3.0"
+    commander "^9.0.0"
     find-cache-dir "^3.3.2"
     find-up "^6.2.0"
     fs-extra "^10.0.0"
-    globby "^13.0.0"
+    globby "^13.1.0"
     js-yaml "^4.1.0"
     lodash-es "^4.17.21"
     pkg-dir "^6.0.1"
