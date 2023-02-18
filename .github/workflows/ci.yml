@@ -13,6 +13,7 @@ on:
 permissions: read-all
 
 env:
+  NODE_ENV: development
   SLACK_CHANNEL: ${{ secrets.SLACK_CHANNEL }}
   SLACK_SIGNING_SECRET: ${{ secrets.SLACK_SIGNING_SECRET }}
   SLACK_TOKEN: ${{ secrets.SLACK_TOKEN }}
@@ -41,16 +42,10 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node_version }}
-      - name: Install
+      - name: Install dependencies
         run: yarn install --ignore-scripts
-        env:
-          NODE_ENV: development
       - name: Build
-        id: build
-        run: |
-          yarn build
-          export STATUS="$?"
-          if [ "${STATUS}" -eq 0 ]; then exit 0; else exit 1; fi
+        run: yarn build
         env:
           NODE_ENV: production
       - name: Update Slack notification
@@ -90,10 +85,8 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node_version }}
-      - name: Install
+      - name: Install dependencies
         run: yarn install --ignore-scripts
-        env:
-          NODE_ENV: development
       - name: Lint
         id: lint
         run: |
@@ -155,10 +148,8 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node_version }}
-      - name: Install
+      - name: Install dependencies
         run: yarn install --ignore-scripts
-        env:
-          NODE_ENV: development
       - name: Test
         id: test
         run: |
