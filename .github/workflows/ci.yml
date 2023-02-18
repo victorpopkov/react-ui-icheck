@@ -84,25 +84,19 @@ jobs:
       - name: Lint
         id: lint
         run: |
-          # JavaScript
+          # export
           export LINT_ISSUES_JS=$(yarn ci:eslint | grep Issues | awk -F' ' '{ print $2 }')
-
-          # Markdown
           export LINT_ISSUES_MD=$(($(yarn ci:prettier:md | wc -l) - 5))
           export LINT_ISSUES_MD=$((LINT_ISSUES_MD < 0 ? 0 : LINT_ISSUES_MD))
-
-          # YAML
           export LINT_ISSUES_YML=$(($(yarn ci:prettier:yml | wc -l) - 5))
           export LINT_ISSUES_YML=$((LINT_ISSUES_YML < 0 ? 0 : LINT_ISSUES_YML))
-
-          # Issues
           export LINT_ISSUES=$((LINT_ISSUES_JS + LINT_ISSUES_MD + LINT_ISSUES_YML))
 
-          # env
-          echo "LINT_ISSUES=${LINT_ISSUES}" >> $GITHUB_ENV
-          echo "LINT_ISSUES_JS=${LINT_ISSUES_JS}" >> $GITHUB_ENV
-          echo "LINT_ISSUES_MD=${LINT_ISSUES_MD}" >> $GITHUB_ENV
-          echo "LINT_ISSUES_YML=${LINT_ISSUES_YML}" >> $GITHUB_ENV
+          # outputs
+          echo "issues=${LINT_ISSUES}" >> $GITHUB_OUTPUT
+          echo "issues-js=${LINT_ISSUES_JS}" >> $GITHUB_OUTPUT
+          echo "issues-md=${LINT_ISSUES_MD}" >> $GITHUB_OUTPUT
+          echo "issues-yml=${LINT_ISSUES_YML}" >> $GITHUB_OUTPUT
 
           # lint
           yarn lint || true
@@ -118,7 +112,7 @@ jobs:
         if: failure()
         run: echo "SLACK_CUSTOM_PAYLOAD=${SLACK_CUSTOM_PAYLOAD}" >> $GITHUB_ENV
         env:
-          SLACK_CUSTOM_PAYLOAD: '{"channel":"${{ secrets.SLACK_CHANNEL }}","attachments":[{"color":"#ed2f00","fallback":"GitHub Actions {{ GITHUB_WORKFLOW }} workflow {{ GITHUB_JOB_NAME }} job of {{ GITHUB_REPOSITORY }}@{{ BRANCH_NAME }} by {{ GITHUB_ACTOR }} has failed with {{ LINT_ISSUES }} issues on Node.js {{ NODE_VERSION }}","blocks":[{"type":"section","text":{"type":"mrkdwn","text":"GitHub Actions *<https://github.com/{{ GITHUB_REPOSITORY }}/actions/runs/{{ GITHUB_RUN_ID }}|{{ GITHUB_WORKFLOW }}>* workflow *{{ GITHUB_JOB_NAME }}* job of *<https://github.com/{{ GITHUB_REPOSITORY }}|{{ GITHUB_REPOSITORY }}>@<https://github.com/{{ GITHUB_REPOSITORY }}/tree/{{ BRANCH_NAME }}|{{ BRANCH_NAME }}>* by *{{ GITHUB_ACTOR }}* has failed with *{{ LINT_ISSUES }}* issues on Node.js *{{ NODE_VERSION }}*"}},{"type":"section","fields":[{"type":"mrkdwn","text":"*JavaScript (ESLint)*:\n{{ LINT_ISSUES_JS }}"},{"type":"mrkdwn","text":"*Markdown (Prettier)*:\n{{ LINT_ISSUES_MD }}"},{"type":"mrkdwn","text":"*YAML (Prettier)*:\n{{ LINT_ISSUES_YML }}"}]}]}]}'
+          SLACK_CUSTOM_PAYLOAD: '{"channel":"${{ secrets.SLACK_CHANNEL }}","attachments":[{"color":"#ed2f00","fallback":"GitHub Actions {{ GITHUB_WORKFLOW }} workflow {{ GITHUB_JOB_NAME }} job of {{ GITHUB_REPOSITORY }}@{{ BRANCH_NAME }} by {{ GITHUB_ACTOR }} has failed with ${{ steps.lint.outputs.issues }} issues on Node.js {{ NODE_VERSION }}","blocks":[{"type":"section","text":{"type":"mrkdwn","text":"GitHub Actions *<https://github.com/{{ GITHUB_REPOSITORY }}/actions/runs/{{ GITHUB_RUN_ID }}|{{ GITHUB_WORKFLOW }}>* workflow *{{ GITHUB_JOB_NAME }}* job of *<https://github.com/{{ GITHUB_REPOSITORY }}|{{ GITHUB_REPOSITORY }}>@<https://github.com/{{ GITHUB_REPOSITORY }}/tree/{{ BRANCH_NAME }}|{{ BRANCH_NAME }}>* by *{{ GITHUB_ACTOR }}* has failed with *${{ steps.lint.outputs.issues }}* issues on Node.js *{{ NODE_VERSION }}*"}},{"type":"section","fields":[{"type":"mrkdwn","text":"*JavaScript (ESLint)*:\n${{ steps.lint.outputs.issues-js }}"},{"type":"mrkdwn","text":"*Markdown (Prettier)*:\n${{ steps.lint.outputs.issues-md }}"},{"type":"mrkdwn","text":"*YAML (Prettier)*:\n${{ steps.lint.outputs.issues-yml }}"}]}]}]}'
       - name: Send Slack notification
         if: ${{ !env.ACT && always() }}
         uses: Ilshidur/action-slack@2.1.0
@@ -159,16 +153,17 @@ jobs:
           yarn ci:test > /dev/null 2>&1 || true
           yarn test || true
 
-          # env
+          # export
           export TESTS_COVERAGE=$(jq -r '.total.lines.pct' < ./coverage/coverage-summary.json)%
           export TESTS_FAILED=$(jq -r '.numFailedTests' < jest-summary.json)
           export TESTS_PASSED=$(jq -r '.numPassedTests' < jest-summary.json)
           export TESTS_TOTAL=$(jq -r '.numTotalTests' < jest-summary.json)
 
-          echo "TESTS_COVERAGE=${TESTS_COVERAGE}" >> $GITHUB_ENV
-          echo "TESTS_FAILED=${TESTS_FAILED}" >> $GITHUB_ENV
-          echo "TESTS_PASSED=${TESTS_PASSED}" >> $GITHUB_ENV
-          echo "TESTS_TOTAL=${TESTS_TOTAL}" >> $GITHUB_ENV
+          # outputs
+          echo "coverage=${TESTS_COVERAGE}" >> $GITHUB_OUTPUT
+          echo "failed=${TESTS_FAILED}" >> $GITHUB_OUTPUT
+          echo "passed=${TESTS_PASSED}" >> $GITHUB_OUTPUT
+          echo "total=${TESTS_TOTAL}" >> $GITHUB_OUTPUT
 
           # status
           if [ "${TESTS_FAILED}" -eq 0 ]; then
@@ -181,12 +176,12 @@ jobs:
         if: success()
         run: echo "SLACK_CUSTOM_PAYLOAD=${SLACK_CUSTOM_PAYLOAD}" >> $GITHUB_ENV
         env:
-          SLACK_CUSTOM_PAYLOAD: '{"channel":"${{ secrets.SLACK_CHANNEL }}","attachments":[{"color":"#2eb886","fallback":"GitHub Actions {{ GITHUB_WORKFLOW }} workflow {{ GITHUB_JOB_NAME }} job of {{ GITHUB_REPOSITORY }}@{{ BRANCH_NAME }} by {{ GITHUB_ACTOR }} has passed with no issues {{ TESTS_TOTAL }} tests on Node.js {{ NODE_VERSION }}. Coverage: {{ TESTS_COVERAGE }}","blocks":[{"type":"section","text":{"type":"mrkdwn","text":"GitHub Actions *<https://github.com/{{ GITHUB_REPOSITORY }}/actions/runs/{{ GITHUB_RUN_ID }}|{{ GITHUB_WORKFLOW }}>* workflow *{{ GITHUB_JOB_NAME }}* job of *<https://github.com/{{ GITHUB_REPOSITORY }}|{{ GITHUB_REPOSITORY }}>@<https://github.com/{{ GITHUB_REPOSITORY }}/tree/{{ BRANCH_NAME }}|{{ BRANCH_NAME }}>* by *{{ GITHUB_ACTOR }}* has passed with no issues *{{ TESTS_TOTAL }}* tests on Node.js {{ NODE_VERSION }}. Coverage: *{{ TESTS_COVERAGE }}*"}}]}]}'
+          SLACK_CUSTOM_PAYLOAD: '{"channel":"${{ secrets.SLACK_CHANNEL }}","attachments":[{"color":"#2eb886","fallback":"GitHub Actions {{ GITHUB_WORKFLOW }} workflow {{ GITHUB_JOB_NAME }} job of {{ GITHUB_REPOSITORY }}@{{ BRANCH_NAME }} by {{ GITHUB_ACTOR }} has passed with no issues ${{ steps.test.outputs.total }} tests on Node.js {{ NODE_VERSION }}. Coverage: ${{ steps.test.outputs.coverage }}","blocks":[{"type":"section","text":{"type":"mrkdwn","text":"GitHub Actions *<https://github.com/{{ GITHUB_REPOSITORY }}/actions/runs/{{ GITHUB_RUN_ID }}|{{ GITHUB_WORKFLOW }}>* workflow *{{ GITHUB_JOB_NAME }}* job of *<https://github.com/{{ GITHUB_REPOSITORY }}|{{ GITHUB_REPOSITORY }}>@<https://github.com/{{ GITHUB_REPOSITORY }}/tree/{{ BRANCH_NAME }}|{{ BRANCH_NAME }}>* by *{{ GITHUB_ACTOR }}* has passed with no issues *${{ steps.test.outputs.total }}* tests on Node.js {{ NODE_VERSION }}. Coverage: *${{ steps.test.outputs.coverage }}*"}}]}]}'
       - name: Prepare failure Slack notification
         if: failure()
         run: echo "SLACK_CUSTOM_PAYLOAD=${SLACK_CUSTOM_PAYLOAD}" >> $GITHUB_ENV
         env:
-          SLACK_CUSTOM_PAYLOAD: '{"channel":"${{ secrets.SLACK_CHANNEL }}","attachments":[{"color":"#ed2f00","fallback":"GitHub Actions {{ GITHUB_WORKFLOW }} workflow {{ GITHUB_JOB_NAME }} job of {{ GITHUB_REPOSITORY }}@{{ BRANCH_NAME }} by {{ GITHUB_ACTOR }} has failed with {{ TESTS_FAILED }} tests on Node.js {{ NODE_VERSION }}","blocks":[{"type":"section","text":{"type":"mrkdwn","text":"GitHub Actions *<https://github.com/{{ GITHUB_REPOSITORY }}/actions/runs/{{ GITHUB_RUN_ID }}|{{ GITHUB_WORKFLOW }}>* workflow *{{ GITHUB_JOB_NAME }}* job of *<https://github.com/{{ GITHUB_REPOSITORY }}|{{ GITHUB_REPOSITORY }}>@<https://github.com/{{ GITHUB_REPOSITORY }}/tree/{{ BRANCH_NAME }}|{{ BRANCH_NAME }}>* by *{{ GITHUB_ACTOR }}* has failed with *{{ TESTS_FAILED }}* tests on Node.js *{{ NODE_VERSION }}*"}},{"type":"section","fields":[{"type":"mrkdwn","text":"*Total*:\n{{ TESTS_TOTAL }}"},{"type":"mrkdwn","text":"*Passed*:\n{{ TESTS_PASSED }}"},{"type":"mrkdwn","text":"*Failed*:\n{{ TESTS_FAILED }}"}]}]}]}'
+          SLACK_CUSTOM_PAYLOAD: '{"channel":"${{ secrets.SLACK_CHANNEL }}","attachments":[{"color":"#ed2f00","fallback":"GitHub Actions {{ GITHUB_WORKFLOW }} workflow {{ GITHUB_JOB_NAME }} job of {{ GITHUB_REPOSITORY }}@{{ BRANCH_NAME }} by {{ GITHUB_ACTOR }} has failed with ${{ steps.test.outputs.failed }} tests on Node.js {{ NODE_VERSION }}","blocks":[{"type":"section","text":{"type":"mrkdwn","text":"GitHub Actions *<https://github.com/{{ GITHUB_REPOSITORY }}/actions/runs/{{ GITHUB_RUN_ID }}|{{ GITHUB_WORKFLOW }}>* workflow *{{ GITHUB_JOB_NAME }}* job of *<https://github.com/{{ GITHUB_REPOSITORY }}|{{ GITHUB_REPOSITORY }}>@<https://github.com/{{ GITHUB_REPOSITORY }}/tree/{{ BRANCH_NAME }}|{{ BRANCH_NAME }}>* by *{{ GITHUB_ACTOR }}* has failed with *${{ steps.test.outputs.failed }}* tests on Node.js *{{ NODE_VERSION }}*"}},{"type":"section","fields":[{"type":"mrkdwn","text":"*Total*:\n${{ steps.test.outputs.total }}"},{"type":"mrkdwn","text":"*Passed*:\n${{ steps.test.outputs.passed }}"},{"type":"mrkdwn","text":"*Failed*:\n${{ steps.test.outputs.failed }}"}]}]}]}'
       - name: Send Slack notification
         if: ${{ !env.ACT && always() }}
         uses: Ilshidur/action-slack@2.1.0
