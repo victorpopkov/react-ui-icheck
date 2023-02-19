@@ -81,6 +81,7 @@
     "ci:prettier:md": "prettier --check './**/*.md'",
     "ci:prettier:yml": "prettier --check './**/*.yml'",
     "ci:test": "jest --coverage --coverageReporters=json-summary --json --outputFile=jest-summary.json",
+    "clean": "rm -Rf ./coverage/ ./lib/",
     "deduplicate": "yarn-deduplicate",
     "lint": "npm-run-all --continue-on-error lint:*",
     "lint:eslint": "eslint --config ./.eslintrc --ext js,jsx .",
