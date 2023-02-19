@@ -5,7 +5,7 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
-## [Unreleased][]
+## [Unreleased]
 
 ### Changed
 
@@ -15,7 +15,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 - Remove deprecated properties
 
-## [0.8.1][] - 2021-09-15
+## [0.8.1] - 2021-09-15
 
 ### Added
 
@@ -27,9 +27,9 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ### Removed
 
-- Remove [Node.js][] v10 and v13 support
+- Remove [Node.js] v10 and v13 support
 
-## [0.8.0][] - 2021-04-12
+## [0.8.0] - 2021-04-12
 
 ### Added
 
@@ -37,22 +37,22 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ### Changed
 
-- **[maintenance]** Change [GitHub Actions][] CI build, lint and test jobs configurations
-- Bump [React][] from v16 to v17
+- **[maintenance]** Change [GitHub Actions] CI build, lint and test jobs configurations
+- Bump [React] from v16 to v17
 - Bump dependencies
 
-## [0.7.0][] - 2020-06-23
+## [0.7.0] - 2020-06-23
 
 ### Added
 
-- **[maintenance]** Add [GitHub Actions][] for CI build, lint and test
-- **[maintenance]** Add [Prettier][] integration
+- **[maintenance]** Add [GitHub Actions] for CI build, lint and test
+- **[maintenance]** Add [Prettier] integration
 - **[maintenance]** Add `react/jsx-props-no-spreading` [ESLint] rule exceptions
 - Add ESNext source code in `npm` package
 
 ### Changed
 
-- **[maintenance]** Change [ESLint][] configs to work with [Prettier][] and simplify them
+- **[maintenance]** Change [ESLint] configs to work with [Prettier] and simplify them
 - Bump dependencies
 - Refactor tests
 - Replace `JS` extension with `JSX` where appropriate
@@ -65,37 +65,37 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ### Removed
 
 - **[maintenance]** Remove unnecessary root `.npmignore`
-- **[maintenance]** Replace [remark][] with [Prettier][]
-- **[maintenance]** Replace [Travis CI][] with [GitHub Actions][]
+- **[maintenance]** Replace [remark] with [Prettier]
+- **[maintenance]** Replace [Travis CI] with [GitHub Actions]
 - **[website]** Remove obsolete website-related `dotenv` leftovers
-- Remove [Node.js][] v8 and v11 support
+- Remove [Node.js] v8 and v11 support
 - Remove `better-npm-run` in favour of `cross-env`
 - Remove invalid argument in `React.Children.map` usages
 - Remove resolutions in `package.json`
 
 ### Fixed
 
-- **[maintenance]** Fix [ESLint][] code linting issues
-- **[maintenance]** Fix [Prettier][] code formatting issues
+- **[maintenance]** Fix [ESLint] code linting issues
+- **[maintenance]** Fix [Prettier] code formatting issues
 - Fix `defaultChecked` prop behaviour in `Checkbox` and `Radio`
 
-## [0.6.0][] - 2019-07-15
+## [0.6.0] - 2019-07-15
 
 ### Added
 
-- **[maintenance]** Add [Code Climate][] config
+- **[maintenance]** Add [Code Climate] config
 - Add `BaseInput` to be extended by `Checkbox` and `Radio`
 
 ### Changed
 
 - Bump dependencies
-- Change [Jest][] config to ignore `src/index.js`
+- Change [Jest] config to ignore `src/index.js`
 
 ### Removed
 
-- **[website]** Remove website in favour of [react-ui-icheck-website][]
+- **[website]** Remove website in favour of [react-ui-icheck-website]
 - **[website]** Remove website-related dependencies and scripts
-- Remove unused [Babel][] plugins
+- Remove unused [Babel] plugins
 - Remove unused prop `isMobile` in `Radio`
 
 ### Fixed
@@ -103,7 +103,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - **[maintenance]** Fix author email in `package.json`
 - Fix missing dependencies
 
-## [0.5.0][] - 2019-04-22
+## [0.5.0] - 2019-04-22
 
 ### Added
 
@@ -135,7 +135,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 - Fix `inheritClass` prop type for `Checkbox` and `Radio`
 
-## [0.4.0][] - 2019-01-30
+## [0.4.0] - 2019-01-30
 
 ### Added
 
@@ -150,7 +150,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ### Removed
 
 - **[website]** Remove website `<main />` content vertical alignment
-- Remove [Node.js][] v9 support
+- Remove [Node.js] v9 support
 
 ### Fixed
 
@@ -158,31 +158,31 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - **[website]** Fix website `class` attributes in `Checkbox` and `Radio` demos
 - **[website]** Fix website imports alongside
 
-## [0.3.0][] - 2018-12-09
+## [0.3.0] - 2018-12-09
 
 ### Added
 
-- **[maintenance]** Add [Travis CI][] for code linting
+- **[maintenance]** Add [Travis CI] for code linting
 - Add `Checkbox`, `CheckboxGroup`, `Radio` and `RadioGroup` components tests (the total project test coverage: 100%)
 
 ### Changed
 
-- **[maintenance]** Disable `no-duplicate-headings` for [remark-lint][]
+- **[maintenance]** Disable `no-duplicate-headings` for [remark-lint]
 - **[website]** Enable `css-loader` global modules in the website webpack configs
 - Bump dependencies
 
 ### Fixed
 
 - **[website]** Fix website imports to use `react-ui-icheck` instead of `react-icheck`
-- Fix `@babel/plugin-proposal-decorators` plugin order in [Babel][] configs
+- Fix `@babel/plugin-proposal-decorators` plugin order in [Babel] configs
 
-## [0.2.0][] - 2018-10-17
+## [0.2.0] - 2018-10-17
 
 ### Added
 
-- **[maintenance]** Add [Code Climate][] for code quality and test coverage reports
-- **[maintenance]** Add [Codecov][] for test coverage reports
-- **[maintenance]** Add [Travis CI][] for building and testing
+- **[maintenance]** Add [Code Climate] for code quality and test coverage reports
+- **[maintenance]** Add [Codecov] for test coverage reports
+- **[maintenance]** Add [Travis CI] for building and testing
 - **[website]** Add website homepage badges
 - Add `Input` and `Label` components tests (the total project test coverage: 47%)
 - Add missing props in `RadioGroup.defaultProps`
@@ -193,7 +193,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - **[maintenance]** Resort properties in `.eslintrc` and `.remarkrc`
 - **[website]** Change website page headings
 - Bump dependencies
-- Change [Node.js][] engine requirement from `>= 10.0.0` to `>= 8.10.0`
+- Change [Node.js] engine requirement from `>= 10.0.0` to `>= 8.10.0`
 
 ### Removed
 
