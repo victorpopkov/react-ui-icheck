@@ -1,9 +1,9 @@
 import { mount, render } from 'enzyme';
 import React from 'react';
 import expect from 'expect';
-import Radio from '../Radio';
+import Checkbox from '../src/Checkbox';
 
-describe('Radio component', () => {
+describe('Checkbox component', () => {
   let wrapper;
 
   beforeEach(() => {
@@ -12,7 +12,7 @@ describe('Radio component', () => {
 
   describe('as mount', () => {
     beforeEach(() => {
-      wrapper = mount(<Radio />);
+      wrapper = mount(<Checkbox />);
     });
 
     it('should not call the deprecated console.warn()', () => {
@@ -30,7 +30,7 @@ describe('Radio component', () => {
 
   describe('as render', () => {
     beforeEach(() => {
-      wrapper = render(<Radio />);
+      wrapper = render(<Checkbox />);
     });
 
     it('should match the snapshot', () => {
@@ -41,7 +41,7 @@ describe('Radio component', () => {
   describe('and the `label` prop is `label`', () => {
     describe('as render', () => {
       beforeEach(() => {
-        wrapper = render(<Radio label="label" />);
+        wrapper = render(<Checkbox label="label" />);
       });
 
       it('should match the snapshot', () => {
@@ -51,7 +51,7 @@ describe('Radio component', () => {
 
     describe('as mount', () => {
       beforeEach(() => {
-        wrapper = mount(<Radio label="label" />);
+        wrapper = mount(<Checkbox label="label" />);
       });
 
       it('should have the `checked` prop as `false`', () => {
@@ -159,9 +159,9 @@ describe('Radio component', () => {
       describe('as render', () => {
         beforeEach(() => {
           wrapper = render(
-            <Radio labelTag="div">
+            <Checkbox labelTag="div">
               <span>label</span>
-            </Radio>,
+            </Checkbox>,
           );
         });
 

@@ -9,7 +9,7 @@ module.exports = {
   ],
   coverageDirectory: 'coverage',
   modulePathIgnorePatterns: ['<rootDir>/.github/', '<rootDir>/lib/'],
-  setupFiles: ['<rootDir>/test/shim.js', '<rootDir>/test/setup.js'],
+  setupFiles: ['<rootDir>/tests/shim.js', '<rootDir>/tests/setup.js'],
   snapshotSerializers: ['enzyme-to-json/serializer'],
   testEnvironment: 'jsdom',
 };

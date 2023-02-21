@@ -1,7 +1,7 @@
 import { mount, shallow } from 'enzyme';
 import React from 'react';
 import expect from 'expect';
-import Label from '../Label';
+import Label from '../../src/components/Label';
 
 describe('Label component', () => {
   let wrapper;

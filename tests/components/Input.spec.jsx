@@ -1,7 +1,7 @@
 import { mount, render, shallow } from 'enzyme';
 import React from 'react';
 import expect from 'expect';
-import Input from '../Input';
+import Input from '../../src/components/Input';
 
 const testInputComponent = (inputType) => {
   let wrapper;

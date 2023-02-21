@@ -1,7 +1,7 @@
 import React from 'react';
 import expect from 'expect';
 import { mount } from 'enzyme';
-import { Checkbox, CheckboxGroup } from '../index';
+import { Checkbox, CheckboxGroup } from '../src';
 
 describe('CheckboxGroup component', () => {
   let wrapper;

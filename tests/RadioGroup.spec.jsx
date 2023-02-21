@@ -1,7 +1,7 @@
 import React from 'react';
 import expect from 'expect';
 import { mount } from 'enzyme';
-import { Radio, RadioGroup } from '../index';
+import { Radio, RadioGroup } from '../src';
 
 describe('RadioGroup component', () => {
   let wrapper;
