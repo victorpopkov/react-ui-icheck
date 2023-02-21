@@ -77,7 +77,7 @@
   },
   "scripts": {
     "audit:fix": "yarn-audit-fix",
-    "build": "cross-env BABEL_ENV=production NODE_ENV=production babel ./src/ -d ./lib/ --ignore './**/*.spec.jsx'",
+    "build": "cross-env BABEL_ENV=production NODE_ENV=production babel ./src/ -d ./lib/ --ignore='./**/*.spec.jsx'",
     "ci:eslint": "eslint --ext='js,jsx' --format='./.github/eslint-issues.js' .",
     "ci:prettier:md": "prettier --check './**/*.md'",
     "ci:prettier:yml": "prettier --check './**/*.yml'",
