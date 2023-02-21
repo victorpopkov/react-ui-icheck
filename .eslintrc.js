@@ -5,6 +5,7 @@ module.exports = {
     es6: true,
     jest: true,
   },
+  ignorePatterns: ['lib/'],
   parser: '@babel/eslint-parser',
   rules: {
     'jsx-a11y/label-has-associated-control': 0,
