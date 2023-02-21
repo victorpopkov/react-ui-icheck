@@ -7,12 +7,18 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+### Added
+
+- **[maintenance]** Add `clean` script in `package.json`
+
 ### Changed
 
 - Bump dependencies
+- Restructure tests
 
 ### Removed
 
+- Remove [Node.js] v12 and v13 support
 - Remove deprecated properties
 
 ## [0.8.1] - 2021-09-15
