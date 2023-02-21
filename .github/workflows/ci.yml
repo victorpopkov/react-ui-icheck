@@ -119,9 +119,9 @@ jobs:
             {STATUS}
             {REF}
             Node.js: ${{ matrix.node_version }}
-            JavaScript (ESLint): ${{ steps.lint.outputs.issues-js }}
-            Markdown (Prettier): ${{ steps.lint.outputs.issues-md }}
-            YAML (Prettier): ${{ steps.lint.outputs.issues-yml }}
+            JavaScript (ESLint): ${{ steps.lint.outputs.issues-js || 'Skipped' }}
+            Markdown (Prettier): ${{ steps.lint.outputs.issues-md || 'Skipped' }}
+            YAML (Prettier): ${{ steps.lint.outputs.issues-yml || 'Skipped' }}
 
   test:
     runs-on: ubuntu-latest
@@ -181,8 +181,8 @@ jobs:
             {STATUS}
             {REF}
             Node.js: ${{ matrix.node_version }}
-            Total / Passed: ${{ steps.test.outputs.total }} / ${{ steps.test.outputs.passed }}
-            Coverage: ${{ steps.test.outputs.coverage }}
+            Total / Passed: ${{ steps.test.outputs.total || 0 }} / ${{ steps.test.outputs.passed || 0 }}
+            Coverage: ${{ steps.test.outputs.coverage || 'Skipped' }}
       - name: Send Codecov report
         if: ${{ !env.ACT }}
         uses: codecov/codecov-action@v3
