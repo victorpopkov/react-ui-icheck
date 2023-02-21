@@ -2,10 +2,11 @@ module.exports = {
   collectCoverage: true,
   collectCoverageFrom: [
     '**/*.{js,jsx}',
-    '!**/index.js',
     '!**/*.config.js',
     '!**/coverage/**',
+    '!**/index.js',
     '!**/node_modules/**',
+    '!.eslintrc.js',
   ],
   coverageDirectory: 'coverage',
   modulePathIgnorePatterns: ['<rootDir>/.github/', '<rootDir>/lib/'],
