@@ -14,6 +14,7 @@
     "react-dom": "^17.0.2"
   },
   "devDependencies": {
+    "@actions/core": "^1.10.0",
     "@babel/cli": "^7.21.0",
     "@babel/core": "^7.21.0",
     "@babel/eslint-parser": "^7.19.1",
