@@ -2,11 +2,11 @@ const core = require('@actions/core');
 const { promisify } = require('util');
 const exec = promisify(require('child_process').exec);
 
-const getNrOfIssues = async (extension) => {
+const getNrOfIssues = async () => {
   let result = {};
 
   try {
-    result = await exec(`prettier --check './**/*.${extension}'`);
+    result = await exec(`prettier --check .`);
   } catch (error) {
     result.stderr = error.stderr;
   }
@@ -18,19 +18,10 @@ const getNrOfIssues = async (extension) => {
   return 0;
 };
 
-const run = async () => {
-  const md = (await getNrOfIssues('md')) || 0;
-  const yml = (await getNrOfIssues('yml')) || 0;
-
-  return {
-    total: md + yml,
-    md,
-    yml,
-  };
-};
+const run = async () => ({
+  total: (await getNrOfIssues()) || 0,
+});
 
 run().then((result) => {
   core.setOutput('prettier-issues', result.total);
-  core.setOutput('prettier-issues-md', result.md);
-  core.setOutput('prettier-issues-yml', result.yml);
 });

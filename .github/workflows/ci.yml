@@ -78,9 +78,8 @@ jobs:
             {STATUS}
             {REF}
             Node.js: ${{ matrix.node_version }}
-            JavaScript (ESLint): Checking...
-            Markdown (Prettier): Checking...
-            YAML (Prettier): Checking...
+            ESLint issues: Checking...
+            Prettier issues: Checking...
       - name: Use Node.js ${{ matrix.node_version }}
         uses: actions/setup-node@v3
         with:
@@ -108,9 +107,8 @@ jobs:
             {STATUS}
             {REF}
             Node.js: ${{ matrix.node_version }}
-            JavaScript (ESLint): ${{ steps.lint.outputs.eslint-issues || 'Skipped' }}
-            Markdown (Prettier): ${{ steps.lint.outputs.prettier-issues-md || 'Skipped' }}
-            YAML (Prettier): ${{ steps.lint.outputs.prettier-issues-yml || 'Skipped' }}
+            ESLint issues: ${{ steps.lint.outputs.eslint-issues || 'Skipped' }}
+            Prettier issues: ${{ steps.lint.outputs.prettier-issues || 'Skipped' }}
 
   test:
     runs-on: ubuntu-latest
