@@ -139,25 +139,7 @@ jobs:
         run: yarn install --ignore-scripts
       - name: Test
         id: test
-        run: |
-          # test
-          yarn ci:test > /dev/null 2>&1 || true
-          yarn test || true
-
-          # export
-          export TESTS_COVERAGE=$(jq -r '.total.lines.pct' < ./coverage/coverage-summary.json)%
-          export TESTS_FAILED=$(jq -r '.numFailedTests' < jest-summary.json)
-          export TESTS_PASSED=$(jq -r '.numPassedTests' < jest-summary.json)
-          export TESTS_TOTAL=$(jq -r '.numTotalTests' < jest-summary.json)
-
-          # outputs
-          echo "coverage=${TESTS_COVERAGE}" >> $GITHUB_OUTPUT
-          echo "failed=${TESTS_FAILED}" >> $GITHUB_OUTPUT
-          echo "passed=${TESTS_PASSED}" >> $GITHUB_OUTPUT
-          echo "total=${TESTS_TOTAL}" >> $GITHUB_OUTPUT
-
-          # status
-          if [ "${TESTS_FAILED}" -eq 0 ]; then exit 0; else exit 1; fi
+        run: yarn ci:test
       - name: Update Slack notification
         uses: codedsolar/slack-action@v1
         if: ${{ github.event_name != 'pull_request' && always() }}
