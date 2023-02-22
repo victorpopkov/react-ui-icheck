@@ -90,22 +90,22 @@ jobs:
       - name: Lint
         id: lint
         run: |
+          yarn ci:eslint || true
+          yarn lint || true
+      - name: Lint results
+        id: lint-results
+        run: |
           # export
-          export LINT_ISSUES_JS=$(yarn ci:eslint | grep Issues | awk -F' ' '{ print $2 }')
           export LINT_ISSUES_MD=$(($(yarn ci:prettier:md | wc -l) - 5))
           export LINT_ISSUES_MD=$((LINT_ISSUES_MD < 0 ? 0 : LINT_ISSUES_MD))
           export LINT_ISSUES_YML=$(($(yarn ci:prettier:yml | wc -l) - 5))
           export LINT_ISSUES_YML=$((LINT_ISSUES_YML < 0 ? 0 : LINT_ISSUES_YML))
-          export LINT_ISSUES=$((LINT_ISSUES_JS + LINT_ISSUES_MD + LINT_ISSUES_YML))
+          export LINT_ISSUES=$((${{ steps.lint.outputs.eslint-issues || 0 }} + LINT_ISSUES_MD + LINT_ISSUES_YML))
 
           # outputs
           echo "issues=${LINT_ISSUES}" >> $GITHUB_OUTPUT
-          echo "issues-js=${LINT_ISSUES_JS}" >> $GITHUB_OUTPUT
           echo "issues-md=${LINT_ISSUES_MD}" >> $GITHUB_OUTPUT
           echo "issues-yml=${LINT_ISSUES_YML}" >> $GITHUB_OUTPUT
-
-          # lint
-          yarn lint || true
 
           # status
           if [ "${LINT_ISSUES}" -eq 0 ]; then exit 0; else exit 1; fi
@@ -119,9 +119,9 @@ jobs:
             {STATUS}
             {REF}
             Node.js: ${{ matrix.node_version }}
-            JavaScript (ESLint): ${{ steps.lint.outputs.issues-js || 'Skipped' }}
-            Markdown (Prettier): ${{ steps.lint.outputs.issues-md || 'Skipped' }}
-            YAML (Prettier): ${{ steps.lint.outputs.issues-yml || 'Skipped' }}
+            JavaScript (ESLint): ${{ steps.lint.outputs.eslint-issues || 'Skipped' }}
+            Markdown (Prettier): ${{ steps.lint-results.outputs.issues-md || 'Skipped' }}
+            YAML (Prettier): ${{ steps.lint-results.outputs.issues-yml || 'Skipped' }}
 
   test:
     runs-on: ubuntu-latest
