@@ -161,4 +161,4 @@ jobs:
         uses: paambaati/codeclimate-action@v3.2.0
         if: ${{ !env.ACT && github.event_name != 'pull_request' }}
         env:
-          CC_TEST_REPORTER_ID: ${{ secrets.CODE_CLIMATE_TOKEN }}
+          CC_TEST_REPORTER_ID: ${{ secrets.CC_TEST_REPORTER_ID }}
