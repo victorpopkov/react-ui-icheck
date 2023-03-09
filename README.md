@@ -4,7 +4,7 @@
 [![CI]](https://github.com/victorpopkov/react-ui-icheck/actions/workflows/ci.yml)
 [![Codecov]](https://codecov.io/gh/victorpopkov/react-ui-icheck)
 [![Code Climate]](https://codeclimate.com/github/victorpopkov/react-ui-icheck)
-[![Libraries.io]](https://libraries.io/github/codedsolar/slack-action)
+[![Libraries.io]](https://libraries.io/github/victorpopkov/react-ui-icheck)
 
 iCheck customizable checkboxes and radios built with React.
 
