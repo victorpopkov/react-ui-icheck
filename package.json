@@ -7,7 +7,7 @@
     "email": "victor@popkov.me"
   },
   "dependencies": {
-    "classnames": "^2.3.2",
+    "classnames": "^2.5.1",
     "is-mobile": "^3.1.1",
     "prop-types": "^15.8.1",
     "react": "^17.0.2",
