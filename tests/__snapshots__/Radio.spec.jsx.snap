@@ -47,7 +47,7 @@ exports[`Radio component and the children are passed and the \`labelTag\` prop i
 `;
 
 exports[`Radio component as mount should match the default props snapshot 1`] = `
-Object {
+{
   "activeClassName": "active",
   "aria": false,
   "checked": false,
@@ -88,7 +88,7 @@ Object {
 `;
 
 exports[`Radio component as mount should match the default state snapshot 1`] = `
-Object {
+{
   "checked": false,
   "hovered": false,
   "isMobile": false,

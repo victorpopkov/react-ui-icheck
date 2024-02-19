@@ -32,7 +32,7 @@ exports[`Label component when the required \`handleHover\` prop is passed and th
   <div
     className="test"
     dangerouslySetInnerHTML={
-      Object {
+      {
         "__html": "propLabel",
       }
     }
@@ -64,7 +64,7 @@ exports[`Label component when the required \`handleHover\` prop is passed and th
 `;
 
 exports[`Label component when the required \`handleHover\` prop is passed and the children are passed as mount should match the default props snapshot 1`] = `
-Object {
+{
   "children": <div>
     child
   </div>,
@@ -96,7 +96,7 @@ exports[`Label component when the required \`handleHover\` prop is passed and th
   <span
     className={null}
     dangerouslySetInnerHTML={
-      Object {
+      {
         "__html": null,
       }
     }
