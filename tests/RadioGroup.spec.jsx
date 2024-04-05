@@ -1,74 +1,96 @@
+import '@testing-library/jest-dom/extend-expect';
 import React from 'react';
-import expect from 'expect';
-import { mount } from 'enzyme';
+import { fireEvent, render, screen } from '@testing-library/react';
 import { Radio, RadioGroup } from '../src';
 
 describe('RadioGroup component', () => {
-  let wrapper;
+  describe('when all required props are passed', () => {
+    let component;
 
-  beforeEach(() => {
-    console.warn = jest.fn();
-  });
+    beforeEach(() => {
+      component = render(
+        <RadioGroup name="test">
+          <Radio value="1" />
+          <Radio value="2" />
+        </RadioGroup>,
+      );
+    });
 
-  describe('when the required `name` prop is set to `test`', () => {
-    describe('as mount', () => {
+    afterEach(() => {
+      component.unmount();
+    });
+
+    it('should match the snapshot', () => {
+      expect(component.container).toMatchSnapshot();
+    });
+
+    it('should match the default props snapshot', () => {
+      expect(component.container.props).toMatchSnapshot();
+    });
+
+    it('should match the default state snapshot', () => {
+      expect(component.container.state).toMatchSnapshot();
+    });
+
+    it('should not have <input type="radio" /> checked', () => {
+      const radioButtons = screen.getAllByRole('radio');
+      expect(radioButtons).toHaveLength(2);
+      radioButtons.forEach((radioButton) => {
+        expect(radioButton).not.toBeChecked();
+      });
+    });
+
+    describe('and <RadioGroup /> `value` prop matches <Radio /> `value` prop', () => {
       beforeEach(() => {
-        wrapper = mount(
-          <RadioGroup name="test">
+        component.unmount();
+        component = render(
+          <RadioGroup name="test" value="1">
             <Radio value="1" />
             <Radio value="2" />
           </RadioGroup>,
         );
       });
 
-      it('should not call the deprecated console.warn()', () => {
-        expect(console.warn).toHaveBeenCalledTimes(0);
-      });
-
-      it('should match the snapshot', () => {
-        expect(wrapper).toMatchSnapshot();
-      });
-
-      it('should match the default props snapshot', () => {
-        expect(wrapper.props()).toMatchSnapshot();
-      });
-
-      it('should match the default state snapshot', () => {
-        expect(wrapper.state()).toMatchSnapshot();
-      });
-
-      it('should have the `value` prop as `null`', () => {
-        expect(wrapper.props().value).toBe(null);
-      });
-
-      it('should have the `value` state as ``', () => {
-        expect(wrapper.state().value).toBe('');
-      });
-
-      describe('and the `value` prop has changed from `` to `test`', () => {
-        beforeEach(() => {
-          wrapper.setProps({ value: 'test' });
-        });
-
-        it('should have the `checked` prop as `test`', () => {
-          expect(wrapper.props().value).toBe('test');
-        });
-
-        it('should have the `checked` state as `test`', () => {
-          expect(wrapper.state().value).toBe('test');
-        });
+      it('should have the `checked` attribute for the corresponding <input type="radio" />', () => {
+        const radioButtons = screen.getAllByRole('radio');
+        expect(radioButtons).toHaveLength(2);
+        expect(radioButtons[0]).toBeChecked();
+        expect(radioButtons[1]).not.toBeChecked();
       });
     });
 
-    describe('and the `radioWrapClassName` prop is `test`', () => {
-      describe('and the `radioWrapTag` prop is `div`', () => {
-        describe('as mount', () => {
+    describe('and `radioWrapClassName` prop is `test`', () => {
+      describe('and `radioWrapTag` prop is `div`', () => {
+        beforeEach(() => {
+          component.unmount();
+          component = render(
+            <RadioGroup
+              name="test"
+              radioWrapClassName="test"
+              radioWrapTag="div"
+            >
+              <Radio value="1" />
+              <Radio value="2" />
+            </RadioGroup>,
+          );
+        });
+
+        it('should match the snapshot', () => {
+          expect(component.container.firstChild).toMatchSnapshot();
+        });
+
+        describe('and `onChange` prop is passed', () => {
+          let onChange;
+
           beforeEach(() => {
-            wrapper = mount(
+            onChange = jest.fn();
+            component.unmount();
+            component = render(
               <RadioGroup
                 name="test"
                 radioWrapClassName="test"
                 radioWrapTag="div"
+                onChange={onChange}
               >
                 <Radio value="1" />
                 <Radio value="2" />
@@ -77,70 +99,54 @@ describe('RadioGroup component', () => {
           });
 
           it('should match the snapshot', () => {
-            expect(wrapper).toMatchSnapshot();
-          });
-        });
-
-        describe('and the `onChange` prop is passed', () => {
-          let onChange;
-
-          beforeEach(() => {
-            onChange = jest.fn();
+            expect(component.container.firstChild).toMatchSnapshot();
           });
 
-          describe('as mount', () => {
+          it('should not call the passed `onChange` function', () => {
+            expect(onChange).toHaveBeenCalledTimes(0);
+          });
+
+          it('should not have <input type="radio" /> checked', () => {
+            const radioButtons = screen.getAllByRole('radio');
+            expect(radioButtons).toHaveLength(2);
+            radioButtons.forEach((radioButton) => {
+              expect(radioButton).not.toBeChecked();
+            });
+          });
+
+          describe('and first `<input />` is changed', () => {
             beforeEach(() => {
-              wrapper = mount(
-                <RadioGroup
-                  name="test"
-                  radioWrapClassName="test"
-                  radioWrapTag="div"
-                  onChange={onChange}
-                >
-                  <Radio value="1" />
-                  <Radio value="2" />
-                </RadioGroup>,
-              );
+              const radioButtons = screen.getAllByRole('radio');
+              fireEvent.click(radioButtons[0]);
             });
 
-            it('should match the snapshot', () => {
-              expect(wrapper).toMatchSnapshot();
+            it('should call the passed `onChange` function', () => {
+              expect(onChange).toHaveBeenCalledTimes(1);
             });
 
-            it('should not call the passed `onChange` function', () => {
-              expect(onChange).toHaveBeenCalledTimes(0);
+            it('should not have <input type="radio" /> checked', () => {
+              const radioButtons = screen.getAllByRole('radio');
+              expect(radioButtons).toHaveLength(2);
+              expect(radioButtons[0]).toBeChecked();
+              expect(radioButtons[1]).not.toBeChecked();
+            });
+          });
+
+          describe('and last `<input />` is changed', () => {
+            beforeEach(() => {
+              const radioButtons = screen.getAllByRole('radio');
+              fireEvent.click(radioButtons[1]);
             });
 
-            it('should have the `value` state as ``', () => {
-              expect(wrapper.state().value).toBe('');
+            it('should call the passed `onChange` function', () => {
+              expect(onChange).toHaveBeenCalledTimes(1);
             });
 
-            describe('and the first `<input />` is changed', () => {
-              beforeEach(() => {
-                wrapper.find('input').first().simulate('change');
-              });
-
-              it('should call the passed `onChange` function', () => {
-                expect(onChange).toHaveBeenCalledTimes(1);
-              });
-
-              it('should have the `value` state as `1`', () => {
-                expect(wrapper.state().value).toBe('1');
-              });
-            });
-
-            describe('and the last `<input />` is changed', () => {
-              beforeEach(() => {
-                wrapper.find('input').last().simulate('change');
-              });
-
-              it('should call the passed `onChange` function', () => {
-                expect(onChange).toHaveBeenCalledTimes(1);
-              });
-
-              it('should have the `value` state as `2`', () => {
-                expect(wrapper.state().value).toBe('2');
-              });
+            it('should not have <input type="radio" /> checked', () => {
+              const radioButtons = screen.getAllByRole('radio');
+              expect(radioButtons).toHaveLength(2);
+              expect(radioButtons[0]).not.toBeChecked();
+              expect(radioButtons[1]).toBeChecked();
             });
           });
         });

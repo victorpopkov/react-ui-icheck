@@ -1,833 +1,122 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`RadioGroup component when the required \`name\` prop is set to \`test\` and the \`radioWrapClassName\` prop is \`test\` and the \`radioWrapTag\` prop is \`div\` and the \`onChange\` prop is passed as mount should match the snapshot 1`] = `
-<RadioGroup
-  className={null}
-  defaultValue={null}
-  name="test"
-  onChange={[MockFunction]}
-  radioWrapClassName="test"
-  radioWrapTag="div"
-  value={null}
->
+exports[`RadioGroup component when all required props are passed and \`radioWrapClassName\` prop is \`test\` and \`radioWrapTag\` prop is \`div\` and \`onChange\` prop is passed should match the snapshot 1`] = `
+<div>
   <div
-    className={null}
+    class="test"
   >
     <div
-      className="test"
-      key=".0"
+      class="iradio indeterminate"
     >
-      <Radio
-        activeClassName="active"
-        aria={false}
-        checked={false}
-        checkedClassName="checked"
-        className={null}
-        disabled={false}
-        disabledClassName="disabled"
-        focusClassName="focus"
-        hoverClassName="hover"
-        id={null}
-        increaseArea=""
-        indeterminate={true}
-        indeterminateClassName="indeterminate"
-        inheritClassName={false}
-        inheritID={false}
-        insert={null}
-        key="1"
-        label={null}
-        labelClassName={null}
-        labelHover={true}
-        labelHoverClass="hover"
-        labelTag="span"
-        labelTagClassName={null}
-        name={null}
-        onBlur={null}
-        onChange={[Function]}
-        onFocus={null}
-        onMouseDown={null}
-        onMouseLeave={null}
-        onMouseUp={null}
-        onTouchEnd={null}
-        onTouchStart={null}
-        radioClass={null}
-        radioClassName="iradio"
-        type={null}
+      <input
+        style="opacity: 0; position: absolute;"
+        type="radio"
         value="1"
-      >
-        <Input
-          activeClassName="active"
-          aria={false}
-          checkboxClassName="icheckbox"
-          checked={false}
-          checkedClassName="checked"
-          className={null}
-          disabled={false}
-          disabledClassName="disabled"
-          focusClassName="focus"
-          hoverClassName="hover"
-          hovered={false}
-          id={null}
-          increaseArea=""
-          indeterminate={true}
-          indeterminateClassName="indeterminate"
-          inheritClassName={false}
-          inheritID={false}
-          inputType="radio"
-          insert={null}
-          isMobile={false}
-          label={null}
-          name={null}
-          onBlur={null}
-          onChange={[Function]}
-          onFocus={null}
-          radioClassName="iradio"
-          value="1"
-        >
-          <div
-            className="iradio indeterminate"
-          >
-            <input
-              checked={false}
-              disabled={false}
-              label={null}
-              name={null}
-              onBlur={[Function]}
-              onChange={[Function]}
-              onFocus={[Function]}
-              style={
-                {
-                  "opacity": 0,
-                  "position": "absolute",
-                }
-              }
-              type="radio"
-              value="1"
-            />
-            <ins
-              className="iCheck-helper"
-              onClick={[Function]}
-              role="presentation"
-              style={
-                {
-                  "background": "#fff",
-                  "border": 0,
-                  "cursor": "pointer",
-                  "display": "block",
-                  "height": "100%",
-                  "left": "0%",
-                  "margin": 0,
-                  "opacity": 0,
-                  "padding": 0,
-                  "position": "absolute",
-                  "top": "0%",
-                  "width": "100%",
-                }
-              }
-            />
-          </div>
-        </Input>
-      </Radio>
-    </div>
-    <div
-      className="test"
-      key=".1"
-    >
-      <Radio
-        activeClassName="active"
-        aria={false}
-        checked={false}
-        checkedClassName="checked"
-        className={null}
-        disabled={false}
-        disabledClassName="disabled"
-        focusClassName="focus"
-        hoverClassName="hover"
-        id={null}
-        increaseArea=""
-        indeterminate={true}
-        indeterminateClassName="indeterminate"
-        inheritClassName={false}
-        inheritID={false}
-        insert={null}
-        key="2"
-        label={null}
-        labelClassName={null}
-        labelHover={true}
-        labelHoverClass="hover"
-        labelTag="span"
-        labelTagClassName={null}
-        name={null}
-        onBlur={null}
-        onChange={[Function]}
-        onFocus={null}
-        onMouseDown={null}
-        onMouseLeave={null}
-        onMouseUp={null}
-        onTouchEnd={null}
-        onTouchStart={null}
-        radioClass={null}
-        radioClassName="iradio"
-        type={null}
-        value="2"
-      >
-        <Input
-          activeClassName="active"
-          aria={false}
-          checkboxClassName="icheckbox"
-          checked={false}
-          checkedClassName="checked"
-          className={null}
-          disabled={false}
-          disabledClassName="disabled"
-          focusClassName="focus"
-          hoverClassName="hover"
-          hovered={false}
-          id={null}
-          increaseArea=""
-          indeterminate={true}
-          indeterminateClassName="indeterminate"
-          inheritClassName={false}
-          inheritID={false}
-          inputType="radio"
-          insert={null}
-          isMobile={false}
-          label={null}
-          name={null}
-          onBlur={null}
-          onChange={[Function]}
-          onFocus={null}
-          radioClassName="iradio"
-          value="2"
-        >
-          <div
-            className="iradio indeterminate"
-          >
-            <input
-              checked={false}
-              disabled={false}
-              label={null}
-              name={null}
-              onBlur={[Function]}
-              onChange={[Function]}
-              onFocus={[Function]}
-              style={
-                {
-                  "opacity": 0,
-                  "position": "absolute",
-                }
-              }
-              type="radio"
-              value="2"
-            />
-            <ins
-              className="iCheck-helper"
-              onClick={[Function]}
-              role="presentation"
-              style={
-                {
-                  "background": "#fff",
-                  "border": 0,
-                  "cursor": "pointer",
-                  "display": "block",
-                  "height": "100%",
-                  "left": "0%",
-                  "margin": 0,
-                  "opacity": 0,
-                  "padding": 0,
-                  "position": "absolute",
-                  "top": "0%",
-                  "width": "100%",
-                }
-              }
-            />
-          </div>
-        </Input>
-      </Radio>
+      />
+      <ins
+        class="iCheck-helper"
+        role="presentation"
+        style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0; cursor: pointer;"
+      />
     </div>
   </div>
-</RadioGroup>
-`;
-
-exports[`RadioGroup component when the required \`name\` prop is set to \`test\` and the \`radioWrapClassName\` prop is \`test\` and the \`radioWrapTag\` prop is \`div\` as mount should match the snapshot 1`] = `
-<RadioGroup
-  className={null}
-  defaultValue={null}
-  name="test"
-  onChange={null}
-  radioWrapClassName="test"
-  radioWrapTag="div"
-  value={null}
->
   <div
-    className={null}
+    class="test"
   >
     <div
-      className="test"
-      key=".0"
+      class="iradio indeterminate"
     >
-      <Radio
-        activeClassName="active"
-        aria={false}
-        checked={false}
-        checkedClassName="checked"
-        className={null}
-        disabled={false}
-        disabledClassName="disabled"
-        focusClassName="focus"
-        hoverClassName="hover"
-        id={null}
-        increaseArea=""
-        indeterminate={true}
-        indeterminateClassName="indeterminate"
-        inheritClassName={false}
-        inheritID={false}
-        insert={null}
-        key="1"
-        label={null}
-        labelClassName={null}
-        labelHover={true}
-        labelHoverClass="hover"
-        labelTag="span"
-        labelTagClassName={null}
-        name={null}
-        onBlur={null}
-        onChange={[Function]}
-        onFocus={null}
-        onMouseDown={null}
-        onMouseLeave={null}
-        onMouseUp={null}
-        onTouchEnd={null}
-        onTouchStart={null}
-        radioClass={null}
-        radioClassName="iradio"
-        type={null}
+      <input
+        style="opacity: 0; position: absolute;"
+        type="radio"
+        value="2"
+      />
+      <ins
+        class="iCheck-helper"
+        role="presentation"
+        style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0; cursor: pointer;"
+      />
+    </div>
+  </div>
+</div>
+`;
+
+exports[`RadioGroup component when all required props are passed and \`radioWrapClassName\` prop is \`test\` and \`radioWrapTag\` prop is \`div\` should match the snapshot 1`] = `
+<div>
+  <div
+    class="test"
+  >
+    <div
+      class="iradio indeterminate"
+    >
+      <input
+        style="opacity: 0; position: absolute;"
+        type="radio"
         value="1"
-      >
-        <Input
-          activeClassName="active"
-          aria={false}
-          checkboxClassName="icheckbox"
-          checked={false}
-          checkedClassName="checked"
-          className={null}
-          disabled={false}
-          disabledClassName="disabled"
-          focusClassName="focus"
-          hoverClassName="hover"
-          hovered={false}
-          id={null}
-          increaseArea=""
-          indeterminate={true}
-          indeterminateClassName="indeterminate"
-          inheritClassName={false}
-          inheritID={false}
-          inputType="radio"
-          insert={null}
-          isMobile={false}
-          label={null}
-          name={null}
-          onBlur={null}
-          onChange={[Function]}
-          onFocus={null}
-          radioClassName="iradio"
-          value="1"
-        >
-          <div
-            className="iradio indeterminate"
-          >
-            <input
-              checked={false}
-              disabled={false}
-              label={null}
-              name={null}
-              onBlur={[Function]}
-              onChange={[Function]}
-              onFocus={[Function]}
-              style={
-                {
-                  "opacity": 0,
-                  "position": "absolute",
-                }
-              }
-              type="radio"
-              value="1"
-            />
-            <ins
-              className="iCheck-helper"
-              onClick={[Function]}
-              role="presentation"
-              style={
-                {
-                  "background": "#fff",
-                  "border": 0,
-                  "cursor": "pointer",
-                  "display": "block",
-                  "height": "100%",
-                  "left": "0%",
-                  "margin": 0,
-                  "opacity": 0,
-                  "padding": 0,
-                  "position": "absolute",
-                  "top": "0%",
-                  "width": "100%",
-                }
-              }
-            />
-          </div>
-        </Input>
-      </Radio>
+      />
+      <ins
+        class="iCheck-helper"
+        role="presentation"
+        style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0; cursor: pointer;"
+      />
+    </div>
+  </div>
+  <div
+    class="test"
+  >
+    <div
+      class="iradio indeterminate"
+    >
+      <input
+        style="opacity: 0; position: absolute;"
+        type="radio"
+        value="2"
+      />
+      <ins
+        class="iCheck-helper"
+        role="presentation"
+        style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0; cursor: pointer;"
+      />
+    </div>
+  </div>
+</div>
+`;
+
+exports[`RadioGroup component when all required props are passed should match the default props snapshot 1`] = `undefined`;
+
+exports[`RadioGroup component when all required props are passed should match the default state snapshot 1`] = `undefined`;
+
+exports[`RadioGroup component when all required props are passed should match the snapshot 1`] = `
+<div>
+  <div>
+    <div
+      class="iradio indeterminate"
+    >
+      <input
+        style="opacity: 0; position: absolute;"
+        type="radio"
+        value="1"
+      />
+      <ins
+        class="iCheck-helper"
+        role="presentation"
+        style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0; cursor: pointer;"
+      />
     </div>
     <div
-      className="test"
-      key=".1"
+      class="iradio indeterminate"
     >
-      <Radio
-        activeClassName="active"
-        aria={false}
-        checked={false}
-        checkedClassName="checked"
-        className={null}
-        disabled={false}
-        disabledClassName="disabled"
-        focusClassName="focus"
-        hoverClassName="hover"
-        id={null}
-        increaseArea=""
-        indeterminate={true}
-        indeterminateClassName="indeterminate"
-        inheritClassName={false}
-        inheritID={false}
-        insert={null}
-        key="2"
-        label={null}
-        labelClassName={null}
-        labelHover={true}
-        labelHoverClass="hover"
-        labelTag="span"
-        labelTagClassName={null}
-        name={null}
-        onBlur={null}
-        onChange={[Function]}
-        onFocus={null}
-        onMouseDown={null}
-        onMouseLeave={null}
-        onMouseUp={null}
-        onTouchEnd={null}
-        onTouchStart={null}
-        radioClass={null}
-        radioClassName="iradio"
-        type={null}
+      <input
+        style="opacity: 0; position: absolute;"
+        type="radio"
         value="2"
-      >
-        <Input
-          activeClassName="active"
-          aria={false}
-          checkboxClassName="icheckbox"
-          checked={false}
-          checkedClassName="checked"
-          className={null}
-          disabled={false}
-          disabledClassName="disabled"
-          focusClassName="focus"
-          hoverClassName="hover"
-          hovered={false}
-          id={null}
-          increaseArea=""
-          indeterminate={true}
-          indeterminateClassName="indeterminate"
-          inheritClassName={false}
-          inheritID={false}
-          inputType="radio"
-          insert={null}
-          isMobile={false}
-          label={null}
-          name={null}
-          onBlur={null}
-          onChange={[Function]}
-          onFocus={null}
-          radioClassName="iradio"
-          value="2"
-        >
-          <div
-            className="iradio indeterminate"
-          >
-            <input
-              checked={false}
-              disabled={false}
-              label={null}
-              name={null}
-              onBlur={[Function]}
-              onChange={[Function]}
-              onFocus={[Function]}
-              style={
-                {
-                  "opacity": 0,
-                  "position": "absolute",
-                }
-              }
-              type="radio"
-              value="2"
-            />
-            <ins
-              className="iCheck-helper"
-              onClick={[Function]}
-              role="presentation"
-              style={
-                {
-                  "background": "#fff",
-                  "border": 0,
-                  "cursor": "pointer",
-                  "display": "block",
-                  "height": "100%",
-                  "left": "0%",
-                  "margin": 0,
-                  "opacity": 0,
-                  "padding": 0,
-                  "position": "absolute",
-                  "top": "0%",
-                  "width": "100%",
-                }
-              }
-            />
-          </div>
-        </Input>
-      </Radio>
+      />
+      <ins
+        class="iCheck-helper"
+        role="presentation"
+        style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0; cursor: pointer;"
+      />
     </div>
   </div>
-</RadioGroup>
-`;
-
-exports[`RadioGroup component when the required \`name\` prop is set to \`test\` as mount should match the default props snapshot 1`] = `
-{
-  "children": [
-    <Radio
-      activeClassName="active"
-      aria={false}
-      checked={false}
-      checkedClassName="checked"
-      className={null}
-      disabled={false}
-      disabledClassName="disabled"
-      focusClassName="focus"
-      hoverClassName="hover"
-      id={null}
-      increaseArea=""
-      indeterminate={true}
-      indeterminateClassName="indeterminate"
-      inheritClassName={false}
-      inheritID={false}
-      insert={null}
-      label={null}
-      labelClassName={null}
-      labelHover={true}
-      labelHoverClass="hover"
-      labelTag="span"
-      labelTagClassName={null}
-      name={null}
-      onBlur={null}
-      onChange={null}
-      onFocus={null}
-      onMouseDown={null}
-      onMouseLeave={null}
-      onMouseUp={null}
-      onTouchEnd={null}
-      onTouchStart={null}
-      radioClass={null}
-      radioClassName="iradio"
-      type={null}
-      value="1"
-    />,
-    <Radio
-      activeClassName="active"
-      aria={false}
-      checked={false}
-      checkedClassName="checked"
-      className={null}
-      disabled={false}
-      disabledClassName="disabled"
-      focusClassName="focus"
-      hoverClassName="hover"
-      id={null}
-      increaseArea=""
-      indeterminate={true}
-      indeterminateClassName="indeterminate"
-      inheritClassName={false}
-      inheritID={false}
-      insert={null}
-      label={null}
-      labelClassName={null}
-      labelHover={true}
-      labelHoverClass="hover"
-      labelTag="span"
-      labelTagClassName={null}
-      name={null}
-      onBlur={null}
-      onChange={null}
-      onFocus={null}
-      onMouseDown={null}
-      onMouseLeave={null}
-      onMouseUp={null}
-      onTouchEnd={null}
-      onTouchStart={null}
-      radioClass={null}
-      radioClassName="iradio"
-      type={null}
-      value="2"
-    />,
-  ],
-  "className": null,
-  "defaultValue": null,
-  "name": "test",
-  "onChange": null,
-  "radioWrapClassName": null,
-  "radioWrapTag": null,
-  "value": null,
-}
-`;
-
-exports[`RadioGroup component when the required \`name\` prop is set to \`test\` as mount should match the default state snapshot 1`] = `
-{
-  "prevValue": null,
-  "value": "",
-}
-`;
-
-exports[`RadioGroup component when the required \`name\` prop is set to \`test\` as mount should match the snapshot 1`] = `
-<RadioGroup
-  className={null}
-  defaultValue={null}
-  name="test"
-  onChange={null}
-  radioWrapClassName={null}
-  radioWrapTag={null}
-  value={null}
->
-  <div
-    className={null}
-  >
-    <Radio
-      activeClassName="active"
-      aria={false}
-      checked={false}
-      checkedClassName="checked"
-      className={null}
-      disabled={false}
-      disabledClassName="disabled"
-      focusClassName="focus"
-      hoverClassName="hover"
-      id={null}
-      increaseArea=""
-      indeterminate={true}
-      indeterminateClassName="indeterminate"
-      inheritClassName={false}
-      inheritID={false}
-      insert={null}
-      key="1/.0"
-      label={null}
-      labelClassName={null}
-      labelHover={true}
-      labelHoverClass="hover"
-      labelTag="span"
-      labelTagClassName={null}
-      name={null}
-      onBlur={null}
-      onChange={[Function]}
-      onFocus={null}
-      onMouseDown={null}
-      onMouseLeave={null}
-      onMouseUp={null}
-      onTouchEnd={null}
-      onTouchStart={null}
-      radioClass={null}
-      radioClassName="iradio"
-      type={null}
-      value="1"
-    >
-      <Input
-        activeClassName="active"
-        aria={false}
-        checkboxClassName="icheckbox"
-        checked={false}
-        checkedClassName="checked"
-        className={null}
-        disabled={false}
-        disabledClassName="disabled"
-        focusClassName="focus"
-        hoverClassName="hover"
-        hovered={false}
-        id={null}
-        increaseArea=""
-        indeterminate={true}
-        indeterminateClassName="indeterminate"
-        inheritClassName={false}
-        inheritID={false}
-        inputType="radio"
-        insert={null}
-        isMobile={false}
-        label={null}
-        name={null}
-        onBlur={null}
-        onChange={[Function]}
-        onFocus={null}
-        radioClassName="iradio"
-        value="1"
-      >
-        <div
-          className="iradio indeterminate"
-        >
-          <input
-            checked={false}
-            disabled={false}
-            label={null}
-            name={null}
-            onBlur={[Function]}
-            onChange={[Function]}
-            onFocus={[Function]}
-            style={
-              {
-                "opacity": 0,
-                "position": "absolute",
-              }
-            }
-            type="radio"
-            value="1"
-          />
-          <ins
-            className="iCheck-helper"
-            onClick={[Function]}
-            role="presentation"
-            style={
-              {
-                "background": "#fff",
-                "border": 0,
-                "cursor": "pointer",
-                "display": "block",
-                "height": "100%",
-                "left": "0%",
-                "margin": 0,
-                "opacity": 0,
-                "padding": 0,
-                "position": "absolute",
-                "top": "0%",
-                "width": "100%",
-              }
-            }
-          />
-        </div>
-      </Input>
-    </Radio>
-    <Radio
-      activeClassName="active"
-      aria={false}
-      checked={false}
-      checkedClassName="checked"
-      className={null}
-      disabled={false}
-      disabledClassName="disabled"
-      focusClassName="focus"
-      hoverClassName="hover"
-      id={null}
-      increaseArea=""
-      indeterminate={true}
-      indeterminateClassName="indeterminate"
-      inheritClassName={false}
-      inheritID={false}
-      insert={null}
-      key="2/.1"
-      label={null}
-      labelClassName={null}
-      labelHover={true}
-      labelHoverClass="hover"
-      labelTag="span"
-      labelTagClassName={null}
-      name={null}
-      onBlur={null}
-      onChange={[Function]}
-      onFocus={null}
-      onMouseDown={null}
-      onMouseLeave={null}
-      onMouseUp={null}
-      onTouchEnd={null}
-      onTouchStart={null}
-      radioClass={null}
-      radioClassName="iradio"
-      type={null}
-      value="2"
-    >
-      <Input
-        activeClassName="active"
-        aria={false}
-        checkboxClassName="icheckbox"
-        checked={false}
-        checkedClassName="checked"
-        className={null}
-        disabled={false}
-        disabledClassName="disabled"
-        focusClassName="focus"
-        hoverClassName="hover"
-        hovered={false}
-        id={null}
-        increaseArea=""
-        indeterminate={true}
-        indeterminateClassName="indeterminate"
-        inheritClassName={false}
-        inheritID={false}
-        inputType="radio"
-        insert={null}
-        isMobile={false}
-        label={null}
-        name={null}
-        onBlur={null}
-        onChange={[Function]}
-        onFocus={null}
-        radioClassName="iradio"
-        value="2"
-      >
-        <div
-          className="iradio indeterminate"
-        >
-          <input
-            checked={false}
-            disabled={false}
-            label={null}
-            name={null}
-            onBlur={[Function]}
-            onChange={[Function]}
-            onFocus={[Function]}
-            style={
-              {
-                "opacity": 0,
-                "position": "absolute",
-              }
-            }
-            type="radio"
-            value="2"
-          />
-          <ins
-            className="iCheck-helper"
-            onClick={[Function]}
-            role="presentation"
-            style={
-              {
-                "background": "#fff",
-                "border": 0,
-                "cursor": "pointer",
-                "display": "block",
-                "height": "100%",
-                "left": "0%",
-                "margin": 0,
-                "opacity": 0,
-                "padding": 0,
-                "position": "absolute",
-                "top": "0%",
-                "width": "100%",
-              }
-            }
-          />
-        </div>
-      </Input>
-    </Radio>
-  </div>
-</RadioGroup>
+</div>
 `;
