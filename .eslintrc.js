@@ -12,4 +12,12 @@ module.exports = {
     'no-console': 0,
     'react/jsx-props-no-spreading': 0,
   },
+  overrides: [
+    {
+      files: ['*.test.jsx', '*.spec.jsx'],
+      rules: {
+        'import/no-extraneous-dependencies': 0,
+      },
+    },
+  ],
 };
