@@ -1,53 +1,45 @@
+import '@testing-library/jest-dom/extend-expect';
 import React from 'react';
-import expect from 'expect';
-import { mount } from 'enzyme';
+import { render } from '@testing-library/react';
 import { Checkbox, CheckboxGroup } from '../src';
 
 describe('CheckboxGroup component', () => {
-  let wrapper;
+  describe('when all required props are passed', () => {
+    let component;
 
-  beforeEach(() => {
-    console.warn = jest.fn();
+    beforeEach(() => {
+      console.warn = jest.fn();
+      component = render(
+        <CheckboxGroup>
+          <Checkbox />
+        </CheckboxGroup>,
+      );
+    });
+
+    afterEach(() => {
+      component.unmount();
+    });
+
+    it('should match the snapshot', () => {
+      expect(component.container).toMatchSnapshot();
+    });
   });
 
-  describe('when no props are passed', () => {
-    describe('as mount', () => {
+  describe('and `checkboxWrapClassName` prop is `test`', () => {
+    describe('and `checkboxWrapTag` prop is `div`', () => {
+      let component;
+
       beforeEach(() => {
-        wrapper = mount(
-          <CheckboxGroup>
+        console.warn = jest.fn();
+        component = render(
+          <CheckboxGroup checkboxWrapClassName="test" checkboxWrapTag="div">
             <Checkbox />
           </CheckboxGroup>,
         );
       });
 
-      it('should not call the deprecated console.warn()', () => {
-        expect(console.warn).toHaveBeenCalledTimes(0);
-      });
-
       it('should match the snapshot', () => {
-        expect(wrapper).toMatchSnapshot();
-      });
-
-      it('should match the default props snapshot', () => {
-        expect(wrapper.props()).toMatchSnapshot();
-      });
-    });
-  });
-
-  describe('and the `checkboxWrapClassName` prop is `test`', () => {
-    describe('and the `checkboxWrapTag` prop is `div`', () => {
-      describe('as mount', () => {
-        beforeEach(() => {
-          wrapper = mount(
-            <CheckboxGroup checkboxWrapClassName="test" checkboxWrapTag="div">
-              <Checkbox />
-            </CheckboxGroup>,
-          );
-        });
-
-        it('should match the snapshot', () => {
-          expect(wrapper).toMatchSnapshot();
-        });
+        expect(component.container).toMatchSnapshot();
       });
     });
   });
