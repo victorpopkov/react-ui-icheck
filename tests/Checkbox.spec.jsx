@@ -1,173 +1,89 @@
-import { mount, render } from 'enzyme';
+import '@testing-library/jest-dom/extend-expect';
 import React from 'react';
 import expect from 'expect';
+import { fireEvent, render } from '@testing-library/react';
 import Checkbox from '../src/Checkbox';
 
-describe('Checkbox component', () => {
-  let wrapper;
-
-  beforeEach(() => {
-    console.warn = jest.fn();
-  });
-
-  describe('as mount', () => {
-    beforeEach(() => {
-      wrapper = mount(<Checkbox />);
-    });
-
-    it('should not call the deprecated console.warn()', () => {
-      expect(console.warn).toHaveBeenCalledTimes(0);
-    });
-
-    it('should match the default props snapshot', () => {
-      expect(wrapper.props()).toMatchSnapshot();
-    });
-
-    it('should match the default state snapshot', () => {
-      expect(wrapper.state()).toMatchSnapshot();
-    });
-  });
-
-  describe('as render', () => {
-    beforeEach(() => {
-      wrapper = render(<Checkbox />);
-    });
-
+describe('<Checkbox />', () => {
+  describe('when no props are passed', () => {
     it('should match the snapshot', () => {
-      expect(wrapper).toMatchSnapshot();
+      const { container } = render(<Checkbox />);
+      expect(container).toMatchSnapshot();
     });
   });
 
-  describe('and the `label` prop is `label`', () => {
-    describe('as render', () => {
-      beforeEach(() => {
-        wrapper = render(<Checkbox label="label" />);
-      });
+  describe('when `label` prop is "test"', () => {
+    it('should have <span /> with "test" text', () => {
+      const { container } = render(<Checkbox label="test" />);
+      expect(container.querySelector('span').innerHTML).toBe('test');
+    });
 
+    describe('when hovering <label />', () => {
+      it('<div class="icheckbox" /> should have "hover" class while being hovered', () => {
+        const { container } = render(<Checkbox label="test" />);
+        const icheckboxElement = container.querySelector('.icheckbox');
+        const labelElement = container.querySelector('label');
+        fireEvent.mouseEnter(labelElement);
+        expect(icheckboxElement).toHaveClass('hover');
+        fireEvent.mouseLeave(labelElement);
+        expect(icheckboxElement).not.toHaveClass('hover');
+      });
+    });
+
+    describe('when touching <label />', () => {
+      it('<div class="icheckbox" /> should have "hover" class while being touched', () => {
+        const { container } = render(<Checkbox label="test" />);
+        const icheckboxElement = container.querySelector('.icheckbox');
+        const labelElement = container.querySelector('label');
+        fireEvent.touchStart(labelElement);
+        expect(icheckboxElement).toHaveClass('hover');
+        fireEvent.touchEnd(labelElement);
+        expect(icheckboxElement).not.toHaveClass('hover');
+      });
+    });
+  });
+
+  describe('when `checked` prop is `true`', () => {
+    it('<input /> should have "checked" attribute', () => {
+      const { container } = render(<Checkbox checked />);
+      expect(container.querySelector('input')).toHaveAttribute('checked');
+    });
+
+    it('<div class="icheckbox" /> should have "checked" class', () => {
+      const { container } = render(<Checkbox checked />);
+      expect(container.querySelector('.icheckbox')).toHaveClass('checked');
+    });
+  });
+
+  describe('when focusing <input />', () => {
+    it('<div class="icheckbox" /> should have "focus" class while being focused', () => {
+      const { container } = render(<Checkbox />);
+      const icheckboxElement = container.querySelector('.icheckbox');
+      const inputElement = container.querySelector('input');
+      fireEvent.focus(inputElement);
+      expect(icheckboxElement).toHaveClass('focus');
+      fireEvent.blur(inputElement);
+      expect(icheckboxElement).not.toHaveClass('focus');
+    });
+  });
+
+  describe('when children are passed', () => {
+    it('should match the snapshot', () => {
+      const { container } = render(<Checkbox>label</Checkbox>);
+      expect(container).toMatchSnapshot();
+    });
+
+    describe('and `labelTag` prop is "div"', () => {
       it('should match the snapshot', () => {
-        expect(wrapper).toMatchSnapshot();
-      });
-    });
-
-    describe('as mount', () => {
-      beforeEach(() => {
-        wrapper = mount(<Checkbox label="label" />);
-      });
-
-      it('should have the `checked` prop as `false`', () => {
-        expect(wrapper.props().checked).toBe(false);
-      });
-
-      it('should have the `checked` state as `false`', () => {
-        expect(wrapper.state().checked).toBe(false);
-      });
-
-      it('should have the `hovered` state as `false`', () => {
-        expect(wrapper.state().hovered).toBe(false);
-      });
-
-      describe('and the `checked` prop has changed from `false` to `true`', () => {
-        beforeEach(() => {
-          wrapper.setProps({ checked: true });
-        });
-
-        it('should have the `checked` prop as `true`', () => {
-          expect(wrapper.props().checked).toBe(true);
-        });
-
-        it('should have the `checked` state as `true`', () => {
-          expect(wrapper.state().checked).toBe(true);
-        });
-      });
-
-      describe('and the `hovered` state as `false`', () => {
-        beforeEach(() => {
-          wrapper.setState({ hovered: false });
-        });
-
-        describe('when focused', () => {
-          beforeEach(() => {
-            wrapper.simulate('focus');
-          });
-
-          it('should have the `hovered` state as `true`', () => {
-            expect(wrapper.state().hovered).toBe(true);
-          });
-        });
-
-        describe('when mouse over', () => {
-          beforeEach(() => {
-            wrapper.simulate('mouseOver');
-          });
-
-          it('should have the `hovered` state as `true`', () => {
-            expect(wrapper.state().hovered).toBe(true);
-          });
-        });
-
-        describe('when touch start', () => {
-          beforeEach(() => {
-            wrapper.simulate('touchStart');
-          });
-
-          it('should have the `hovered` state as `true`', () => {
-            expect(wrapper.state().hovered).toBe(true);
-          });
-        });
-      });
-
-      describe('and the `hovered` state as `true`', () => {
-        beforeEach(() => {
-          wrapper.setState({ hovered: true });
-        });
-
-        describe('when blurred', () => {
-          beforeEach(() => {
-            wrapper.simulate('blur');
-          });
-
-          it('should have the `hovered` state as `false`', () => {
-            expect(wrapper.state().hovered).toBe(false);
-          });
-        });
-
-        describe('when mouse out', () => {
-          beforeEach(() => {
-            wrapper.simulate('mouseOut');
-          });
-
-          it('should have the `hovered` state as `false`', () => {
-            expect(wrapper.state().hovered).toBe(false);
-          });
-        });
-
-        describe('when touch end', () => {
-          beforeEach(() => {
-            wrapper.simulate('touchEnd');
-          });
-
-          it('should have the `hovered` state as `false`', () => {
-            expect(wrapper.state().hovered).toBe(false);
-          });
-        });
-      });
-    });
-  });
-
-  describe('and the children are passed', () => {
-    describe('and the `labelTag` prop is `div`', () => {
-      describe('as render', () => {
-        beforeEach(() => {
-          wrapper = render(
-            <Checkbox labelTag="div">
-              <span>label</span>
-            </Checkbox>,
-          );
-        });
-
-        it('should match the snapshot', () => {
-          expect(wrapper).toMatchSnapshot();
-        });
+        const { container } = render(
+          <Checkbox labelTag="div">
+            <span>label</span>
+          </Checkbox>,
+        );
+        const divElements = container
+          .querySelector('label')
+          .querySelectorAll('div');
+        expect(divElements[1]).toMatchSnapshot();
       });
     });
   });
