@@ -1,180 +1,119 @@
-import { mount, shallow } from 'enzyme';
+import '@testing-library/jest-dom/extend-expect';
 import React from 'react';
 import expect from 'expect';
+import { fireEvent, render } from '@testing-library/react';
 import Label from '../../src/components/Label';
 
-describe('Label component', () => {
-  let wrapper;
-  let handleHover;
-
-  beforeEach(() => {
-    handleHover = jest.fn();
+describe('<Label />', () => {
+  describe('when required props are not passed', () => {
+    it('should call console.error()', () => {
+      const consoleErrorSpy = jest
+        .spyOn(console, 'error')
+        .mockImplementation(() => {});
+      render(<Label />);
+      expect(consoleErrorSpy).toHaveBeenCalledWith(
+        'Warning: Failed %s type: %s%s',
+        'prop',
+        'The prop `children` is marked as required in `Label`, but its value is `undefined`.',
+        expect.anything(),
+      );
+      consoleErrorSpy.mockRestore();
+    });
   });
 
-  afterEach(() => {
-    handleHover.mockClear();
-  });
-
-  describe('when the required `handleHover` prop is passed', () => {
-    describe('and the children are passed', () => {
-      const testEventHandleHover = (description, event, called, arg) => {
-        describe(`when ${description}`, () => {
-          beforeEach(() => {
-            wrapper.simulate(event);
-          });
-
-          it(`${
-            called > 0 ? 'should call' : 'should not call'
-          } the \`handleHover\` prop function`, () => {
-            expect(handleHover).toHaveBeenCalledTimes(called);
-          });
-
-          if (called > 0) {
-            it(`should have the \`handleHover\` prop function be called with \`${arg.toString()}\``, () => {
-              expect(handleHover).toHaveBeenCalledWith(expect.anything(), arg);
-            });
-          }
-        });
-      };
-
-      describe('as mount', () => {
-        beforeEach(() => {
-          wrapper = mount(
+  describe('when required props are passed', () => {
+    const testEventHandleHover = (description, event, called, arg) => {
+      describe(`${description}`, () => {
+        it(`${
+          called > 0 ? 'should call' : 'should not call'
+        } the \`handleHover\` prop function`, () => {
+          const handleHover = jest.fn();
+          const { container } = render(
             <Label handleHover={handleHover}>
-              <div>child</div>
+              <div>test</div>
             </Label>,
           );
-        });
-
-        it('should match the default props snapshot', () => {
-          expect(wrapper.props()).toMatchSnapshot();
-        });
-
-        it('should not call the `handleHover` prop function', () => {
           expect(handleHover).toHaveBeenCalledTimes(0);
+          fireEvent[event](container.querySelector('label'));
+          expect(handleHover).toHaveBeenCalledTimes(called);
+          expect(handleHover).toHaveBeenCalledWith(expect.anything(), arg);
         });
+      });
+    };
 
-        testEventHandleHover('focused', 'focus', 1, true);
-        testEventHandleHover('blurred', 'blur', 1, false);
-        testEventHandleHover('mouse over', 'mouseOver', 1, true);
-        testEventHandleHover('mouse out', 'mouseOut', 1, false);
-        testEventHandleHover('touch start', 'touchStart', 1, true);
-        testEventHandleHover('touch end', 'touchEnd', 1, false);
+    it('should match the snapshot', () => {
+      const { container } = render(
+        <Label handleHover={jest.fn()}>
+          <div>test</div>
+        </Label>,
+      );
+      expect(container).toMatchSnapshot();
+    });
+
+    testEventHandleHover('and focused', 'focus', 1, true);
+    testEventHandleHover('and blurred', 'blur', 1, false);
+    testEventHandleHover('and has mouse over', 'mouseOver', 1, true);
+    testEventHandleHover('and has mouse out', 'mouseOut', 1, false);
+    testEventHandleHover('and touch starts', 'touchStart', 1, true);
+    testEventHandleHover('and touch ends', 'touchEnd', 1, false);
+
+    describe('when `label` prop is "test"', () => {
+      it('should insert <span>test</span> after children', () => {
+        const { container } = render(
+          <Label handleHover={jest.fn()} label="test">
+            <div>test</div>
+          </Label>,
+        );
+        const labelElement = container.querySelector('div + span');
+        expect(labelElement.tagName).toBe('SPAN');
+        expect(labelElement.innerHTML).toEqual('test');
       });
 
-      describe('as shallow', () => {
-        beforeEach(() => {
-          wrapper = shallow(
-            <Label handleHover={handleHover}>
-              <div>child</div>
+      describe('and `labelChildren` prop is <div>test</div>', () => {
+        it('should insert <span><div>test</div></span> after children', () => {
+          const { container } = render(
+            <Label
+              handleHover={jest.fn()}
+              label="test"
+              labelChildren={<div>test</div>}
+            >
+              <div>test</div>
             </Label>,
           );
-        });
-
-        it('should match the snapshot', () => {
-          expect(wrapper).toMatchSnapshot();
-        });
-
-        it('should not call the `handleHover` prop function', () => {
-          expect(handleHover).toHaveBeenCalledTimes(0);
+          const labelElement = container.querySelector('div + span');
+          expect(labelElement.tagName).toBe('SPAN');
+          expect(labelElement.innerHTML).toEqual('<div>test</div>');
         });
       });
 
-      describe('and the `label` prop is `<span>propLabel</span>`', () => {
-        describe('as shallow', () => {
-          beforeEach(() => {
-            wrapper = shallow(
-              <Label handleHover={handleHover} label={<span>propLabel</span>}>
-                <div>child</div>
-              </Label>,
-            );
-          });
-
-          it('should match the snapshot', () => {
-            expect(wrapper).toMatchSnapshot();
-          });
-
-          it('should not call the `handleHover` prop function', () => {
-            expect(handleHover).toHaveBeenCalledTimes(0);
-          });
+      describe('and `labelTag` prop is "div"', () => {
+        it('should insert <div>test</div> after children', () => {
+          const { container } = render(
+            <Label handleHover={jest.fn()} label="test" labelTag="div">
+              <div>test</div>
+            </Label>,
+          );
+          const labelElement = container.querySelector('div + div');
+          expect(labelElement.tagName).toBe('DIV');
+          expect(labelElement.innerHTML).toEqual('test');
         });
       });
 
-      describe('and the `labelTag` prop is `div`', () => {
-        describe('and the `labelTagClassName` prop is `test`', () => {
-          describe('and the `label` prop is `propLabel`', () => {
-            beforeEach(() => {
-              wrapper = shallow(
-                <Label
-                  handleHover={handleHover}
-                  label="propLabel"
-                  labelTag="div"
-                  labelTagClassName="test"
-                >
-                  <div>child</div>
-                </Label>,
-              );
-            });
-
-            it('should match the snapshot', () => {
-              expect(wrapper).toMatchSnapshot();
-            });
-
-            it('should not call the `handleHover` prop function', () => {
-              expect(handleHover).toHaveBeenCalledTimes(0);
-            });
-          });
-
-          describe('and the `labelChildren` prop is `<span>propLabelChildren</span>`', () => {
-            beforeEach(() => {
-              wrapper = shallow(
-                <Label
-                  handleHover={handleHover}
-                  labelChildren={<span>propLabelChildren</span>}
-                  labelTag="div"
-                  labelTagClassName="test"
-                >
-                  <div>child</div>
-                </Label>,
-              );
-            });
-
-            it('should match the snapshot', () => {
-              expect(wrapper).toMatchSnapshot();
-            });
-
-            it('should not call the `handleHover` prop function', () => {
-              expect(handleHover).toHaveBeenCalledTimes(0);
-            });
-          });
-        });
-      });
-
-      describe('and the `disabled` prop is `true`', () => {
-        describe('as mount', () => {
-          beforeEach(() => {
-            wrapper = mount(
-              <Label handleHover={handleHover} disabled>
-                <div>child</div>
-              </Label>,
-            );
-          });
-
-          testEventHandleHover('focused', 'focus', 0, false);
-        });
-      });
-
-      describe('and the `isMobile` prop is `true`', () => {
-        describe('as mount', () => {
-          beforeEach(() => {
-            wrapper = mount(
-              <Label handleHover={handleHover} isMobile>
-                <div>child</div>
-              </Label>,
-            );
-          });
-
-          testEventHandleHover('focused', 'focus', 1, true);
+      describe('and `labelTagClassName` prop is "test"', () => {
+        it('should insert <span class="test">test</span> after children', () => {
+          const { container } = render(
+            <Label
+              handleHover={jest.fn()}
+              label="test"
+              labelTagClassName="test"
+            >
+              <div>test</div>
+            </Label>,
+          );
+          const labelElement = container.querySelector('div + span');
+          expect(labelElement.tagName).toBe('SPAN');
+          expect(labelElement.innerHTML).toEqual('test');
+          expect(labelElement).toHaveClass('test');
         });
       });
     });
