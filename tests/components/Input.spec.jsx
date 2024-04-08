@@ -1,354 +1,238 @@
-import { mount, render, shallow } from 'enzyme';
+import '@testing-library/jest-dom/extend-expect';
 import React from 'react';
 import expect from 'expect';
+import { fireEvent, render } from '@testing-library/react';
 import Input from '../../src/components/Input';
 
 const testInputComponent = (inputType) => {
-  let wrapper;
+  const inputClass = `i${inputType}`;
 
-  describe('as mount', () => {
-    beforeEach(() => {
-      wrapper = mount(<Input inputType={inputType} />);
-    });
-
-    it('should match the default props snapshot', () => {
-      expect(wrapper.props()).toMatchSnapshot();
-    });
-
-    it('should match the default state snapshot', () => {
-      expect(wrapper.state()).toMatchSnapshot();
-    });
-
-    it('should have the `checked` state as `false`', () => {
-      expect(wrapper.state().checked).toBe(false);
-    });
-
-    it('should have the `hovered` state as `false`', () => {
-      expect(wrapper.state().hovered).toBe(false);
-    });
-
-    describe('but the `checked` prop has changed from `false` to `true`', () => {
-      beforeEach(() => {
-        wrapper.setProps({ checked: true });
-      });
-
-      it('should change the `checked` state from `false` to `true`', () => {
-        expect(wrapper.state().checked).toBe(true);
-      });
-    });
-
-    describe('but the `hovered` prop has changed from `false` to `true`', () => {
-      beforeEach(() => {
-        wrapper.setProps({ hovered: true });
-      });
-
-      it('should change the `hovered` state `false` => `true`', () => {
-        expect(wrapper.state().hovered).toBe(true);
-      });
-    });
-
-    describe('and the `<ins />` is clicked', () => {
-      beforeEach(() => {
-        wrapper.find('ins').simulate('click');
-      });
-
-      it('should have the `checked` state as `false`', () => {
-        expect(wrapper.state().checked).toBe(false);
-      });
+  describe('when no props are passed', () => {
+    it('should match the snapshot', () => {
+      const { container } = render(<Input inputType={inputType} />);
+      expect(container).toMatchSnapshot();
     });
   });
 
-  describe('and the `insert` prop is `<div>test</div>} />`', () => {
-    describe('as render', () => {
-      beforeEach(() => {
-        wrapper = render(
-          <Input inputType={inputType} insert={<div>test</div>} />,
+  describe('when `aria` prop is `true`', () => {
+    it(`<div class="${inputClass}" /> should have the corresponding \`aria-checked\` attribute while being clicked`, () => {
+      const { container } = render(<Input inputType={inputType} aria />);
+      const element = container.querySelector(`.${inputClass}`);
+      const inputElement = container.querySelector('input');
+      expect(element).toHaveAttribute('aria-checked', 'false');
+      fireEvent.click(inputElement);
+      expect(element).toHaveAttribute('aria-checked', 'true');
+    });
+  });
+
+  describe('when `checked` prop is `true`', () => {
+    it('<input /> should have "checked" attribute', () => {
+      const { container } = render(<Input inputType={inputType} checked />);
+      expect(container.querySelector('input')).toHaveAttribute('checked');
+    });
+
+    it(`<div class="${inputClass}" /> should have "checked" class`, () => {
+      const { container } = render(<Input inputType={inputType} checked />);
+      expect(container.querySelector(`.${inputClass}`)).toHaveClass('checked');
+    });
+  });
+
+  describe('when `className` prop is "test"', () => {
+    describe('and `inheritClassName` is `false`', () => {
+      it(`<div class="${inputClass}" /> should not have "test" class`, () => {
+        const { container } = render(
+          <Input
+            inputType={inputType}
+            className="test"
+            inheritClassName={false}
+          />,
+        );
+        expect(container.querySelector(`.${inputClass}`)).not.toHaveClass(
+          'test',
         );
       });
+    });
 
-      it('should match the snapshot', () => {
-        expect(wrapper).toMatchSnapshot();
+    describe('and `inheritClassName` is `true`', () => {
+      it(`<div class="${inputClass}" /> should have "test" class`, () => {
+        const { container } = render(
+          <Input inputType={inputType} className="test" inheritClassName />,
+        );
+        expect(container.querySelector(`.${inputClass}`)).toHaveClass('test');
       });
     });
   });
 
-  describe('and the `aria` prop is `true`', () => {
-    describe('as shallow', () => {
-      beforeEach(() => {
-        wrapper = shallow(<Input inputType={inputType} aria />);
-      });
+  describe('and `disabled` prop is `true`', () => {
+    it('<input /> should have "disabled" attribute', () => {
+      const { container } = render(<Input inputType={inputType} disabled />);
+      const inputElement = container.querySelector('input');
+      expect(inputElement).toHaveAttribute('disabled');
+      fireEvent.click(inputElement);
+      expect(inputElement).toHaveAttribute('disabled');
+    });
 
-      it('should match the snapshot', () => {
-        expect(wrapper).toMatchSnapshot();
-      });
+    it(`<div class="${inputClass}" /> should have "disabled" class`, () => {
+      const { container } = render(<Input inputType={inputType} disabled />);
+      const element = container.querySelector(`.${inputClass}`);
+      expect(element).toHaveClass('disabled');
+      fireEvent.click(container.querySelector('input'));
+      expect(element).toHaveClass('disabled');
+    });
+  });
 
-      it('should have the `aria-checked` prop as `false`', () => {
-        expect(wrapper.props()['aria-checked']).toBe(false);
+  describe('when `id` prop is "test"', () => {
+    describe('and `inheritID` is `false`', () => {
+      it(`<div class="${inputClass}" /> should not have "test" class`, () => {
+        const { container } = render(
+          <Input inputType={inputType} id="test" inheritID={false} />,
+        );
+        expect(container.querySelector(`.${inputClass}`)).not.toHaveClass(
+          'id',
+          'iCheck-test',
+        );
+      });
+    });
+
+    describe('and `inheritID` is `true`', () => {
+      it(`<div class="${inputClass}" /> should have "test" class`, () => {
+        const { container } = render(
+          <Input inputType={inputType} id="test" inheritID />,
+        );
+        expect(container.querySelector(`.${inputClass}`)).toHaveAttribute(
+          'id',
+          'iCheck-test',
+        );
       });
     });
   });
 
-  describe('and the `className` prop is `test`', () => {
-    describe('and the `inheritClassName` is `true`', () => {
-      describe('as shallow', () => {
-        beforeEach(() => {
-          wrapper = shallow(
-            <Input className="test" inputType={inputType} inheritClassName />,
-          );
-        });
+  describe('when `increaseArea` prop', () => {
+    const commonStyles = {
+      background: 'rgb(255, 255, 255)',
+      border: 0,
+      cursor: 'pointer',
+      display: 'block',
+      margin: 0,
+      opacity: 0,
+      padding: 0,
+      position: 'absolute',
+    };
 
-        it(`should have the \`className\` prop as \`i${inputType} test\``, () => {
-          expect(wrapper.props().className).toBe(`i${inputType} test`);
-        });
+    it('is "30%"', () => {
+      const { container } = render(
+        <Input inputType={inputType} increaseArea="30%" />,
+      );
+      expect(container.querySelector('input')).toHaveStyle({
+        ...commonStyles,
+        height: '160%',
+        left: '-30%',
+        top: '-30%',
+        width: '160%',
+      });
+    });
+
+    it('is "-30%', () => {
+      const { container } = render(
+        <Input inputType={inputType} increaseArea="-30%" />,
+      );
+      expect(container.querySelector('input')).toHaveStyle({
+        ...commonStyles,
+        height: '40%',
+        left: '30%',
+        top: '30%',
+        width: '40%',
+      });
+    });
+
+    it('is "-60%', () => {
+      const { container } = render(
+        <Input inputType={inputType} increaseArea="-60%" />,
+      );
+      expect(container.querySelector('input')).toHaveStyle({
+        ...commonStyles,
+        height: '0%',
+        left: '50%',
+        top: '50%',
+        width: '0%',
       });
     });
   });
 
-  describe('and the `id` prop is `test`', () => {
-    describe('and the `inheritID` is `true`', () => {
-      describe('as shallow', () => {
-        beforeEach(() => {
-          wrapper = shallow(
-            <Input id="test" inputType={inputType} inheritID />,
-          );
-        });
+  describe('when `insert` prop is <div>test</div>', () => {
+    it('should insert that element after <input />', () => {
+      const { container } = render(
+        <Input inputType={inputType} insert={<div>test</div>} />,
+      );
+      const insertElement = container.querySelector('input + div');
+      expect(insertElement.tagName).toBe('DIV');
+      expect(insertElement.innerHTML).toEqual('test');
+    });
+  });
 
-        it('should have the `id` prop as `iCheck-test`', () => {
-          expect(wrapper.props().id).toBe('iCheck-test');
-        });
+  describe('when `isMobile` prop is `true`', () => {
+    it('<input /> should have the corresponding style', () => {
+      const { container } = render(<Input inputType={inputType} isMobile />);
+      expect(container.querySelector('input')).toHaveStyle({
+        visibility: 'hidden',
+        position: 'absolute',
       });
     });
   });
 
-  describe('and the `isMobile` prop is `true`', () => {
-    describe('as shallow', () => {
-      beforeEach(() => {
-        wrapper = shallow(<Input inputType={inputType} isMobile />);
-      });
+  describe('when focusing <input />', () => {
+    it('should call `onFocus` prop function', () => {
+      const onFocus = jest.fn();
+      const { container } = render(
+        <Input inputType={inputType} onFocus={onFocus} />,
+      );
+      expect(onFocus).toHaveBeenCalledTimes(0);
+      fireEvent.focus(container.querySelector('input'));
+      expect(onFocus).toHaveBeenCalledTimes(1);
+    });
 
-      describe('an `<input />`', () => {
-        beforeEach(() => {
-          wrapper = wrapper.find('input');
-        });
-
-        it('should match style attribute to the snapshot', () => {
-          expect(wrapper.prop('style')).toMatchSnapshot();
-        });
-      });
+    it(`<div class="${inputClass}" /> should have "focus" class while being focused`, () => {
+      const { container } = render(<Input inputType={inputType} />);
+      const element = container.querySelector(`.${inputClass}`);
+      const inputElement = container.querySelector('input');
+      fireEvent.focus(inputElement);
+      expect(element).toHaveClass('focus');
+      fireEvent.blur(inputElement);
+      expect(element).not.toHaveClass('focus');
     });
   });
 
-  describe('and the `increaseArea` prop is `30%`', () => {
-    describe('as shallow', () => {
-      beforeEach(() => {
-        wrapper = shallow(<Input increaseArea="30%" inputType={inputType} />);
-      });
-
-      it('should match the snapshot', () => {
-        expect(wrapper).toMatchSnapshot();
-      });
+  describe('when blurring <input />', () => {
+    it('should call `onBlur` prop function', () => {
+      const onBlur = jest.fn();
+      const { container } = render(
+        <Input inputType={inputType} onBlur={onBlur} />,
+      );
+      expect(onBlur).toHaveBeenCalledTimes(0);
+      fireEvent.blur(container.querySelector('input'));
+      expect(onBlur).toHaveBeenCalledTimes(1);
     });
   });
 
-  describe('and the `increaseArea` prop is `-30%`', () => {
-    describe('as shallow', () => {
-      beforeEach(() => {
-        wrapper = shallow(<Input increaseArea="-30%" inputType={inputType} />);
-      });
-
-      it('should match the snapshot', () => {
-        expect(wrapper).toMatchSnapshot();
-      });
-    });
-  });
-
-  describe('and the `increaseArea` prop is `-60%`', () => {
-    describe('as shallow', () => {
-      beforeEach(() => {
-        wrapper = shallow(<Input increaseArea="-60%" inputType={inputType} />);
-      });
-
-      it('should match the snapshot', () => {
-        expect(wrapper).toMatchSnapshot();
-      });
-    });
-  });
-
-  describe('and the `onFocus` prop is passed', () => {
-    let onFocus;
-
-    beforeEach(() => {
-      onFocus = jest.fn();
-    });
-
-    describe('as mount', () => {
-      beforeEach(() => {
-        wrapper = mount(<Input inputType={inputType} onFocus={onFocus} />);
-      });
-
-      it('should not call the passed `onFocus` function', () => {
-        expect(onFocus).toHaveBeenCalledTimes(0);
-      });
-
-      it('should have the `focused` state as `false`', () => {
-        expect(wrapper.state().focused).toBe(false);
-      });
-
-      describe('and the `<input />` is focused', () => {
-        beforeEach(() => {
-          wrapper.find('input').simulate('focus');
-        });
-
-        it('should call the passed `onFocus` function', () => {
-          expect(onFocus).toHaveBeenCalledTimes(1);
-        });
-
-        it('should have the `focused` state as `true`', () => {
-          expect(wrapper.state().focused).toBe(true);
-        });
-      });
-    });
-  });
-
-  describe('and the `onBlur` prop is passed', () => {
-    let onBlur;
-
-    beforeEach(() => {
-      onBlur = jest.fn();
-    });
-
-    describe('as mount', () => {
-      beforeEach(() => {
-        wrapper = mount(<Input inputType={inputType} onBlur={onBlur} />);
-      });
-
-      describe('and with the `focused` state as `true`', () => {
-        beforeEach(() => {
-          wrapper.setState({ focused: true });
-        });
-
-        it('should not call the passed `onBlur` function', () => {
-          expect(onBlur).toHaveBeenCalledTimes(0);
-        });
-
-        it('should have the `focused` state as `true`', () => {
-          expect(wrapper.state().focused).toBe(true);
-        });
-
-        describe('and the `<input />` is blurred', () => {
-          beforeEach(() => {
-            wrapper.find('input').simulate('blur');
-          });
-
-          it('should call the passed `onBlur` function', () => {
-            expect(onBlur).toHaveBeenCalledTimes(1);
-          });
-
-          it('should have the `focused` state as `false`', () => {
-            expect(wrapper.state().focused).toBe(false);
-          });
-        });
-      });
-    });
-  });
-
-  describe('and the `onChange` prop is passed', () => {
-    let onChange;
-
-    beforeEach(() => {
-      onChange = jest.fn();
-    });
-
-    describe('as mount', () => {
-      beforeEach(() => {
-        wrapper = mount(<Input inputType={inputType} onChange={onChange} />);
-      });
-
-      it('should not call the passed `onChange` function', () => {
-        expect(onChange).toHaveBeenCalledTimes(0);
-      });
-
-      it('should have the `checked` state as `false`', () => {
-        expect(wrapper.state().checked).toBe(false);
-      });
-
-      describe('and the `<input />` is changed', () => {
-        beforeEach(() => {
-          wrapper.find('input').simulate('change');
-        });
-
-        it('should call the passed `onChange` function', () => {
-          expect(onChange).toHaveBeenCalledTimes(1);
-        });
-
-        it('should have the `checked` state as `true`', () => {
-          expect(wrapper.state().checked).toBe(true);
-        });
-      });
-    });
-
-    describe('and the `insert` prop is `Insert`', () => {
-      describe('and the `label` prop is `Label`', () => {
-        beforeEach(() => {
-          wrapper = mount(
-            <Input
-              inputType={inputType}
-              insert="Insert"
-              label="Label"
-              onChange={onChange}
-            />,
-          );
-        });
-
-        it('should not call the passed `onChange` function', () => {
-          expect(onChange).toHaveBeenCalledTimes(0);
-        });
-
-        it('should have the `checked` state as `false`', () => {
-          expect(wrapper.state().checked).toBe(false);
-        });
-
-        describe('and the `<ins />` is clicked', () => {
-          beforeEach(() => {
-            wrapper.find('ins').simulate('click');
-          });
-
-          it('should call the passed `onChange` function', () => {
-            expect(onChange).toHaveBeenCalledTimes(1);
-          });
-
-          const state = inputType === 'checkbox';
-          it(`should have the \`checked\` state as \`${state}\``, () => {
-            expect(wrapper.state().checked).toBe(state);
-          });
-        });
-      });
-    });
-  });
-
-  describe('and the `disabled` prop is `true`', () => {
-    beforeEach(() => {
-      wrapper = mount(<Input inputType={inputType} disabled />);
-    });
-
-    describe('and the `<ins />` is clicked', () => {
-      beforeEach(() => {
-        wrapper.find('ins').simulate('click');
-      });
-
-      it('should have the `checked` state as `false`', () => {
-        expect(wrapper.state().checked).toBe(false);
-      });
+  describe('when changing <input />', () => {
+    it('should call `onChange` prop function', () => {
+      const onChange = jest.fn();
+      const { container } = render(
+        <Input inputType={inputType} onChange={onChange} />,
+      );
+      expect(onChange).toHaveBeenCalledTimes(0);
+      fireEvent.click(container.querySelector('input'));
+      expect(onChange).toHaveBeenCalledTimes(1);
     });
   });
 };
 
-describe('Input component', () => {
-  describe('when the required `inputType` prop is set to `checkbox`', () => {
+describe('<Input />', () => {
+  describe('when `inputType` prop is "checkbox"', () => {
     testInputComponent('checkbox');
   });
 
-  describe('when the required `inputType` prop is set to `radio`', () => {
+  describe('when `inputType` prop is "radio"', () => {
     testInputComponent('radio');
   });
 });
