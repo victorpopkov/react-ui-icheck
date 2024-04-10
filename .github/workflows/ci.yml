@@ -27,9 +27,9 @@ jobs:
         node_version: [14.x, 16.x, 18.x]
     steps:
       - name: Check out
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
       - name: Set up Node.js ${{ matrix.node_version }}
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         id: node
         with:
           node-version: ${{ matrix.node_version }}
@@ -43,6 +43,8 @@ jobs:
             {STATUS}
             {REF}
             Node.js: ${{ steps.node.outputs.node-version }}
+      - name: Enable corepack
+        run: corepack enable
       - name: Install dependencies
         run: yarn install --ignore-scripts
       - name: Build
@@ -68,9 +70,9 @@ jobs:
         node_version: [19.x]
     steps:
       - name: Check out
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
       - name: Set up Node.js ${{ matrix.node_version }}
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         id: node
         with:
           node-version: ${{ matrix.node_version }}
@@ -86,6 +88,8 @@ jobs:
             Node.js: ${{ steps.node.outputs.node-version }}
             ESLint issues: Checking...
             Prettier issues: Checking...
+      - name: Enable corepack
+        run: corepack enable
       - name: Install dependencies
         run: yarn install --ignore-scripts
       - name: Lint
@@ -120,9 +124,9 @@ jobs:
         node_version: [14.x, 16.x, 18.x]
     steps:
       - name: Check out
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
       - name: Set up Node.js ${{ matrix.node_version }}
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         id: node
         with:
           node-version: ${{ matrix.node_version }}
@@ -138,6 +142,8 @@ jobs:
             Node.js: ${{ steps.node.outputs.node-version }}
             Total / Passed: Checking...
             Coverage: Checking...
+      - name: Enable corepack
+        run: corepack enable
       - name: Install dependencies
         run: yarn install --ignore-scripts
       - name: Test
@@ -157,11 +163,11 @@ jobs:
             Coverage: ${{ steps.test.outputs.coverage || 'Skipped' }}
       - name: Send Codecov report
         if: ${{ !env.ACT }}
-        uses: codecov/codecov-action@v3
+        uses: codecov/codecov-action@v4
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
       - name: Send Code Climate report
-        uses: paambaati/codeclimate-action@v3.2.0
+        uses: paambaati/codeclimate-action@v5.0.0
         if: ${{ !env.ACT && github.event_name != 'pull_request' }}
         env:
           CC_TEST_REPORTER_ID: ${{ secrets.CC_TEST_REPORTER_ID }}
