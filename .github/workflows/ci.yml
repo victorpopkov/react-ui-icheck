@@ -13,7 +13,6 @@ on:
 permissions: read-all
 
 env:
-  NODE_ENV: development
   SLACK_CHANNEL: ${{ secrets.SLACK_CHANNEL }}
   SLACK_SIGNING_SECRET: ${{ secrets.SLACK_SIGNING_SECRET }}
   SLACK_TOKEN: ${{ secrets.SLACK_TOKEN }}
@@ -28,7 +27,7 @@ jobs:
     steps:
       - name: Check out
         uses: actions/checkout@v4
-      - name: Set up Node.js ${{ matrix.node_version }}
+      - name: Set up Node.js
         uses: actions/setup-node@v4
         id: node
         with:
@@ -38,15 +37,17 @@ jobs:
         if: ${{ github.event_name != 'pull_request' }}
         id: slack
         with:
-          status: in-progress
           fields: |
             {STATUS}
             {REF}
             Node.js: ${{ steps.node.outputs.node-version }}
+          status: in-progress
       - name: Enable corepack
         run: corepack enable
       - name: Install dependencies
         run: yarn install --ignore-scripts
+        env:
+          NODE_ENV: development
       - name: Build
         run: yarn build
         env:
@@ -55,12 +56,12 @@ jobs:
         uses: codedsolar/slack-action@v1
         if: ${{ github.event_name != 'pull_request' && always() }}
         with:
-          status: ${{ job.status }}
-          timestamp: ${{ steps.slack.outputs.slack-timestamp }}
           fields: |
             {STATUS}
             {REF}
             Node.js: ${{ steps.node.outputs.node-version }}
+          status: ${{ job.status }}
+          timestamp: ${{ steps.slack.outputs.slack-timestamp }}
 
   lint:
     runs-on: ubuntu-latest
@@ -71,7 +72,7 @@ jobs:
     steps:
       - name: Check out
         uses: actions/checkout@v4
-      - name: Set up Node.js ${{ matrix.node_version }}
+      - name: Set up Node.js
         uses: actions/setup-node@v4
         id: node
         with:
@@ -81,17 +82,19 @@ jobs:
         if: ${{ github.event_name != 'pull_request' }}
         id: slack
         with:
-          status: in-progress
           fields: |
             {STATUS}
             {REF}
             Node.js: ${{ steps.node.outputs.node-version }}
             ESLint issues: Checking...
             Prettier issues: Checking...
+          status: in-progress
       - name: Enable corepack
         run: corepack enable
       - name: Install dependencies
         run: yarn install --ignore-scripts
+        env:
+          NODE_ENV: development
       - name: Lint
         id: lint
         run: |
@@ -107,14 +110,14 @@ jobs:
         uses: codedsolar/slack-action@v1
         if: ${{ github.event_name != 'pull_request' && always() }}
         with:
-          status: ${{ job.status }}
-          timestamp: ${{ steps.slack.outputs.slack-timestamp }}
           fields: |
             {STATUS}
             {REF}
             Node.js: ${{ steps.node.outputs.node-version }}
             ESLint issues: ${{ steps.lint.outputs.eslint-issues || 'Skipped' }}
             Prettier issues: ${{ steps.lint.outputs.prettier-issues || 'Skipped' }}
+          status: ${{ job.status }}
+          timestamp: ${{ steps.slack.outputs.slack-timestamp }}
 
   test:
     runs-on: ubuntu-latest
@@ -125,7 +128,7 @@ jobs:
     steps:
       - name: Check out
         uses: actions/checkout@v4
-      - name: Set up Node.js ${{ matrix.node_version }}
+      - name: Set up Node.js
         uses: actions/setup-node@v4
         id: node
         with:
@@ -135,34 +138,24 @@ jobs:
         if: ${{ github.event_name != 'pull_request' }}
         id: slack
         with:
-          status: in-progress
           fields: |
             {STATUS}
             {REF}
             Node.js: ${{ steps.node.outputs.node-version }}
             Total / Passed: Checking...
             Coverage: Checking...
+          status: in-progress
       - name: Enable corepack
         run: corepack enable
       - name: Install dependencies
         run: yarn install --ignore-scripts
+        env:
+          NODE_ENV: development
       - name: Test
         id: test
         run: yarn ci:test
-      - name: Update Slack notification
-        uses: codedsolar/slack-action@v1
-        if: ${{ github.event_name != 'pull_request' && always() }}
-        with:
-          status: ${{ job.status }}
-          timestamp: ${{ steps.slack.outputs.slack-timestamp }}
-          fields: |
-            {STATUS}
-            {REF}
-            Node.js: ${{ steps.node.outputs.node-version }}
-            Total / Passed: ${{ steps.test.outputs.total || 0 }} / ${{ steps.test.outputs.passed || 0 }}
-            Coverage: ${{ steps.test.outputs.coverage || 'Skipped' }}
       - name: Send Codecov report
-        if: ${{ !env.ACT }}
+        if: ${{ !env.ACT && github.event_name != 'pull_request' }}
         uses: codecov/codecov-action@v4
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
@@ -171,3 +164,15 @@ jobs:
         if: ${{ !env.ACT && github.event_name != 'pull_request' }}
         env:
           CC_TEST_REPORTER_ID: ${{ secrets.CC_TEST_REPORTER_ID }}
+      - name: Update Slack notification
+        uses: codedsolar/slack-action@v1
+        if: ${{ github.event_name != 'pull_request' && always() }}
+        with:
+          fields: |
+            {STATUS}
+            {REF}
+            Node.js: ${{ steps.node.outputs.node-version }}
+            Total / Passed: ${{ steps.test.outputs.total || 0 }} / ${{ steps.test.outputs.passed || 0 }}
+            Coverage: ${{ steps.test.outputs.coverage || 'Skipped' }}
+          status: ${{ job.status }}
+          timestamp: ${{ steps.slack.outputs.slack-timestamp }}
