@@ -80,7 +80,7 @@
     "build": "cross-env BABEL_ENV=production NODE_ENV=production babel ./src/ -d ./lib/ --ignore='./**/*.spec.jsx'",
     "ci:eslint": "eslint --ext='js,jsx' --format='./.github/eslint-output.js' .",
     "ci:prettier": "node ./.github/prettier-output.js",
-    "ci:test": "jest --coverage --ci --reporters='./.github/jest-output.js'",
+    "ci:test": "jest --coverage --coverageReporters='json-summary' --ci --reporters='./.github/jest-output.js'",
     "clean": "rm -Rf ./coverage/ ./lib/",
     "deduplicate": "yarn-deduplicate",
     "lint": "npm-run-all --continue-on-error lint:*",

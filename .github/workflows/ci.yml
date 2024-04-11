@@ -165,7 +165,9 @@ jobs:
           NODE_ENV: development
       - name: Test
         id: test
-        run: yarn ci:test
+        run: |
+          yarn ci:test
+          echo "coverage=$(jq -crM .total.lines.pct ./coverage/coverage-summary.json)%" >> $GITHUB_OUTPUT
       - name: Send Codecov report
         if: ${{ !env.ACT && github.event_name != 'pull_request' }}
         uses: codecov/codecov-action@v4
