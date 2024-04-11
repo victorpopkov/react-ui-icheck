@@ -95,17 +95,29 @@ jobs:
         run: yarn install --ignore-scripts
         env:
           NODE_ENV: development
-      - name: Lint
-        id: lint
+      - name: Lint using ESLint
+        run: yarn lint:eslint || true
+      - name: Output ESLint results
+        id: eslint
+        run: yarn ci:eslint || true
+      - name: Lint using Prettier
+        run: yarn lint:prettier || true
+      - name: Output Prettier results
+        id: prettier
+        run: yarn ci:prettier || true
+      - name: Check results
         run: |
-          yarn ci:eslint || true
-          yarn ci:prettier || true
-          yarn lint || true
-      - name: Lint results
-        id: lint-results
-        run: |
-          export LINT_ISSUES=$((${{ steps.lint.outputs.eslint-issues || 0 }} + ${{ steps.lint.outputs.prettier-issues || 0 }}))
-          if [ "${LINT_ISSUES}" -eq 0 ]; then exit 0; else exit 1; fi
+          eslint_issues="${{ steps.eslint.outputs.eslint-issues }}"
+          prettier_issues="${{ steps.prettier.outputs.prettier-issues }}"
+
+          echo "Total ESLint issues: $eslint_issues"
+          echo "Total Prettier issues: $prettier_issues"
+
+          exit_code=1
+          if [ "$eslint_issues" = '0' ] && [ "$prettier_issues" = '0' ]; then
+            exit_code=0
+          fi
+          exit "$exit_code"
       - name: Update Slack notification
         uses: codedsolar/slack-action@v1
         if: ${{ github.event_name != 'pull_request' && always() }}
@@ -114,8 +126,8 @@ jobs:
             {STATUS}
             {REF}
             Node.js: ${{ steps.node.outputs.node-version }}
-            ESLint issues: ${{ steps.lint.outputs.eslint-issues || 'Skipped' }}
-            Prettier issues: ${{ steps.lint.outputs.prettier-issues || 'Skipped' }}
+            ESLint issues: ${{ steps.eslint.outputs.eslint-issues || 'Skipped' }}
+            Prettier issues: ${{ steps.prettier.outputs.prettier-issues || 'Skipped' }}
           status: ${{ job.status }}
           timestamp: ${{ steps.slack.outputs.slack-timestamp }}
 
