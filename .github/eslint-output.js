@@ -9,5 +9,5 @@ module.exports = (results) => {
     }),
     { errors: 0, warnings: 0 },
   );
-  core.setOutput('eslint-issues', summary.errors + summary.warnings || 0);
+  core.setOutput('issues', summary.errors + summary.warnings || 0);
 };

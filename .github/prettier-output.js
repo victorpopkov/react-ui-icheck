@@ -23,5 +23,5 @@ const run = async () => ({
 });
 
 run().then((result) => {
-  core.setOutput('prettier-issues', result.total);
+  core.setOutput('issues', result.total);
 });
