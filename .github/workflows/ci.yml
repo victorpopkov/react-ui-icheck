@@ -154,8 +154,8 @@ jobs:
             {STATUS}
             {REF}
             Node.js: ${{ steps.node.outputs.node-version }}
-            Total / Passed: Checking...
-            Coverage: Checking...
+            Passed Jest tests: Testing...
+            Jest coverage: Testing...
           status: in-progress
       - name: Enable corepack
         run: corepack enable
@@ -163,11 +163,28 @@ jobs:
         run: yarn install --ignore-scripts
         env:
           NODE_ENV: development
-      - name: Test
-        id: test
+      - name: Test using Jest
+        run: yarn test || true
+      - name: Output Jest results
+        id: jest
         run: |
           yarn ci:test
           echo "coverage=$(jq -crM .total.lines.pct ./coverage/coverage-summary.json)%" >> $GITHUB_OUTPUT
+      - name: Check results
+        run: |
+          jest_coverage="${{ steps.jest.outputs.coverage }}"
+          jest_passed="${{ steps.jest.outputs.passed }}"
+          jest_total="${{ steps.jest.outputs.total }}"
+
+          echo "Passed Jest tests: $jest_passed"
+          echo "Total Jest tests: $jest_total"
+          echo "Jest coverage: $jest_coverage"
+
+          exit_code=1
+          if [ "$jest_passed" = "$jest_total" ]; then
+            exit_code=0
+          fi
+          exit "$exit_code"
       - name: Send Codecov report
         if: ${{ !env.ACT && github.event_name != 'pull_request' }}
         uses: codecov/codecov-action@v4
@@ -178,6 +195,18 @@ jobs:
         if: ${{ !env.ACT && github.event_name != 'pull_request' }}
         env:
           CC_TEST_REPORTER_ID: ${{ secrets.CC_TEST_REPORTER_ID }}
+      - name: Output additional Slack fields
+        id: slack-fields
+        run: |
+          jest_passed="${{ steps.jest.outputs.passed }}"
+          jest_total="${{ steps.jest.outputs.total }}"
+          passed_jest_tests='Skipped'
+
+          if [ "$jest_passed" != '' ] && [ "$jest_total" != '' ] && [ "$jest_passed" != 'null' ] && [ "$jest_total" != 'null' ]; then
+            passed_jest_tests="$jest_passed / $jest_total"
+          fi
+
+          echo "passed-jest-tests=$passed_jest_tests" >> $GITHUB_OUTPUT
       - name: Update Slack notification
         uses: codedsolar/slack-action@v1
         if: ${{ github.event_name != 'pull_request' && always() }}
@@ -186,7 +215,7 @@ jobs:
             {STATUS}
             {REF}
             Node.js: ${{ steps.node.outputs.node-version }}
-            Total / Passed: ${{ steps.test.outputs.total || 0 }} / ${{ steps.test.outputs.passed || 0 }}
-            Coverage: ${{ steps.test.outputs.coverage || 'Skipped' }}
+            Passed Jest tests: ${{ steps.slack-fields.outputs.passed-jest-tests }}
+            Jest coverage: ${{ steps.jest.outputs.coverage || 'Skipped' }}
           status: ${{ job.status }}
           timestamp: ${{ steps.slack.outputs.slack-timestamp }}
