@@ -116,5 +116,17 @@ describe('<Label />', () => {
         });
       });
     });
+
+    describe('when `label` prop is <span>test</span>', () => {
+      it('should not insert anything', () => {
+        const { container } = render(
+          <Label handleHover={jest.fn()} label={<span>test</span>}>
+            <div>test</div>
+          </Label>,
+        );
+        const labelElement = container.querySelector('div + span');
+        expect(labelElement).toBeNull();
+      });
+    });
   });
 });
