@@ -224,6 +224,62 @@ const testInputComponent = (inputType) => {
       expect(onChange).toHaveBeenCalledTimes(1);
     });
   });
+
+  describe('when changing <ins />', () => {
+    describe('and `label` prop is `null`', () => {
+      describe('and `insert` prop is `null`', () => {
+        it('should not call `onChange` prop function', () => {
+          const onChange = jest.fn();
+          const { container } = render(
+            <Input inputType={inputType} onChange={onChange} />,
+          );
+          expect(onChange).toHaveBeenCalledTimes(0);
+          fireEvent.click(container.querySelector('ins'));
+          expect(onChange).toHaveBeenCalledTimes(0);
+        });
+      });
+    });
+
+    describe('and `label` prop is "test"', () => {
+      describe('and `insert` prop is "test"', () => {
+        describe('and `disabled` prop is `false`', () => {
+          it('should call `onChange` prop function', () => {
+            const onChange = jest.fn();
+            const { container } = render(
+              <Input
+                inputType={inputType}
+                onChange={onChange}
+                label="test"
+                insert="test"
+                disabled={false}
+              />,
+            );
+            expect(onChange).toHaveBeenCalledTimes(0);
+            fireEvent.click(container.querySelector('ins'));
+            expect(onChange).toHaveBeenCalledTimes(1);
+          });
+        });
+
+        describe('and `disabled` prop is `true`', () => {
+          it('should not call `onChange` prop function', () => {
+            const onChange = jest.fn();
+            const { container } = render(
+              <Input
+                inputType={inputType}
+                onChange={onChange}
+                label="test"
+                insert="test"
+                disabled
+              />,
+            );
+            expect(onChange).toHaveBeenCalledTimes(0);
+            fireEvent.click(container.querySelector('ins'));
+            expect(onChange).toHaveBeenCalledTimes(0);
+          });
+        });
+      });
+    });
+  });
 };
 
 describe('<Input />', () => {
