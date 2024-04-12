@@ -4,6 +4,6 @@ module.exports = {
   coverageDirectory: 'coverage',
   coveragePathIgnorePatterns: ['<rootDir>/src/index.js'],
   modulePathIgnorePatterns: ['<rootDir>/.github/', '<rootDir>/lib/'],
-  setupFilesAfterEnv: ['@testing-library/jest-dom/extend-expect'],
+  setupFilesAfterEnv: ['@testing-library/jest-dom'],
   testEnvironment: 'jsdom',
 };
