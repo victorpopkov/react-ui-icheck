@@ -13,7 +13,9 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ### Changed
 
+- Bump [React] from v17 to v18
 - Bump dependencies
+- Migrate tests from [Enzyme] to [React Testing Library]
 - Restructure tests
 
 ### Removed
@@ -228,11 +230,13 @@ First release.
 [babel]: https://babeljs.io/
 [code climate]: https://codeclimate.com/
 [codecov]: https://about.codecov.io/
+[enzyme]: https://enzymejs.github.io/enzyme/
 [eslint]: https://eslint.org/
 [github actions]: https://github.com/features/actions
 [jest]: https://jestjs.io/
 [node.js]: https://nodejs.org/
 [prettier]: https://prettier.io/
+[react testing library]: https://testing-library.com/docs/react-testing-library/intro
 [react-ui-icheck-website]: https://github.com/victorpopkov/react-ui-icheck-website
 [react]: https://reactjs.org/
 [remark-lint]: https://github.com/remarkjs/remark-lint
