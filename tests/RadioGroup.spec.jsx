@@ -47,16 +47,29 @@ describe('<RadioGroup />', () => {
 
     describe('and `value` prop value matches <Radio /> `value` prop value', () => {
       it('should have the `checked` attribute for the corresponding <input type="radio" />', () => {
-        render(
+        let radioButtons;
+
+        const { rerender } = render(
           <RadioGroup name="test" value="1">
             <Radio value="1" />
             <Radio value="2" />
           </RadioGroup>,
         );
-        const radioButtons = screen.getAllByRole('radio');
+        radioButtons = screen.getAllByRole('radio');
         expect(radioButtons).toHaveLength(2);
         expect(radioButtons[0]).toBeChecked();
         expect(radioButtons[1]).not.toBeChecked();
+
+        rerender(
+          <RadioGroup name="test" value="2">
+            <Radio value="1" />
+            <Radio value="2" />
+          </RadioGroup>,
+        );
+        radioButtons = screen.getAllByRole('radio');
+        expect(radioButtons).toHaveLength(2);
+        expect(radioButtons[0]).not.toBeChecked();
+        expect(radioButtons[1]).toBeChecked();
       });
     });
 
